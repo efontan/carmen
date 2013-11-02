@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.despegar.hackaton</groupId>
+  <artifactId>carmen</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <properties>
+ </properties>
+
+
+  <scm>
+    <connection>scm:git:git@gitlab.despegar.it:hackathon/loshijosdegoku.git</connection>
+    <developerConnection>scm:git:git@gitlab.despegar.it:hackathon/loshijosdegoku.git</developerConnection>
+    <url>scm:git:git@gitlab.despegar.it:hackathon/loshijosdegoku.git</url>
+    <tag>HEAD</tag>
+  </scm>
+
+  <dependencyManagement>
+    <dependencies>
+   </dependencies>
+  </dependencyManagement>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <!-- Java Compiler 1.6 -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>2.3</version>
+          <configuration>
+            <encoding>UTF-8</encoding>
+            <source>1.6</source>
+            <target>1.6</target>
+          </configuration>
+        </plugin>
+     </plugins>
+    </pluginManagement>
+    <plugins>
+     <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <showDeprecation>true</showDeprecation>
+          <showWarnings>true</showWarnings>
+        </configuration>
+      </plugin>
+   </plugins>
+  </build>
+  <distributionManagement>
+    <repository>
+      <id>internal</id>
+      <url>http://vmtilcara.servers.despegar.it:8080/nexus/content/repositories/releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <url>http://vmtilcara.servers.despegar.it:8080/nexus/content/repositories/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+</project>
