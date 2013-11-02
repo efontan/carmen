@@ -1,22 +1,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.despegar.hackaton</groupId>
-  <artifactId>carmen</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <packaging>war</packaging>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.despegar.hackaton</groupId>
+	<artifactId>carmen</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>war</packaging>
 
-  <properties>
-  <spring.version>3.2.2.RELEASE</spring.version>
-  </properties>
+	<properties>
+		<spring.version>3.2.2.RELEASE</spring.version>
+	</properties>
 
 
-  <scm>
-    <connection>scm:git:git@gitlab.despegar.it:hackathon/loshijosdegoku.git</connection>
-    <developerConnection>scm:git:git@gitlab.despegar.it:hackathon/loshijosdegoku.git</developerConnection>
-    <url>scm:git:git@gitlab.despegar.it:hackathon/loshijosdegoku.git</url>
-    <tag>HEAD</tag>
-  </scm>
+	<scm>
+		<connection>scm:git:git@gitlab.despegar.it:hackathon/loshijosdegoku.git</connection>
+		<developerConnection>scm:git:git@gitlab.despegar.it:hackathon/loshijosdegoku.git</developerConnection>
+		<url>scm:git:git@gitlab.despegar.it:hackathon/loshijosdegoku.git</url>
+		<tag>HEAD</tag>
+	</scm>
 
   <dependencies>
         <dependency>
