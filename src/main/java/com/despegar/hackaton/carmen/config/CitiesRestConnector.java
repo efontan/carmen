@@ -13,7 +13,7 @@ import com.despegar.library.rest.serializers.json.ObjectMapperFactory.JsonProper
 @Configuration
 public class CitiesRestConnector {
 	private String host = "api.despegar.com";
-	private String baseUrl = "hotels";
+	private String baseUrl = "cities";
 
 	@Bean(name = "cities.rest.connector")
 	public RestConnector getHotelRestConnector() {
