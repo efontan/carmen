@@ -57,8 +57,10 @@ public class GameServiceImpl implements GameService {
 		for (Map.Entry<String, String> entry : this.citiesMap.entrySet()) {
 			String cityCode = entry.getKey();
 			String cityName = entry.getValue();
-			List<Hotel> cityHotels = this.getHotelServiceImpl().getCityHotels(
-					cityCode);
+			// List<Hotel> cityHotels =
+			// this.getHotelServiceImpl().getCityHotels(
+			// cityCode);
+			List<Hotel> cityHotels = Lists.newLinkedList();
 			City city = new City(cityCode, cityName, null, cityHotels);
 			cities.add(city);
 		}
