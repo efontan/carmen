@@ -10,15 +10,17 @@ public class GameSession implements Serializable {
 	private static final long serialVersionUID = 5338277116116504618L;
 	private Integer gameWalkthrough;
 	private String actualCityCode;
+    private Integer actualClue;
 	private Player player;
 	private Status status;
 
 	public GameSession(Integer gameWalkthrough, String actualCityCode,
-			Player player, Status status) {
+			Player player, Status status, Integer actualClue) {
 		this.gameWalkthrough = gameWalkthrough;
 		this.actualCityCode = actualCityCode;
 		this.player = player;
 		this.status = status;
+        this.actualClue = actualClue;
 	}
 
 	public Integer getGameWalkthrough() {
@@ -53,4 +55,11 @@ public class GameSession implements Serializable {
 		this.status = status;
 	}
 
+    public Integer getActualClue() {
+        return actualClue;
+    }
+
+    public void setActualClue(Integer actualClue) {
+        this.actualClue = actualClue;
+    }
 }

@@ -44,4 +44,5 @@ public class GraphNode {
     public void setClues(ClueContainer clues) {
         this.clues = clues;
     }
+
 }
