@@ -7,26 +7,28 @@ import java.math.BigDecimal;
  */
 public class Hotel {
 
+	private Long id;
 	private String name;
 	private String description;
 	private Coordinates position;
 	private BigDecimal price;
 	private int starsNumber;
-	private String imageUri;
+	private String imageKey;
 	private BigDecimal rating;
 
 	public Hotel() {
 	}
 
-	public Hotel(String name, String description, Coordinates position,
-			BigDecimal price, int starsNumber, String imageUri,
-			BigDecimal rating) {
+	public Hotel(Long id, String name, String description,
+			Coordinates position, BigDecimal price, int starsNumber,
+			String imageKey, BigDecimal rating) {
+		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.position = position;
 		this.price = price;
 		this.starsNumber = starsNumber;
-		this.imageUri = imageUri;
+		this.imageKey = imageKey;
 		this.rating = rating;
 	}
 
@@ -70,20 +72,28 @@ public class Hotel {
 		this.starsNumber = starsNumber;
 	}
 
-	public String getImageUri() {
-		return this.imageUri;
-	}
-
-	public void setImageUri(String imageUri) {
-		this.imageUri = imageUri;
-	}
-
 	public BigDecimal getRating() {
 		return this.rating;
 	}
 
 	public void setRating(BigDecimal rating) {
 		this.rating = rating;
+	}
+
+	public Long getId() {
+		return this.id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getImageKey() {
+		return this.imageKey;
+	}
+
+	public void setImageKey(String imageKey) {
+		this.imageKey = imageKey;
 	}
 
 }
