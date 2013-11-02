@@ -1,92 +1,56 @@
 package com.despegar.hackaton.carmen.web.session;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-
-import org.joda.time.DateTime;
 
 import com.despegar.hackaton.carmen.domain.model.game.Player;
 import com.despegar.hackaton.carmen.domain.model.game.Status;
 
-public class GameSession
-    implements Serializable {
+public class GameSession implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 5338277116116504618L;
+	private Integer gameWalkthrough;
+	private String actualCityCode;
+	private Player player;
+	private Status status;
 
-    private Integer gameWalkthrough;
-    private Long actualCityOid;
-    private DateTime actualDate;
-    private BigDecimal remainingAmount;
-    private BigDecimal remainingHours;
-    private Player player;
-    private Status status = new Status();
+	public GameSession(Integer gameWalkthrough, String actualCityCode,
+			Player player, Status status) {
+		this.gameWalkthrough = gameWalkthrough;
+		this.actualCityCode = actualCityCode;
+		this.player = player;
+		this.status = status;
+	}
 
+	public Integer getGameWalkthrough() {
+		return this.gameWalkthrough;
+	}
 
-    public GameSession() {
-    }
+	public void setGameWalkthrough(Integer gameWalkthrough) {
+		this.gameWalkthrough = gameWalkthrough;
+	}
 
-    public GameSession(Integer gameWalkthrough, Long actualCityOid, DateTime actualDate, BigDecimal remainingAmount,
-        BigDecimal remainingHours, Player player) {
-        this.gameWalkthrough = gameWalkthrough;
-        this.actualCityOid = actualCityOid;
-        this.actualDate = actualDate;
-        this.remainingAmount = remainingAmount;
-        this.remainingHours = remainingHours;
-        this.player = player;
-    }
+	public String getActualCityCode() {
+		return this.actualCityCode;
+	}
 
-    public Integer getGameWalkthrough() {
-        return this.gameWalkthrough;
-    }
+	public void setActualCityCode(String actualCityCode) {
+		this.actualCityCode = actualCityCode;
+	}
 
-    public void setGameWalkthrough(Integer gameWalkthrough) {
-        this.gameWalkthrough = gameWalkthrough;
-    }
+	public Player getPlayer() {
+		return this.player;
+	}
 
-    public Long getActualCityOid() {
-        return this.actualCityOid;
-    }
+	public void setPlayer(Player player) {
+		this.player = player;
+	}
 
-    public void setActualCityOid(Long actualCityOid) {
-        this.actualCityOid = actualCityOid;
-    }
+	public Status getStatus() {
+		return this.status;
+	}
 
-    public DateTime getActualDate() {
-        return this.actualDate;
-    }
-
-    public void setActualDate(DateTime actualDate) {
-        this.actualDate = actualDate;
-    }
-
-    public BigDecimal getRemainingAmout() {
-        return this.remainingAmount;
-    }
-
-    public void setRemainingAmout(BigDecimal remainingAmount) {
-        this.remainingAmount = remainingAmount;
-    }
-
-    public BigDecimal getRemainingHours() {
-        return this.remainingHours;
-    }
-
-    public void setRemainingHours(BigDecimal remainingHours) {
-        this.remainingHours = remainingHours;
-    }
-
-    public Player getPlayer() {
-        return this.player;
-    }
-
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
-
-    public Status getStatus() {
-        this.status.setRemainingMoney(this.getRemainingAmout());
-        this.status.setRemainingHours(this.getRemainingHours());;
-        return this.status;
-    }
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 
 }

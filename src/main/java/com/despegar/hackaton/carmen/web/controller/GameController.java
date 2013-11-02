@@ -11,11 +11,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.despegar.hackaton.carmen.domain.model.game.BaseMapCities;
+import com.despegar.hackaton.carmen.domain.model.game.Player;
 import com.despegar.hackaton.carmen.domain.model.game.Status;
 import com.despegar.hackaton.carmen.domain.service.GameService;
 import com.despegar.hackaton.carmen.web.controller.response.Response;
@@ -51,6 +53,16 @@ public class GameController {
 		BaseMapCities baseMapCities = this.getGameService().getBaseMapCities();
 		return new ResponseEntity<Object>(new Response<Object>(
 				ResponseStatus.SUCCESS, baseMapCities), HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/player/new", method = RequestMethod.POST)
+	public ResponseEntity<Object> newPlayer(HttpRequestContext context,
+			HttpServletRequest request, HttpServletResponse response,
+			@RequestBody Player player) {
+		GameSession gameSession = this.getGameService().createGameSession(
+				player);
+		this.getSessionService().createSession(request, response, gameSession);
+		return new ResponseEntity<Object>(ResponseStatus.SUCCESS, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/status/{token}", method = RequestMethod.GET)
