@@ -73,6 +73,7 @@
    			 },
 
 		    "paths": {
+		    	"async": "common/loaders/async",
 				"jquery": "common/loaders/jquery",
 		        "handlebars": "common/loaders/handlebars",
 		        "amplify": "common/loaders/amplify",

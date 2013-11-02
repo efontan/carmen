@@ -14,7 +14,7 @@
 	jsFiles = [
 	    "${libJsPath}/pkg/common.js"
 	    "${libJsPath}/pkg/game.js",
-	    "http://maps.google.com/maps/api/js?sensor=true"
+	    "http://maps.google.com/maps/api/js?key=AIzaSyD7B_GwDao4BElWQL7OU9KN1IKtAaNRUUE&sensor=true"
 	]
 	
 	jQueryVersion = "1.7.2"
