@@ -260,20 +260,31 @@ body {
   height: 350px;
   margin: 25px 0 0 65px !important;
 }
+.game-container .form-player .avatar-container {
+  padding-left: 40px;
+  text-align: center;
+}
 .game-container .form-player .avatar {
   float: left;
   cursor: pointer;
-  margin: 0 25px;
   border-radius: 100%;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   border: 7px solid white;
+  margin: 0 0 5px 28px;
 }
 .game-container .form-player .avatar-unselect {
   border: 7px solid white;
 }
 .game-container .form-player .avatar:hover, .game-container .form-player .avatar-selected {
   border: 7px solid #93c3e4;
+}
+.game-container .form-player .control-label {
+  margin: 15px 0;
+  float: left;
+}
+.game-container .blue {
+  color: #0098ff;
 }
 .game-container .map {
   height: 350px;
