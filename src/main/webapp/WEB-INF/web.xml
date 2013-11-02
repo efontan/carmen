@@ -15,9 +15,11 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-			com.despegar.hackaton.carmen.config
-			com.despegar.hackaton.carmen.service
-			com.despegar.hackaton.carmen.domain
+            com.despegar.hackaton.carmen.config
+            com.despegar.hackaton.carmen.domain
+            com.despegar.hackaton.carmen.domain.service
+            com.despegar.hackaton.carmen.web.session.impl
+            com.despegar.hackaton.carmen.web.controller
         </param-value>
 	</context-param>
 
