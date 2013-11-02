@@ -1,4 +1,4 @@
-package com.despegar.hackaton.carmen.resolvers;
+package com.despegar.hackaton.carmen.web.resolvers;
 
 import org.springframework.core.MethodParameter;
 import org.springframework.web.bind.support.WebDataBinderFactory;
