@@ -9,4 +9,5 @@ public interface GameService {
 	public GameSession createGameSession(Player player);
 
 	public BaseMapCities getBaseMapCities();
+
 }

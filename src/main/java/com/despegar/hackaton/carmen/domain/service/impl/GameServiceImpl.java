@@ -24,8 +24,9 @@ public class GameServiceImpl implements GameService {
 
 	private static final int INITIAL_MONEY = 50000;
 	private static final int WEEKS_TO_PLAY = 1;
-	private static final int GAME_FLOWS = 3;
+	private static final int GAME_FLOWS = 1;
 	private static final String INITIAL_CITY_CODE = "BUE";
+    private static final int INITIAL_CLUE = 0;
 
 	@Resource
 	@Qualifier("citiesMap")
@@ -35,13 +36,11 @@ public class GameServiceImpl implements GameService {
 	public GameSession createGameSession(Player player) {
 		Integer gameWalkthrough = RandomUtils.nextInt(GAME_FLOWS) + 1;
 		String actualCityCode = INITIAL_CITY_CODE;
-
 		DateTime actualDate = DateTime.now();
 		DateTime limitDate = actualDate.plusWeeks(WEEKS_TO_PLAY);
 		BigDecimal remainingMoney = new BigDecimal(INITIAL_MONEY);
 		Status status = new Status(actualDate, limitDate, remainingMoney);
-
-		return new GameSession(gameWalkthrough, actualCityCode, player, status);
+		return new GameSession(gameWalkthrough, actualCityCode, player, status, INITIAL_CLUE);
 	}
 
 	@Override
@@ -60,5 +59,6 @@ public class GameServiceImpl implements GameService {
 
 		return baseMapCities;
 	}
+
 
 }
