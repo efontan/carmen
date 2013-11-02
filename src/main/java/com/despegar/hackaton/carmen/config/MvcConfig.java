@@ -21,7 +21,7 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 import org.springframework.web.servlet.view.json.MappingJacksonJsonView;
 
-import com.despegar.hackaton.carmen.resolvers.HttpRequestContextArgumentResolver;
+import com.despegar.hackaton.carmen.web.resolvers.HttpRequestContextArgumentResolver;
 
 @Configuration
 @EnableWebMvc

@@ -1,28 +1,30 @@
 package com.despegar.hackaton.carmen.domain.model.game;
 
+import java.math.BigDecimal;
+
 /**
  * @author emiliano.lourbet - taitooz - elourbet[at]despegar[dot]com.
  */
 public class Status {
-    private long remainingHours;
-    private long remainingMoney;
+    private BigDecimal remainingHours;
+    private BigDecimal remainingMoney;
 
     public Status() {
     };
 
-    public long getRemainingHours() {
+    public BigDecimal getRemainingHours() {
         return this.remainingHours;
     }
 
-    public void setRemainingHours(long remainingHours) {
+    public void setRemainingHours(BigDecimal remainingHours) {
         this.remainingHours = remainingHours;
     }
 
-    public long getRemainingMoney() {
+    public BigDecimal getRemainingMoney() {
         return this.remainingMoney;
     }
 
-    public void setRemainingMoney(long remainingMoney) {
+    public void setRemainingMoney(BigDecimal remainingMoney) {
         this.remainingMoney = remainingMoney;
     }
 
