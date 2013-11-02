@@ -151,10 +151,12 @@ body{
   	.form-player {
 		height: 350px;
 		margin: 25px 0 0 65px !important;
+		border: 10px solid rgba(0, 0, 0, 0.8) !important;
 		
 		.avatar-container{
 			padding-left: 40px;
 			text-align: center;
+			margin-top: 10px;
 		}
 		
 		.avatar{
@@ -178,6 +180,15 @@ body{
 		.control-label{
 			margin: 15px 0;
 			float: left;
+		}
+		
+		input {
+			margin: 11px 0;
+			float: left;
+		}
+		
+		.play{
+			margin-top: 23px;
 		}
 	}
 	

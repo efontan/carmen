@@ -16,17 +16,29 @@ define(["amplify", "common/modules/logger", "common/modules/ServicesManager"],
 		function init(product, locale) {
 
 			logger.info("[INFO] Inicializando Common Services." + " (" + MODULE_ID + ")");
+			
+			// operacion: game initialize
+			ServicesManager.addRequest({
+				serviceID: "carmen.initialize",
+				description:"",
+				cache: service_cache,
+				type:"ajax",
+				params: {
+					url: 'initialize',
+					dataType:"json",
+					type:"GET"
+				},
+				mocks:{	}
+			});
 
-			base_path = "/" + locale + "/";
-
-			// operacion: _addRelatedEmail	
+			// operacion: setPlayer
 			ServicesManager.addRequest({
 				serviceID: "carmen.setPlayer",
 				description:"",
 				cache: service_cache,
 				type:"ajax",
 				params: {
-					url: "/" + locale + "/",
+					url: base_path + '',
 					dataType:"json",
 					type:"POST",
 					contentType:'application/json;charset=UTF-8',

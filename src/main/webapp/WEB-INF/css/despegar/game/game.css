@@ -1,5 +1,5 @@
 .mi-despegar-sprite-sprite, .mi-despegar-sprite-bg, .mi-despegar-sprite-carmen, .mi-despegar-sprite-facebook, .mi-despegar-sprite-female-avatar, .mi-despegar-sprite-game_bg, .mi-despegar-sprite-google, .mi-despegar-sprite-male-avatar, .mi-despegar-sprite-pointer, .mi-despegar-sprite-printer, .mi-despegar-sprite-step-future, .mi-despegar-sprite-step-now, .mi-despegar-sprite-step-past, .mi-despegar-sprite-twitter, .mi-despegar-sprite-user-menu-cancellation, .mi-despegar-sprite-user-menu-change-flight, .mi-despegar-sprite-user-menu-chat, .mi-despegar-sprite-user-menu-flight-actions, .mi-despegar-sprite-user-menu-invoicing, .mi-despegar-sprite-user-menu-resend, .mi-despegar-sprite-user-menu-special-request, .mi-despegar-sprite-user-menu-suggestion, .mi-despegar-sprite-waiting-icon {
-  background: url('../../../img/mi-despegar-sprite-s3301174b71.png') no-repeat;
+  background: url('../../../img/mi-despegar-sprite-s0153b6c6bc.png') no-repeat;
 }
 
 .mi-despegar-sprite-bg {
@@ -9,9 +9,9 @@
 }
 
 .mi-despegar-sprite-carmen {
-  background-position: 0 -1328px;
+  background-position: 0 -1158px;
   height: 118px;
-  width: 189px;
+  width: 163px;
 }
 
 .mi-despegar-sprite-facebook {
@@ -21,7 +21,7 @@
 }
 
 .mi-despegar-sprite-female-avatar {
-  background-position: 0 -1158px;
+  background-position: 0 -1276px;
   height: 85px;
   width: 85px;
 }
@@ -39,7 +39,7 @@
 }
 
 .mi-despegar-sprite-male-avatar {
-  background-position: 0 -1243px;
+  background-position: 0 -1361px;
   height: 85px;
   width: 85px;
 }
@@ -259,10 +259,12 @@ body {
 .game-container .form-player {
   height: 350px;
   margin: 25px 0 0 65px !important;
+  border: 10px solid rgba(0, 0, 0, 0.8) !important;
 }
 .game-container .form-player .avatar-container {
   padding-left: 40px;
   text-align: center;
+  margin-top: 10px;
 }
 .game-container .form-player .avatar {
   float: left;
@@ -282,6 +284,13 @@ body {
 .game-container .form-player .control-label {
   margin: 15px 0;
   float: left;
+}
+.game-container .form-player input {
+  margin: 11px 0;
+  float: left;
+}
+.game-container .form-player .play {
+  margin-top: 23px;
 }
 .game-container .blue {
   color: #0098ff;
