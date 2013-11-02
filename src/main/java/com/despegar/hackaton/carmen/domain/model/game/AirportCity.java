@@ -9,6 +9,8 @@ public class AirportCity extends City {
 
     private String translatedName;
 
+    private String code;
+
     public AirportCity() {};
 
     public String getTranslatedName() {
@@ -17,5 +19,13 @@ public class AirportCity extends City {
 
     public void setTranslatedName(String translatedName) {
         this.translatedName = translatedName;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }
