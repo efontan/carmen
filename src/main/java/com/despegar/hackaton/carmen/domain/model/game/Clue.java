@@ -11,10 +11,16 @@ public class Clue {
 
     private String description;
 
-    public Clue(final CharacterJob characterJob, final String name, final String description) {
+    public Clue() {};
+
+    public Clue(final CharacterJob characterJob, final String description) {
         this.characterJob = characterJob;
-        this.name = name;
         this.description = description;
+    }
+
+    public Clue(final CharacterJob characterJob, final String name, final String description) {
+        this(characterJob, description);
+        this.name = name;
     }
 
     public CharacterJob getCharacterJob() {
