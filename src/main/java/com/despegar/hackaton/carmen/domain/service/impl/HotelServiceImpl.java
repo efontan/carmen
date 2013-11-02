@@ -24,8 +24,8 @@ public class HotelServiceImpl implements HotelService {
 
 	@Override
 	public List<Hotel> getCityHotels(String cityCode) {
-		List<Long> hotelIds = this.citiesRestClient.getHotelIdsByCity(cityCode);
-		return this.hotelRestClient.getHotelsDetail(hotelIds);
-	}
+		List<Long> cityHotelIds = this.citiesRestClient.getHotelIdsByCity(cityCode);
+		return this.hotelRestClient.getHotelsDetail(cityHotelIds);
 
+	}
 }

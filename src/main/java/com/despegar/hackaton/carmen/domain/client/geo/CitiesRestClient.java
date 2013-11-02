@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.despegar.hackaton.carmen.domain.client.AbstractRestClient;
+import com.despegar.hackaton.carmen.domain.model.api.geo.ApiHotelByCity;
+import com.despegar.hackaton.carmen.domain.model.api.geo.ApiHotelsByCity;
 import com.despegar.library.rest.RestConnector;
 import com.despegar.library.rest.utils.TypeReference;
 import com.google.common.collect.Lists;
@@ -23,34 +25,15 @@ public class CitiesRestClient extends AbstractRestClient {
 	public List<Long> getHotelIdsByCity(String cityCode) {
 		Map<String, Object> params = Maps.newHashMap();
 		params.put("pointtypes", "H");
-		params.put("maxresult", "3");
-		HotelIdsResults results = this.doGetWithParams("/",
-				new TypeReference<HotelIdsResults>() {
-				}, params, cityCode, "pointsofinterest");
+		params.put("maxresults", "3");
+		ApiHotelsByCity results = this.doGetWithParams("/cities",
+				new TypeReference<ApiHotelsByCity>() {
+				}, params,cityCode,"pointsofinterest");
 		List<Long> hotelIds = Lists.newArrayList();
-		for (Hotel hotel : results.getData()) {
+		for (ApiHotelByCity hotel : results.getData()) {
 			hotelIds.add(hotel.getInternalId());
 		}
 		return hotelIds;
-	}
-
-	private class HotelIdsResults {
-
-		private List<Hotel> data;
-
-		public List<Hotel> getData() {
-			return this.data;
-		}
-
-	}
-
-	private class Hotel {
-
-		private long internalId;
-
-		public long getInternalId() {
-			return this.internalId;
-		}
 	}
 
 	@Override

@@ -23,6 +23,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.despegar.hackaton.carmen.domain.model.game.City;
+import com.despegar.hackaton.carmen.domain.model.game.Player;
+import com.despegar.hackaton.carmen.domain.model.game.Status;
 import com.despegar.hackaton.carmen.domain.service.GameService;
 import com.despegar.hackaton.carmen.web.controller.response.Response;
 import com.despegar.hackaton.carmen.web.controller.response.ResponseStatus;
@@ -38,7 +41,6 @@ public class GameController implements ApplicationContextAware {
     private static final int TOTAL_CLUES = 0;
 
 	private static final String NAME_VIEW = "game/index";
-
     private static final String UNDER = "_";
 
 	@Autowired
@@ -58,9 +60,9 @@ public class GameController implements ApplicationContextAware {
 	@RequestMapping(value = "/initialize", method = RequestMethod.GET)
 	public ResponseEntity<Object> initialize(HttpRequestContext context,
 			HttpServletRequest request, HttpServletResponse response) {
-		BaseMapCities baseMapCities = this.getGameService().getBaseMapCities();
-		return new ResponseEntity<Object>(new Response<Object>(
-				ResponseStatus.SUCCESS, baseMapCities), HttpStatus.OK);
+		City city = this.getGameService().getCityData("BUE");
+		return new ResponseEntity<Object>(new Response<City>(
+				ResponseStatus.SUCCESS, city), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/player/new", method = RequestMethod.POST)
@@ -68,7 +70,7 @@ public class GameController implements ApplicationContextAware {
 			HttpServletRequest request, HttpServletResponse response,
 			@RequestBody Player player) {
 		GameSession gameSession = this.getGameService().createGameSession(
-              player);
+				player);
 		this.getSessionService().createSession(request, response, gameSession);
 		return new ResponseEntity<Object>(ResponseStatus.SUCCESS, HttpStatus.OK);
 	}
@@ -105,7 +107,7 @@ public class GameController implements ApplicationContextAware {
         sessionService.addGameSessionToSessions(request, response, token, gameSession);
         ClueResponse clueResponse= new ClueResponse(clue, gameSession.getStatus());
         return new ResponseEntity<Object>(new Response<Object>(ResponseStatus.SUCCESS, clueResponse), HttpStatus.OK);
-    }
+	}
 
     @RequestMapping(value = "/clue/{token}/{cityCode}/{searchHash}/{itineraryId}", method = RequestMethod.GET)
     public ResponseEntity<Object> doTravel(HttpServletRequest request,
@@ -146,5 +148,5 @@ public class GameController implements ApplicationContextAware {
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
-    }
+	}
 }

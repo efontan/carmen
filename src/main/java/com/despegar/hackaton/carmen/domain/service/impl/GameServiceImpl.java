@@ -12,14 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.despegar.hackaton.carmen.domain.model.game.BaseMapCities;
 import com.despegar.hackaton.carmen.domain.model.game.City;
 import com.despegar.hackaton.carmen.domain.model.game.Hotel;
 import com.despegar.hackaton.carmen.domain.model.game.Player;
 import com.despegar.hackaton.carmen.domain.model.game.Status;
 import com.despegar.hackaton.carmen.domain.service.GameService;
 import com.despegar.hackaton.carmen.web.session.GameSession;
-import com.google.common.collect.Lists;
 
 @Service
 public class GameServiceImpl implements GameService {
@@ -30,51 +28,36 @@ public class GameServiceImpl implements GameService {
   private static final String INITIAL_CITY_CODE = "BUE";
     private static final int INITIAL_CLUE = 0;
 
-  @Autowired
-  private HotelServiceImpl hotelServiceImpl;
+	@Autowired
+	private HotelServiceImpl hotelServiceImpl;
 
-  @Resource
-  @Qualifier("citiesMap")
-  private Map<String, String> citiesMap;
+	@Resource
+	@Qualifier("citiesMap")
+	private Map<String, String> citiesMap;
 
-  @Override
-  public GameSession createGameSession(Player player) {
-    Integer gameWalkthrough = RandomUtils.nextInt(GAME_FLOWS) + 1;
-    String actualCityCode = INITIAL_CITY_CODE;
-    DateTime actualDate = DateTime.now();
-    DateTime limitDate = actualDate.plusWeeks(WEEKS_TO_PLAY);
-    BigDecimal remainingMoney = new BigDecimal(INITIAL_MONEY);
-    Status status = new Status(actualDate, limitDate, remainingMoney);
+	@Override
+	public GameSession createGameSession(Player player) {
+		Integer gameWalkthrough = RandomUtils.nextInt(GAME_FLOWS) + 1;
+        String actualCityCode = INITIAL_CITY_CODE;
+		DateTime actualDate = DateTime.now();
+		DateTime limitDate = actualDate.plusWeeks(WEEKS_TO_PLAY);
+		BigDecimal remainingMoney = new BigDecimal(INITIAL_MONEY);
+		Status status = new Status(actualDate, limitDate, remainingMoney);
     return new GameSession(gameWalkthrough, actualCityCode, player, status, INITIAL_CLUE);
-  }
+	}
 
-  @Override
-  public BaseMapCities getBaseMapCities() {
-    BaseMapCities baseMapCities = new BaseMapCities();
-    List<City> cities = Lists.newLinkedList();
+	@Override
+	public City getCityData(String cityCode) {
+		List<Hotel> cityHotels = this.getHotelServiceImpl().getCityHotels(cityCode);
+		return new City(cityCode,this.citiesMap.get(cityCode),null,cityHotels);
+	}
 
-    for (Map.Entry<String, String> entry : this.citiesMap.entrySet()) {
-      String cityCode = entry.getKey();
-      String cityName = entry.getValue();
-      // List<Hotel> cityHotels =
-      // this.getHotelServiceImpl().getCityHotels(
-      // cityCode);
-      List<Hotel> cityHotels = Lists.newLinkedList();
-      City city = new City(cityCode, cityName, null, cityHotels);
-      cities.add(city);
-    }
+	public HotelServiceImpl getHotelServiceImpl() {
+		return this.hotelServiceImpl;
+	}
 
-    baseMapCities.setCities(cities);
-
-    return baseMapCities;
-  }
-
-  public HotelServiceImpl getHotelServiceImpl() {
-    return this.hotelServiceImpl;
-  }
-
-  public void setHotelServiceImpl(HotelServiceImpl hotelServiceImpl) {
-    this.hotelServiceImpl = hotelServiceImpl;
-  }
+	public void setHotelServiceImpl(HotelServiceImpl hotelServiceImpl) {
+		this.hotelServiceImpl = hotelServiceImpl;
+	}
 
 }
