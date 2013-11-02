@@ -7,7 +7,7 @@ public class City implements Serializable {
 
 	private static final long serialVersionUID = 221621173371639912L;
 
-	private Long oid;
+	private String code;
 	private String name;
 	private Coordinates position;
 	private List<Hotel> hotels;
@@ -15,8 +15,9 @@ public class City implements Serializable {
 	public City() {
 	}
 
-	public City(Long oid, String name, Coordinates position, List<Hotel> hotels) {
-		this.oid = oid;
+	public City(String code, String name, Coordinates position,
+			List<Hotel> hotels) {
+		this.code = code;
 		this.name = name;
 		this.position = position;
 		this.hotels = hotels;
@@ -38,7 +39,7 @@ public class City implements Serializable {
 		this.hotels = hotels;
 	}
 
-   public void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -46,11 +47,12 @@ public class City implements Serializable {
 		this.position = position;
 	}
 
-    public Long getOid() {
-        return oid;
-    }
+	public String getCode() {
+		return this.code;
+	}
 
-    public void setOid(Long oid) {
-        this.oid = oid;
-    }
+	public void setCode(String code) {
+		this.code = code;
+	}
+
 }
