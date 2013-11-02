@@ -3,7 +3,7 @@ define([
 
 		"common/modules/extraData", "common/modules/logger", 
 
-		"common/modules/map", "game/modules/ar_map",
+		"game/modules/ar_map", "common/modules/map",
 		
 		"templates/hotel-map", "templates/op-loading"
 
