@@ -17,6 +17,7 @@
 		<param-value>
 			com.despegar.hackaton.carmen.config
 			com.despegar.hackaton.carmen.service
+			com.despegar.hackaton.carmen.domain
         </param-value>
 	</context-param>
 
