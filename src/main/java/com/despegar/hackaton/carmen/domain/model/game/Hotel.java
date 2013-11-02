@@ -15,6 +15,15 @@ public class Hotel {
 	private int starsNumber;
 	private String imageKey;
 	private BigDecimal rating;
+	private String cityId;
+
+	public String getCityId() {
+		return cityId;
+	}
+
+	public void setCityId(String cityId) {
+		this.cityId = cityId;
+	}
 
 	public Hotel() {
 	}

@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.despegar.hackaton.carmen.domain.model.game.BaseMapCities;
 import com.despegar.hackaton.carmen.domain.model.game.City;
 import com.despegar.hackaton.carmen.domain.model.game.Hotel;
 import com.despegar.hackaton.carmen.domain.model.game.Player;
@@ -50,22 +49,9 @@ public class GameServiceImpl implements GameService {
 	}
 
 	@Override
-	public BaseMapCities getBaseMapCities() {
-		BaseMapCities baseMapCities = new BaseMapCities();
-		List<City> cities = Lists.newLinkedList();
-
-		for (Map.Entry<String, String> entry : this.citiesMap.entrySet()) {
-			String cityCode = entry.getKey();
-			String cityName = entry.getValue();
-			List<Hotel> cityHotels = this.getHotelServiceImpl().getCityHotels(
-					cityCode);
-			City city = new City(cityCode, cityName, null, cityHotels);
-			cities.add(city);
-		}
-
-		baseMapCities.setCities(cities);
-
-		return baseMapCities;
+	public City getCityData(String cityCode) {
+		List<Hotel> cityHotels = this.getHotelServiceImpl().getCityHotels(cityCode);
+		return new City(cityCode,this.citiesMap.get(cityCode),null,cityHotels);
 	}
 
 	public HotelServiceImpl getHotelServiceImpl() {

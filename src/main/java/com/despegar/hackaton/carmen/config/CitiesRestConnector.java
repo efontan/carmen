@@ -13,14 +13,14 @@ import com.despegar.library.rest.serializers.json.ObjectMapperFactory.JsonProper
 @Configuration
 public class CitiesRestConnector {
 	private String host = "api.despegar.com";
-	private String baseUrl = "cities";
+	private String baseUrl = "";
 
 	@Bean(name = "cities.rest.connector")
 	public RestConnector getHotelRestConnector() {
 		RestConnector restConnector = RestConnectorFactory.createRestConnector(
 				"http", this.host, this.baseUrl, true, ApiConstant.CLIENT_ID,
 				ApiConstant.API_VERSION,
-				RestConnectorConfig.createBuilder().readTimeout(3000)
+				RestConnectorConfig.createBuilder().readTimeout(9000).connectionTimeout(30000)
 						.jsonPropertiesFormat(JsonPropertiesFormat.CAMEL_CASE)
 						.build());
 		restConnector.getInterceptors().add(new ApiHeadersInterceptor());

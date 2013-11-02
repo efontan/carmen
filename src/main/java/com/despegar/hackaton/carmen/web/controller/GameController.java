@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.despegar.hackaton.carmen.domain.model.game.BaseMapCities;
+import com.despegar.hackaton.carmen.domain.model.game.City;
 import com.despegar.hackaton.carmen.domain.model.game.Player;
 import com.despegar.hackaton.carmen.domain.model.game.Status;
 import com.despegar.hackaton.carmen.domain.service.GameService;
@@ -50,9 +50,9 @@ public class GameController {
 	@RequestMapping(value = "/initialize", method = RequestMethod.GET)
 	public ResponseEntity<Object> initialize(HttpRequestContext context,
 			HttpServletRequest request, HttpServletResponse response) {
-		BaseMapCities baseMapCities = this.getGameService().getBaseMapCities();
-		return new ResponseEntity<Object>(new Response<Object>(
-				ResponseStatus.SUCCESS, baseMapCities), HttpStatus.OK);
+		City city = this.getGameService().getCityData("BUE");
+		return new ResponseEntity<Object>(new Response<City>(
+				ResponseStatus.SUCCESS, city), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/player/new", method = RequestMethod.POST)
