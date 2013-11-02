@@ -9,13 +9,16 @@ public class GraphNode {
 
     private AirportCity currentCity;
 
-    private List<AirportCity> destinations;
+    private List<GraphNode> destinations;
+
+    private ClueContainer clues;
 
     public GraphNode(){};
 
-    public GraphNode(final AirportCity city, final List<AirportCity> nextDestinations) {
+    public GraphNode(final AirportCity city, final List<GraphNode> nextDestinations, final ClueContainer clueContainer) {
         currentCity = city;
         destinations = nextDestinations;
+        clues = clueContainer;
     }
 
     public AirportCity getCurrentCity() {
@@ -26,11 +29,19 @@ public class GraphNode {
         this.currentCity = currentCity;
     }
 
-    public List<AirportCity> getDestinations() {
+    public List<GraphNode> getDestinations() {
         return destinations;
     }
 
-    public void setDestinations(List<AirportCity> destinations) {
+    public void setDestinations(List<GraphNode> destinations) {
         this.destinations = destinations;
+    }
+
+    public ClueContainer getClues() {
+        return clues;
+    }
+
+    public void setClues(ClueContainer clues) {
+        this.clues = clues;
     }
 }

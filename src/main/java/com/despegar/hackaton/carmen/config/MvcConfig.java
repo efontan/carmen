@@ -1,14 +1,12 @@
 package com.despegar.hackaton.carmen.config;
 
 
-import java.util.List;
-import java.util.Properties;
-
+import com.despegar.hackaton.carmen.web.resolvers.HttpRequestContextArgumentResolver;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
@@ -21,7 +19,8 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 import org.springframework.web.servlet.view.json.MappingJacksonJsonView;
 
-import com.despegar.hackaton.carmen.web.resolvers.HttpRequestContextArgumentResolver;
+import java.util.List;
+import java.util.Properties;
 
 @Configuration
 @EnableWebMvc
