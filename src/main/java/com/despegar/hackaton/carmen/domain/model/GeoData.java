@@ -4,6 +4,8 @@ package com.despegar.hackaton.carmen.domain.model;
 import java.util.List;
 import java.util.Map;
 
+import com.despegar.hackaton.carmen.domain.model.game.City;
+
 public class GeoData
     implements java.io.Serializable {
 
