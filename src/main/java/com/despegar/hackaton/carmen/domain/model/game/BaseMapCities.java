@@ -7,18 +7,21 @@ public class BaseMapCities implements Serializable {
 
 	private static final long serialVersionUID = 5780166496506205957L;
 
-	private List<Province> provinces;
+	private List<City> cities;
 
-	public BaseMapCities(List<Province> provinces) {
-		this.provinces = provinces;
+	public BaseMapCities() {
 	}
 
-	public List<Province> getProvinces() {
-		return this.provinces;
+	public BaseMapCities(List<City> cities) {
+		this.cities = cities;
 	}
 
-	public void setProvinces(List<Province> provinces) {
-		this.provinces = provinces;
+	public List<City> getCities() {
+		return this.cities;
+	}
+
+	public void setCities(List<City> cities) {
+		this.cities = cities;
 	}
 
 }

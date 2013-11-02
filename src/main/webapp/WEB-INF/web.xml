@@ -20,6 +20,8 @@
             com.despegar.hackaton.carmen.domain.service
             com.despegar.hackaton.carmen.web.session.impl
             com.despegar.hackaton.carmen.web.controller
+            com.despegar.hackaton.carmen.domain.client.hotel
+            com.despegar.hackaton.carmen.domain.client.geo
         </param-value>
 	</context-param>
 

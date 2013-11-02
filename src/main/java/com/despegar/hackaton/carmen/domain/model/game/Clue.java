@@ -11,6 +11,8 @@ public class Clue {
 
     private String description;
 
+    private boolean inTheHouse = false;
+
     public Clue() {};
 
     public Clue(final CharacterJob characterJob, final String description) {
@@ -18,9 +20,10 @@ public class Clue {
         this.description = description;
     }
 
-    public Clue(final CharacterJob characterJob, final String name, final String description) {
+    public Clue(final CharacterJob characterJob, final String name, final String description, final Boolean isInTheHouse) {
         this(characterJob, description);
         this.name = name;
+        this.inTheHouse = isInTheHouse;
     }
 
     public CharacterJob getCharacterJob() {
@@ -45,5 +48,13 @@ public class Clue {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public boolean isInTheHouse() {
+        return inTheHouse;
+    }
+
+    public void setInTheHouse(boolean inTheHouse) {
+        this.inTheHouse = inTheHouse;
     }
 }
