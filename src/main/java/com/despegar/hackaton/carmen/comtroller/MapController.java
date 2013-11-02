@@ -1,5 +1,5 @@
 
-package com.despegar.hackaton.carmen.web.controller;
+package com.despegar.hackaton.carmen.comtroller;
 
 import java.util.HashMap;
 import java.util.Map;
