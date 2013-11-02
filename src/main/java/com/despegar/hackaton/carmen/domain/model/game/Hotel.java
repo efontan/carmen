@@ -1,4 +1,4 @@
-package com.despegar.hackaton.carmen.domain.model;
+package com.despegar.hackaton.carmen.domain.model.game;
 
 
 import java.math.BigDecimal;
