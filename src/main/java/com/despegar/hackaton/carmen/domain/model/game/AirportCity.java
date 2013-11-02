@@ -1,6 +1,5 @@
 package com.despegar.hackaton.carmen.domain.model.game;
 
-import com.despegar.hackaton.carmen.domain.model.City;
 
 /**
  * @author emiliano.lourbet - taitooz - elourbet[at]despegar[dot]com.

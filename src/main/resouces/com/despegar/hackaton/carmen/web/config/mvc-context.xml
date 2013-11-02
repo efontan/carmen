@@ -30,7 +30,6 @@
     <util:constant id="BARMAN" static-field="com.despegar.hackaton.carmen.domain.model.game.CharacterJob.BARMAN"/>
     <!---Characters END-->
 
-
     <!--Provincias y pistas BEGIN-->
     <bean id="BUE" class="com.despegar.hackaton.carmen.domain.model.game.AirportCity">
         <property name="code" value="BUE"/>
