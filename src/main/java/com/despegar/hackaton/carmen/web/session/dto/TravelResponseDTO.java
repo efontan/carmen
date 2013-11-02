@@ -2,8 +2,8 @@ package com.despegar.hackaton.carmen.web.session.dto;
 
 import java.util.List;
 
-import com.despegar.hackaton.carmen.domain.model.Hotel;
 import com.despegar.hackaton.carmen.domain.model.game.GraphNode;
+import com.despegar.hackaton.carmen.domain.model.game.Hotel;
 import com.despegar.hackaton.carmen.domain.model.game.Status;
 
 public class TravelResponseDTO {

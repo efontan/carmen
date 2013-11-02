@@ -22,22 +22,22 @@
 
 
     <bean id="jujuy" class="com.despegar.hackaton.carmen.domain.model.game.AirportCity">
-        <property name="oid" value="3426"/>
+        <property name="id" value="3426"/>
         <property name="translatedName" value="Jujuy"/>
     </bean>
 
     <bean id="buenosAires" class="com.despegar.hackaton.carmen.domain.model.game.AirportCity">
-        <property name="oid" value="520"/>
+        <property name="id" value="520"/>
         <property name="translatedName" value="Buenos Aires"/>
     </bean>
 
     <bean id="ushuaia" class="com.despegar.hackaton.carmen.domain.model.game.AirportCity">
-        <property name="oid" value="7781"/>
+        <property name="id" value="7781"/>
         <property name="translatedName" value="Ushuaia"/>
     </bean>
 
     <bean id="laRioja" class="com.despegar.hackaton.carmen.domain.model.game.AirportCity">
-        <property name="oid" value="3186"/>
+        <property name="id" value="3186"/>
         <property name="translatedName" value="ushuaia"/>
     </bean>
 
