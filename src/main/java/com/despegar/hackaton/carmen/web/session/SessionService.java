@@ -11,16 +11,22 @@ import com.despegar.hackaton.carmen.domain.model.game.Player;
 
 public interface SessionService {
 
-    Boolean createSession(HttpServletRequest request, HttpServletResponse response, Integer gameWalkthrough,
-        Long actualCityOid, DateTime actualDate, BigDecimal amoutRemaining, BigDecimal remainingHours, Player player);
+	Boolean addGameSessionToSessions(HttpServletRequest request,
+			HttpServletResponse response, String token, GameSession gameSession);
 
-    Session getSession(HttpServletRequest request);
+	Boolean clearSession(HttpServletRequest request,
+			HttpServletResponse response);
 
-    GameSession getGameSessionByToken(HttpServletRequest request, String token);
+	Boolean createSession(HttpServletRequest request,
+			HttpServletResponse response, GameSession gameSession);
 
-    Boolean addGameSessionToSessions(HttpServletRequest request, HttpServletResponse response, String token,
-        GameSession gameSession);
+	Boolean createSession(HttpServletRequest request,
+			HttpServletResponse response, Integer gameWalkthrough,
+			Long actualCityOid, DateTime actualDate, BigDecimal amoutRemaining,
+			BigDecimal remainingHours, Player player);
 
-    Boolean clearSession(HttpServletRequest request, HttpServletResponse response);
+	GameSession getGameSessionByToken(HttpServletRequest request, String token);
+
+	Session getSession(HttpServletRequest request);
 
 }
