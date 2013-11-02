@@ -1,0 +1,77 @@
+@import "picasso/despegar/variables";
+@import "picasso/utils/clearfix";
+
+@import "../../../../../shared/utils/mixins/typo";
+
+@import "compass/css3";
+
+.ux-selfservice-application-description {
+	background: $despegar-gray-8;
+	padding: 20px 15px;
+	margin-bottom: 10px;
+
+	.ux-selfservice-application-description-title {
+		@include fontStyle($despegar-size-24, $despegar-title-color);
+		display: block;
+		margin-bottom: 15px;
+	}
+
+	ul {
+		@include fontStyle($despegar-size-13, $despegar-gray-3);
+		
+		li {
+			border-top:solid 1px $despegar-gray-7;
+			line-height: normal;
+			padding: 10px 0;
+
+			.ux-selfservices-application-description-code {
+				@include fontStyle($despegar-size-11, $despegar-gray-5);
+				display: block;
+			}
+
+			.ux-selfservice-application-description-in-progress {
+				@include fontStyle($despegar-size-13, $despegar-titlealt-color);
+				margin-top: 1px;
+
+				.ux-common-icon-last-buy {
+					@include border-radius(3px);
+					@include fontStyle($despegar-size-16);
+					background-color: $despegar-titlealt-color;
+					color: $despegar-white;
+					padding: 2px;
+					display: inline-block;
+
+					.ie7 & , .ie8 & {
+						padding: 6px 2px 0 2px;
+					}
+
+					.ie7 & {
+						margin-right: 5px;
+					}
+
+				}
+			}
+
+			.ux-selfservice-application-description-help {
+				color: $despegar-link-color;
+				span {
+					@include fontStyle($despegar-size-24);
+					vertical-align: middle;
+
+				}
+			}
+
+			.ux-selfservice-application-description-ok {
+				@include fontStyle($despegar-size-13, $despegar-promo-text);
+				span {
+					@include fontStyle($despegar-size-20);
+					vertical-align: bottom;
+					
+				}
+			}
+
+
+		}
+	}
+
+}

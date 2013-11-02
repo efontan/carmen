@@ -1,0 +1,8 @@
+@import "picasso/utils/grid";
+
+$grid-default-row-class: "ux-common-grid-row";
+$grid-default-column-class: "ux-common-grid-col";
+$grid-default-offset-class: "ux-common-grid-offset";
+$grid-default-include-container: false;
+
+@include grid();

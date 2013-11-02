@@ -1,0 +1,118 @@
+// ## Popover
+
+$popover-default-border-size: 10px;
+$popover-default-arrow-size: $popover-default-border-size;
+$popover-default-close-size: 25px;
+$popover-default-padding: 15px;
+
+.#{$overlay-default-class}-popover{
+	border-width: $popover-default-border-size;
+
+	.#{$overlay-default-class}-header{
+		padding: $popover-default-padding;
+	}
+
+	.#{$overlay-default-class}-body{
+		padding: $popover-default-padding;
+	}
+
+	&[class*="#{$overlay-default-class}-top"], &[class*="#{$overlay-default-class}-right"], &[class*="#{$overlay-default-class}-bottom"], &[class*="#{$overlay-default-class}-left"] {
+		margin-right: $popover-default-arrow-size;
+		margin-bottom: $popover-default-arrow-size;
+	}
+
+	&[class*="#{$overlay-default-class}-bottom"] {
+
+		.#{$overlay-default-class}-arrow{
+			border-left-width: $popover-default-arrow-size;
+		    border-right-width: $popover-default-arrow-size;
+		    border-bottom-width: $popover-default-border-size;
+		    top: -($popover-default-arrow-size + $popover-default-border-size);
+		}
+
+	}
+
+	&[class*="#{$overlay-default-class}-left"] {
+
+		.#{$overlay-default-class}-arrow{
+			border-top-width: $popover-default-arrow-size;
+		    border-bottom-width: $popover-default-arrow-size;
+		    border-left-width: $popover-default-border-size;
+		    right: -($popover-default-arrow-size + $popover-default-border-size); 
+		}
+
+	}
+
+	&[class*="#{$overlay-default-class}-top"] {
+
+		.#{$overlay-default-class}-arrow{
+			border-left-width: $popover-default-arrow-size;
+		    border-right-width: $popover-default-arrow-size;
+		    border-top-width: $popover-default-border-size;
+		    bottom: -($popover-default-arrow-size + $popover-default-border-size);
+		}
+
+	}
+	
+	&[class*="#{$overlay-default-class}-right"] {
+
+		.#{$overlay-default-class}-arrow{
+			border-top-width: $popover-default-arrow-size;
+		    border-bottom-width: $popover-default-arrow-size;
+		    border-right-width: $popover-default-border-size;
+		    left: -($popover-default-arrow-size + $popover-default-border-size);
+		}
+
+	}
+
+	&.#{$overlay-default-class}-left, &.#{$overlay-default-class}-left-bottom{
+		// El margen es diferente a 0 
+		// para que no se solapen las 
+		// flechas con el botón cerrar
+		margin-bottom: 20px;
+
+		.#{$overlay-default-class}-arrow{
+			top: 20px;
+		}
+		
+	}
+
+	&.#{$overlay-default-class}-bottom-left{
+		// El margen es diferente a 0 
+		// para que no se solapen las 
+		// flechas con el botón cerrar
+		margin-right: 20px;
+
+		.#{$overlay-default-class}-arrow{
+			right: 20px;
+		}
+		
+	}
+
+	&.#{$overlay-default-class}-top-center, &.#{$overlay-default-class}-bottom-center{
+
+		.#{$overlay-default-class}-arrow{
+			margin-right: -($popover-default-arrow-size);
+		}
+
+	}
+
+
+	&.#{$overlay-default-class}-right-center, &.#{$overlay-default-class}-left-center{
+
+		.#{$overlay-default-class}-arrow{
+			margin-bottom: -($popover-default-arrow-size);
+		}
+
+	}
+
+	.#{$overlay-default-class}-close{
+		height: $popover-default-close-size;
+		width: $popover-default-close-size;
+		right: -$popover-default-border-size;
+		top: -$popover-default-border-size;
+		font-size: $popover-default-close-size - 5;
+		line-height: $popover-default-close-size;
+	}
+
+}

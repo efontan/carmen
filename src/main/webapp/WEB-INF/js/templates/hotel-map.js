@@ -1,0 +1,1 @@
+define(["handlebars"],function(a){var b=a.template,c=a.templates=a.templates||{};c["hotel-map.hbs"]=b(function(a,b,c,d,e){return c=c||a.helpers,'<div id="hotel-map" class="hotel-map">\r\n	<div id="gmap" class="gmap"></div>\r\n</div>\r\n\r\n'})})

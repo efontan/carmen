@@ -1,0 +1,159 @@
+@charset "UTF-8";
+
+// Shared mixins
+@import "../../shared/utils/mixins/hover-block";
+@import "../../shared/utils/responsive/screen-size";
+@import "../../shared/utils/mixins/typo";
+
+// Picasso mixins
+@import "picasso/utils/clearfix";
+@import "picasso/despegar/variables";
+@import "picasso/components/buttons";
+@import "compass/css3/transform";
+
+@import "compass/css3";
+
+// ## Text size
+// Mixin para generar tamanos de texto
+@mixin text-size($size) {
+    
+    @include fontStyle($despegar-size-20);    
+    margin-bottom:20px;   
+   
+
+    @if $size == big {
+        @include fontStyle($despegar-size-20);
+    }
+    @if $size == medium {
+        @include fontStyle($despegar-size-16);
+    }
+    @if $size == small {
+        @include fontStyle($despegar-size-13);
+    }
+
+}
+
+
+
+
+.ux-popup-change-seats{
+	width: 737px;
+	padding: 15px;
+
+	.ux-popup-change-seats-title {		
+		@include text-size(big);		
+		color: $despegar-blue;
+	}
+
+	.ux-popup-change-seats-subtitle {		
+		@include text-size(small);
+		color: $despegar-gray-2;
+	}
+
+	.ux-popup-change-seats-inbound, .ux-popup-change-seats-outbound {
+		@include text-size(medium);
+		color: $despegar-blue;
+		text-transform: uppercase;
+		font-weight: bold;
+		margin-bottom: 1em;
+	}
+
+	.ux-popup-change-seats-list {
+		@include clearfix;
+		margin-bottom: 15px;
+
+		.ux-popup-change-seats-items {
+
+			@include text-size(small);
+			background-color: $despegar-gray-7;
+			display: block;			
+			overflow: hidden;
+			margin-bottom: 0;
+
+			ul li{
+				padding: 7px 10px;
+				float: left;
+				
+			}
+
+			.ux-popup-change-seat {
+				width: 20%;
+			}
+
+		}
+
+		.ux-popup-change-seats-content {
+
+			@include text-size(small);
+			border: 1px solid $despegar-gray-6;
+			overflow: hidden;			 
+			border-top-style: none;
+			margin: 0;
+
+			> ul{
+				border-top: 1px solid $despegar-gray-6;
+
+				@include clearfix;
+
+				 > li{
+					padding: 15px 10px;
+					float: left;					
+					position: relative;
+
+					ul li{
+						margin-bottom: 7px;
+					}
+
+				}
+
+			}
+
+			.ux-popup-change-seats-pax{
+
+				border-right: 1px solid $despegar-gray-6;
+				border-left: 1px solid $despegar-gray-6;
+
+			}
+
+			.ux-popup-change-seat {
+				padding:10px 0;
+			}
+
+		}
+
+		.ux-popup-change-seats-from, .ux-popup-change-seats-to{
+			width: 17%;
+		}
+
+		.ux-popup-change-seats-pax{
+			width: 25%;
+		}
+
+		.ux-popup-change-seats-number {
+			width: 7.8%;
+			padding: 0 15px;
+		}
+
+		.ux-popup-change-seat {
+			width: 22%;
+			text-align: center;
+			
+			a{
+				
+				@include text-size(small);				
+				margin: 0;
+								
+				&.ux-popup-change-seat-btn {
+					@include button-3d($despegar-blue);
+				}
+
+			}
+
+		}
+		
+	}
+
+		.ux-popup-change-btn-accept {
+			@include button-3d();
+		}
+	}

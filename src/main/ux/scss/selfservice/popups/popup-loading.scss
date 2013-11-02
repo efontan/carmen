@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+@import "../../shared/utils/mixins/typo";
+
+.ux-popup-loading{
+	width: 94%;
+	width: 350px;
+	padding: 3%;
+	text-align: center;
+	h4{
+		margin-bottom: 10px;
+		@include title($border:false);
+	}
+	.ux-popup-loading-spin{
+		padding: 20px 0;
+		display: inline-block;
+	}
+	img{
+		display: none;
+		margin: auto;
+	}
+
+	.ie7 &, .ie8 &, .ie9 &{
+		.ux-popup-loading-spin{
+			display: none;
+		}
+		img{
+			display: block;
+
+		}
+	}
+	.ie9 &{
+		img{
+			padding-right: 20px;
+		}
+	}
+
+	
+	
+}

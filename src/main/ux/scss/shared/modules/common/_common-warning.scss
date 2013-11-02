@@ -1,0 +1,85 @@
+@charset "UTF-8";
+@import "picasso/despegar/variables";
+@import "picasso/utils/clearfix";
+@import "../../../shared/utils/mixins/images";
+@import "../../../shared/utils/mixins/typo";
+
+
+@import "compass/utilities/sprites";
+@import "common/modules/warning/*.png";
+
+//Cartel de msg de informacion
+.ux-common-warning{
+
+
+	border: 1px solid $despegar-warning-border;
+	background-color: $despegar-warning-bg;
+	padding: 2%;
+	@include clearfix;
+	display: block;
+	width: 96%;
+
+	.ux-common-warning-icon-cont{
+		display: table-cell;
+		vertical-align:middle;
+		.ux-common-warning-icon{
+			@include common-images("common/modules/warning/common-warning.png");
+			.ie7 &{
+				@include warning-sprite("common-warning");
+			}
+		}
+	}
+	
+	.ux-common-warning-content{
+		padding: 0 0 0 2%;
+		display: table-cell;
+		vertical-align: top;
+		width: 100%;
+		&.ux-common-warning-no-icon{
+			display: block;
+			width: auto;
+		}
+	}
+	.ux-common-warning-title{
+		@include fontStyle($despegar-size-16, $despegar-title-color);
+		margin-bottom: 1em;
+		
+	}
+	.ux-common-warning-text{
+		@include fontStyle($despegar-size-13, $despegar-gray-2);
+	}
+	.ie7 &{
+		.ux-common-warning-icon-cont{
+			
+			float: left;
+		}
+		.ux-common-warning-content{
+			
+			float: left;
+			width: 90%;
+		}
+	}	
+
+	&.ux-common-error {
+
+		border: 1px solid $despegar-error-border;
+		background-color: $despegar-error-bg;
+
+		.ux-common-warning-content{
+
+			display:block;
+			//vertical-align: top;
+			width: 100%;
+			padding: 0;
+		}
+		.ux-common-warning-title{
+			@include fontStyle($despegar-size-16, $despegar-red);			
+		}
+		.ux-common-warning-text{
+			@include fontStyle($despegar-size-13, $despegar-gray-2);
+		}
+		
+
+	}
+
+}

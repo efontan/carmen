@@ -1,0 +1,119 @@
+@charset "UTF-8";
+@import "picasso/despegar/variables";
+@import "picasso/components/buttons";
+
+//common standard classes for the hole project
+@import "../../shared/utils/responsive/screen-size.scss";
+@import "../../shared/utils/mixins/typo.scss";
+@import "../../shared/utils/mixins/images.scss";
+
+@import "../common/selfservice-common.scss";
+@import "../common/selfservice-sprite.scss";
+
+
+
+.ux-cancelation-title-icon-money{
+	@include common-images("ux/selfservice/common/selfservice-money.png");
+	display: inline-block;
+	.ie7 &{
+		@include common-sprite("selfservice-money");
+	}
+}
+.ux-cancelation-title-icon-pax{
+	@include common-images("ux/selfservice/common/selfservice-pax.png");
+	display: inline-block;
+	.ie7 &{
+		@include common-sprite("selfservice-pax");
+	}
+
+}
+.ux-cancelation-title-icon-stop{
+	@include common-images("ux/selfservice/common/selfservice-stop.png");
+	display: inline-block;
+	.ie7 &{
+		@include common-sprite("selfservice-stop");
+	}
+
+}
+.ux-cancelation-container{
+	@include clearfix;
+	padding-left: 3%;
+	margin-bottom: 1em;
+}
+.ux-selfservice-title-icon{
+	display: inline-block
+}
+
+
+.ux-cancelation-advice{
+	@include fontStyle($despegar-size-16, $despegar-gray-2);
+	margin-bottom: 1em;
+
+	p{
+		display: inline-block;
+	}
+
+	small {
+		@include fontStyle($despegar-size-10, $despegar-title-color);
+		display: block;
+		line-height: 1;
+		padding-left: 35px;
+	}
+
+}
+
+.ux-cancelation-advice, .ux-selfservice-title-alt{
+	line-height: 2em;
+}
+.ux-cancelation-form{
+	.ux-cancelation-btn{
+		@include button-3d();
+		vertical-align: middle;
+
+	}
+	.ux-cancelation-link{
+		margin-left: 3%;
+		line-height: 2em;
+		@include fontStyle($despegar-size-13);
+	}
+
+}
+
+
+
+//Estilos para diferentes tamaños y dispositivos
+.ux-common-responsive{
+	.ux-common-main{
+		>.ux-common-grid-row{
+			>.ux-common-grid-col8, >.ux-common-grid-col4,{
+				@include size-small-tablet(){
+					@include full-col();
+					.ux-selfservice-itinerary, .ux-selfservice-contact{
+						width: 48%;
+						float: left;
+						margin-left: 5px;
+						margin-right: 5px; 
+					} 
+				}
+				@include size-mobile(){
+					@include full-col();
+					.ux-common-grid-row{
+						.ux-common-grid-col2, .ux-common-grid-col3,  .ux-common-grid-col4, .ux-common-grid-col5, .ux-common-grid-col6, .ux-common-grid-col7,  .ux-common-grid-col8, .ux-common-grid-col9 {
+			
+							@include full-col();
+				
+						}
+					
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+	
+
+

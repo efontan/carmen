@@ -1,0 +1,259 @@
+// Mixin para rotar las alas
+@mixin rotate($rotate: $rotate, $perspective: false, $only3d: false) {
+	$trans: rotate($rotate);
+	@if $perspective {
+		$trans: perspective($perspective) $trans; 
+	}
+	@include transform($trans, $only3d); 
+}
+
+%rotate-35{
+	@include rotate(35deg);
+	.ie8 & {
+		-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.8191520442889916, M12=-0.5735764363510465, M21=0.5735764363510465, M22=0.8191520442889916, SizingMethod='auto expand')";
+	}
+	.ie7 & {
+		filter: progid:DXImageTransform.Microsoft.Matrix(
+        M11=0.8191520442889916,
+        M12=-0.5735764363510465,
+        M21=0.5735764363510465,
+        M22=0.8191520442889916,
+        SizingMethod='auto expand');
+	}
+}
+
+%rotate-90{
+	@include rotate(90deg);
+	.ie8 & {
+		-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=-1.836909530733566e-16, M12=-1, M21=1, M22=-1.836909530733566e-16, SizingMethod='auto expand')";		
+	}
+	.ie7 & {
+		filter: progid:DXImageTransform.Microsoft.Matrix(
+        M11=-1.836909530733566e-16,
+        M12=-1,
+        M21=1,
+        M22=-1.836909530733566e-16,
+        SizingMethod='auto expand');
+	}
+}
+
+%rotate-145{
+	@include rotate(145deg);
+	.ie8 & {
+		-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=-0.819152044288992, M12=-0.5735764363510458, M21=0.5735764363510458, M22=-0.819152044288992, SizingMethod='auto expand')";
+	}
+	.ie7 & {
+		filter: progid:DXImageTransform.Microsoft.Matrix(
+        M11=-0.819152044288992,
+        M12=-0.5735764363510458,
+        M21=0.5735764363510458,
+        M22=-0.819152044288992,
+        SizingMethod='auto expand');
+	}
+}
+
+%rotate-270{
+	@include rotate(270deg);
+	.ie8 & {
+		-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=6.123031769111886e-17, M12=1, M21=-1, M22=6.123031769111886e-17, SizingMethod='auto expand')";		
+	}
+	.ie7 & {
+		filter: progid:DXImageTransform.Microsoft.Matrix(
+        M11=6.123031769111886e-17,
+        M12=1,
+        M21=-1,
+        M22=6.123031769111886e-17,
+        SizingMethod='auto expand');
+	}
+}
+
+
+@mixin wing-container-left {
+	left: 5.4%;
+}
+@mixin wing-container-right {
+	right: 5.4%;
+}
+
+// Contenedor del ala
+.ux-selfservice-selectseats-wing-container{
+	position: absolute; 
+	top: 0; 
+	bottom: 0; 
+	width: 25px;
+	.ie8 & {
+		width: 25px;
+	}
+
+	// Contenedor del ala izquierda
+	&.ux-selfservice-selectseats-wing-container-left {
+		left: 5.7%;
+		@include size-big-tablet{
+			@include wing-container-left;
+		}
+		@include size-mobile{
+			@include wing-container-left;
+		}
+		.ie7 & {
+			left: 5%;
+		}
+	}
+
+	// Contenedor del ala derecha
+	&.ux-selfservice-selectseats-wing-container-right {
+		right: 5.6%;
+		@include size-big-tablet{
+			@include wing-container-right;
+		}
+		@include size-mobile{
+			@include wing-container-right;
+		}
+		.ie7 & {
+			right: 5.8%;
+		}
+
+		// Referencia lado del ala
+		.ux-selfservice-selectseats-wing{
+			.ie8 & {
+				margin-left: 11px;
+			}
+			.ie7 & {
+				margin-left: 3px;
+			}
+		}
+
+		// Referencia parte superior del ala
+		.ux-selfservice-selectseats-wing-top {
+			display: block; 
+			border-bottom: 1px solid $despegar-gray-3; 
+			width: 25px;
+			margin-left: 15px;
+			margin-top: 1px;
+			@extend %rotate-35;
+			.ie8 & {
+				margin-left: 11px;
+			}
+			.ie7 & {
+				margin-left: 11px;
+			}
+			
+		}
+
+		// Referencia parte inferior del ala
+		.ux-selfservice-selectseats-wing-bottom {
+			display: block; 
+			border-bottom: 1px solid $despegar-gray-3; 
+			width: 25px;
+			margin-left: 15px;
+			margin-top: 93px;
+			@extend %rotate-35;
+			.ie8 & {
+				margin-left: 11px;
+				margin-top: 73px;
+			}
+			.ie7 & {
+				margin-top: 55px;
+				margin-left: 11px;
+			}
+			
+		}
+
+		// Referencia palabra "ALA"
+		.ux-selfservice-selectseats-wing-reference {
+			display: block; 
+			margin-right: 0;
+			margin-left: 20px;
+			margin-top: 84px;
+			@include fontStyle($despegar-size-13, $despegar-gray-4);
+			@extend %rotate-90;
+			.ie8 & {
+				margin-left: 15px;
+				margin-top: 100px;
+			}
+			.ie7 & {
+				margin-left: 15px;
+				margin-top: 80px;
+			}
+		}
+	}
+
+	// Referencia lado del ala
+	.ux-selfservice-selectseats-wing{
+		position: absolute;
+		display: block;
+		width: 1px;
+		background-color: $despegar-gray-5;
+		margin-top: 35px;
+		margin-left: 39%;
+		height: 205px;
+		border-right: 1px solid $despegar-white;
+		border-left: 1px solid $despegar-white;
+		.ie8 & {
+			margin-left: 10px;
+		}
+		.ie7 & {
+			margin-left: 4px;
+		}
+	}
+
+	// Referencia puerta de salida
+	.ux-selfservice-selectseats-exit {
+		display: block; 
+		background-color: $despegar-yellow; 
+		border: 2px solid $despegar-gray-5;
+		width: 5px; 
+		height: 20px; 
+		margin: 0 auto;
+		.ie8 & {
+			right: -11px;
+		}
+	}
+
+	// Referencia parte superior del ala
+	.ux-selfservice-selectseats-wing-top{
+		display: block; 
+		border-bottom: 1px solid $despegar-gray-3; 
+		width: 25px;
+		margin-left: -5px;
+			margin-top: 15px;
+		@extend %rotate-145;
+		.ie8 & {
+			margin-left: -8px;
+		}
+	}
+
+	// Referencia parte inferior del ala
+	.ux-selfservice-selectseats-wing-bottom {
+		display: block; 
+		border-bottom: 1px solid $despegar-gray-3; 
+		width: 25px;
+		margin-left: -5px;
+		margin-top: 85px; 
+		@extend %rotate-145;
+		.ie8 & {
+			margin-left: -8px;
+			margin-top: 95px;
+		}
+	}
+
+	// Referencia palabra "ALA"
+	.ux-selfservice-selectseats-wing-reference {
+		display: block; 
+		@include fontStyle($despegar-size-13, $despegar-gray-4);
+		margin-right: 25px;
+		margin-top: 90px;
+		@extend %rotate-270;
+		.ie8 & {
+			width: 40px;
+			height: 15px;
+			margin-left: -10px;
+			margin-top: 70px;
+		}
+		.ie7 & {
+			width: 40px;
+			height: 15px;
+			margin-top: 50px;
+		}
+	}
+
+}

@@ -1,0 +1,22 @@
+.suggestion {
+  width: 500px;
+}
+.suggestion select {
+  width: 435px;
+}
+.suggestion textarea {
+  width: 435px;
+  height: 200px;
+}
+.suggestion .suggestion-field {
+  margin: 20px;
+}
+.suggestion .mod-btn {
+  margin-left: 20px;
+}
+.suggestion .cancel-action {
+  font-size: 11px;
+  margin-left: 15px;
+  margin-top: 10px;
+  position: absolute;
+}

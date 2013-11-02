@@ -1,0 +1,26 @@
+// ## Common mixins
+
+@import "compass/typography/text/replacement";
+
+@mixin common-images($image, $width: true, $height: true, $display: block, $repeat: no-repeat, $position: "left top", $color: transparent, $squish: true){
+	
+	background: $color inline-image("#{$image}") unquote($repeat) unquote($position);
+	
+	@if $display != false {
+		display: #{$display};
+	}
+
+	@if $width == true {
+		width: image-width("#{$image}");
+	}
+	
+	@if $height == true {
+		height: image-height("#{$image}");
+	}
+
+	@if $squish == true {
+		@include squish-text();
+	}
+
+}
+

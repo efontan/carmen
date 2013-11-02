@@ -1,0 +1,104 @@
+// ## Dialog
+
+$dialog-default-border-size: 10px;
+$dialog-default-arrow-size: $dialog-default-border-size;
+$dialog-default-close-size: 25px;
+$dialog-default-title-bg: #F7F7F7;
+$dialog-default-padding: 15px;
+
+.#{$overlay-default-class}-dialog{
+	border-width: $dialog-default-border-size;
+
+	.#{$overlay-default-class}-header{
+		padding: $dialog-default-padding;
+	}
+
+	.#{$overlay-default-class}-body{
+		padding: $dialog-default-padding;
+	}
+
+	&[class*="#{$overlay-default-class}-top"], &[class*="#{$overlay-default-class}-right"], &[class*="#{$overlay-default-class}-bottom"], &[class*="#{$overlay-default-class}-left"] {
+		margin-right: $dialog-default-arrow-size;
+		margin-bottom: $dialog-default-arrow-size;
+	}
+
+	&[class*="#{$overlay-default-class}-bottom"] {
+
+		.#{$overlay-default-class}-arrow{
+			border-left-width: $dialog-default-arrow-size;
+		    border-right-width: $dialog-default-arrow-size;
+		    border-bottom-width: $dialog-default-border-size;
+		    top: -($dialog-default-arrow-size + $dialog-default-border-size);
+		}
+
+	}
+
+	&[class*="#{$overlay-default-class}-left"] {
+
+		.#{$overlay-default-class}-arrow{
+			border-top-width: $dialog-default-arrow-size;
+		    border-bottom-width: $dialog-default-arrow-size;
+		    border-left-width: $dialog-default-border-size;
+		    right: -($dialog-default-arrow-size + $dialog-default-border-size); 
+		}
+
+	}
+
+	&[class*="#{$overlay-default-class}-top"] {
+
+		.#{$overlay-default-class}-arrow{
+			border-left-width: $dialog-default-arrow-size;
+		    border-right-width: $dialog-default-arrow-size;
+		    border-top-width: $dialog-default-border-size;
+		    bottom: -($dialog-default-arrow-size + $dialog-default-border-size);
+		}
+
+	}
+	
+	&[class*="#{$overlay-default-class}-right"] {
+
+		.#{$overlay-default-class}-arrow{
+			border-top-width: $dialog-default-arrow-size;
+		    border-bottom-width: $dialog-default-arrow-size;
+		    border-right-width: $dialog-default-border-size;
+		    left: -($dialog-default-arrow-size + $dialog-default-border-size);
+		}
+
+	}
+
+	&.#{$overlay-default-class}-top-center, &.#{$overlay-default-class}-bottom-center{
+
+		.#{$overlay-default-class}-arrow{
+			margin-right: -($dialog-default-arrow-size);
+		}
+
+	}
+
+
+	&.#{$overlay-default-class}-right-center, &.#{$overlay-default-class}-left-center{
+
+		.#{$overlay-default-class}-arrow{
+			margin-bottom: -($dialog-default-arrow-size);
+		}
+
+	}
+
+	.#{$overlay-default-class}-close{
+		height: $dialog-default-close-size;
+		width: $dialog-default-close-size;
+		right: -$dialog-default-border-size;
+		top: -$dialog-default-border-size;
+		font-size: $dialog-default-close-size - 5;
+		line-height: $dialog-default-close-size;
+	}
+
+	&.#{$overlay-default-class}-fixed{
+		left: 50%;
+		top: 50%;
+	}
+
+	.#{$overlay-default-class}-arrow{
+		display: none;
+	}
+
+}

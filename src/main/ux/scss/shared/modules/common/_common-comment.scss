@@ -1,0 +1,87 @@
+@charset "UTF-8";
+/************************************************* 
+*  MOD COMMENT
+************************************************ */
+@import "picasso/despegar/variables";
+@import "../../../shared/utils/mixins/typo";
+@import "../../../shared/utils/mixins/images";
+
+
+@import "compass/utilities/sprites";
+@import "common/modules/comment/*.png";
+
+
+.ux-common-comment{
+	margin-bottom:5px;
+	.ux-common-comment-description {
+		background: none repeat scroll 0 0 $despegar-link-bg-hover	;
+		border-radius: 5px;
+		padding: 10px;
+		position: relative;
+		border: 1px solid $despegar-link-color;
+		&:after {
+			border-color: $despegar-link-bg-hover transparent;
+			border-style: solid;
+			border-width: 12px 12px 0;
+			bottom: -11px;
+			content: "";
+			display: block;
+			position: absolute;
+			left: 20px;
+			width: 0;
+		}
+		&:before {
+			border-color: $despegar-link-color transparent;
+			border-style: solid;
+			border-width: 12px 12px 0;
+			bottom: -12px;
+			content: "";
+			display: block;
+			position: absolute;
+			left: 20px;
+			width: 0;
+		}
+		.ux-common-comment-title{
+			@include fontStyle($despegar-size-16, $despegar-gray-2);
+		}
+		.ux-common-comment-type {
+			overflow: hidden;
+			//text-overflow: ellipsis;
+			//white-space: nowrap;
+			width: 100%;
+			@include fontStyle($despegar-size-11, $despegar-gray-4);
+		}
+	}
+
+	.ux-common-comment-icon{
+		@include common-images("common/modules/comment/comment-client.png", $display: inline-block);
+		margin-right: 5px;
+		margin-top: 17px;
+		vertical-align: top;
+		margin-left: 17px;
+		.ie7 &{
+			@include comment-sprite("comment-client");
+		}
+	}
+	.ux-common-comment-info {
+		margin-top: 10px;
+		margin-left:10px; 
+		line-height: normal;
+
+		.ux-common-comment-name {
+			overflow: hidden;
+			//text-overflow: ellipsis;
+			//white-space: nowrap;
+			width: 100%;
+			@include fontStyle($despegar-size-13, $despegar-title-color)
+		}
+		.ux-common-comment-date {
+			@include fontStyle($despegar-size-11, $despegar-gray-4);
+			.ux-common-comment-flag{
+				display: inline-block;
+				margin-right: 3px;
+			}
+		}
+	}
+
+}

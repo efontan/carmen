@@ -1,0 +1,144 @@
+@import "picasso/despegar/variables";
+@import "picasso/utils/clearfix";
+@import "../../../../../shared/utils/responsive/screen-size";
+@import "../../../../../shared/utils/mixins/ellipsis-inline";
+
+
+.ux-selfservice-request-status-content {
+	
+	@include col-large {
+		ul li {
+			padding: 0 0 0 35px;
+			display: table;
+			height: 48px;
+			display: table;
+
+			.ux-selfservice-menu-icon {					
+					width: 20px;
+					height: 20px;
+					margin-top: 15px;
+
+					span {
+						@include fontStyle($despegar-size-11);
+					}
+				}
+
+			&.ux-selfservice-step-ok, &.ux-selfservice-step-off, &.ux-selfservice-step-loading, &.ux-selfservice-step-warning, &.ux-selfservice-step-cancel, &.ux-selfservice-step-schedule {
+				.ux-selfservice-menu-icon {
+					
+					.ux-common-icon-correct, .ux-common-icon-remove, .ux-common-icon-warning, .ux-common-icon-last-buy {
+						font-size: 22px;					
+					}
+				}
+			}
+
+			&.ux-selfservice-step-cancel, &.ux-selfservice-step-warning, &.ux-selfservice-step-schedule {
+				.ux-selfservice-menu-icon {
+					span {
+						position: relative;
+						top: 9px;
+					}
+				}
+			}
+
+			p {				
+				@include fontStyle($despegar-size-11);				
+			    display: table-cell;
+			    line-height: 1;
+			    width: 80%;
+			    vertical-align: middle;	
+							
+			}
+		}
+
+		//box estado de solicitud
+		.ux-selfservice-request-status-box {
+			.ux-selfservice-request-status-description {
+				.ux-selfservice-request-status-icon {
+					margin-right: 3%;
+					margin-top: 15px;
+				}				
+			}
+		}
+		
+	}
+
+	@include col-medium {
+		ul li {
+			@include border-radius(0);
+			padding: 0 0 0 10px;
+			height: 48px;
+			display: table;
+
+			&:first-child {
+				padding: 0 0 0 10px;
+			}
+
+			&.ux-selfservice-step-ok, &.ux-selfservice-step-off, &.ux-selfservice-step-loading, &.ux-selfservice-step-warning, &.ux-selfservice-step-cancel, &.ux-selfservice-step-schedule {
+				@include border-radius(0);
+
+				.ux-selfservice-menu-icon {					
+					.ux-common-icon-correct, .ux-common-icon-remove, .ux-common-icon-warning, .ux-common-icon-last-buy {
+						font-size: 22px;					
+					}
+				}
+
+				&:before, &:after {
+					display: none;
+				}
+			}
+
+			&.ux-selfservice-step-cancel, &.ux-selfservice-step-warning, &.ux-selfservice-step-schedule {
+				.ux-selfservice-menu-icon {
+					span {
+						position: relative;
+						top: 9px;
+					}
+				}
+			}
+
+
+			.ux-selfservice-menu-icon {					
+					width: 20px;
+					height: 20px;
+					margin-top: 15px;
+
+					span {
+						@include fontStyle($despegar-size-11);
+					}
+				}
+
+
+			p {
+				@include fontStyle($despegar-size-11);				
+			    display: table-cell;
+			    line-height: 1;
+			    width: 80%;
+			    vertical-align: middle;		    
+			}
+		}		
+		
+		
+		//box estado de solicitud
+		.ux-selfservice-request-status-box {
+			.ux-selfservice-request-status-description {
+				.ux-selfservice-request-status-icon {
+					margin-right: 5%;
+					margin-top: 11px;
+				}
+				.ux-selfservice-request-status-text {
+					span {
+						@include fontStyle($despegar-size-11);
+					}
+					.ux-selfservice-request-title {
+						@include fontStyle($despegar-size-13);
+						font-weight: bold;
+					}
+					p {
+						@include fontStyle($despegar-size-11);
+					}
+				}
+			}
+		}
+	}
+}

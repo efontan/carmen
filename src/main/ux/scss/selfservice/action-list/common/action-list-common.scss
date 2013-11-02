@@ -1,0 +1,14 @@
+@charset "UTF-8";
+@import "picasso/despegar/variables";
+@import "picasso/components/buttons";
+
+//common standard classes for the hole project
+@import "../../../shared/utils/responsive/screen-size.scss";
+@import "../../../shared/utils/mixins/typo.scss";
+@import "../../../shared/utils/mixins/images.scss";
+
+@import "../../common/selfservice-common.scss";
+@import "../../common/selfservice-sprite.scss";
+
+@import "../../common/selfservice-header.scss";
+

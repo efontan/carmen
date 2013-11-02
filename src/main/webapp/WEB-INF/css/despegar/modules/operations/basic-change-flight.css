@@ -1,0 +1,60 @@
+.basic-change-flight {
+  overflow: hidden;
+  width: 371px;
+}
+.basic-change-flight .text-area-big {
+  width: 370px;
+  height: 85px;
+  margin: 20px 0 0 0;
+}
+.basic-change-flight .text-counter {
+  font-size: 11px;
+  margin-right: 0;
+  padding-top: 5px;
+  position: static;
+  right: 0;
+}
+.basic-change-flight .paxTitle {
+  padding: 7px 0 7px 7px;
+  font-size: 13px;
+  color: #777;
+  cursor: pointer;
+}
+.basic-change-flight .br {
+  margin-bottom: 10px;
+}
+.basic-change-flight .form-field {
+  float: none;
+}
+.basic-change-flight .paxCheck {
+  display: inline-block;
+  margin-right: 22px;
+}
+.basic-change-flight .paxName {
+  font-size: 14px;
+  color: #555;
+}
+.basic-change-flight .paxLi {
+  padding: 7px 0 7px 7px;
+  cursor: pointer;
+  margin: 0 1px;
+}
+.basic-change-flight .paxLi:hover {
+  background-color: #f1f6fc;
+  cursor: pointer;
+  text-decoration: none;
+  outline: 1px solid #319fda;
+}
+.basic-change-flight .right {
+  float: right;
+  margin-right: 10px;
+}
+.basic-change-flight .text-title {
+  margin-bottom: -13px;
+  margin-top: 11px;
+  font-size: 14px;
+  color: #013d93;
+}
+.basic-change-flight .actions {
+  margin-top: 20px;
+}

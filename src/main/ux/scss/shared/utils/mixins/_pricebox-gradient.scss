@@ -1,0 +1,17 @@
+@import "compass/css3/images";
+
+//Mixin para general el pricebox gradient
+@mixin pricebox-gradient{
+
+		//Para ie10
+   	background-image: -ms-linear-gradient(top,  $despegar-searchbox-bg 0%,rgba(255,255,255,0) 100%);
+
+	
+    @include background-image(linear-gradient(top, $despegar-searchbox-bg 0%, rgba(255,255,255,0) 100%));
+    .ie7 &, .ie8 &, .ie9 &{
+	    @include filter-gradient($despegar-searchbox-bg, rgba(255,255,255,0), vertical); // IE6-8
+	    $experimental-support-for-svg: true;
+	}
+	 
+
+}

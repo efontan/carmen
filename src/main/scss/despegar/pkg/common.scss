@@ -1,0 +1,6 @@
+// bootstrap
+@import url(stylesheet-url("bootstrap/bootstrap.css", true));
+
+// SPRITE
+@import url(stylesheet-url("despegar/common/sprite.css", true));
+@import url(stylesheet-url("common/modules/overlay/common-overlay.css", true));

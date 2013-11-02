@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+@import "picasso/despegar/variables";
+@import "picasso/utils/clearfix";
+@import "picasso/components/buttons";
+
+
+
+
+
+@import "../../../../shared/utils/responsive/screen-size.scss";
+@import "../../../../shared/utils/mixins/typo.scss";
+
+
+.ux-change-cluster-pricebox{
+	background: $despegar-searchbox-bg;
+	padding: 1em 4%;
+	@include clearfix;
+	min-height: 3em;
+	&:hover{
+		background: $despegar-white;
+
+	}
+	&.valuate, &.loading{
+		background: $despegar-gray-8;
+	}
+	&.valuate{
+		.ux-change-cluster-pricebox-cont{
+			color: $despegar-gray-5;
+		}
+	}
+
+	.ux-change-cluster-pricebox-cont{
+		float: left;
+		width: 62%;
+		text-align: center;
+		color: $despegar-gray-1;
+		.ux-change-cluster-pricebox-ammount{
+			@include fontStyle($despegar-size-16);
+			text-transform: uppercase;
+			em{
+				font-size: 1.5em;
+			}
+		}
+		.ux-change-cluster-pricebox-lead{
+			@include fontStyle($despegar-size-10);
+			margin: 0 10%;
+
+		}
+		.ux-change-cluster-pricebox-spin{
+			margin-top: 0.5em;
+			height: 2em;
+			
+		}
+	}
+	.ux-change-cluster-pricebox-btn{
+		@include button-3d();
+		float: right;
+		margin-top: 0.7em;
+	}
+}
+
+.ux-change-cluster-pricebox{
+	.ux-change-cluster-pricebox-spin{
+		display: none;	
+	}
+	.ux-change-cluster-pricebox-ammount, .ux-change-cluster-pricebox-lead{
+		display: block;	
+	}
+	&.loading{
+		.ux-change-cluster-pricebox-spin{
+			display: block;	
+		}
+		.ux-change-cluster-pricebox-ammount, .ux-change-cluster-pricebox-lead{
+			display: none;	
+		}
+	}
+	@include size-big-tablet{
+		padding: 2em 4%;
+		min-height: 4em;
+	}
+	@include size-small-tablet{
+		padding: 1em 15%;
+		min-height: 6em;
+		.ux-change-cluster-pricebox-btn, .ux-change-cluster-pricebox-cont{
+			@include full-col;
+		}
+	}
+	@include size-small-tablet{
+		padding: 1em 10px;
+		min-height: 6em;
+		.ux-change-cluster-pricebox-btn, .ux-change-cluster-pricebox-cont{
+			@include full-col;
+		}
+	}
+	@include size-mobile{
+		padding: 1em 10px;
+		min-height: 4em;
+		.ux-change-cluster-pricebox-btn, .ux-change-cluster-pricebox-cont{
+			@include full-col;
+		}
+	}
+}

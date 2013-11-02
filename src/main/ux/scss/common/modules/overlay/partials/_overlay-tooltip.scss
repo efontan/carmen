@@ -1,0 +1,88 @@
+// ## Tooltip
+
+$tooltip-default-border-size: 5px;
+$tooltip-default-arrow-size: $tooltip-default-border-size;
+$tooltip-default-padding: 5px;
+
+.#{$overlay-default-class}-tooltip{
+	border-width: $tooltip-default-border-size;
+
+	.#{$overlay-default-class}-container{
+		padding: $tooltip-default-padding;
+	}
+
+	.#{$overlay-default-class}-body{
+		padding: 0;
+	}
+
+	&[class*="#{$overlay-default-class}-top"], &[class*="#{$overlay-default-class}-right"], &[class*="#{$overlay-default-class}-bottom"], &[class*="#{$overlay-default-class}-left"] {
+		margin-right: $tooltip-default-arrow-size;
+		margin-bottom: $tooltip-default-arrow-size;
+	}
+
+	&[class*="#{$overlay-default-class}-bottom"] {
+
+		.#{$overlay-default-class}-arrow{
+			border-left-width: $tooltip-default-arrow-size;
+		    border-right-width: $tooltip-default-arrow-size;
+		    border-bottom-width: $tooltip-default-border-size;
+		    top: -($tooltip-default-arrow-size + $tooltip-default-border-size);
+		}
+
+	}
+
+	&[class*="#{$overlay-default-class}-left"] {
+
+		.#{$overlay-default-class}-arrow{
+			border-top-width: $tooltip-default-arrow-size;
+		    border-bottom-width: $tooltip-default-arrow-size;
+		    border-left-width: $tooltip-default-border-size;
+		    right: -($tooltip-default-arrow-size + $tooltip-default-border-size); 
+		}
+
+	}
+
+	&[class*="#{$overlay-default-class}-top"] {
+
+		.#{$overlay-default-class}-arrow{
+			border-left-width: $tooltip-default-arrow-size;
+		    border-right-width: $tooltip-default-arrow-size;
+		    border-top-width: $tooltip-default-border-size;
+		    bottom: -($tooltip-default-arrow-size + $tooltip-default-border-size);
+		}
+
+	}
+	
+	&[class*="#{$overlay-default-class}-right"] {
+
+		.#{$overlay-default-class}-arrow{
+			border-top-width: $tooltip-default-arrow-size;
+		    border-bottom-width: $tooltip-default-arrow-size;
+		    border-right-width: $tooltip-default-border-size;
+		    left: -($tooltip-default-arrow-size + $tooltip-default-border-size);
+		}
+
+	}
+
+	&.#{$overlay-default-class}-top-center, &.#{$overlay-default-class}-bottom-center{
+
+		.#{$overlay-default-class}-arrow{
+			margin-right: -($tooltip-default-arrow-size);
+		}
+
+	}
+
+
+	&.#{$overlay-default-class}-right-center, &.#{$overlay-default-class}-left-center{
+
+		.#{$overlay-default-class}-arrow{
+			margin-bottom: -($tooltip-default-arrow-size);
+		}
+
+	}
+
+	.#{$overlay-default-class}-close, .#{$overlay-default-class}-header{
+		display: none;
+	}
+
+}

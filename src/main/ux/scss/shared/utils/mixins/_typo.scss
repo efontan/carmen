@@ -1,0 +1,67 @@
+
+// Mixins
+
+@import "picasso/despegar/variables";
+@import "picasso/utils/rem";
+
+
+
+// ## title
+// Mixin para generar títulos
+@mixin title($font-size: 20px, $bg: false, $border: true) {
+    
+    @include fontStyle($font-size, $despegar-title-color);    
+    margin-bottom:10px;   
+   
+
+    @if $bg == false {
+        line-height: $font-size * 1.5;
+    }
+
+    @if $bg != false {
+        background: $despegar-gray-8;
+        padding: 0 $font-size / 2;        
+        line-height: $font-size * 2;
+    }
+    @if $border == false {  
+        border-bottom: none;
+    }
+     @if $border != false {  
+        border-bottom: 1px solid $despegar-gray-6;
+    }
+
+}
+
+// Mixin para generar parrafos
+@mixin typo-paragraph($font-size: $despegar-size-13, $color: $despegar-gray-2){
+    line-height: 1.5em;
+    margin-bottom: 15px;
+    @include fontStyle($font-size, $color);
+}
+
+//Mixin para dar estilos al link de volver
+@mixin typo-back-link {
+    display: block;
+    margin-bottom: 10px;
+    @include fontStyle($despegar-size-13);
+    
+}
+
+// ## fontStyle
+// Mixin para generar estilos de fuente
+@mixin fontStyle($font-size: $despegar-size-16, $color: false) {
+
+    @include rem('font-size', $font-size);
+
+    @if $color != false {
+        color: $color;
+    }
+   
+
+    @if $font-size >= 20 {
+        letter-spacing: -1px;
+    } @else {
+         letter-spacing : 0;
+    }
+
+}

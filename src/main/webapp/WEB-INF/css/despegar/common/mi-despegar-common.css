@@ -1,0 +1,250 @@
+.loginSubmitLoading {
+  margin-top: 5px;
+}
+
+.initTop {
+  margin-top: -17%!important;
+}
+
+.form-field {
+  clear: both;
+  float: left;
+}
+.form-field input, .form-field textarea, .form-field select {
+  display: block;
+}
+.form-field label {
+  background: none repeat scroll 0 0 transparent;
+  border: 0 none;
+  color: #FF4433;
+  float: left;
+  font-size: 11px;
+}
+.form-field .text-counter {
+  float: right;
+  font-size: 11px;
+  margin-right: 35px;
+  padding-top: 5px;
+  position: absolute;
+  right: 30px;
+}
+
+.cancel-action {
+  font-size: 13px;
+}
+
+.warningBox {
+  display: inline-block;
+  margin: 10px 0;
+  width: 100%;
+}
+.warningBox .icon {
+  float: left;
+  margin: 20px;
+}
+.warningBox .content {
+  float: left;
+  margin: 15px;
+  width: 70%;
+}
+.warningBox .content h3 {
+  font-size: 20px;
+  font-weight: 400;
+  padding: 5px 0;
+}
+.warningBox .content .body {
+  font-size: 13px;
+}
+
+.ok {
+  border: 1px solid #888888;
+  background-color: #eeeeee;
+}
+
+.alert {
+  border: 1px solid #ffcc33;
+  background-color: #ffffe1;
+}
+
+.error {
+  border: 1px solid #ff4433;
+  background-color: #ffebe1;
+}
+
+.success {
+  border: 1px solid #92ff33;
+  background-color: #e7ffe1;
+}
+
+.info {
+  border: 1px solid #91b0df;
+  background-color: #eeeffa;
+}
+
+#footer .banner-newsletter .banner-newsletter-container .inputAndSubmit .offersInput {
+  height: 30px !important;
+}
+
+/*.popup-fixed{
+	position: fixed !important;
+}*/
+.spinner-small {
+  width: 16px;
+  height: 16px;
+  float: left;
+  margin-right: 5px;
+  background-image: url("data:image/gif;base64,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");
+}
+
+.right {
+  float: right;
+}
+
+.spinner-small.inner-spinner {
+  margin-top: -20px;
+  float: right;
+  margin-right: 25px;
+}
+
+.disable-state, .disable-state:hover {
+  color: #888;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+.popupBlock {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #999;
+  z-index: 9;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  /* para < IE8 */
+}
+
+#spin {
+  position: absolute;
+  z-index: 1;
+  left: 49%;
+  top: 50%;
+}
+
+.loading-label {
+  position: absolute;
+  color: #013d93;
+  margin-top: 33px;
+  margin-left: -37px;
+  z-index: 10;
+  font-weight: bold;
+}
+
+.ux-common-overlay-dialog {
+  min-width: 250px;
+}
+.ux-common-overlay-dialog textarea {
+  resize: none !important;
+}
+.ux-common-overlay-dialog label.error {
+  position: absolute;
+}
+.ux-common-overlay-dialog .ux-common-overlay-container {
+  /*min-height: 154px;*/
+}
+
+.unselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: moz-none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.fieldText {
+  font-size: 14px;
+}
+
+.loadingInstance {
+  height: 80px;
+}
+
+.departureCont .subTitle {
+  float: left;
+}
+.departureCont .airplanes {
+  height: 13px;
+  width: 15px;
+  margin-bottom: 4px;
+}
+.departureCont .outbound {
+  margin-left: 5px;
+  display: inline-block;
+}
+.departureCont .inbound {
+  margin-left: 5px;
+  display: inline-block;
+}
+
+.flyDetailItem {
+  overflow: hidden;
+}
+
+.airLineName {
+  float: left;
+  margin: 10px 5px 0 5px;
+}
+
+.quick-search {
+  float: right;
+  padding-left: 45%;
+  top: 7px;
+  position: absolute;
+}
+.quick-search .form-quick-search {
+  display: inline-block;
+  float: left;
+  width: 259px;
+}
+.quick-search .quick-search-submit {
+  position: relative;
+  right: 27px;
+  top: 17px;
+}
+.quick-search .field-wrap {
+  float: left;
+  position: relative;
+}
+
+.agent-login {
+  margin-left: 35%;
+  width: 300px;
+}
+.agent-login .mod-basic-form span.error {
+  border: 0 none;
+  background: 0;
+  color: red;
+  display: block;
+  position: relative;
+  top: -10px;
+}
+
+.popup-text-message {
+  max-width: 600px;
+}
+.popup-text-message .chatIntegrationAction {
+  margin-left: 0!important;
+}
+
+.error-code {
+  right: 15px;
+  color: #999;
+  font-size: 10px;
+  position: absolute;
+  bottom: 10px;
+}
+
+.message-icon {
+  float: left;
+  margin: 5px 15px 0 0;
+}

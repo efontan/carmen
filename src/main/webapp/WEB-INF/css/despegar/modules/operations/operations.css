@@ -1,0 +1,30 @@
+.actionsCont .actionItem {
+  overflow: hidden;
+  width: 590px;
+  margin-top: 20px;
+}
+.actionsCont .actionItem .actionIcon {
+  float: left;
+  display: block;
+  margin-right: 10px;
+}
+.actionsCont .actionItem .actionDescCont {
+  float: left;
+  float: left;
+}
+.actionsCont .actionItem .actionDescCont .action {
+  margin-top: 4px;
+  margin-bottom: 5px;
+}
+.actionsCont .actionItem .actionDescCont span {
+  font-size: 11px;
+  display: block;
+}
+.actionsCont .actionItem .actionDescCont .action {
+  margin-top: 4px;
+  margin-bottom: 5px;
+}
+.actionsCont .actionItem .actionDescCont span {
+  font-size: 11px;
+  display: block;
+}

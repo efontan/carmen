@@ -1,0 +1,12 @@
+//Estilos para los fonts
+
+@mixin reset-fontface($font-name){	
+	&:before{
+		font-family: $font-name;
+		speak: none;
+		font-style: normal;
+		font-weight: normal;
+		line-height: 1;
+		-webkit-font-smoothing: antialiased;
+	}
+}

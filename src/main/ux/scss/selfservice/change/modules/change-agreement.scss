@@ -1,0 +1,12 @@
+@charset "UTF-8";
+@import "../../../shared/utils/mixins/typo";
+@import "picasso/despegar/variables";
+
+@import "../../../shared/modules/checkout/checkout-agreement.scss";
+
+
+
+.ux-change-agreement{
+	@include fontStyle($despegar-size-13,$despegar-gray-3);
+	line-height: 1.5em;
+}

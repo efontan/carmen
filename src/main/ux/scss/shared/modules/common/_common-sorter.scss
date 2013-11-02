@@ -1,0 +1,55 @@
+@charset "UTF-8";
+/************************************************* 
+*  SORTER
+************************************************ */
+@import "picasso/despegar/variables";
+@import "picasso/utils/clearfix";
+@import "picasso/components/inputs";
+@import "../../utils/mixins/typo";
+@import "../../utils/mixins/images";
+@import "../../utils/responsive/screen-size";
+
+
+
+.ux-common-sorter{
+	@include clearfix;
+	padding: 0.8em 10px;
+	@include fontStyle($despegar-size-13, $despegar-gray-3);
+	background: $despegar-gray-8;
+	margin-bottom: 1em;
+	label{
+		display: block;
+		line-height: 20px;
+		&.ux-common-sorter-left{
+			select{width: 190px}
+			float: left;
+			margin-right: 2%;
+		}
+		&.ux-common-sorter-right{
+			float: right;
+			margin-left: 2%;
+
+			select{width: 130px}
+
+
+		}
+		select{
+			@include input($font-size: $despegar-size-11 );
+			//float: right;
+			margin-left: 10px;
+		}
+	}
+	@include size-mobile{
+		label{
+			@include full-col;
+			margin-bottom: 0.5em;
+			&.ux-common-sorter-left{
+				select{
+					width: 140px;
+				}
+			}
+		}
+		
+	}
+
+}

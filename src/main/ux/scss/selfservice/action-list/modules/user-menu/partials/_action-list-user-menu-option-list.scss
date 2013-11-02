@@ -1,0 +1,180 @@
+@import "picasso/despegar/variables";
+@import "picasso/utils/clearfix";
+@import "picasso/components/buttons";
+
+@import "../../../../../shared/utils/mixins/typo";
+@import "../../../../../shared/utils/mixins/hover-block";
+
+@import "compass/css3";
+
+//listado de opciones del menu de usuario
+.ux-selfservices-options-list {	
+	
+	//item opcion
+	>li {		
+		background-color: $despegar-white;		
+		margin-bottom: 10px;
+		
+		&.expanded {
+
+			.ux-selfservice-option-list-header {
+				border-bottom: 1px solid transparent;
+			}
+
+			.ux-selfservice-option-list-body {
+				border-left: 1px solid $despegar-gray-7;
+				border-right: 1px solid $despegar-gray-7;
+				border-bottom: 1px solid $despegar-gray-7;				
+			}
+		}
+		
+
+		// Header de la opcion
+		.ux-selfservice-option-list-header {
+			@include clearfix;
+			@include hoverBlock;	
+			padding: 10px;			
+			position: relative;
+			border: 1px solid $despegar-gray-7;
+
+			&.active {
+				
+				&:hover {
+					background-color: $despegar-white;
+					border: 1px solid $despegar-link-color;
+				}
+			}
+
+			
+
+			//item opcion desplegado
+			/*&.active {					
+				
+				&:hover {
+					border: 1px solid $despegar-link-color;
+					background-color: $despegar-white;
+					cursor: pointer;
+				}
+						
+			}
+			*/
+
+			// Icono de la opcion
+			.ux-selfservice-options-icon {
+				@include fontStyle(30px, $despegar-link-color);
+				width: 5%;
+				min-width: 32px;
+				float: left;
+				text-align: right;
+
+			}
+			
+			// Descripcion del icono
+			.ux-selfservice-options-info {
+				@include fontStyle($despegar-size-11, $despegar-title-color);
+				float: left;
+				margin-left: 3%;
+				width: 90%;
+
+				.ux-selfservice-options-list-title {
+					@include fontStyle($despegar-size-16, $despegar-link-color);
+					display: block;
+					line-height: 2em;
+					a {
+						text-decoration: none;
+						display: block;
+					}
+				}
+			}
+			
+			
+			.ux-selfservice-option-list-view {				
+				position: absolute;
+				right: 2%;
+				line-height: 36px;
+				text-decoration: none;
+
+				&:after {
+					@include fontStyle($despegar-size-24, $despegar-gray-4);
+					@include rotate(90deg);
+					content:'\203A';					
+					font-weight: bold;
+					position: absolute;
+					right: 15px;
+					top: -1px;
+
+				}
+
+				&.actived {					
+
+					&:after {
+						@include fontStyle($despegar-size-24, $despegar-link-color);
+						@include rotate(-90deg);
+						content:'\203A';					
+						font-weight: bold;
+						position: absolute;
+						right: 20px;
+						top: 0;					
+
+					}
+
+				}
+
+			}
+
+		}
+
+		// Contenido de la opcion desplegada
+		.ux-selfservice-option-list-body {			
+			display: none;
+
+			&.active {
+				display: block;
+			}
+
+			//submenu
+			.ux-selfservices-submenu {
+				@include fontStyle($despegar-size-13, $despegar-link-color);
+				>li {
+					border-left: 1px solid $despegar-white;
+					border-right: 1px solid $despegar-white;
+					border-bottom: 1px solid $despegar-white;
+					border-top: 1px solid $despegar-gray-8;
+
+					&:hover {
+						@include hoverBlock;
+					}
+
+					span {
+						display: inline-block;
+						padding: 0 0 0 2%;
+						width: 95%;
+						a {
+							text-decoration: none;
+							line-height: 3em;
+							display: inline-block;
+							width: 90%;
+						}
+					}
+				}
+			}	
+			
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&:hover {
+			.ux-selfservice-option-list-header  {
+				.ux-selfservice-option-list-view {
+					&:after {
+						color: $despegar-link-color;
+					}
+				}
+			}
+		}
+
+	}
+
+}

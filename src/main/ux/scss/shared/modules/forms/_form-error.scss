@@ -1,0 +1,39 @@
+@import "compass/utilities/sprites";
+@import "ux/common/modules/forms/*.png";
+@import "../../utils/mixins/images";
+@import "../../utils/mixins/typo";
+@import "picasso/despegar/variables";
+
+@import "picasso/utils/ie";
+
+input.ux-common-form-error-box, select.ux-common-form-error-box, label.ux-common-form-error-box, .ux-common-form-error-box{
+    border: 1px solid $despegar-error-border !important;
+    background-color: $despegar-error-bg;
+}
+
+.ux-common-form-error-msg{
+	@include fontStyle($despegar-size-11, $despegar-red);
+	display: none;
+	padding: 5px;
+	line-height: 10px;
+	&:before{
+		content:"";
+     	@include common-images("ux/common/modules/forms/form-error.png");
+
+		margin-right: 5px;
+		display: inline-block;
+		.ie7 &{
+			@include before;
+            @include forms-sprite("form-error");
+            float: left;
+
+        }
+	}
+	ul{
+		list-style-type:disc; 
+		margin: 0 0 5px 20px;
+		li{
+			margin-bottom: 5px;
+		}
+	}
+}

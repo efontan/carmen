@@ -1,0 +1,30 @@
+@import "../../../shared/utils/mixins/typo";
+
+@import "../../../shared/modules/common/common-warning";
+
+@import "picasso/utils/clearfix";
+@import "picasso/despegar/variables";
+@import "picasso/components/buttons";
+
+@import "compass/css3";
+
+
+.ux-common-error {
+	.ux-common-error-actions {
+		@include clearfix;
+		margin: 15px 0;
+
+		li {
+			float: left;
+			margin-right: 10px;
+
+			a {
+				line-height: 1.8;
+			}
+
+			.ux-common-error-button {
+				@include button-3d();
+			}
+		}		
+	}
+}

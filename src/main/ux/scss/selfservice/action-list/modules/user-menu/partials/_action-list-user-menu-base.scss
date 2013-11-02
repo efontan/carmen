@@ -1,0 +1,18 @@
+@charset "UTF-8";
+@import "picasso/despegar/variables";
+@import "compass/css3";
+
+@import "../../../../../shared/utils/mixins/typo";
+
+.ux-selfservice-user-menu {
+	background: $despegar-gray-8;
+	padding: 20px 30px;
+	
+	//titulo
+	.ux-selfservice-user-menu-title {
+		@include fontStyle($despegar-size-24, $despegar-title-color);
+		margin-bottom: 20px;
+		display: block;
+	}
+
+}

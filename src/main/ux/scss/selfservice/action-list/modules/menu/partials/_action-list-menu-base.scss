@@ -1,0 +1,351 @@
+@import "picasso/despegar/variables";
+@import "picasso/utils/clearfix";
+@import "picasso/components/buttons";
+
+@import "../../../../../shared/utils/mixins/typo";
+@import "../../../../../shared/utils/mixins/ellipsis-inline";
+
+@import "compass/css3";
+
+@mixin status-arrow($bgColor:$despegar-gray-8, $color:$despegar-gray-2){
+	background-color: $bgColor;
+	color: $color;
+	//flecha gris
+	&:before {
+		width: 0px;
+		height: 0px;
+		border-style: solid;
+		border-width: 20px 0 20px 20px;
+		border-color: transparent transparent transparent $bgColor;
+		content: "";
+		display: block;
+		position: absolute;
+		z-index: 2;
+		right: -16px;
+		top: 4px;
+	}
+
+	&:after {
+		width: 0px;
+		height: 0px;
+		border-style: solid;
+		border-width: 25px 0 25px 26px;
+		border-color: transparent transparent transparent $despegar-white;
+		content: "";
+		display: block;
+		position: absolute;
+		z-index: 1;
+		right: -26px;
+		top: 0;
+	}
+}
+
+.ux-selfservice-request-status-content {
+	margin: 0 0 10px 0;	
+
+	ul {
+		@include clearfix;
+		margin-bottom: 5px;
+		width: 100%;
+		overflow: hidden;
+
+		&.ux-selfservice-status-menu-large {			
+			li {
+				width: 20%;
+
+				&:last-child {					
+					&:before, &:after {
+						display: none;
+					}
+				}
+
+				.ie7 & {
+					width: 18.3%;
+				}
+
+				p {
+					width: 75%;
+				}
+			}
+		}
+
+		li {
+			@include fontStyle($despegar-size-13, $despegar-gray-2);
+			@include border-radius(0 14px 14px 0);
+			@include box-sizing(border-box);
+			@include clearfix;
+			background-color: $despegar-gray-7;
+			padding: 10px 0 10px 40px;
+			float: left;
+			width: 25%;
+			position: relative;
+			display: table;			
+
+			//estilos base para el icono
+			.ux-selfservice-menu-icon {
+				@include border-radius(20px);
+				width: 28px;
+				height: 28px;
+				margin-right: 5%;
+				background-color: $despegar-white;
+				color: $despegar-gray-7;
+				
+				
+				span {
+					@include fontStyle($despegar-size-16);
+					display: block;
+					font-weight: bold;
+					text-align: center;
+					line-height: 1.8;
+				}
+
+			}
+
+			.ie7 & {
+				padding-left: 20px;
+				width: 23.3%;
+			}			
+		
+			//li ok
+			&.ux-selfservice-step-ok {
+				@include status-arrow($despegar-gray-7);
+
+				.ux-selfservice-menu-icon {
+					background-color: transparent;				
+					
+					span {
+						@include fontStyle($despegar-size-32,  $despegar-promo-text);										
+						line-height: 0.9;
+					    position: relative;
+						left: -2px;
+					    top: -1px;
+
+					    .ie8 & , .ie7 & {
+							line-height: 1.5;
+						}
+					}
+				}				
+
+			}
+
+			//li desactivado
+			&.ux-selfservice-step-off {
+				@include status-arrow;
+
+				//estilo para icono desabilitado
+				.ux-selfservice-menu-icon {
+					@include fontStyle($despegar-size-16, $despegar-gray-5);
+					display: inline-block;
+					text-align: center;
+					line-height: 1.8;
+				}
+				
+
+				//se ocultan las flechas al ultimo item de la lista
+				&:last-child {					
+					&:before, &:after {
+						display: none;
+					}
+				}
+
+				.ie8 & {
+					&:before, &:after {
+						display: none;
+					}
+				}		
+
+			}
+
+			//li cargando
+			&.ux-selfservice-step-loading {
+				@include status-arrow($despegar-blue, $despegar-white);				
+
+				//estilo para icono cargando
+				.ux-selfservice-menu-icon {
+					@include fontStyle($despegar-size-16, $despegar-blue);
+					display: inline-block;
+					text-align: center;
+					line-height: 1.8;
+				}
+				
+			}
+			
+			//li rechazado
+			&.ux-selfservice-step-warning {
+				@include status-arrow($despegar-titlealt-color, $despegar-white);								
+
+				.ux-selfservice-menu-icon {
+					background-color: transparent;					
+					
+					span {
+						@include fontStyle($despegar-size-32, $despegar-white);										
+						line-height: 0;
+						font-weight: normal;
+						position: relative;
+						top: 14px;
+
+						 .ie8 & , .ie7 & {
+							line-height: 1.5;
+						}
+					}
+				}
+
+				p {
+					color: $despegar-white;
+				}
+				
+			}
+
+			//li cancelado
+			&.ux-selfservice-step-cancel {
+				background-color: $despegar-red;
+				color: $despegar-white;				
+				
+				.ux-selfservice-menu-icon {
+					background-color: transparent;					
+					
+					span {
+						@include fontStyle($despegar-size-32, $despegar-white);										
+						line-height: 0;
+						position: relative;
+						top: 14px;
+
+						 .ie8 & , .ie7 & {
+							line-height: 1.5;
+						}
+					}
+				}
+				
+			}
+
+			//li reprogramar
+			&.ux-selfservice-step-schedule {				
+				background-color: $despegar-titlealt-color;
+				color: $despegar-white;
+
+				.ux-selfservice-menu-icon {
+					background-color: transparent;					
+					
+					span {
+						@include fontStyle($despegar-size-32, $despegar-white);										
+						line-height: 1;
+						position: relative;
+						top: -2px;
+					}
+				}
+			}
+
+			//texto
+			p {
+				display: table-cell;
+			    line-height: 1;
+			    vertical-align: middle;	
+			    width: 80%;	   
+			}
+
+			&:last-child {
+				@include border-radius(0 9px 0 0);
+			}
+
+			&:first-child {
+				padding-left: 20px;
+				@include border-radius(9px 14px 14px 0);
+			}			
+
+		}
+
+	}
+
+	.ux-selfservice-request-status {		
+		clear: both;
+	}
+
+	.ux-selfservice-request-status-box {
+		@include clearfix;
+		@include border-radius(0 0 5px 5px);
+		background-color: $despegar-gray-8;
+		padding: 10px 15px;
+
+		//cambia color dependiendo el estado
+		&.ux-selfservice-request-status-cancel {
+			background-color: $despegar-error-bg;
+
+			.ux-selfservice-request-status-description {
+				.ux-selfservice-request-status-icon {
+					color: $despegar-red;
+				}
+			}
+		}
+
+		//cambia color dependiendo el estado
+		&.ux-selfservice-request-status-warning {
+			background-color: $despegar-warning-bg;
+
+			.ux-selfservice-request-status-description {
+				.ux-selfservice-request-status-icon {
+					color: $despegar-titlealt-color;
+				}
+			}
+
+		}
+
+		//cambia color dependiendo el estado
+		&.ux-selfservice-request-status-loading {			
+			
+			.ux-selfservice-request-status-description {
+				.ux-selfservice-request-status-icon {
+					color: $despegar-blue;
+				}
+			}
+		}
+
+		//descripcion del estado
+		.ux-selfservice-request-status-description {
+			float: left;
+			width: 80%;
+
+			.ux-selfservice-request-status-icon {
+				@include fontStyle($despegar-size-32, $despegar-blue);
+				float: left;
+				width: 3%;
+				margin-right: 2%;
+				margin-top: 18px;
+
+				span {
+					.ie7 & {
+						line-height: 1.3;
+					}
+				}		
+
+			}
+
+			.ux-selfservice-request-status-text {
+				@include fontStyle($despegar-size-11, $despegar-gray-5);
+				float: left;
+				width: 90%;
+				line-height: normal;
+
+				.ux-selfservice-request-title {
+					@include fontStyle($despegar-size-16, $despegar-gray-2);
+					display: block;
+				}
+
+				p {
+					@include fontStyle($despegar-size-13, $despegar-gray-3);
+				}
+			}
+		}
+		
+
+		//chat
+		.ux-selfservice-chat {
+			float: right;
+			margin-top: 19px;
+
+			.ux-selfservice-request-status-btn {
+				@include button-3d($despegar-blue);				
+			}
+
+		}		
+	}
+}

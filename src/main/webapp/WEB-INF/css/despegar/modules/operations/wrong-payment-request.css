@@ -1,0 +1,25 @@
+.wrong-payment-request {
+  width: 300px;
+}
+.wrong-payment-request select {
+  width: 240px;
+}
+.wrong-payment-request textarea {
+  height: 70px;
+  width: 290px;
+}
+.wrong-payment-request .wrong-payment-request-field {
+  margin-bottom: 20px;
+}
+.wrong-payment-request .mod-btn {
+  margin-left: 2px;
+}
+.wrong-payment-request .cancel-action {
+  font-size: 11px;
+  margin-left: 15px;
+  margin-top: 10px;
+  position: absolute;
+}
+.wrong-payment-request .wrong-payment-request-text-counter {
+  right: 0px;
+}

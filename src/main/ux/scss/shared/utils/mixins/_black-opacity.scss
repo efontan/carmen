@@ -1,0 +1,26 @@
+//## Opacity
+@mixin bg-opacity-black($grading: 0.5){
+    background: rgba(0,0,0,$grading);
+    .ie8 &{
+       @if $grading < 0.5{
+            -ms-filter:"progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr='#25000000', EndColorStr='#25000000')";
+       }@else if($grading >= 0.5){
+            -ms-filter:"progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr='#85000000', EndColorStr='#85000000')";
+       }@else{
+            -ms-filter:"progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr='#70000000', EndColorStr='#70000000')";
+
+       }
+   
+    }
+    .ie7 &{
+       @if $grading < 0.5{
+            filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr='#25000000', EndColorStr='#25000000');
+       }@else if($grading > 0.5){
+            filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr='#85000000', EndColorStr='#85000000');
+       }@else{
+            filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr='#70000000', EndColorStr='#70000000');
+
+       }
+   
+    }
+}

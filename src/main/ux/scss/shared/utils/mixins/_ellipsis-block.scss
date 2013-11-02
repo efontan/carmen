@@ -1,0 +1,50 @@
+//clases para ellipsis en bloque. 
+//el mixin se lo debe llamar desde el contenedor, y //dentro 
+//debe existir 
+//1) un div class=ux-mixins-ellipsis-invisible 
+//2) un p con el texto
+//3) un div class = ux-mixins-ellipsis-dots con ... y dentro <a> //ver mas </a>
+
+
+@mixin ellipsis-block($height:100px, $background: white, $font-size: $despegar-size-11, $line-height: 1.3em){
+    overflow: hidden;
+    height: $height; 
+    //margin-bottom: 10px;
+
+    .ux-mixins-ellipsis-invisible {
+        float: left;
+        width: 5px; 
+        height: $height + emtopx($line-height, $font-size); 
+    }
+    p{
+        float: right;
+        width: 100%; 
+        margin-left: -5px;
+        font-size: $font-size;
+        line-height: $line-height;
+    }
+    .ux-mixins-ellipsis-dots {
+        float: right; 
+        position: relative;
+       // $line-height : emtopx($line-height, $font-size);
+       // top: $height - $line-height; 
+        //top: $height - $font-size; 
+        left: 103%;
+        //top: -26px;
+        top: (emtopx($line-height, $font-size) + $font-size) * -1; 
+        width: 100px; 
+        margin-left: -100px;
+        padding-right: 5px; 
+        font-size: $font-size;
+        background-color: $background;
+        a{
+        	margin-left: 20px;
+        }
+
+    }
+       
+}
+// Convert em to px
+@function emtopx($target, $context){
+    @return ($target*$context/1em)+0px;
+}

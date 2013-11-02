@@ -1,0 +1,29 @@
+.dtalk-overlay {
+  width: 450px;
+}
+
+.chat-body .chat-icon {
+  float: left;
+}
+.chat-body p {
+  color: #222222;
+  float: left;
+  font-size: 0.8125rem;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 2%;
+  width: 345px;
+}
+.chat-body .cancel {
+  color: #222222;
+  font-size: 0.8125rem;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 2%;
+  position: relative;
+  bottom: 10px;
+}
+.chat-body .chatAction, .chat-body .chatIntegrationAction {
+  margin-top: 15px;
+  margin-left: -30px;
+}

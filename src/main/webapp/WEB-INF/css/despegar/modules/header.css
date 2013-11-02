@@ -1,0 +1,168 @@
+@charset "UTF-8";
+/*
+ *
+ * Módulo del header de miDespegar - Incluye logo/Num.Solicitud/Boton de usuario
+ *
+ */
+.mod-header {
+  margin-bottom: 20px;
+}
+.mod-header .icon-logo {
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+}
+.mod-header .request-number {
+  color: #444444;
+}
+.mod-header .user-options {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-top: .7em;
+  position: relative;
+  float: right;
+}
+.ie7 .mod-header .user-options {
+  z-index: 1;
+}
+.mod-header .user-options .user {
+  background-color: #dddddd;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFFFFFF', endColorstr='#FFDDDDDD');
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iNDklIiBzdG9wLWNvbG9yPSIjZGRkZGRkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGRkZGRkIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(49%, #dddddd), color-stop(100%, #dddddd));
+  background-image: -webkit-linear-gradient(top, #ffffff 0%, #dddddd 49%, #dddddd 100%);
+  background-image: -moz-linear-gradient(top, #ffffff 0%, #dddddd 49%, #dddddd 100%);
+  background-image: -o-linear-gradient(top, #ffffff 0%, #dddddd 49%, #dddddd 100%);
+  background-image: -ms-linear-gradient(top, #ffffff 0%, #dddddd 49%, #dddddd 100%);
+  background-image: linear-gradient(top, #ffffff 0%, #dddddd 49%, #dddddd 100%);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+  border: 1px solid #aaaaaa;
+  display: inline-block;
+  position: relative;
+  height: 35px;
+  padding: 0 0.8em;
+  float: right;
+}
+.mod-header .user-options .user.active {
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjEwMCUiIHgyPSI1MCUiIHkyPSIwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iNDklIiBzdG9wLWNvbG9yPSIjZGRkZGRkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGRkZGRkIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #ffffff), color-stop(49%, #dddddd), color-stop(100%, #dddddd));
+  background-image: -webkit-linear-gradient(bottom, #ffffff 0%, #dddddd 49%, #dddddd 100%);
+  background-image: -moz-linear-gradient(bottom, #ffffff 0%, #dddddd 49%, #dddddd 100%);
+  background-image: -o-linear-gradient(bottom, #ffffff 0%, #dddddd 49%, #dddddd 100%);
+  background-image: -ms-linear-gradient(bottom, #ffffff 0%, #dddddd 49%, #dddddd 100%);
+  background-image: linear-gradient(bottom, #ffffff 0%, #dddddd 49%, #dddddd 100%);
+}
+.mod-header .user-options .user:hover {
+  text-decoration: none;
+}
+.ie7 .mod-header .user-options .user {
+  display: inline;
+}
+.mod-header .user-options .user > span {
+  float: left;
+  display: block;
+}
+.mod-header .user-options .user .icon-people {
+  margin: 0.6em 0.3em 0 0;
+}
+.mod-header .user-options .user .email {
+  font-size: 13px;
+  color: #444444;
+  letter-spacing: 0;
+  border-right: 1px solid #cccccc;
+  line-height: 20px;
+  margin: 0.6em 0 0 0;
+  padding-right: .7em;
+}
+.ie7 .mod-header .user-options .user .email {
+  margin-top: .5em;
+}
+.mod-header .user-options .user .email:after {
+  border-right: 1px solid white;
+  content: "";
+  height: 20px;
+  position: absolute;
+  right: 2.6em;
+  top: 0.6em;
+}
+.mod-header .user-options .user .arrow-down {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 7px solid #444444;
+  height: 0;
+  margin: 0.9em 0 0 0.6em;
+  width: 0;
+}
+.mod-header .user-options .user-dropdown {
+  width: 100%;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  background: white;
+  top: 36px;
+  display: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  z-index: 9;
+}
+.mod-header .user-options .user-dropdown li a {
+  font-size: 13px;
+  letter-spacing: 0;
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 0.8em;
+  border: 1px solid #cccccc;
+}
+.mod-header .user-options .user-dropdown li a:hover:hover {
+  border-color: #319fda;
+  border-style: solid;
+  background-color: #eff7fc;
+  cursor: pointer;
+  text-decoration: none;
+}
+.mod-header .user-options .user-dropdown li:first-child a {
+  border-bottom: 1px solid transparent;
+}
+.mod-header .user-options .user-dropdown li:first-child a:hover {
+  border-bottom: 1px solid #319fda;
+}
+
+.email-list {
+  margin: 10px 0 10px 20px;
+}
+.email-list li {
+  font-style: italic;
+  color: #999;
+}
+
+.newMail {
+  margin-top: 15px;
+}
+.newMail .addMail {
+  width: 100%;
+  margin: 10px 0 13px 0;
+}
+.newMail .subtitle {
+  color: #013d93;
+}
+.newMail .mailingForm {
+  width: 100%;
+}
+.newMail .mailingForm-field {
+  float: none;
+  margin: 12px 0 20px 0;
+  width: 100%;
+}
+.newMail .related-mail {
+  width: 98%;
+  font-size: 14px;
+  height: 20px;
+}

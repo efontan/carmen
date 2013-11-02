@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+@import "picasso/despegar/variables";
+@import "picasso/utils/clearfix";
+
+
+
+
+@import "../../../../shared/utils/responsive/screen-size.scss";
+@import "../../../../shared/utils/mixins/typo.scss";
+@import "../../../../shared/utils/mixins/images.scss";
+@import "../../../../shared/utils/mixins/ellipsis-inline.scss";
+
+
+
+
+@import "../../change-sprite.scss";
+
+.ux-change-cluster-flight{
+	@include clearfix;
+	margin-bottom: 0.5em;
+	display: block; 
+
+
+	li{
+		text-align: left;
+		line-height: 25px;
+	
+		float: left; 
+
+	}
+	.ux-change-cluster-icon{
+		width: 4%;
+		.ux-change-cluster-departure, .ux-change-cluster-arrival{
+			margin-top: 5px;
+		}
+	}
+	.ux-change-cluster-departure{
+		@include common-images("selfservice/change/change-plane-outbound.png");
+		.ie7 &{
+			@include change-sprite("change-plane-outbound");
+		}
+	}
+	.ux-change-cluster-arrival{
+		@include common-images("selfservice/change/change-plane-inbound.png");
+		.ie7 &{
+			@include change-sprite("change-plane-inbound");
+		}
+	}
+	.ux-change-cluster-time {
+		//width: 16%;
+		.ux-change-cluster-airport{
+			text-transform: uppercase;
+			margin-right: 10px;
+		}
+		strong{
+			color: $despegar-gray-2;
+		}
+	}
+	.ux-change-cluster-arrow{
+		width: 7%;
+		text-align: center;
+		span{
+			@include common-images("selfservice/change/change-arrow.png");
+			display: inline-block;
+			.ie7 &{
+				@include change-sprite("change-arrow");
+			}
+		}
+	}
+	.ux-change-cluster-duration{
+		width: 20%;
+		margin-left: 5%;
+		a{
+			font-weight: bold;
+		}
+	}
+	.ux-change-cluster-stops{
+		width: 12%;
+		a{text-decoration: underline;}
+
+	}
+	.ux-change-cluster-airline{
+		@include ellipsis-inline;
+		img{
+			vertical-align: middle;
+		}
+
+	}
+	@include size-small-screen{
+		.ux-change-cluster-duration{
+			margin-left: 2%;
+		}
+	}
+	@include size-big-tablet{
+		&:first-child{
+			border-bottom: 1px solid $despegar-gray-8;
+			padding-bottom: 0.3em;
+		}
+		.ux-change-cluster-icon{width:8%;}
+		.ux-change-cluster-duration{
+			width: 34%;
+		}
+		.ux-change-cluster-stops{
+			width: 19%
+		}
+	}
+	@include size-mobile{
+		&:first-child{
+			border-bottom: 1px solid $despegar-gray-8;
+			padding-bottom: 0.3em;
+		}
+		li, .ux-change-cluster-duration, .ux-change-cluster-stops{
+			float :none;
+			margin-left: 15%;
+			width: 85%;
+			line-height: 1.5em;
+			&.ux-change-cluster-icon{
+				float:left;
+				margin-left: 0;
+				width: 15%;
+			}
+		}
+		.ux-change-cluster-arrow{
+
+		display: none;}
+	}
+
+}

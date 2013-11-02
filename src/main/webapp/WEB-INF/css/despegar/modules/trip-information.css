@@ -1,0 +1,459 @@
+.warning-sprite, .ie7 .ux-common-warning .ux-common-warning-icon-cont .ux-common-warning-icon {
+  background: url('../../../img/ux/common/modules/warning-s0047682d75.png') no-repeat;
+}
+
+.ux-common-warning {
+  border: 1px solid #ffcc33;
+  background-color: #ffffe1;
+  padding: 2%;
+  display: block;
+  width: 96%;
+}
+.ux-common-warning:before, .ux-common-warning:after {
+  content: "";
+  display: table;
+}
+.ux-common-warning:after {
+  clear: both;
+}
+.ie7 .ux-common-warning {
+  zoom: 1;
+}
+.ux-common-warning .ux-common-warning-icon-cont {
+  display: table;
+  float: left;
+  height: 36px;
+}
+.ux-common-warning .ux-common-warning-icon-cont .ux-common-warning-icon {
+  background: transparent url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAdCAYAAAC9pNwMAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAK8AAACvABQqw0mAAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDUvMjYvMTF9UsWsAAABuElEQVRIicWWP04CQRSHv9mYWBlIrKxYGlq5AVzAUGvD0lBzA9cbaOk2YmVtPIBwA28gVlQmu9EGmrWYHdiF/fNmQ+SXbDLMzryP32Pm8VQcx1gpUF1gClwmM6+AxzgObcI4ltAmMEtBAQbJF7GSHVgDGjnzAwI1sQmkxKkOVB94L1kRAa405TaO/Yr3DUDsWua42q1RBHQZx4uqhSeCYLB7eM67cNrU41UI3x/mTQOdGa8qYLXjQHnAU2buagYXPT1ezuGtv7urXeVa8hv7gjXWe8rB2m2rBnhIoNx6YF0s7mtAjab1wPpq5BWL9GHKjrPqJbfBAqzdFt/JVZg/3pdvBy5za6dC1/tgfSjKK9DPYjsuTrWRLwPrheVuf1PgdWVp7iW3owSs3Q6rItWQXw6WFotVqCvWcp5Ne7Fau663JVP+R1BXX4xj13xIO/bFIToe3Cz00/Gku1rpZkE7tnF75sL1Z3bupS1N+aZZMI59EdSAJXP52jQLTuK2JwbnOZO5NbolUK6DRbuygcxGsI70MxvZggF8FT9i2VgfRJFte3soNY4FxgGej8B9Nofr4Z+AEXAHTP4AhSiGVdUQTGEAAAAASUVORK5CYII=') no-repeat left top;
+  display: block;
+  width: 30px;
+  height: 29px;
+  font: 0/0 serif;
+  text-shadow: none;
+  color: transparent;
+  display: table-cell;
+  vertical-align: middle;
+  background-position: center center;
+}
+.ie7 .ux-common-warning .ux-common-warning-icon-cont .ux-common-warning-icon {
+  background-position: 0 0;
+}
+.ux-common-warning .ux-common-warning-content {
+  padding: 0 0 0 2%;
+  display: block;
+  float: left;
+  width: 95%;
+}
+.ux-common-warning .ux-common-warning-content.ux-common-warning-no-icon {
+  display: block;
+  width: auto;
+}
+.ux-common-warning .ux-common-warning-title {
+  font-size: 16px;
+  font-size: 1rem;
+  color: #013d93;
+  letter-spacing: 0;
+  margin-bottom: 5px;
+}
+.ux-common-warning .ux-common-warning-text {
+  font-size: 13px;
+  font-size: 0.8125rem;
+  color: #444444;
+  letter-spacing: 0;
+}
+.ux-common-warning .ux-common-warning-text-blue {
+  font-size: 11px;
+  font-size: 0.6875rem;
+  color: #013d93;
+  letter-spacing: 0;
+}
+.ie7 .ux-common-warning .ux-common-warning-icon-cont {
+  float: left;
+}
+.ie7 .ux-common-warning .ux-common-warning-content {
+  float: left;
+  width: 90%;
+}
+.ux-common-warning.ux-common-error {
+  border: 1px solid #e20a16;
+  background-color: #ffe6e6;
+}
+.ux-common-warning.ux-common-error .ux-common-warning-content {
+  display: block;
+  width: 95%;
+}
+.ux-common-warning.ux-common-error .ux-common-warning-title {
+  font-size: 16px;
+  font-size: 1rem;
+  color: #e20a16;
+  letter-spacing: 0;
+}
+.ux-common-warning.ux-common-error .ux-common-warning-text {
+  font-size: 13px;
+  font-size: 0.8125rem;
+  color: #444444;
+  letter-spacing: 0;
+}
+
+.ux-selfservices-action-list-overlay {
+  width: 750px;
+  background-color: white;
+}
+.ux-selfservices-action-list-overlay h4 {
+  font-size: 20px;
+  font-size: 1.25rem;
+  color: #013d93;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+  background: #eeeeee;
+  padding: 0 10px;
+  line-height: 40px;
+  border-bottom: none;
+  margin-bottom: 20px;
+  font-size: 16px;
+  letter-spacing: 0;
+}
+.ux-selfservices-action-list-overlay .ux-selfservices-action-list-overlay-main {
+  font-size: 13px;
+  font-size: 0.8125rem;
+  color: #222222;
+  letter-spacing: 0;
+  line-height: normal;
+  padding: 0 2% 2% 2%;
+  width: auto;
+}
+.ux-selfservices-action-list-overlay .ux-selfservices-action-list-overlay-main p {
+  padding: 0 0 20px 0;
+}
+.ux-selfservices-action-list-overlay .ux-selfservices-action-list-overlay-main .ux-selfservices-airline-list li {
+  color: #319fda;
+  padding: 0 0 10px 0;
+}
+.ux-selfservices-action-list-overlay .ux-selfservices-action-list-overlay-main .ux-selfservice-suggest-list li {
+  color: #222222;
+  padding: 0 0 10px 0;
+}
+.ux-selfservices-action-list-overlay .ux-selfservices-action-list-overlay-main .ux-selfservice-subtitle {
+  font-size: 20px;
+  font-size: 1.25rem;
+  color: #013d93;
+  letter-spacing: -1px;
+  display: block;
+  border-bottom: solid 1px #cccccc;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+}
+.ux-selfservices-action-list-overlay .ux-selfservices-action-list-overlay-main dl dt {
+  font-size: 16px;
+  font-size: 1rem;
+  letter-spacing: 0;
+  padding-bottom: 10px;
+}
+.ux-selfservices-action-list-overlay .ux-selfservices-action-list-overlay-main dl dd {
+  padding-bottom: 10px;
+}
+.ux-selfservices-action-list-overlay .ux-selfservices-action-list-overlay-main .ux-common-warning p {
+  padding: 0;
+}
+
+.ux-selfservices-user-menu-overlay {
+  width: 465px;
+}
+.ux-selfservices-user-menu-overlay:before, .ux-selfservices-user-menu-overlay:after {
+  content: "";
+  display: table;
+}
+.ux-selfservices-user-menu-overlay:after {
+  clear: both;
+}
+.ie7 .ux-selfservices-user-menu-overlay {
+  zoom: 1;
+}
+.ux-selfservices-user-menu-overlay h4 {
+  font-size: 20px;
+  font-size: 1.25rem;
+  color: #013d93;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+  background: #eeeeee;
+  padding: 0 10px;
+  line-height: 40px;
+  border-bottom: none;
+  margin-bottom: 20px;
+  font-size: 16px;
+  letter-spacing: 0;
+}
+.ux-selfservices-user-menu-overlay .ux-selfservice-user-menu-body {
+  padding: 0 15px 0 15px;
+}
+.ux-selfservices-user-menu-overlay .ux-selfservice-user-menu-body:before, .ux-selfservices-user-menu-overlay .ux-selfservice-user-menu-body:after {
+  content: "";
+  display: table;
+}
+.ux-selfservices-user-menu-overlay .ux-selfservice-user-menu-body:after {
+  clear: both;
+}
+.ie7 .ux-selfservices-user-menu-overlay .ux-selfservice-user-menu-body {
+  zoom: 1;
+}
+.ux-selfservices-user-menu-overlay .ux-selfservice-user-menu-body .ux-common-icon-chat, .ux-selfservices-user-menu-overlay .ux-selfservice-user-menu-body .ux-common-icon-warning {
+  float: left;
+  font-size: 40px;
+  color: #319fda;
+}
+.ux-selfservices-user-menu-overlay .ux-selfservice-user-menu-body .ux-common-icon-warning {
+  color: #ffcc33;
+}
+.ux-selfservices-user-menu-overlay .ux-selfservice-user-menu-body p {
+  font-size: 13px;
+  font-size: 0.8125rem;
+  color: #222222;
+  letter-spacing: 0;
+  float: left;
+  width: 85%;
+  margin-left: 2%;
+  line-height: normal;
+}
+.ux-selfservices-user-menu-overlay .ux-selfservices-actions {
+  overflow: hidden;
+  margin: 20px 0 10px 15px;
+}
+.ux-selfservices-user-menu-overlay .ux-selfservices-actions li {
+  float: left;
+  margin-right: 10px;
+}
+.ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button {
+  overflow: hidden;
+  display: inline-block;
+  line-height: 2.2em;
+  color: white;
+  border: 1px solid #00132e;
+  font-family: sans-serif;
+  font-size: 13px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  text-shadow: 0 1px 0 black;
+  -webkit-border-radius: 0.4em;
+  -moz-border-radius: 0.4em;
+  -ms-border-radius: 0.4em;
+  -o-border-radius: 0.4em;
+  border-radius: 0.4em;
+}
+.ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button:active {
+  position: relative;
+  top: 1px;
+}
+.ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button.disabled:active {
+  position: static;
+}
+.ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button span {
+  display: block;
+  padding: 0 13px;
+}
+.ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button:visited {
+  color: white;
+}
+.ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button:hover {
+  text-decoration: none;
+  color: white;
+}
+.ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button span, .ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button span:active {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #013d93), color-stop(100%, #000000));
+  background-image: -webkit-linear-gradient(#013d93, #000000);
+  background-image: -moz-linear-gradient(#013d93, #000000);
+  background-image: -o-linear-gradient(#013d93, #000000);
+  background-image: -ms-linear-gradient(#013d93, #000000);
+  background-image: linear-gradient(#013d93, #000000);
+}
+.ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button span {
+  background-color: #013d93;
+  -webkit-box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.5), inset 0 0.1em 0 rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.5), inset 0 0.1em 0 rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.5), inset 0 0.1em 0 rgba(255, 255, 255, 0.5);
+}
+.ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button span:hover {
+  background-color: #003d94;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, #00132e));
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), #00132e);
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0), #00132e);
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0), #00132e);
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0), #00132e);
+  background-image: linear-gradient(rgba(255, 255, 255, 0), #00132e);
+  -webkit-box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.5), inset 0 0.1em 0 rgba(255, 255, 255, 0.5), inset 0 0 1em #003d94;
+  -moz-box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.5), inset 0 0.1em 0 rgba(255, 255, 255, 0.5), inset 0 0 1em #003d94;
+  box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.5), inset 0 0.1em 0 rgba(255, 255, 255, 0.5), inset 0 0 1em #003d94;
+}
+.ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button span:active {
+  text-shadow: 0 -1px 0 black;
+  -webkit-box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.1), inset 0 0.1em 0.2em rgba(0, 0, 0, 0.5), inset 0 0.1em 0 rgba(0, 0, 0, 0.1), inset 0 0 1em rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.1), inset 0 0.1em 0.2em rgba(0, 0, 0, 0.5), inset 0 0.1em 0 rgba(0, 0, 0, 0.1), inset 0 0 1em rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.1), inset 0 0.1em 0.2em rgba(0, 0, 0, 0.5), inset 0 0.1em 0 rgba(0, 0, 0, 0.1), inset 0 0 1em rgba(0, 0, 0, 0.75);
+}
+.ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button.disabled {
+  border: 1px solid #755354;
+  cursor: not-allowed;
+  color: white;
+}
+.ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button.disabled span, .ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button.disabled span:hover, .ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button.disabled span:active {
+  text-shadow: 0 -1px 0 black;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #979797), color-stop(100%, #4b4b4b));
+  background-image: -webkit-linear-gradient(#979797, #4b4b4b);
+  background-image: -moz-linear-gradient(#979797, #4b4b4b);
+  background-image: -o-linear-gradient(#979797, #4b4b4b);
+  background-image: -ms-linear-gradient(#979797, #4b4b4b);
+  background-image: linear-gradient(#979797, #4b4b4b);
+  -webkit-box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.5), inset 0 0.1em 0 rgba(255, 255, 255, 0.25), inset 0 0 1em rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.5), inset 0 0.1em 0 rgba(255, 255, 255, 0.25), inset 0 0 1em rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.5), inset 0 0.1em 0 rgba(255, 255, 255, 0.25), inset 0 0 1em rgba(0, 0, 0, 0.75);
+}
+.ie7 .ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button span, .ie8 .ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button span, .ie9 .ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button span {
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#00013D93', endColorstr='#FF000000');
+}
+.ie7 .ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button span:hover, .ie8 .ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button span:hover, .ie9 .ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button span:hover {
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#00FFFFFF', endColorstr='#FF00132E');
+}
+.ie7 .ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button span:active, .ie8 .ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button span:active, .ie9 .ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button span:active {
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#00013D93', endColorstr='#FF000000');
+}
+.ie7 .ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button.disabled span, .ie7 .ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button.disabled span:hover, .ie7 .ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button.disabled span:active, .ie8 .ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button.disabled span, .ie8 .ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button.disabled span:hover, .ie8 .ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button.disabled span:active, .ie9 .ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button.disabled span, .ie9 .ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button.disabled span:hover, .ie9 .ux-selfservices-user-menu-overlay .ux-selfservices-actions li .ux-selfservices-actions-button.disabled span:active {
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF979797', endColorstr='#FF4B4B4B');
+}
+.ux-selfservices-user-menu-overlay .ux-selfservices-actions li a {
+  font-size: 13px;
+  font-size: 0.8125rem;
+  letter-spacing: 0;
+  line-height: 2.2;
+}
+
+.ux-selfservices-trip-information-content {
+  background: #eeeeee;
+  padding: 20px 15px;
+}
+.ux-selfservices-trip-information-content .ux-selfservices-trip-information-title {
+  font-size: 16px;
+  font-size: 1rem;
+  color: #013d93;
+  letter-spacing: 0;
+  display: block;
+  padding-bottom: 5px;
+  border-bottom: solid 1px #cccccc;
+  position: relative;
+}
+.ux-selfservices-trip-information-content .ux-selfservices-trip-information-title:after {
+  border-top: solid 1px white;
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -2px;
+  width: 100%;
+}
+.ux-selfservices-trip-information-content ul {
+  font-size: 13px;
+  font-size: 0.8125rem;
+  letter-spacing: 0;
+  margin-top: 20px;
+}
+.ux-selfservices-trip-information-content ul li {
+  padding-bottom: 15px;
+  color: #319fda;
+}
+.ux-selfservices-trip-information-content ul li a:hover {
+  text-decoration: none;
+}
+.ux-selfservices-trip-information-content ul li span {
+  cursor: pointer;
+}
+.ux-selfservices-trip-information-content ul li .ux-selfservice-general-information {
+  position: relative;
+}
+.ux-selfservices-trip-information-content ul li .ux-selfservice-general-information:after {
+  font-size: 20px;
+  font-size: 1.25rem;
+  letter-spacing: -1px;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  content: '\203A';
+  font-weight: bold;
+  position: absolute;
+  right: -15px;
+  bottom: 1px;
+}
+.ux-selfservices-trip-information-content ul li .ux-selfservice-general-information .ux-selfservice-general-info-icon {
+  display: none;
+}
+.ux-selfservices-trip-information-content ul li .ux-selfservice-main-info-active {
+  position: relative;
+}
+.ux-selfservices-trip-information-content ul li .ux-selfservice-main-info-active:after {
+  font-size: 20px;
+  font-size: 1.25rem;
+  letter-spacing: -1px;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  content: '\203A';
+  font-weight: bold;
+  position: absolute;
+  right: -12px;
+  bottom: 0;
+}
+.ux-selfservices-trip-information-content ul li .ux-selfservice-main-info {
+  margin-left: 15px;
+}
+.ux-selfservices-trip-information-content ul li:last-child {
+  padding: 0;
+}
+
+.action-list-sprite {
+  background: url('../../../img/ux/action-list-s38789d2068.png') no-repeat;
+}
+
+.ie8 .ux-selfservices-trip-information-content .ux-selfservice-general-information:after {
+  display: none;
+}
+.ie8 .ux-selfservices-trip-information-content .ux-selfservice-general-information .ux-selfservice-general-info-icon {
+  background: transparent url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAGCAYAAAD+Bd/7AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAK8AAACvABQqw0mAAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDkvMTIvMTOcPiNzAAAAoklEQVQImU3OoQrCUBiG4XdwEISDSUExmFYsgs1gFa27gjPBtCvwCizWJYNL3oIXYBAMA4tFEAximGHIhjAGv8E59tX3CZ8lIlNgAPhAwm8a8ICzWp+i+TPJx8tRq9+sKw/g9cn91TGadLQ6qN0lToH2Lc6czawLwGL/cO7vTAOpJSIMg+sWML1GLQEoYhAa27VEBKBExYcgNLYLUIIK4h8Bvk5mPQ9kp9JlAAAAAElFTkSuQmCC') no-repeat left top;
+  display: block;
+  width: 8px;
+  height: 6px;
+  font: 0/0 serif;
+  text-shadow: none;
+  color: transparent;
+  display: inline-block;
+  position: absolute;
+  bottom: 4px;
+  right: -15px;
+}
+.ie8 .ux-selfservices-trip-information-content .ux-selfservice-general-information .ux-selfservice-general-info-icon.ux-selfservice-general-info-icon-toggle {
+  background: transparent url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAGCAYAAAD+Bd/7AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAK8AAACvABQqw0mAAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDkvMTIvMTOcPiNzAAAAcElEQVQImWP8//8/Az7AhMwxWnB7vtGC2/OxKoBKJDAwMCQgK2JClpTnY/siz8f2BVkRo+H8W3DJOZ4y6xgYGBhStj8JevjpFw8DA8MClmhtAe5nn/+8qLIU2yXMyZzFwMDAMMdThqHt+Cs3KV4WbgC2tioHjpACIwAAAABJRU5ErkJggg==') no-repeat left top;
+  display: block;
+  width: 8px;
+  height: 6px;
+  font: 0/0 serif;
+  text-shadow: none;
+  color: transparent;
+  display: inline-block;
+}
+.ie9 .ux-selfservices-trip-information-content .ux-selfservice-general-information:after {
+  right: -15px;
+}
+.ie9 .ux-selfservices-trip-information-content .ux-selfservice-main-info-active:after {
+  right: -13px;
+}
+
+.ux-selfservices-trip-information-content {
+  margin-top: 20px;
+  float: right;
+  width: 280px;
+}

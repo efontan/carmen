@@ -1,0 +1,212 @@
+.mod-status {
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.mod-status ul {
+  background-color: #eeeeee;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFFFFFF', endColorstr='#FFEEEEEE');
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iNDklIiBzdG9wLWNvbG9yPSIjZWVlZWVlIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZWVlZWVlIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g");
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, white), color-stop(49%, #eeeeee), color-stop(100%, #eeeeee));
+  background-image: -webkit-linear-gradient(top, white 0%, #eeeeee 49%, #eeeeee 100%);
+  background-image: -moz-linear-gradient(top, white 0%, #eeeeee 49%, #eeeeee 100%);
+  background-image: -o-linear-gradient(top, white 0%, #eeeeee 49%, #eeeeee 100%);
+  background-image: linear-gradient(top, #ffffff 0%, #eeeeee 49%, #eeeeee 100%);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  border: 1px solid #aaaaaa;
+  display: block;
+  position: relative;
+  height: 50px;
+}
+
+.mod-status ul:after {
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+.mod-status ul .state {
+  padding: 7px 12px 7px 8px;
+  position: relative;
+  display: block;
+  float: left;
+}
+
+.mod-status ul .state .state-number {
+  display: inline-block;
+  text-align: center;
+  margin-right: 3px;
+  vertical-align: top;
+  position: relative;
+}
+
+.mod-status ul .state .state-number b {
+  position: absolute;
+  left: 10px;
+  line-height: normal;
+  top: 3px;
+}
+
+.mod-status ul .state .state-text {
+  margin-right: 5px;
+  line-height: 35px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.mod-status ul .state .mi-despegar-sprite-step-arrow {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  display: inline-block;
+}
+
+.mod-status ul .state .pointing-arrow {
+  position: absolute;
+  width: auto;
+  bottom: -7px;
+  border-left: 6px solid transparent;
+  border-top: 6px solid #013d93;
+  border-right: 6px solid transparent;
+  left: 18px;
+  display: none;
+}
+
+.mod-status ul .state.past .state-text {
+  font-size: 13px;
+  color: #666666;
+  letter-spacing: 0px;
+}
+
+.mod-status ul .state.past .state-number {
+  font-size: 20px;
+  color: white;
+  letter-spacing: 0px;
+  letter-spacing: -1px;
+}
+
+.mod-status ul .state.past .pointing-arrow {
+  display: inline-block;
+  border-top: 6px solid #666666;
+}
+
+.mod-status ul .state.now .state-text {
+  font-size: 13px;
+  color: #013d93;
+  letter-spacing: 0px;
+}
+
+.mod-status ul .state.now .pointing-arrow {
+  display: inline-block;
+}
+
+.mod-status ul .state.now .state-number {
+  font-size: 20px;
+  color: white;
+  letter-spacing: 0px;
+  letter-spacing: -1px;
+}
+
+.mod-status ul .state.future .state-text {
+  font-size: 13px;
+  color: #888888;
+  letter-spacing: 0px;
+}
+
+.mod-status ul .state.future .state-number {
+  font-size: 20px;
+  color: #666666;
+  letter-spacing: 0px;
+  letter-spacing: -1px;
+}
+
+.mod-status ul .state.cancel .state-text {
+  font-size: 13px;
+  color: red;
+  letter-spacing: 0px;
+}
+
+.mod-status ul .state.cancel .pointing-arrow {
+  display: inline-block;
+  border-top: 6px solid red;
+}
+
+.mod-status ul .state.alert .state-text {
+  font-size: 13px;
+  color: #ff9900;
+  letter-spacing: 0px;
+}
+
+.mod-status ul .state.alert .pointing-arrow {
+  display: inline-block;
+  border-top: 6px solid #ff9900;
+}
+
+.mod-status ul li:last-child {
+  padding-right: 5px;
+}
+
+.mod-status .state-information {
+  padding: 20px;
+  overflow: hidden;
+  clear: both;
+}
+
+.mod-status .state-information .state-icon {
+  float: left;
+  margin-right: 10px;
+  margin-top: 15px;
+}
+
+.mod-status .state-information .text {
+  width: 90%;
+  display: block;
+  float: left;
+}
+
+.mod-status .state-information .text .state-date {
+  font-size: 11px;
+  color: #666666;
+  letter-spacing: 0px;
+  display: block;
+  text-shadow: 0px 1px white;
+}
+
+.mod-status .state-information .text .state-title {
+  font-size: 16px;
+  color: #444444;
+  letter-spacing: 0px;
+  display: block;
+}
+
+.mod-status .state-information .text .state-content {
+  font-size: 13px;
+  color: #666666;
+  letter-spacing: 0px;
+}
+
+.mod-status .state-information.now {
+  background-color: #eeeeee;
+  border-left: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+}
+
+.mod-status .state-information.cancel {
+  background-color: #ffe6e6;
+  border-left: 1px solid red;
+  border-right: 1px solid red;
+  border-bottom: 1px solid red;
+}
+
+.mod-status .state-information.alert {
+  background-color: #ffffe1;
+  border-right: 1px solid #ffcc33;
+  border-left: 1px solid #ffcc33;
+  border-bottom: 1px solid #ffcc33;
+}
+
+.ie7 .mod-status .state .pointing-arrow {
+  bottom: -23px;
+}

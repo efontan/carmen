@@ -1,0 +1,103 @@
+@charset "UTF-8";
+@import "picasso/despegar/variables";
+@import "picasso/utils/clearfix";
+@import "../../shared/utils/mixins/typo";
+@import "../../shared/utils/mixins/images";
+@import "../../shared/utils/mixins/ellipsis-inline";
+
+
+
+//sprite comun de selfservice
+@import "selfservice-sprite";
+
+.ux-selfservice-detailbox{
+	margin-bottom: 1em;
+	border: 1px solid $despegar-titlealt-color;
+	background: $despegar-warning-bg;
+	padding: 2% 0;
+	.ux-selfservice-detailbox-title{
+		@include fontStyle($despegar-size-20, $despegar-gray-1);
+		margin-bottom: 0.5em;
+	}
+	.ux-selfservice-detailbox-header{
+		margin-bottom: 1em;
+		.ux-selfservice-detailbox-header-icon{
+			@include common-images("ux/selfservice/common/selfservice-alert.png");
+			float: left;
+
+			.ie7 &{
+				@include common-sprite("selfservice-alert");
+			}
+		}
+		.ux-selfservice-detailbox-header-text{
+			float: left;
+			margin-left: 2%;
+			
+		
+			.ux-selfservice-detailbox-header-title{
+				@include fontStyle($despegar-size-16, $despegar-gray-1);
+				line-height: 1.5em;
+
+			}
+			.ux-selfservice-detailbox-header-lead{
+				@include fontStyle($despegar-size-13, $despegar-gray-3);
+				font-weight: bold;
+				
+			}
+		}
+
+	}
+	.ux-selfservice-detailbox-total li, .ux-selfservice-detailbox-content li ul li, .ux-selfservice-detailbox-extra li{
+		
+		@include ellipsis-inline();
+		@include fontStyle($despegar-size-13, $despegar-gray-2);
+		&.ux-selfservice-detailbox-pax{
+			//width: 70%;
+			float: left;
+		}
+		&.ux-selfservice-detailbox-cost{
+			//width: 28%;
+			//text-align: right;
+			float: right;
+		}
+	}
+
+	.ux-selfservice-detailbox-extra li, .ux-selfservice-detailbox-total li{
+		color: $despegar-gray-1;
+		line-height: 2em;
+		font-weight: bold;
+	}
+	.ux-selfservice-detailbox-title,.ux-selfservice-detailbox-header, .ux-selfservice-detailbox-total, .ux-selfservice-detailbox-content, .ux-selfservice-detailbox-subtitle, .ux-selfservice-detailbox-em, .ux-selfservice-detailbox-extra {
+		padding: 0 3%;
+		@include clearfix();
+	
+	}
+	.ux-selfservice-detailbox-content{ 
+		margin-bottom: 1em;
+		li{
+			@include clearfix();
+			margin-bottom: 5px;
+			ul li{
+				line-height: 1.3em;
+				
+			}
+		}
+	}	
+	.ux-selfservice-detailbox-total{
+		margin-bottom: 0.5em;
+		background:  #FFF4BB;
+		background: rgba(255,204,51,0.22);
+		
+	}
+	.ux-selfservice-detailbox-subtitle, .ux-selfservice-detailbox-em{
+		line-height: 2em;
+
+	}
+	.ux-selfservice-detailbox-subtitle{
+		@include fontStyle($despegar-size-13, $despegar-gray-1);
+		
+	}
+	.ux-selfservice-detailbox-em{
+		@include fontStyle($despegar-size-11, $despegar-red);
+	}
+}

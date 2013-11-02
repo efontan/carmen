@@ -1,0 +1,266 @@
+.mod-basic-form {
+  padding: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  font-size: 13px;
+  color: #222222;
+  letter-spacing: 0;
+}
+.mod-basic-form.bkg {
+  background-color: #eeeeee;
+}
+.mod-basic-form input[type="text"], .mod-basic-form input[type="password"], .mod-basic-form select, .mod-basic-form textarea {
+  height: 30px;
+  font-size: 13px;
+  padding: 5px;
+  margin: 2px 0 10px 0;
+  width: 100%;
+}
+.mod-basic-form input[type="text"]::-webkit-input-placeholder, .mod-basic-form input[type="password"]::-webkit-input-placeholder, .mod-basic-form select::-webkit-input-placeholder, .mod-basic-form textarea::-webkit-input-placeholder {
+  color: #aaaaaa;
+  font-style: italic;
+}
+.mod-basic-form input[type="text"]:-moz-placeholder, .mod-basic-form input[type="password"]:-moz-placeholder, .mod-basic-form select:-moz-placeholder, .mod-basic-form textarea:-moz-placeholder {
+  color: #aaaaaa;
+  font-style: italic;
+}
+.ie8 .mod-basic-form input[type="text"], .ie9 .mod-basic-form input[type="text"], .ie8 .mod-basic-form input[type="password"], .ie9 .mod-basic-form input[type="password"], .ie8 .mod-basic-form select, .ie9 .mod-basic-form select, .ie8 .mod-basic-form textarea, .ie9 .mod-basic-form textarea {
+  line-height: normal;
+}
+.ie7 .mod-basic-form input[type="text"], .ie7 .mod-basic-form input[type="password"], .ie7 .mod-basic-form select, .ie7 .mod-basic-form textarea {
+  height: 20px;
+  line-height: normal;
+}
+.ie7 .mod-basic-form input[type="text"], .ie7 .mod-basic-form input[type="password"] {
+  width: auto;
+  height: auto;
+}
+.mod-basic-form input[type="text"], .mod-basic-form input[type="password"], .mod-basic-form select, .mod-basic-form textarea {
+  width: 100%;
+}
+.mod-basic-form label {
+  display: block;
+  white-space: nowrap;
+}
+.mod-basic-form input[type="text"].short-input, .mod-basic-form input[type="password"].short-input, .mod-basic-form select.short-input, .mod-basic-form textarea.short-input, .mod-basic-form .short-input {
+  width: 25%;
+  display: inline-block;
+  margin-right: 5px;
+}
+.mod-basic-form input[type="text"].medium-input, .mod-basic-form input[type="password"].medium-input, .mod-basic-form select.medium-input, .mod-basic-form textarea.medium-input {
+  width: 80%;
+}
+.mod-basic-form input.error-box, .mod-basic-form select.error-box, .mod-basic-form label.error-box, .mod-basic-form.error-box {
+  border: 1px solid red;
+  background-color: #ffe6e6;
+  margin-bottom: 0;
+}
+.mod-basic-form small {
+  font-size: 11px;
+}
+.mod-basic-form ul.radio-list {
+  margin-bottom: 20px;
+}
+.mod-basic-form ul.radio-list > li {
+  padding: 10px;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #cccccc;
+  vertical-align: middle;
+  /*&:hover{
+  	border-width: 1px;
+  	background-color: $link-hover-bkg;
+  	cursor: pointer;
+  	border: 1px solid $link;
+  	padding: 9px 9px 10px;
+  	
+  }*/
+}
+.mod-basic-form ul.radio-list > li label {
+  line-height: 29px;
+  display: inline;
+}
+.mod-basic-form ul.radio-list > li:last-child {
+  border-bottom: 1px solid transparent;
+}
+.mod-basic-form ul.radio-list > li:hover {
+  border-color: #319fda;
+  border-style: solid;
+  background-color: #eff7fc;
+  cursor: pointer;
+  text-decoration: none;
+}
+.mod-basic-form ul.radio-list > li.is-checked {
+  background-color: #eeeeee;
+  border-left: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  padding: 10px;
+}
+.mod-basic-form ul.radio-list > li:hover.is-checked {
+  border-top-color: transparent;
+}
+.mod-basic-form ul.radio-list > li:first-child.is-checked {
+  border: 1px solid #cccccc;
+  padding: 9px 9px 10px;
+}
+.mod-basic-form ul.radio-list > li ul {
+  display: block;
+  margin: 15px 0;
+}
+.mod-basic-form ul.radio-list > li ul li {
+  padding: 2px;
+  border: 1px solid transparent;
+  /*&:hover{
+  	background-color: $link-hover-bkg;
+  	cursor: pointer;
+  	border: 1px solid $link;
+  	padding: 2px;	
+  }*/
+}
+.mod-basic-form ul.radio-list > li ul li label {
+  margin-left: 10px;
+}
+.mod-basic-form ul.radio-list > li ul li:hover {
+  border-color: #319fda;
+  border-style: solid;
+  background-color: #eff7fc;
+  cursor: pointer;
+  text-decoration: none;
+}
+.mod-basic-form ul.radio-list > li ul li.is-checked {
+  background-color: white;
+  border: 1px solid #cccccc;
+  padding: 2px;
+}
+.mod-basic-form .questionIcon {
+  display: inline-block;
+  cursor: pointer;
+}
+.mod-basic-form .pax-type {
+  font-size: 16px;
+  color: #222222;
+  letter-spacing: 0;
+}
+.mod-basic-form .basic-checkbox {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 20px;
+}
+.mod-basic-form .basic-checkbox input {
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.mod-basic-form .icon-error, .mod-basic-form .icon-correct {
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.mod-basic-form .info-msg {
+  margin-top: 15px;
+}
+.mod-basic-form .add-more {
+  margin-left: 10px;
+}
+.mod-basic-form .button-comment {
+  margin-left: 15px;
+  font-size: 16px;
+  color: #222222;
+  letter-spacing: 0;
+  line-height: 27px;
+}
+.mod-basic-form .error-msg {
+  font-size: 11px;
+  color: red;
+  letter-spacing: 0;
+  display: none;
+  margin-bottom: 10px;
+}
+.mod-basic-form .error-msg p {
+  margin: 0 0 10px 0;
+  display: inline-block;
+}
+.mod-basic-form .error-msg ul {
+  list-style-type: disc;
+  margin: 0 0 5px 20px;
+}
+.mod-basic-form .error-msg ul li {
+  margin-bottom: 5px;
+}
+.mod-basic-form .promo-text {
+  display: inline-block;
+  background-color: #013d93;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF013D93', endColorstr='#FF012B69');
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAxM2Q5MyIvPjxzdG9wIG9mZnNldD0iMjYlIiBzdG9wLWNvbG9yPSIjMDEzZDkzIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDEyYjY5Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #013d93), color-stop(26%, #013d93), color-stop(100%, #012b69));
+  background-image: -webkit-linear-gradient(top, #013d93 0%, #013d93 26%, #012b69 100%);
+  background-image: -moz-linear-gradient(top, #013d93 0%, #013d93 26%, #012b69 100%);
+  background-image: -o-linear-gradient(top, #013d93 0%, #013d93 26%, #012b69 100%);
+  background-image: -ms-linear-gradient(top, #013d93 0%, #013d93 26%, #012b69 100%);
+  background-image: linear-gradient(top, #013d93 0%, #013d93 26%, #012b69 100%);
+  padding: 4px;
+  color: white;
+  border-radius: 3px;
+}
+.ie7 .mod-basic-form select {
+  height: auto;
+}
+.ie7 .mod-basic-form select span {
+  font-size: 20px;
+}
+.ie7 .mod-basic-form div.short-input {
+  float: left;
+  overflow: hidden;
+}
+.ie7 .mod-basic-form div.short-input input, .ie7 .mod-basic-form div.short-input select {
+  width: 100%;
+}
+.ie7 .mod-basic-form .info-msg {
+  margin-left: 10px;
+}
+.ie7 .mod-basic-form .next {
+  float: left;
+}
+
+.mod-contact-form {
+  padding-right: 0;
+}
+.mod-contact-form .basic-checkbox {
+  margin-top: 23px;
+}
+.ie7 .mod-contact-form input[type="text"], .ie7 .mod-contact-form input[type="password"] {
+  width: 80%;
+}
+
+.ie7 .mod-emergency-contact-form input[type="text"], .ie7 .mod-emergency-contact-form input[type="password"] {
+  width: 80%;
+}
+
+.mod-card-form .typo-title {
+  font-size: 16px;
+  color: #222222;
+  letter-spacing: 0;
+}
+.mod-card-form .expire-date {
+  width: 44%;
+}
+.ie7 .mod-card-form span.questionIcon, .ie7 .mod-card-form span.icon-correct {
+  margin-bottom: 20px;
+}
+
+.mod-buy-form .mod-btn {
+  float: left;
+}
+.mod-buy-form label.basic-checkbox {
+  padding: 6px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+.mod-buy-form label.basic-checkbox.error-box {
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.mod-buy-form .icon-error {
+  vertical-align: baseline;
+}

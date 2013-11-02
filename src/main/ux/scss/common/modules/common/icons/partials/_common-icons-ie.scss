@@ -1,0 +1,114 @@
+@mixin zoom($character){
+	zoom: expression( this.runtimeStyle.zoom = "1", this.innerHTML = "#{$character}" );
+}
+
+// ### IE7
+.ie7 {
+	
+.ux-common-icon-warning {
+	@include zoom("&#xe000;");
+}
+.ux-common-icon-positive {
+	@include zoom("&#xe002;");
+}
+.ux-common-icon-person {
+	@include zoom("&#xe003;");
+}
+.ux-common-icon-packages {
+	@include zoom("&#xe004;");
+}
+.ux-common-icon-modular-view {
+	@include zoom("&#xe005;");
+}
+.ux-common-icon-marker {
+	@include zoom("&#xe006;");
+}
+.ux-common-icon-last-buy {
+	@include zoom("&#xe007;");
+}
+.ux-common-icon-include {
+	@include zoom("&#xe008;");
+}
+.ux-common-icon-hotels {
+	@include zoom("&#xe009;");
+}
+.ux-common-icon-hot {
+	@include zoom("&#xe00a;");
+}
+.ux-common-icon-home {
+	@include zoom("&#xe00b;");
+}
+.ux-common-icon-flights {
+	@include zoom("&#xe00c;");
+}
+.ux-common-icon-destinies {
+	@include zoom("&#xe00d;");
+}
+.ux-common-icon-cruices {
+	@include zoom("&#xe00e;");
+}
+.ux-common-icon-combined-products {
+	@include zoom("&#xe011;");
+}
+.ux-common-icon-cluster-view {
+	@include zoom("&#xe012;");
+}
+.ux-common-icon-calendar {
+	@include zoom("&#xe014;");
+}
+.ux-common-icon-breakfast {
+	@include zoom("&#xe015;");
+}
+.ux-common-icon-arrow-right {
+	@include zoom("&#xe016;");
+}
+.ux-common-icon-airplane-return {
+	@include zoom("&#xe017;");
+}
+.ux-common-icon-airplane-going {
+	@include zoom("&#xe018;");
+}
+.ux-common-icon-photo {
+	@include zoom("&#xe01a;");
+}
+.ux-common-icon-add {
+	@include zoom("&#xe001;");
+}
+.ux-common-icon-correct {
+	@include zoom("&#xe00f;");
+}
+.ux-common-icon-remove {
+	@include zoom("&#xe019;");
+}
+.ux-common-icon-comment {
+	@include zoom("&#xe010;");
+}
+.ux-common-icon-cars {
+	@include zoom("&#xe013;");
+}
+.ux-common-icon-twitter {
+	@include zoom("&#xe01b;");
+}
+.ux-common-icon-facebook {
+	@include zoom("&#xe01c;");
+}
+.ux-common-icon-google {
+	@include zoom("&#xe01e;");
+}
+.ux-common-icon-negative {
+	@include zoom("&#xe01d;");
+}
+.ux-common-icon-baby-car {
+	@include zoom("&#xe01f;");
+}
+.ux-common-icon-business-man {
+	@include zoom("&#xe020;");
+}
+.ux-common-icon-man {
+	@include zoom("&#xe021;");
+}
+.ux-common-icon-woman {
+	@include zoom("&#xe022;");
+}
+
+}

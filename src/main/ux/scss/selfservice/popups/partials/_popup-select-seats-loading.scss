@@ -1,0 +1,26 @@
+//Panel transparente que se muestra para el estado de "cargando". 
+.ux-selfservice-selectseats{
+	.ux-selfservice-selectseats-loading-board{
+		position: absolute;
+		top: 80px;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background:white;
+		background: rgba(255, 255, 255, 0.7);
+		z-index: 1; 
+		display: none;
+		//Posicion que se le da al "spin". Utiliza js para la animación.  
+		.ux-selfservice-selectseats-loading-mask{
+			margin-top: 45%;
+			margin-left: 50%;
+		}
+	}
+	.ie7 &, .ie8 & {
+		.ux-selfservice-selectseats-loading-board{
+			background-color: $despegar-white;
+			filter: alpha(opacity=60);
+		}
+		
+	}
+}

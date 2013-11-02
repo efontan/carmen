@@ -1,0 +1,90 @@
+@charset "UTF-8";
+@import "picasso/despegar/variables";
+@import "compass/css3";
+
+@import "../../../../../shared/utils/mixins/typo";
+
+.ux-selfservices-trip-information-content {
+	background: $despegar-gray-8;
+	padding: 20px 15px;
+
+	.ux-selfservices-trip-information-title {
+		@include fontStyle($despegar-size-16, $despegar-title-color);
+		display: block;
+		padding-bottom: 5px;
+		border-bottom: solid 1px $despegar-gray-6;
+		position: relative;
+
+		&:after {
+			border-top: solid 1px $despegar-white;
+			content: "";
+		    display: block;
+		    position: absolute;
+		    bottom: -2px;
+		    width: 100%;
+		}
+	}
+
+	ul {
+		@include fontStyle($despegar-size-13);
+		margin-top: 20px;
+
+		li {
+			padding-bottom: 15px;
+			color: $despegar-link-color;
+			
+			a {
+				&:hover {
+					text-decoration: none;
+				}
+			}
+
+			span {
+				cursor: pointer;
+			}
+
+			.ux-selfservice-general-information {
+				position: relative;
+
+				&:after {
+					@include fontStyle($despegar-size-20);
+					@include rotate(90deg);
+					content:'\203A';					
+					font-weight: bold;
+					position: absolute;
+					right: -15px;
+					bottom: 1px;
+
+				}
+
+				.ux-selfservice-general-info-icon {
+					display: none;
+				}
+			}
+
+			.ux-selfservice-main-info-active {
+				position: relative;
+
+				&:after {
+					@include fontStyle($despegar-size-20);
+					@include rotate(-90deg);
+					content:'\203A';					
+					font-weight: bold;
+					position: absolute;
+					right: -12px;
+					bottom: 0;					
+
+				}
+
+			}
+
+			.ux-selfservice-main-info {
+				margin-left: 15px;
+			}
+
+			&:last-child {
+				padding: 0;
+			}
+		}
+	}
+}

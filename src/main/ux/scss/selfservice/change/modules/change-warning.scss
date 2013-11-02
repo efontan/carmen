@@ -1,0 +1,11 @@
+@charset "UTF-8";
+@import "../../../shared/modules/common/common-warning.scss";
+
+
+.ux-change-warning{
+	margin-bottom: 1em;
+	.ux-common-warning-text{
+		@include fontStyle($despegar-size-16);
+		line-height: 30px;
+	}
+}

@@ -1,0 +1,48 @@
+.lastActionBox {
+  width: 570px;
+  padding: 10px;
+  margin-bottom: 30px;
+  background-color: #f7f7f7;
+}
+.lastActionBox .lastAction {
+  font-size: 11px;
+  color: #666;
+  padding: 4px;
+}
+
+.icon-recent-op {
+  display: block;
+  float: right;
+  padding-left: 14px;
+}
+
+.lastAction .date {
+  display: block;
+  float: left;
+  width: 135px;
+}
+.lastAction .description {
+  display: block;
+  width: 195px;
+  float: left;
+}
+.lastAction .icon-recent-op {
+  width: 75px;
+  float: left;
+}
+.lastAction .refNumberCol {
+  margin-right: 20px;
+}
+
+.lastActionBox a {
+  font-size: 11px;
+  cursor: pointer;
+  cursor: hand;
+}
+.lastActionBox #viewLess, .lastActionBox #viewMore {
+  display: none;
+}
+
+.mi-despegar-flights .lastActionBox {
+  background-color: #EEEEEE;
+}

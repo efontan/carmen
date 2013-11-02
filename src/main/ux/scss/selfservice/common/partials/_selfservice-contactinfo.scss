@@ -1,0 +1,66 @@
+/* @charset "UTF-8";
+
+@import "picasso/despegar/variables";
+@import "picasso/utils/clearfix";
+
+
+@import "../../../shared/utils/mixins/typo";
+@import "picasso/components/inputs";
+
+
+
+
+
+.ux-selfservice-contactinfo{
+	@include clearfix;
+
+	li{
+		display: block;
+		width: 100%;
+		@include clearfix;
+		line-height: 1.5em;
+		@include fontStyle($despegar-size-11);
+
+		.ux-selfservice-contactinfo-add-phone{
+			@include fontStyle($despegar-size-11);
+			float: right;
+		}
+		
+	}
+	.ux-selfservice-contactinfo-concept{
+		color: $despegar-gray-3;
+
+	}
+	.ux-selfservice-contactinfo-data{
+		@include fontStyle($despegar-size-13, $despegar-gray-1);
+	}
+	.ux-selfservice-contactinfo-remove-phone{
+		text-align: right;
+	}
+	
+	.ux-selfservice-contactinfo-form{
+		margin-top: 0.2em;
+		margin-bottom: 3px;
+		//display: none;
+		label{
+			display: block;
+			margin-left: 2px;
+		}
+		input, select {
+			@include input($width: 100%, $font-size: $despegar-size-10); 
+			padding: 1px 5px;
+
+		}
+	}
+	.ie7 &{
+		.ux-common-grid-row{
+			[class^="ux-common-grid-col"]{
+				margin-left: 1.5%;
+			}
+		}
+			.ux-selfservice-contactinfo-form{
+					input[type="text"]{width: 80%;}
+			}
+	}
+		
+} */

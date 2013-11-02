@@ -1,0 +1,11 @@
+@import "../../../shared/utils/mixins/typo";
+
+// Titulo del popup
+.ux-selfservice-selectseats-title{
+	@include title($border: false);
+}
+
+// Texto del popup
+.ux-selfservice-selectseats-paragraph{
+	@include typo-paragraph;
+}

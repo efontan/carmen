@@ -1,0 +1,69 @@
+@import "../../utils/mixins/_hover-block.scss";
+@import "picasso/utils/clearfix";
+@import "picasso/despegar/variables";
+
+
+
+
+.ux-common-form-checkbox{
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 20px;
+
+	input{
+		margin-right: 5px;
+		vertical-align: middle;
+	}
+}
+
+ul.ux-common-form-checkboxlist{
+		margin-bottom: 20px;
+		>li{
+			padding: 10px;
+			border: 1px solid transparent;
+			border-bottom: 1px solid $despegar-gray-6;
+
+			vertical-align: middle;
+			label{
+				line-height: 29px;
+				display: inline;
+			}
+			&:last-child{
+				border-bottom: 1px solid transparent;
+			}
+			@include hoverBlock;
+		
+			&.is-checked{
+				background-color: $despegar-gray-7;
+				border-left: 1px solid $despegar-gray-6;
+				border-right: 1px solid $despegar-gray-6;
+				border-bottom: 1px solid $despegar-gray-6;
+				padding: 10px;
+			}
+			&:hover.is-checked{
+				border-top-color: transparent;
+			}
+			&:first-child.is-checked{
+				border: 1px solid $despegar-gray-6;
+				padding: 9px 9px 10px;
+			}		
+			ul{
+				display: block;
+				margin: 15px 0;
+				li{
+					padding:2px;
+					border: 1px solid transparent;
+					label{
+						margin-left:10px;
+					}
+					@include hoverBlock;
+					
+					&.is-checked{
+						background-color: $despegar-white;
+						border: 1px solid $despegar-gray-6;
+						padding: 2px;
+					}
+				}
+			}
+		}
+	}

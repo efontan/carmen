@@ -1,0 +1,46 @@
+@charset "UTF-8";
+@import "picasso/despegar/variables";
+@import "picasso/utils/clearfix";
+@import "../../shared/utils/mixins/typo";
+@import "../../shared/utils/mixins/ellipsis-inline";
+@import "../common/_selfservice-detailbox.scss";
+
+//Estilos para formulario
+
+@import "picasso/components/buttons";
+@import "compass/css3";
+
+.ux-popup-detailcost{
+
+	width: 93%;
+	
+	max-width: 310px;
+	padding: 4%;
+	
+	.ie8 &{
+		max-width: none;
+		width: auto;
+	}
+	
+	.ux-popup-detailcost-title{
+		@include title($bg:false, $border: false);
+	}
+	.ux-popup-detailcost-paragraph{
+		@include typo-paragraph;
+	}
+
+	.ux-popup-detailcost-table{
+	}
+
+	/* Botones */
+	.ux-popup-detailcost-btn{
+		@include button-3d();
+		float: left;
+	}
+	.ux-popup-detailcost-action{
+		line-height: $despegar-size-30;
+		margin-left: 1.5em;
+		@include fontStyle($despegar-size-13);
+
+	}
+}

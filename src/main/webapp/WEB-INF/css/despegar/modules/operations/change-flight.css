@@ -1,0 +1,133 @@
+.change-flight ul, .change-flight-select {
+  overflow: hidden;
+  padding: 10px;
+}
+.change-flight ul .titleFlightChange, .change-flight-select .titleFlightChange {
+  max-width: 550px;
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+.change-flight ul .radio-text, .change-flight-select .radio-text {
+  margin-left: 10px;
+  color: #013d93;
+  font-size: 15px;
+}
+.change-flight ul .cities, .change-flight-select .cities {
+  font-size: 13px;
+  color: #555;
+}
+.change-flight ul li, .change-flight-select li {
+  position: relative;
+  float: left;
+}
+.change-flight ul li label, .change-flight-select li label {
+  /*display: block;*/
+  /* font-size: 14px;
+   margin-bottom: 5px;*/
+  margin-bottom: 5px;
+  font-size: 13px;
+  margin-right: 8px;
+}
+.change-flight ul li input, .change-flight-select li input {
+  padding: 0;
+}
+.change-flight ul li.origin, .change-flight ul li.destination, .change-flight-select li.origin, .change-flight-select li.destination {
+  width: 205px;
+}
+.change-flight ul li.date.field, .change-flight-select li.date.field {
+  margin-right: 10px;
+  /*width: 95px;*/
+  width: 155px;
+}
+.change-flight ul li.date.field input, .change-flight-select li.date.field input {
+  width: 95px;
+  height: 28px !important;
+  text-align: left;
+  padding-left: 8px;
+}
+.change-flight ul li.field .calendarImage, .change-flight-select li.field .calendarImage {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+}
+.change-flight ul li.actions, .change-flight-select li.actions {
+  padding: 10px 10px 10px 5px;
+}
+.change-flight ul li.actions a span, .change-flight-select li.actions a span {
+  width: 75px;
+  text-align: center;
+}
+.change-flight ul li .calendar-icon, .change-flight-select li .calendar-icon {
+  position: absolute;
+  margin: 5px 72px;
+  display: inline-block;
+}
+
+.separator {
+  height: 0px;
+  border: 1px solid #dddddd;
+  margin: 15px 0;
+}
+
+.change-flight ul li.destination {
+  padding-left: 10px;
+}
+.change-flight .actions {
+  margin: 10px 0 0 9px;
+}
+.change-flight .changeType {
+  font-size: 14px;
+}
+.change-flight .chat-body p {
+  float: none;
+}
+
+.change-flight-multitrip {
+  font-size: 14px;
+  max-width: 570px;
+}
+.change-flight-multitrip .multitrip-title {
+  font-size: 17px;
+  color: #013d93;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+  background: #eeeeee;
+  line-height: 30px;
+}
+.change-flight-multitrip .segment-box {
+  border-top: 1px solid white;
+  border-bottom: 1px solid #cccccc;
+  overflow: auto;
+}
+.change-flight-multitrip .btn-lead {
+  font-size: 11px;
+  color: #666;
+  letter-spacing: 0px;
+}
+.change-flight-multitrip .city-content {
+  float: left;
+  margin: 0 25px 20px 0;
+  width: 30%;
+}
+.change-flight-multitrip .date-content {
+  margin-bottom: 20px;
+}
+.change-flight-multitrip .cities, .change-flight-multitrip .dates {
+  color: #777;
+  margin-top: 10px;
+}
+.change-flight-multitrip .actions {
+  margin: 18px 0 12px 0;
+}
+.change-flight-multitrip .segment-container {
+  margin-left: 1px;
+}
+.change-flight-multitrip label.error {
+  margin: -19px 0 3px 0;
+  font-size: 12px;
+  padding: 1px;
+  border: 0;
+  color: #ff4433;
+  float: right;
+  background: none;
+}

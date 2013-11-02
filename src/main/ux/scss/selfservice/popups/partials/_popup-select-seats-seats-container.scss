@@ -1,0 +1,138 @@
+// Shared mixins
+@import "../../../shared/utils/responsive/screen-size";
+@import "../../../shared/utils/mixins/typo";
+
+// Picasso mixins
+@import "picasso/despegar/variables";
+@import "picasso/utils/clearfix";
+
+.ux-selfservice-selectseats{
+	// Contenedor de asientos
+	.ux-selfservice-selectseats-seats-container{
+		position: relative;
+		padding: 20px 15px 15px 0;
+		cursor: default;
+		@include clearfix;
+		@mixin seats-container {
+			padding: 20px 0 15px 0;
+		}
+		@include size-big-tablet{
+			@include seats-container;
+		}
+		@include size-mobile{
+			@include seats-container;
+		}
+		
+		// Filas de asientos
+		.ux-selfservice-selectseats-seats-panel{
+			position: relative;
+			overflow-y: auto;
+			max-height: 27em;
+			.ie7 & {
+				margin-left: 15px;
+			}
+			.ux-selfservice-selectseats-wall-holder{
+				border-left: 3px solid $despegar-gray-5;
+				border-right: 3px solid $despegar-gray-5;
+				overflow: hidden;
+				padding-left: 7px;
+				padding-top: 10px;
+			}
+			@include clearfix;
+			.ux-selfservice-selectseats-seats-row{
+				display: block;
+				float: left;
+				margin-right: 9%;
+				@include fontStyle($despegar-size-13, $despegar-gray-3);				
+
+			}
+		}
+		
+		// Columnas de asientos (A,B,C,D..)
+		@mixin seats-column {
+			margin: 10px -10px 0 60px;
+		}
+		.ux-selfservice-selectseats-seats-column{
+			@include clearfix;
+			margin: 10px -15px 0 65px;
+			@include size-big-tablet{
+				@include seats-column;
+			}
+			@include size-mobile{
+				@include seats-column;
+			}
+			ul{
+				
+				@include fontStyle($despegar-size-11, $despegar-gray-3);
+				text-transform: uppercase;
+				li{
+					width: 23px;
+				
+					text-align: center;
+				}
+			}
+		}
+		.ux-selfservice-selectseats-wide-list, .ux-selfservice-selectseats-narrow-list, .ux-selfservice-selectseats-seats-column {
+			li{
+				float: left;
+			}
+		}
+		// Asientos primera clase
+		.ux-selfservice-selectseats-wide-list li{
+			margin-bottom: 20px;
+		}
+		// Asientos clase turista
+		.ux-selfservice-selectseats-narrow-list li{
+			margin-bottom: 10px;	
+		}
+
+		.ux-selfservice-selectseats-close {
+			margin-bottom: 14px;
+			height: 15px;
+
+			.ie8 &, .ie9 & {
+				margin-bottom: 13.8px;
+			}
+
+			.ie7 & {
+				margin-bottom: 15px;
+			}
+		}
+
+		.ux-selfservice-selectseats-wide{
+			margin-bottom: 27px;
+		}
+			
+		[class$="arrow-left"], [class$="arrow-right"]{
+			position: absolute;
+			top: 0;
+		}
+		[class$="arrow-left"]{
+			left: 5%;
+		}
+			[class$="arrow-right"]{
+			right: 3%;
+		}
+
+		.ux-selfservice-selectseats-left{
+			left: 8.5%;
+			
+
+		}
+		.ux-selfservice-selectseats-right{
+			right: 8.5%;
+			
+		}
+	}
+	.ie7 &{
+		.ux-selfservice-selectseats-seats-container{
+			right: 5%;
+			.ux-selfservice-selectseats-seats-panel .ux-selfservice-selectseats-wall-holder .ux-common-grid-row-col{
+				margin-bottom: 21px;
+			}
+			.ux-selfservice-selectseats-seats-panel .ux-selfservice-selectseats-wall-holder .ux-common-grid-row-col-narrow{
+				margin-bottom: 7px;
+			}
+		}
+	}
+}

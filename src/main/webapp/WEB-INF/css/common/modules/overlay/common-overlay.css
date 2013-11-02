@@ -1,0 +1,285 @@
+.ux-common-overlay {
+  float: left;
+  position: absolute;
+  display: none;
+  z-index: 20;
+  border-style: solid;
+  border-color: black;
+  border-color: rgba(0, 0, 0, 0.7);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+.ux-common-overlay .ux-common-overlay-container {
+  background-color: white;
+}
+.ux-common-overlay .ux-common-overlay-header {
+  background-color: whitesmoke;
+}
+.ux-common-overlay .ux-common-overlay-header h4 {
+  color: #013d93;
+}
+.ux-common-overlay .ux-common-overlay-body {
+  background-color: white;
+}
+.ux-common-overlay .ux-common-overlay-arrow {
+  display: block;
+  height: 0;
+  width: 0;
+  position: absolute;
+  border-style: solid;
+}
+.ux-common-overlay[class*="ux-common-overlay-bottom"] .ux-common-overlay-arrow {
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: black;
+  border-bottom-color: rgba(0, 0, 0, 0.7);
+}
+.ux-common-overlay[class*="ux-common-overlay-left"] .ux-common-overlay-arrow {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: black;
+  border-left-color: rgba(0, 0, 0, 0.7);
+}
+.ux-common-overlay[class*="ux-common-overlay-top"] .ux-common-overlay-arrow {
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-color: black;
+  border-top-color: rgba(0, 0, 0, 0.7);
+}
+.ux-common-overlay[class*="ux-common-overlay-right"] .ux-common-overlay-arrow {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-right-color: black;
+  border-right-color: rgba(0, 0, 0, 0.7);
+}
+.ux-common-overlay.ux-common-overlay-bottom .ux-common-overlay-arrow, .ux-common-overlay.ux-common-overlay-bottom-right .ux-common-overlay-arrow {
+  left: 0;
+}
+.ux-common-overlay.ux-common-overlay-left .ux-common-overlay-arrow, .ux-common-overlay.ux-common-overlay-left-bottom .ux-common-overlay-arrow {
+  top: 0;
+}
+.ux-common-overlay.ux-common-overlay-top .ux-common-overlay-arrow, .ux-common-overlay.ux-common-overlay-top-right .ux-common-overlay-arrow {
+  left: 0;
+}
+.ux-common-overlay.ux-common-overlay-right .ux-common-overlay-arrow, .ux-common-overlay.ux-common-overlay-right-bottom .ux-common-overlay-arrow {
+  top: 0;
+}
+.ux-common-overlay.ux-common-overlay-bottom-left .ux-common-overlay-arrow {
+  right: 0;
+}
+.ux-common-overlay.ux-common-overlay-left-top .ux-common-overlay-arrow {
+  bottom: 0;
+}
+.ux-common-overlay.ux-common-overlay-top-left .ux-common-overlay-arrow {
+  right: 0;
+}
+.ux-common-overlay.ux-common-overlay-right-top .ux-common-overlay-arrow {
+  bottom: 0;
+}
+.ux-common-overlay.ux-common-overlay-top-center .ux-common-overlay-arrow, .ux-common-overlay.ux-common-overlay-bottom-center .ux-common-overlay-arrow {
+  right: 50%;
+}
+.ux-common-overlay.ux-common-overlay-right-center .ux-common-overlay-arrow, .ux-common-overlay.ux-common-overlay-left-center .ux-common-overlay-arrow {
+  bottom: 50%;
+}
+.ux-common-overlay .ux-common-overlay-close {
+  position: absolute;
+  z-index: 10;
+  background-color: #319fda;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  color: white;
+  cursor: pointer;
+  font-family: arial,sans-serif;
+  font-weight: bold;
+  text-align: center;
+  -moz-border-radius-topright: 3px;
+  -webkit-border-top-right-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.ux-common-overlay-tooltip {
+  border-width: 5px;
+}
+.ux-common-overlay-tooltip .ux-common-overlay-container {
+  padding: 5px;
+}
+.ux-common-overlay-tooltip .ux-common-overlay-body {
+  padding: 0;
+}
+.ux-common-overlay-tooltip[class*="ux-common-overlay-top"], .ux-common-overlay-tooltip[class*="ux-common-overlay-right"], .ux-common-overlay-tooltip[class*="ux-common-overlay-bottom"], .ux-common-overlay-tooltip[class*="ux-common-overlay-left"] {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+.ux-common-overlay-tooltip[class*="ux-common-overlay-bottom"] .ux-common-overlay-arrow {
+  border-left-width: 5px;
+  border-right-width: 5px;
+  border-bottom-width: 5px;
+  top: -10px;
+}
+.ux-common-overlay-tooltip[class*="ux-common-overlay-left"] .ux-common-overlay-arrow {
+  border-top-width: 5px;
+  border-bottom-width: 5px;
+  border-left-width: 5px;
+  right: -10px;
+}
+.ux-common-overlay-tooltip[class*="ux-common-overlay-top"] .ux-common-overlay-arrow {
+  border-left-width: 5px;
+  border-right-width: 5px;
+  border-top-width: 5px;
+  bottom: -10px;
+}
+.ux-common-overlay-tooltip[class*="ux-common-overlay-right"] .ux-common-overlay-arrow {
+  border-top-width: 5px;
+  border-bottom-width: 5px;
+  border-right-width: 5px;
+  left: -10px;
+}
+.ux-common-overlay-tooltip.ux-common-overlay-top-center .ux-common-overlay-arrow, .ux-common-overlay-tooltip.ux-common-overlay-bottom-center .ux-common-overlay-arrow {
+  margin-right: -5px;
+}
+.ux-common-overlay-tooltip.ux-common-overlay-right-center .ux-common-overlay-arrow, .ux-common-overlay-tooltip.ux-common-overlay-left-center .ux-common-overlay-arrow {
+  margin-bottom: -5px;
+}
+.ux-common-overlay-tooltip .ux-common-overlay-close, .ux-common-overlay-tooltip .ux-common-overlay-header {
+  display: none;
+}
+
+.ux-common-overlay-popover {
+  border-width: 10px;
+}
+.ux-common-overlay-popover .ux-common-overlay-header {
+  padding: 15px;
+}
+.ux-common-overlay-popover .ux-common-overlay-body {
+  padding: 15px;
+}
+.ux-common-overlay-popover[class*="ux-common-overlay-top"], .ux-common-overlay-popover[class*="ux-common-overlay-right"], .ux-common-overlay-popover[class*="ux-common-overlay-bottom"], .ux-common-overlay-popover[class*="ux-common-overlay-left"] {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.ux-common-overlay-popover[class*="ux-common-overlay-bottom"] .ux-common-overlay-arrow {
+  border-left-width: 10px;
+  border-right-width: 10px;
+  border-bottom-width: 10px;
+  top: -20px;
+}
+.ux-common-overlay-popover[class*="ux-common-overlay-left"] .ux-common-overlay-arrow {
+  border-top-width: 10px;
+  border-bottom-width: 10px;
+  border-left-width: 10px;
+  right: -20px;
+}
+.ux-common-overlay-popover[class*="ux-common-overlay-top"] .ux-common-overlay-arrow {
+  border-left-width: 10px;
+  border-right-width: 10px;
+  border-top-width: 10px;
+  bottom: -20px;
+}
+.ux-common-overlay-popover[class*="ux-common-overlay-right"] .ux-common-overlay-arrow {
+  border-top-width: 10px;
+  border-bottom-width: 10px;
+  border-right-width: 10px;
+  left: -20px;
+}
+.ux-common-overlay-popover.ux-common-overlay-left, .ux-common-overlay-popover.ux-common-overlay-left-bottom {
+  margin-bottom: 20px;
+}
+.ux-common-overlay-popover.ux-common-overlay-left .ux-common-overlay-arrow, .ux-common-overlay-popover.ux-common-overlay-left-bottom .ux-common-overlay-arrow {
+  top: 20px;
+}
+.ux-common-overlay-popover.ux-common-overlay-bottom-left {
+  margin-right: 20px;
+}
+.ux-common-overlay-popover.ux-common-overlay-bottom-left .ux-common-overlay-arrow {
+  right: 20px;
+}
+.ux-common-overlay-popover.ux-common-overlay-top-center .ux-common-overlay-arrow, .ux-common-overlay-popover.ux-common-overlay-bottom-center .ux-common-overlay-arrow {
+  margin-right: -10px;
+}
+.ux-common-overlay-popover.ux-common-overlay-right-center .ux-common-overlay-arrow, .ux-common-overlay-popover.ux-common-overlay-left-center .ux-common-overlay-arrow {
+  margin-bottom: -10px;
+}
+.ux-common-overlay-popover .ux-common-overlay-close {
+  height: 25px;
+  width: 25px;
+  right: -10px;
+  top: -10px;
+  font-size: 20px;
+  line-height: 25px;
+}
+
+.ux-common-overlay-dialog {
+  border-width: 10px;
+}
+.ux-common-overlay-dialog .ux-common-overlay-header {
+  padding: 15px;
+}
+.ux-common-overlay-dialog .ux-common-overlay-body {
+  padding: 15px;
+}
+.ux-common-overlay-dialog[class*="ux-common-overlay-top"], .ux-common-overlay-dialog[class*="ux-common-overlay-right"], .ux-common-overlay-dialog[class*="ux-common-overlay-bottom"], .ux-common-overlay-dialog[class*="ux-common-overlay-left"] {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.ux-common-overlay-dialog[class*="ux-common-overlay-bottom"] .ux-common-overlay-arrow {
+  border-left-width: 10px;
+  border-right-width: 10px;
+  border-bottom-width: 10px;
+  top: -20px;
+}
+.ux-common-overlay-dialog[class*="ux-common-overlay-left"] .ux-common-overlay-arrow {
+  border-top-width: 10px;
+  border-bottom-width: 10px;
+  border-left-width: 10px;
+  right: -20px;
+}
+.ux-common-overlay-dialog[class*="ux-common-overlay-top"] .ux-common-overlay-arrow {
+  border-left-width: 10px;
+  border-right-width: 10px;
+  border-top-width: 10px;
+  bottom: -20px;
+}
+.ux-common-overlay-dialog[class*="ux-common-overlay-right"] .ux-common-overlay-arrow {
+  border-top-width: 10px;
+  border-bottom-width: 10px;
+  border-right-width: 10px;
+  left: -20px;
+}
+.ux-common-overlay-dialog.ux-common-overlay-top-center .ux-common-overlay-arrow, .ux-common-overlay-dialog.ux-common-overlay-bottom-center .ux-common-overlay-arrow {
+  margin-right: -10px;
+}
+.ux-common-overlay-dialog.ux-common-overlay-right-center .ux-common-overlay-arrow, .ux-common-overlay-dialog.ux-common-overlay-left-center .ux-common-overlay-arrow {
+  margin-bottom: -10px;
+}
+.ux-common-overlay-dialog .ux-common-overlay-close {
+  height: 25px;
+  width: 25px;
+  right: -10px;
+  top: -10px;
+  font-size: 20px;
+  line-height: 25px;
+}
+.ux-common-overlay-dialog.ux-common-overlay-fixed {
+  left: 50%;
+  top: 50%;
+}
+.ux-common-overlay-dialog .ux-common-overlay-arrow {
+  display: none;
+}
+
+.ux-common-overlay-background {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  cursor: pointer;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+}

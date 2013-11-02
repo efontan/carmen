@@ -1,0 +1,159 @@
+// Shared mixins
+
+@import "../../../shared/utils/mixins/typo";
+
+@import "../../../shared/utils/responsive/screen-size";
+
+@import "../../../shared/utils/mixins/hover-block";
+
+// Picasso mixins
+
+@import "picasso/utils/clearfix";
+
+.ux-selfservice-selectseats{
+
+	// Estilos para el listado de los pasajeros
+
+	.ux-selfservice-selectseats-pax-list{
+
+		@include clearfix;
+
+		margin-bottom: 20px;
+
+		li{
+
+			border: 1px solid $despegar-gray-6;
+
+			padding: 10px 5px 10px 15px;
+
+			width: 46%;
+
+			float: left;
+
+			text-transform: Uppercase;
+
+			@include fontStyle($despegar-size-13, $despegar-link-color-hover);
+
+			border-collapse: collapse;
+
+			margin-left: -1px;
+
+			margin-top: -1px;
+
+			@include clearfix;
+
+			@mixin pax-list-item {
+
+				float: none;
+
+				width: 95%;
+
+			}
+
+			@include size-big-tablet{
+
+				@include pax-list-item;
+
+			}
+
+			@include size-mobile{
+
+				@include pax-list-item;
+
+			}
+
+			
+
+			span{
+
+				float:left;
+
+				line-height: 19px;
+
+			}
+
+			.ux-selfservice-selectseats-pax-name{
+
+				width: 78%;
+
+			}
+
+			.ux-selfservice-selectseats-basic-seat{
+
+				margin-right: 5px;
+
+				padding: 0 3px;
+
+				width: auto;
+
+				min-width: 11px;
+
+			}
+
+			@include hoverBlock;
+
+			&.ux-selfservice-selectseats-pax-selected{
+
+				background-color: $despegar-link-color-hover;
+
+				color: $despegar-white;
+
+				&:hover{
+
+					background-color: $despegar-link-color-hover;
+
+					color: $despegar-white;
+
+					border-color: $despegar-gray-6;
+
+				}
+
+			}
+
+			&.ux-selfservice-selectseats-pax-error{
+
+				border-color: $despegar-error-border;
+
+				background-color: $despegar-error-bg;
+
+				position: relative;
+
+				&:hover{
+
+					border-color: $despegar-error-border;
+
+					background-color: $despegar-error-bg;
+
+					cursor: default;
+
+				}
+
+			}
+
+			
+
+		}
+
+	}
+
+	.ie7 &{
+
+		.ux-selfservice-selectseats-pax-list .ux-selfservice-selectseats-pax-name{
+
+			width: 76%;
+
+		}
+
+	}
+
+	.ux-selfservice-selectseats-error-msg{
+
+		@include fontStyle($despegar-size-13, $despegar-error-border);
+
+		margin-bottom: 10px;
+
+		display: none;
+
+	}
+
+}

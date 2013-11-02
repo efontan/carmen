@@ -1,0 +1,45 @@
+@charset "UTF-8";
+@import "picasso/despegar/variables";
+@import "../../shared/utils/mixins/typo";
+@import "../../shared/utils/mixins/images";
+@import "../../shared/modules/forms/form-error";
+
+@import "picasso/components/buttons";
+@import "compass/css3";
+
+@import "../../shared/utils/responsive/screen-size";
+@import "../../shared/modules/common/common-warning";
+
+
+.ux-popup-seat-change{
+	@include fontStyle($despegar-size-13);
+	width: 450px;	
+	//imagen warning
+
+	.ux-common-warning {
+		margin-bottom: 10px;
+	}	
+	
+	.ux-confirmation-btn {
+		@include button-3d();
+		vertical-align: middle;
+	}
+
+	.ux-confirmation-link{
+		margin-left: 3%;
+		line-height: 2em;	
+	}	
+}
+
+@include size-mobile {
+	.ux-popup-seat-change {
+		width: 240px;
+
+		a {
+			display: block;
+		}
+	}
+	margin-left:0!important;
+	left: 0!important;
+	margin-top: 0 !important;
+}

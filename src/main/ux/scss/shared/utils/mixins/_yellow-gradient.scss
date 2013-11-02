@@ -1,0 +1,16 @@
+@import "compass/css3";
+//Mixin para general el yellow gradient
+@mixin yellow-gradient($border:false){
+
+   //Para ie10
+    background-image: -ms-linear-gradient(top,  $despegar-searchbox-bg 0%,#ffcc33 100%);
+    @include background-image(linear-gradient(top, $despegar-searchbox-bg 0%,#ffcc33 100%));
+   
+	  // IE6-8
+  	@include filter-gradient($despegar-searchbox-bg, #ffcc33, vertical);
+    $experimental-support-for-svg: true;
+   	
+    @if $border {
+        border-bottom: 1px solid #ffcc33;
+    }
+}

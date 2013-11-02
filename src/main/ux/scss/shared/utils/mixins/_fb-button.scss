@@ -1,0 +1,83 @@
+@import "compass/css3";
+@import "compass/css3/user-interface";
+@import "images";
+@import "typo";
+@import "compass/utilities/sprites";
+@import "common/modules/fbbutton/*.png";
+
+@mixin fb-button($fb-font-size){
+	background-color: #4863ae;
+	color: #fff;
+	//margin: 8px 4px;
+	border: 1px solid #777;
+	border-color: rgba(0,0,0,0.2);
+	border-bottom-color: #333;
+	border-bottom-color: rgba(0,0,0,0.4);
+	cursor: pointer;
+	display: inline-block;
+	font-weight: bold;
+	line-height: 35px;
+	padding: 0 .95em;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+	white-space: nowrap;
+	position: relative;
+	@include fontStyle($fb-font-size);
+	@include single-box-shadow(rgba(255,255,255,0.4), 0, 0.08em, 0, 0, inset);
+	@include user-select(none);
+
+	@include border-radius(.3em);
+
+	//Fondo gradient ie10
+	background-image: -ms-linear-gradient(rgba(255,255,255,.1), rgba(0,0,0,.1));
+
+	//Fondo gradient compass mixin
+    @include background-image(linear-gradient(rgba(255,255,255,.1), rgba(0,0,0,.1)));
+
+    .ie7 &, .ie8 &, .ie9 &{
+    	@include filter-gradient(rgba(255,255,255,.1), rgba(0,0,0,.1)); // IE6-8
+	    $experimental-support-for-svg: true;
+    }
+
+	&:hover, &:focus{
+		//Fondo gradient ie10
+		background-image: -ms-linear-gradient(rgba(255,255,255,.15), rgba(0,0,0,.15));
+
+		//Fondo gradient compass mixin
+	    @include background-image(linear-gradient(rgba(255,255,255,.15), rgba(0,0,0,.15)));
+
+	    .ie7 &, .ie8 &, .ie9 &{
+	    	@include filter-gradient(rgba(255,255,255,.15), rgba(0,0,0,.15)); // IE6-8
+		    $experimental-support-for-svg: true;
+	    }
+	}
+	
+	&:before {
+		content:"";
+		@include common-images("common/modules/fbbutton/common-fbicon.png");
+		border-right: 0.075em solid rgba(0,0,0,0.1);
+		float: left;
+		margin: 0 0.5em 0 0;
+		padding: 0 0.3em;
+		line-height: 35px;
+		@include single-box-shadow(rgba(255,255,255,0.25), 0.075em, 0, 0, 0);
+		@include fontStyle($fb-font-size * 1.2);
+		
+		
+		//ie7 no lee el before
+		/*.ie7 &{
+			@include fbbutton-sprite("common-fbicon");
+		}
+		*/
+	}
+
+}
+
+
+
+/*user agent stylesheeta:-webkit-any-link {
+	color: -webkit-link;
+	text-decoration: underline;
+	cursor: auto;
+}*/

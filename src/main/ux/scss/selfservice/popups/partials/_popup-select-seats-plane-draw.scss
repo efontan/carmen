@@ -1,0 +1,113 @@
+@mixin plane-reference {
+	left: 159px;
+}
+@mixin plane-reference-right {
+	left: 182px;
+}
+
+// Estilos para el croquis del avion y sus referencias
+.ux-selfservice-selectseats-plane-draw{
+	border: 1px solid $despegar-gray-6;
+	padding: 30px 0 20px 0;
+	text-align: center;
+	margin-bottom: 15px;
+	position: relative;
+	.ux-selfservice-selectseats-plane-sector{
+		width: 30px;
+		height: 140px;
+		top: 105px;
+		left: 82px;
+		background-color: lighten($despegar-link-color-hover, 18);
+		position: absolute;
+		@include size-big-tablet{
+			@include plane-reference;
+		}
+		@include size-mobile{
+			@include plane-reference;
+		}
+	}
+	.ux-selfservice-selectseats-plane-sector-view{
+		width: 30px;
+		height: 40px;
+		top: 122px;
+		left: 82px;
+		background-color: $despegar-link-color-hover;
+		position: absolute;
+		@include size-big-tablet{
+			@include plane-reference;
+		}
+		@include size-mobile{
+			@include plane-reference;
+		}
+	}
+
+	// Puertas de salida
+	.ux-selfservice-selectseats-plane-sector-exit {
+		display: block; 
+		background-color: $despegar-yellow; 
+		border: 1px solid $despegar-gray-5;
+		position: absolute;
+		height: 7px; 
+		width: 5px;
+		&.ux-selfservice-selectseats-plane-sector-exit-left-top {
+			top: 71px; 
+			left: 82px;
+			@include size-big-tablet{
+				@include plane-reference;
+			}
+			@include size-mobile{
+				@include plane-reference;
+			}
+		}
+		&.ux-selfservice-selectseats-plane-sector-exit-left-middle {
+			top: 97px; 
+			left: 82px;
+			@include size-big-tablet{
+				@include plane-reference;
+			}
+			@include size-mobile{
+				@include plane-reference;
+			}
+		}
+		&.ux-selfservice-selectseats-plane-sector-exit-left-bottom {
+			top: 245px; 
+			left: 82px;
+			@include size-big-tablet{
+				@include plane-reference;
+			}
+			@include size-mobile{
+				@include plane-reference;
+			}
+		}
+		&.ux-selfservice-selectseats-plane-sector-exit-right-top {
+			top: 71px; 
+			left: 105px;
+			@include size-big-tablet{
+				@include plane-reference-right;
+			}
+			@include size-mobile{
+				@include plane-reference-right;
+			}
+		}
+		&.ux-selfservice-selectseats-plane-sector-exit-right-middle {
+			top: 97px; 
+			left: 105px;
+			@include size-big-tablet{
+				@include plane-reference-right;
+			}
+			@include size-mobile{
+				@include plane-reference-right;
+			}
+		}
+		&.ux-selfservice-selectseats-plane-sector-exit-right-bottom {
+			top: 245px; 
+			left: 105px;
+			@include size-big-tablet{
+				@include plane-reference-right;
+			}
+			@include size-mobile{
+				@include plane-reference-right;
+			}
+		}
+	}
+}

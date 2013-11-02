@@ -1,0 +1,127 @@
+.mi-despegar-sprite-sprite, .mi-despegar-sprite-bg, .mi-despegar-sprite-carmen, .mi-despegar-sprite-facebook, .mi-despegar-sprite-game_bg, .mi-despegar-sprite-google, .mi-despegar-sprite-pointer, .mi-despegar-sprite-printer, .mi-despegar-sprite-step-future, .mi-despegar-sprite-step-now, .mi-despegar-sprite-step-past, .mi-despegar-sprite-twitter, .mi-despegar-sprite-user-menu-cancellation, .mi-despegar-sprite-user-menu-change-flight, .mi-despegar-sprite-user-menu-chat, .mi-despegar-sprite-user-menu-flight-actions, .mi-despegar-sprite-user-menu-invoicing, .mi-despegar-sprite-user-menu-resend, .mi-despegar-sprite-user-menu-special-request, .mi-despegar-sprite-user-menu-suggestion, .mi-despegar-sprite-waiting-icon {
+  background: url('../../../img/mi-despegar-sprite-sc257c2b02e.png') no-repeat;
+}
+
+.mi-despegar-sprite-bg {
+  background-position: 0 -550px;
+  height: 259px;
+  width: 350px;
+}
+
+.mi-despegar-sprite-carmen {
+  background-position: 0 -1158px;
+  height: 99px;
+  width: 160px;
+}
+
+.mi-despegar-sprite-facebook {
+  background-position: 0 -1515px;
+  height: 25px;
+  width: 25px;
+}
+
+.mi-despegar-sprite-game_bg {
+  background-position: 0 0;
+  height: 550px;
+  width: 1024px;
+}
+
+.mi-despegar-sprite-google {
+  background-position: 0 -1348px;
+  height: 25px;
+  width: 25px;
+}
+
+.mi-despegar-sprite-pointer {
+  background-position: 0 -1257px;
+  height: 32px;
+  width: 32px;
+}
+
+.mi-despegar-sprite-printer {
+  background-position: 0 -809px;
+  height: 349px;
+  width: 277px;
+}
+
+.mi-despegar-sprite-step-future {
+  background-position: 0 -1622px;
+  height: 32px;
+  width: 32px;
+}
+
+.mi-despegar-sprite-step-now {
+  background-position: 0 -1590px;
+  height: 32px;
+  width: 32px;
+}
+
+.mi-despegar-sprite-step-past {
+  background-position: 0 -1483px;
+  height: 32px;
+  width: 32px;
+}
+
+.mi-despegar-sprite-twitter {
+  background-position: 0 -1540px;
+  height: 25px;
+  width: 25px;
+}
+
+.mi-despegar-sprite-user-menu-cancellation {
+  background-position: 0 -1455px;
+  height: 28px;
+  width: 27px;
+}
+
+.mi-despegar-sprite-user-menu-change-flight {
+  background-position: 0 -1320px;
+  height: 28px;
+  width: 31px;
+}
+
+.mi-despegar-sprite-user-menu-chat {
+  background-position: 0 -1654px;
+  height: 35px;
+  width: 38px;
+}
+
+.mi-despegar-sprite-user-menu-flight-actions {
+  background-position: 0 -1289px;
+  height: 31px;
+  width: 33px;
+}
+
+.mi-despegar-sprite-user-menu-invoicing {
+  background-position: 0 -1373px;
+  height: 29px;
+  width: 30px;
+}
+
+.mi-despegar-sprite-user-menu-resend {
+  background-position: 0 -1565px;
+  height: 25px;
+  width: 32px;
+}
+
+.mi-despegar-sprite-user-menu-special-request {
+  background-position: 0 -1402px;
+  height: 27px;
+  width: 30px;
+}
+
+.mi-despegar-sprite-user-menu-suggestion {
+  background-position: 0 -1429px;
+  height: 26px;
+  width: 31px;
+}
+
+.mi-despegar-sprite-waiting-icon {
+  background-position: 0 -1689px;
+  height: 30px;
+  width: 22px;
+}
+
+.mi-despegar-sprite-sprite, .mi-despegar-sprite-bg, .mi-despegar-sprite-carmen, .mi-despegar-sprite-facebook, .mi-despegar-sprite-game_bg, .mi-despegar-sprite-google, .mi-despegar-sprite-pointer, .mi-despegar-sprite-printer, .mi-despegar-sprite-step-future, .mi-despegar-sprite-step-now, .mi-despegar-sprite-step-past, .mi-despegar-sprite-twitter, .mi-despegar-sprite-user-menu-cancellation, .mi-despegar-sprite-user-menu-change-flight, .mi-despegar-sprite-user-menu-chat, .mi-despegar-sprite-user-menu-flight-actions, .mi-despegar-sprite-user-menu-invoicing, .mi-despegar-sprite-user-menu-resend, .mi-despegar-sprite-user-menu-special-request, .mi-despegar-sprite-user-menu-suggestion, .mi-despegar-sprite-waiting-icon {
+  display: block;
+}

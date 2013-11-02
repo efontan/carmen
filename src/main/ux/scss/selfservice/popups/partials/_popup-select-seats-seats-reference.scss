@@ -1,0 +1,19 @@
+// Referencias
+.ux-selfservice-selectseats-seats-reference{
+	border: 1px solid $despegar-gray-6;
+	padding: 18px 5%;
+	@include fontStyle($despegar-size-13, $despegar-gray-3);
+
+	li{
+		margin-bottom: 7px;
+	}
+	span{
+		display: inline-block;
+		margin-right: 5%;
+		vertical-align: middle;
+		&:hover{
+			opacity: 100;
+		}
+
+	}
+}

@@ -1,0 +1,83 @@
+@import "compass/css3";
+@import "images";
+@import "typo";
+
+
+%social-button {
+	@include border-radius(.3em);
+	@include single-box-shadow(rgba(255,255,255,0.4), 0, 0.08em, 0, 0, inset);
+	font-size: $despegar-size-16;
+	color: #fff;
+	border: 1px solid #777;
+	border-color: rgba(0,0,0,0.2);
+	border-bottom-color: #333;
+	border-bottom-color: rgba(0,0,0,0.4);
+	cursor: pointer;
+	display: inline-block;
+	line-height: 35px;
+	padding: 0 .95em 0 .55em;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+	white-space: nowrap;
+	position: relative;
+
+	//Fondo gradient ie10
+	background-image: -ms-linear-gradient(rgba(255,255,255,.1), rgba(0,0,0,.1));
+
+	//Fondo gradient compass mixin
+    @include background-image(linear-gradient(rgba(255,255,255,.1), rgba(0,0,0,.1)));
+
+    .ie7 &, .ie8 &, .ie9 &{
+    	@include filter-gradient(rgba(255,255,255,.1), rgba(0,0,0,.1)); // IE6-8
+	    $experimental-support-for-svg: true;
+    }
+
+	&:hover, &:focus{
+		//Fondo gradient ie10
+		background-image: -ms-linear-gradient(rgba(255,255,255,.15), rgba(0,0,0,.15));
+
+		//Fondo gradient compass mixin
+	    @include background-image(linear-gradient(rgba(255,255,255,.15), rgba(0,0,0,.15)));
+
+	    .ie7 &, .ie8 &, .ie9 &{
+	    	@include filter-gradient(rgba(255,255,255,.15), rgba(0,0,0,.15)); // IE6-8
+		    $experimental-support-for-svg: true;
+	    }
+	}
+
+	&:before {
+		@include single-box-shadow(rgba(255,255,255,0.25), 0.075em, 0, 0, 0);
+		border-right: 0.075em solid rgba(0,0,0,0.1);
+		float: left;
+		margin: 0 0.5em 0 0;
+		padding: 0 0.3em 0 0;
+		line-height: 36px;
+		font-size: 1.3em;
+		font-weight: 400;
+	}
+
+	span {
+		font-family: Arial;
+		font-weight: bold;
+	}
+}
+
+@mixin facebook-button($font-size) {
+	@include fontStyle($font-size);
+	background-color: #4863ae;
+	@extend %social-button;
+}
+
+@mixin twitter-button($font-size) {
+	@include fontStyle($font-size);
+	background-color:  #3AB7E8;
+	@extend %social-button;
+}
+
+@mixin google-button($font-size) {
+	@include fontStyle($font-size);
+	background-color: #373737;
+	@extend %social-button;
+}
+

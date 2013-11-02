@@ -1,0 +1,188 @@
+// ## Overlay base
+
+@import "picasso/despegar/variables";
+@import "picasso/utils/clearfix";
+@import "picasso/utils/rem";
+@import "compass/css3/border-radius";
+
+$overlay-default-class: "ux-common-overlay";
+$overlay-default-border-color: $despegar-black;
+$overlay-default-border-opacity: 0.7;
+$overlay-default-content-bg: $despegar-white;
+$overlay-default-elements-padding: 15px;
+$overlay-default-title-bg: $despegar-gray-9;
+
+.#{$overlay-default-class}{
+	float: left;
+	position: absolute;
+	display: none;
+	z-index: 20;
+	border-style: solid;
+	border-color: rgb(red($overlay-default-border-color), green($overlay-default-border-color), blue($overlay-default-border-color));
+	border-color: rgba(red($overlay-default-border-color), green($overlay-default-border-color), blue($overlay-default-border-color), $overlay-default-border-opacity);
+	@include border-radius(3px);
+
+	.#{$overlay-default-class}-container{
+		background-color: $overlay-default-content-bg;
+	}
+
+	.#{$overlay-default-class}-header{
+		background-color: $overlay-default-title-bg;
+		
+		h4{
+			color: $despegar-blue;
+		}
+
+	}
+
+	.#{$overlay-default-class}-body{
+		background-color: $overlay-default-content-bg;
+	}
+
+	.#{$overlay-default-class}-arrow{
+		display: block;
+		height: 0;
+		width: 0;
+		position: absolute;
+		border-style: solid;
+	}
+
+	&[class*="#{$overlay-default-class}-bottom"] {
+
+		.#{$overlay-default-class}-arrow{
+			border-left-color: transparent;
+		    border-right-color: transparent;
+		    border-bottom-color: rgb(red($overlay-default-border-color), green($overlay-default-border-color), blue($overlay-default-border-color));
+			border-bottom-color: rgba(red($overlay-default-border-color), green($overlay-default-border-color), blue($overlay-default-border-color), $overlay-default-border-opacity);
+		}
+
+	}
+
+	&[class*="#{$overlay-default-class}-left"] {
+
+		.#{$overlay-default-class}-arrow{
+			border-top-color: transparent;
+		    border-bottom-color: transparent;
+		    border-left-color: rgb(red($overlay-default-border-color), green($overlay-default-border-color), blue($overlay-default-border-color));
+			border-left-color: rgba(red($overlay-default-border-color), green($overlay-default-border-color), blue($overlay-default-border-color), $overlay-default-border-opacity);
+		}
+
+	}
+
+	&[class*="#{$overlay-default-class}-top"] {
+
+		.#{$overlay-default-class}-arrow{
+			border-left-color: transparent;
+		    border-right-color: transparent;
+		    border-top-color: rgb(red($overlay-default-border-color), green($overlay-default-border-color), blue($overlay-default-border-color));
+			border-top-color: rgba(red($overlay-default-border-color), green($overlay-default-border-color), blue($overlay-default-border-color), $overlay-default-border-opacity);
+		}
+
+	}
+	
+	&[class*="#{$overlay-default-class}-right"] {
+
+		.#{$overlay-default-class}-arrow{
+			border-top-color: transparent;
+		    border-bottom-color: transparent;
+		    border-right-color: rgb(red($overlay-default-border-color), green($overlay-default-border-color), blue($overlay-default-border-color));
+			border-right-color: rgba(red($overlay-default-border-color), green($overlay-default-border-color), blue($overlay-default-border-color), $overlay-default-border-opacity);
+		}
+
+	}
+
+	&.#{$overlay-default-class}-bottom, &.#{$overlay-default-class}-bottom-right{
+
+		.#{$overlay-default-class}-arrow{
+			left: 0;
+		}
+		
+	}
+
+	&.#{$overlay-default-class}-left, &.#{$overlay-default-class}-left-bottom{
+
+		.#{$overlay-default-class}-arrow{
+			top: 0;
+		}
+		
+	}
+
+	&.#{$overlay-default-class}-top, &.#{$overlay-default-class}-top-right{
+
+		.#{$overlay-default-class}-arrow{
+			left: 0;
+		}
+		
+	}
+
+	&.#{$overlay-default-class}-right, &.#{$overlay-default-class}-right-bottom{
+
+		.#{$overlay-default-class}-arrow{
+			top: 0;
+		}
+		
+	}
+
+	&.#{$overlay-default-class}-bottom-left{
+
+		.#{$overlay-default-class}-arrow{
+			right: 0;
+		}
+		
+	}
+
+	&.#{$overlay-default-class}-left-top{
+
+		.#{$overlay-default-class}-arrow{
+			bottom: 0;
+		}
+		
+	}
+
+	&.#{$overlay-default-class}-top-left{
+
+		.#{$overlay-default-class}-arrow{
+			right: 0;
+		}
+		
+	}
+
+	&.#{$overlay-default-class}-right-top{
+
+		.#{$overlay-default-class}-arrow{
+			bottom: 0;
+		}
+		
+	}
+
+	&.#{$overlay-default-class}-top-center, &.#{$overlay-default-class}-bottom-center{
+
+		.#{$overlay-default-class}-arrow{
+			right: 50%;
+		}
+
+	}
+
+	&.#{$overlay-default-class}-right-center, &.#{$overlay-default-class}-left-center{
+
+		.#{$overlay-default-class}-arrow{
+			bottom: 50%;
+		}
+
+	}
+
+	.#{$overlay-default-class}-close{
+		position: absolute;
+		z-index: 10;
+		background-color: $despegar-link-color;
+		border-left: 2px solid $despegar-white;
+		border-bottom: 2px solid $despegar-white;
+		color: $despegar-white;
+		cursor: pointer;
+		font-family: arial,sans-serif;
+		font-weight: bold;
+		text-align: center;
+		@include border-top-right-radius(3px);
+	}
+
+}

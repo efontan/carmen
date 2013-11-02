@@ -1,0 +1,108 @@
+@import "picasso/despegar/variables";
+@import "../../../../../shared/utils/mixins/images";
+
+@import "compass/utilities/sprites";
+@import "ux/action-list/*.png";
+
+//listado de opciones del menu de usuario
+.ux-selfservices-options-list {	
+	
+	//item opcion
+	>li {	
+		
+		// Header de la opcion
+		.ux-selfservice-option-list-header {
+			
+			// Icono de la opcion
+			.ux-selfservice-options-icon {
+				
+				.ie8 & {
+					line-height: 40px;
+					height: 30px;
+				}
+
+				.ie7 & {					
+					height: 30px;
+					span {
+						line-height: 50px;
+					}
+				}
+
+			}
+
+			//hack para las flechas de desplegado en ie8
+			.ux-selfservice-option-list-view {
+				.ie8 & {
+					@include common-images("ux/action-list/action-list-arrow-down.png");
+					position: absolute;
+					top: 20px;
+					right: 25px;					
+					
+					&:after {
+						display: none;
+					}
+
+				}
+			}
+
+			//cuando esta activo
+			&.active {
+				
+				.ux-selfservice-option-list-view {
+					.ie8 & {
+						@include common-images("ux/action-list/action-list-arrow-up.png");
+						position: absolute;
+						top: 20px;
+						right: 25px;
+						
+						&:after {
+							display: none;
+						}
+
+					}
+				}
+				
+
+				//cuando esta activo y por encima del li 
+				&:hover {
+					
+					.ux-selfservice-option-list-view {
+						.ie8 & {
+							@include common-images("ux/action-list/action-list-arrow-up.png");
+							position: absolute;
+							top: 20px;
+							right: 25px;
+							
+							&:after {
+								display: none;
+							}
+
+						}
+					}
+					
+				}
+			}
+
+			//cuando esta soblre el li sin la clase active cambia la imagen
+			&:hover {
+				.ie8 & {
+					
+					.ux-selfservice-option-list-view {					
+						@include common-images("ux/action-list/action-list-arrow-down-hover.png");
+						position: absolute;
+						top: 20px;
+						right: 25px;					
+					}
+					
+
+				}
+
+			}
+
+		}
+
+	
+
+	}
+
+}

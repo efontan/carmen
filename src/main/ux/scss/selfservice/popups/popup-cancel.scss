@@ -1,0 +1,115 @@
+@charset "UTF-8";
+@import "picasso/despegar/variables";
+@import "picasso/utils/clearfix";
+@import "../../shared/utils/mixins/typo";
+@import "../../shared/utils/mixins/ellipsis-inline";
+@import "../../shared/utils/mixins/hover-block";
+
+@import "../../shared/modules/forms/form-error";
+
+
+@import "picasso/components/buttons";
+@import "compass/css3";
+
+.ux-popup-cancel{
+	//width: 94%;
+	width: 500px;
+	padding: 10px;
+	
+	//width: 94%;
+	//max-width: 500px;
+	
+	.ux-popup-cancel-title{
+		@include title($bg:false, $border: false);
+	}
+	.ux-popup-cancel-paragraph{
+		@include typo-paragraph;
+	}
+	.ux-popup-cancel-form{
+		padding: 1% 2%;
+
+		.ux-popup-cancel-table{
+			margin-bottom: 1em;
+			
+			.ux-popup-cancel-table-header li, .ux-popup-cancel-table-content li ul li{
+				float: left;
+				width: 26%;
+				margin-left: 1%;
+				@include ellipsis-inline();
+				
+				&.ux-popup-cancel-selection{
+					width: 5%;
+					margin-left: 0;
+					line-height: 1.5em;
+					margin-top: 5px;
+				}
+				&.ux-popup-cancel-ticket-number{
+					width: 11%;
+				}
+			}
+			.ux-popup-cancel-table-header{
+				padding: 0 1%;
+				@include clearfix();
+				//Fondo de los rows
+	
+				li{
+					line-height: $despegar-size-13;
+					@include fontStyle($despegar-size-11, $despegar-gray-3);
+				}
+				.ux-popup-cancel-type{
+					padding-left: 5%;
+				}
+
+			}
+			.ux-popup-cancel-table-content{
+
+				>li{
+					@include fontStyle($despegar-size-13, $despegar-gray-1);
+					padding: 0 1%;
+					cursor: pointer;
+					border: 1px solid transparent;
+					@include clearfix();
+		
+						@include hoverBlock();
+			
+					li{
+						line-height: 2em;
+						&:hover{
+							cursor: pointer;
+						}
+					}
+				}
+			}
+		}
+		.ux-popup-cancel-radiolist{
+			margin-bottom: 1em;
+			>li{
+				@include clearfix;
+				@include fontStyle($despegar-size-13, $despegar-gray-3);
+				line-height: 1.5em;
+				label:hover{
+					cursor: pointer;
+				}
+				input{
+					margin-right: 5px;
+					vertical-align: text-top;
+					
+					.ie7 &{
+						vertical-align: baseline;
+					}
+				}
+			}
+		}
+	}
+	/* Botones */
+	.ux-popup-cancel-btn{
+		@include button-3d();
+		float: left;
+	}
+	.ux-popup-cancel-action{
+		line-height: $despegar-size-30;
+		margin-left: 1.5em;
+		@include fontStyle($despegar-size-13);
+
+	}
+}

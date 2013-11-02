@@ -1,0 +1,29 @@
+@charset "UTF-8";
+//@import "selfservice-detailbox.scss";
+@import "picasso/utils/clearfix";
+@import "../../shared/utils/mixins/typo";
+
+
+.ux-selfservice-paxlist{
+	@include clearfix;
+	>li{
+		@include clearfix;
+		.ux-selfservice-paxlist-item{
+			display: block;
+			@include clearfix;
+			>li{
+				@include fontStyle($despegar-size-13, $despegar-gray-3);
+				float: left;
+				width: 40%;
+				line-height: 1.5em;
+			}
+			&.header{
+				li{
+					font-weight: bold;
+					padding-bottom: 1em;
+				}
+			}
+		}
+	}
+	
+}

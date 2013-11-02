@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+// Shared mixins
+@import "../../shared/utils/mixins/typo";
+
+// Picasso mixins
+@import "picasso/utils/clearfix";
+@import "picasso/despegar/variables";
+
+
+.ux-popup-atencion-telefonica-overlay{
+	margin-top:auto !important;
+}
+
+.ux-selfservice-atencion-telefonica {
+	padding: 10px;
+	position: relative;
+	width: 310px;
+
+	.ux-selfservice-atencion-telefonica-header {
+		@include clearfix;
+		.ux-selfservice-atencion-telefonica-title {
+			@include fontStyle($despegar-size-16, $despegar-blue);
+			float: left;
+			background: url(../../../images/selfservice/popups/skype/ux-selfservice-popup-skype-phone.jpg) transparent no-repeat;
+			padding-left:30px;
+			height: 27px;
+			margin-top: 15px;
+		}
+		img {
+			float: right;
+		}
+	}
+
+	.ux-selfservice-atencion-telefonica-title {
+		@include fontStyle($despegar-size-16, $despegar-blue);
+	}
+
+	.ux-selfservice-atencion-telefonica-section {
+		padding: 10px;
+		background-color: $despegar-gray-8;
+		.ux-selfservice-atencion-telefonica-phones {
+			margin-bottom: 20px;
+			ul li span:last-child {
+				font-size: $despegar-size-16;
+			}
+		}
+		ul {
+			li {
+				@include clearfix;
+				@include fontStyle($despegar-size-13, $despegar-gray-1);
+				margin: 10px 0;
+				span {
+					float: right;
+					font-size: $despegar-size-13;
+					text-align: right;
+					width: 46%;
+				}
+				span:first-child {
+					float: left;
+					display: inline-block;
+					width: 54%;
+					text-align: left;
+				}
+				.ux-selfservice-atencion-telefonica-call-button {
+					background: url(../../../images/selfservice/popups/skype/ux-selfservice-popup-skype-icon.png) transparent no-repeat;
+					display: block;
+					padding-left: 30px;
+					height: 20px;
+					font-size: $despegar-size-13;
+					float: right;
+					width: 25%;
+					padding-top: 6px;
+				}
+			}
+			.ux-selfservice-atencion-telefonica-call {
+				@include clearfix;
+				span {
+					margin-top: 6px;
+				}
+				.ux-selfservice-atencion-telefonica-download {
+					font-size: $despegar-size-11;
+					margin-top: 0;
+					clear: both;
+				}
+			}			
+			
+		}	
+	}
+
+
+
+
+}

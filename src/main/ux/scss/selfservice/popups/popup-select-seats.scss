@@ -1,0 +1,172 @@
+@charset "UTF-8";
+
+// Shared mixins
+@import "../../shared/utils/mixins/hover-block";
+@import "../../shared/utils/responsive/screen-size";
+@import "../../shared/utils/mixins/typo";
+
+// Picasso mixins
+@import "picasso/utils/clearfix";
+@import "picasso/despegar/variables";
+@import "picasso/components/buttons";
+@import "compass/css3/transform";
+
+// Partials
+@import "partials/popup-select-seats-header";
+@import "partials/popup-select-seats-loading";
+@import "partials/popup-select-seats-pax-list";
+@import "partials/popup-select-seats-seats-container";
+@import "partials/popup-select-seats-wings";	
+@import "partials/popup-select-seats-plane-draw";
+@import "partials/popup-select-seats-seats-reference";
+
+
+.ux-popup-select-seats-overlay{
+	margin-top:auto !important;
+}
+
+@mixin one-col {
+	>.ux-common-grid-row{
+		>.ux-common-grid-col4, >.ux-common-grid-col8 {
+			@include full-col;
+		}
+	}
+}
+
+@mixin select-seat-button {
+	margin-top: 15px;
+}
+
+.ux-selfservice-selectseats{
+	width: 615px;
+	padding: 10px;
+	position: relative;
+	
+	// Ajusta el contenedor para responsive
+	@mixin select-seat-main-container {
+		width: 350px;
+	}
+	@include size-big-tablet{
+		@include select-seat-main-container;
+	}
+	@include size-mobile{
+		@include select-seat-main-container;
+	}
+	
+
+	// Crea los estilos para los asientos
+	%basic-seat-style{
+		width: 17px;
+		height: 17px;
+		border-radius: 2px;
+		border: 1px solid $despegar-gray-5;
+		text-align: center;
+		background-color: $despegar-white;
+		&:after{
+			border-bottom: 1px solid $despegar-gray-5;
+			height: 11px;
+			display: block;
+			content:"";
+		}
+		&.ux-selfservice-selectseats-selected{
+			background-color: $despegar-link-color-hover;
+			color: $despegar-white;
+			line-height: 17px;
+			&:after{
+				display: none;
+			}
+		}
+		&.ux-selfservice-selectseats-taken{
+			background-color: $despegar-gray-7;
+			border-color: $despegar-gray-6;
+			&:after{
+				border-color: $despegar-gray-6;
+				content:"\2716" ;
+				line-height: 12px;
+				@include fontStyle($despegar-size-13, $despegar-gray-6);
+			}
+		}
+		&.ux-selfservice-selectseats-exit{
+			background-color: #FFFF00;
+			color: $despegar-white;
+			line-height: 17px;
+			&:after{
+				display: none;
+			}
+		}
+		&.ux-selfservice-selectseats-assign:after{
+			display: none;
+
+		}
+	}
+	.ux-selfservice-selectseats-basic-seat{
+		@extend %basic-seat-style;
+
+	}
+
+	.ux-selfservice-selectseats-seat-icon{
+		@extend %basic-seat-style;	
+		display: block;
+		margin-right: 5px;
+		&:hover{
+			@include hoverBlock;
+			&:after{
+				border-color: $despegar-link-color-hover;
+			}
+		}
+		&.ux-selfservice-selectseats-selected{
+			&:hover{
+				background-color: $despegar-link-color-hover;
+			}
+		}
+		&.ux-selfservice-selectseats-taken{
+			&:hover{
+				cursor: not-allowed;
+				background-color: $despegar-gray-7;
+				border-color: $despegar-gray-6;
+			}
+		}
+		&.ux-selfservice-selectseats-error{
+			border-color: $despegar-error-border;
+			background-color: $despegar-error-bg;
+			&:after{
+				border-color: $despegar-error-border;
+				content:"\2716" ;
+				line-height: 12px;
+				@include fontStyle($despegar-size-13, $despegar-error-border);
+			}
+			&:hover{
+				border-color: $despegar-error-border;
+				background-color: $despegar-error-bg;
+				cursor: not-allowed;
+			}
+		}
+	}
+	
+	// Estilos para el boton 
+	.ux-selfservice-selectseats-btn{
+		@include button-3d;
+		float: left;
+		clear: both;
+		span {
+			padding: 0 36px;
+		}
+		.ie7 & {
+				float: none;
+			}
+		@include size-big-tablet{
+			@include select-seat-button;
+		}
+		@include size-mobile{
+			@include select-seat-button;
+		}
+	}
+	
+	// Ajusta el contenedor para responsive
+	@include size-big-tablet{
+		@include one-col;
+	}
+	@include size-mobile{
+		@include one-col;
+	}
+}

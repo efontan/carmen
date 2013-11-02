@@ -1,0 +1,15 @@
+@import "picasso/despegar/variables";
+
+// ## hoverBlock
+// Efecto "bloque" en :hover
+@mixin hoverBlock {
+    
+    &:hover{
+        border-color:$despegar-link-color;
+        border-style:solid;
+        background-color: $despegar-link-bg-hover;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+}

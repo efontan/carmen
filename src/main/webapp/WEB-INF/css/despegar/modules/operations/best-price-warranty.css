@@ -1,0 +1,11 @@
+.bestPrice {
+  width: 310px;
+}
+.bestPrice .termsText, .bestPrice .termsLink {
+  padding: 0 10px 0px 10px;
+  font-size: 11px;
+  display: block;
+}
+.bestPrice .termsLink {
+  padding: 10px;
+}

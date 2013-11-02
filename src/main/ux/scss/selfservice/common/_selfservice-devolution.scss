@@ -1,0 +1,28 @@
+@charset "UTF-8";
+//@import "selfservice-detailbox.scss";
+@import "picasso/utils/clearfix";
+@import "../../shared/utils/mixins/typo";
+
+
+
+.ux-selfservice-devolution{
+	@include clearfix;
+	li{
+		line-height: 2em;
+	}
+	label{
+		@include fontStyle($despegar-size-13, $despegar-gray-3);
+		input{
+			vertical-align: text-top;
+			//margin-top: 1px;
+			margin-right: 1%;
+			.ie7 &, .ie8 &, .ie9 &{
+				vertical-align: middle;
+			}
+		}
+		&:hover{
+			cursor: pointer;
+		}
+	}
+	
+}

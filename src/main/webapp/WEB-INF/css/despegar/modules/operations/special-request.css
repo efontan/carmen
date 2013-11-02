@@ -1,0 +1,56 @@
+.special-request {
+  width: 300px;
+}
+.special-request select {
+  width: 240px;
+}
+.special-request textarea {
+  height: 70px;
+  width: 290px;
+}
+.special-request .special-request-field {
+  margin-bottom: 20px;
+  width: 100%;
+}
+.special-request .mod-btn {
+  margin-left: 2px;
+}
+.special-request .cancel-action {
+  font-size: 11px;
+  margin-left: 15px;
+  margin-top: 10px;
+  position: absolute;
+}
+.special-request .special-request-text-counter {
+  right: 0px;
+}
+.special-request .carPaxCheck {
+  margin-right: 10px;
+  margin-top: 3px;
+  float: left;
+}
+.special-request .carPaxName {
+  font-size: 14px;
+  color: #555;
+}
+.special-request .paxLi {
+  padding: 7px 0 7px 7px;
+  cursor: pointer;
+  margin: 0 1px;
+}
+.special-request .paxLi:hover {
+  background-color: #f1f6fc;
+  cursor: pointer;
+  text-decoration: none;
+  outline: 1px solid #319fda;
+}
+.special-request .paxTitle {
+  padding: 7px 0 7px 7px;
+  font-size: 13px;
+  color: #777;
+  cursor: pointer;
+}
+.special-request .paxCheck {
+  display: inline-block;
+  margin-right: 22px;
+}

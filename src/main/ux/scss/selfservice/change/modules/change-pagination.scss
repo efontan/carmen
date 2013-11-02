@@ -1,0 +1,7 @@
+@charset "UTF-8";
+@import "picasso/components/pagination";
+
+
+.ux-change-pagination{
+	@include pagination();
+}

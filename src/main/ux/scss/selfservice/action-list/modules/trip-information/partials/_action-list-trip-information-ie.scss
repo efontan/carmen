@@ -1,0 +1,46 @@
+@import "picasso/despegar/variables";
+@import "../../../../../shared/utils/mixins/images";
+
+@import "compass/utilities/sprites";
+@import "ux/action-list/*.png";
+
+.ux-selfservices-trip-information-content {
+	
+	.ux-selfservice-general-information {
+		
+		.ie8 & {					
+			&:after {
+				display: none;
+			}
+
+			.ux-selfservice-general-info-icon {
+				@include common-images("ux/action-list/action-list-trip-information-down.png");
+				display: inline-block;
+				position: absolute;
+				bottom: 4px;
+				right: -15px;
+
+				&.ux-selfservice-general-info-icon-toggle {
+					@include common-images("ux/action-list/action-list-trip-information-up.png");
+					display: inline-block;
+				}
+
+			}
+		}
+
+		.ie9 & {
+			&:after {
+				right: -15px;
+			}
+		}
+
+	}
+
+	.ux-selfservice-main-info-active {
+		.ie9 & {
+			&:after {
+				right: -13px;
+			}
+		}
+	}
+}

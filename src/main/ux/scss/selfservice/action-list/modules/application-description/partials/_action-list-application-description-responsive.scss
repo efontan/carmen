@@ -1,0 +1,16 @@
+@import "../../../../../shared/utils/responsive/screen-size";
+
+.ux-common-responsive {
+	.ux-selfservice-application-description {
+
+		@include col-large {
+			ul li {
+				.ux-selfservice-application-description-help {
+					text-align: right;
+					margin-right: 5%;
+				}
+			}
+		}
+
+	}
+}

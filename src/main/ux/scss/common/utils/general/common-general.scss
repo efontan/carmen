@@ -1,0 +1,33 @@
+// ## Main general
+
+@import "picasso/despegar/variables";
+
+// ### Tamaño base
+html{
+	font-size: 16px;
+}
+
+body{
+	font-family: Arial,Helvetica,sans-serif;
+}
+
+// ### Links
+a {
+	color: $despegar-link-color;
+	cursor: pointer;
+	text-decoration: none;
+
+	&:hover{
+		text-decoration: underline;
+	}
+
+}
+
+// ### Elementos
+strong{
+	font-weight: bold;
+}
+
+li{
+	line-height: 100%;
+}

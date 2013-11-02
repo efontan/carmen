@@ -1,0 +1,51 @@
+.op-equifax {
+  width: 800px;
+  max-height: 500px;
+}
+.op-equifax .error {
+  background-color: #FFFFFF;
+  border: 0 none;
+  color: #FF4433;
+  font-size: 12px;
+  position: relative !important;
+}
+.op-equifax .warningBox h3 {
+  font-size: 16px;
+  color: #003D92;
+}
+.op-equifax .question-container {
+  margin-left: 50px;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+.op-equifax .question-group {
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+.op-equifax .question-group-title {
+  margin-top: 10px;
+  color: #003D92;
+  width: 100%;
+  border-bottom: 1px solid gray;
+}
+.op-equifax .question-selection {
+  margin-right: 20px;
+}
+.op-equifax .question-answer {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.op-equifax .actions {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.op-equifax .actions .cancel {
+  bottom: 10px;
+  color: #222222;
+  font-size: 0.8125rem;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 2%;
+  position: relative;
+}
