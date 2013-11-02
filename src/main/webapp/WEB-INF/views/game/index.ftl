@@ -35,10 +35,10 @@
 	    "bodyClass"     : "mi-despegar ${brandName} ${locale}",
 		"headerHTML"    : headerHTML!"", 
 		"footerHTML"    : footerHTML!"",
-		"mainContainerClass" : "mi-despegar-cars"
+		"mainContainerClass" : ""
 	}
 	
-	extraHeadData = newRelic.header
+	extraHeadData = ''
 >
 
 	<#include "index-content.ftl">

@@ -31,19 +31,24 @@
         	<div id="main-panel" class="span7 well white-well left-panel block-popup-container">
         		<div class="span10 well white-well form-player">
         			<form class="form-horizontal">
-						<div class="span3 well">
+						<div class="span3 white-well">
 							<label class="control-label" for="inputEmail">Nombre:</label>
 							<label class="control-label" for="inputEmail">Email:</label>
-
 						</div>
 
 						<div class="span8 well">
 							<input class="span12" type="text" id="name" placeholder="Nombre">
 							<input class="span12" type="text" id="email" placeholder="Email">
 						</div>
-						<div class="span11 well">
-							<span class="mi-despegar-sprite-male-avatar avatar" data-genre="male"></span>
-							<span class="mi-despegar-sprite-female-avatar avatar" data-genre="female"></span>
+						<div class="span12 white-well avatar-container">
+							<div class="span5 white-well">
+								<span class="mi-despegar-sprite-male-avatar avatar" data-genre="male"></span>
+								<span class="bit-text blue">Henry</span>
+							</div>
+							<div class="span5 white-well">
+								<span class="mi-despegar-sprite-female-avatar avatar" data-genre="female"></span>
+								<span class="bit-text blue">Cloudia</span>
+							</div>
 						</div>
 
 
@@ -74,5 +79,4 @@
 
 <#-- Contenido extra en el body -->	
 <@addExtraBodyContent>
-	${newRelic.footer}
 </@addExtraBodyContent>
