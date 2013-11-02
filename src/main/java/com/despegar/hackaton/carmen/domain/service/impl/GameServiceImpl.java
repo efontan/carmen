@@ -8,11 +8,13 @@ import javax.annotation.Resource;
 
 import org.apache.commons.lang.math.RandomUtils;
 import org.joda.time.DateTime;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.despegar.hackaton.carmen.domain.model.game.BaseMapCities;
 import com.despegar.hackaton.carmen.domain.model.game.City;
+import com.despegar.hackaton.carmen.domain.model.game.Hotel;
 import com.despegar.hackaton.carmen.domain.model.game.Player;
 import com.despegar.hackaton.carmen.domain.model.game.Status;
 import com.despegar.hackaton.carmen.domain.service.GameService;
@@ -26,6 +28,9 @@ public class GameServiceImpl implements GameService {
 	private static final int WEEKS_TO_PLAY = 1;
 	private static final int GAME_FLOWS = 3;
 	private static final String INITIAL_CITY_CODE = "BUE";
+
+	@Autowired
+	private HotelServiceImpl hotelServiceImpl;
 
 	@Resource
 	@Qualifier("citiesMap")
@@ -52,13 +57,23 @@ public class GameServiceImpl implements GameService {
 		for (Map.Entry<String, String> entry : this.citiesMap.entrySet()) {
 			String cityCode = entry.getKey();
 			String cityName = entry.getValue();
-			City city = new City(cityCode, cityName, null, null);
+			List<Hotel> cityHotels = this.getHotelServiceImpl().getCityHotels(
+					cityCode);
+			City city = new City(cityCode, cityName, null, cityHotels);
 			cities.add(city);
 		}
 
 		baseMapCities.setCities(cities);
 
 		return baseMapCities;
+	}
+
+	public HotelServiceImpl getHotelServiceImpl() {
+		return this.hotelServiceImpl;
+	}
+
+	public void setHotelServiceImpl(HotelServiceImpl hotelServiceImpl) {
+		this.hotelServiceImpl = hotelServiceImpl;
 	}
 
 }
