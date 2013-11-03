@@ -61,8 +61,17 @@ public class HotelRestClient extends AbstractRestClient {
 		return bestPrice;
 	}
 
+	public String getName(long id) {
+		ApiHotelDetails hotelsDetail = this.doGet(HOTELS_DETAIL,
+				new TypeReference<ApiHotelDetails>() {
+				}, id);
+		return hotelsDetail.getHotels().get(0).getName();
+	}
+	
 	@Override
 	public RestConnector getRestConnector() {
 		return this.hotelRestConnector;
 	}
+
+
 }
