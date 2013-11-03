@@ -280,8 +280,6 @@ define([
 				
 				event.preventDefault();
 				
-				alert('click');
-				
 				amplify.request({
 					resourceId: "carmen.getClue",
 					data: {
@@ -308,7 +306,6 @@ define([
 		}
 		
 		function _updateTopBar(data){
-			console.log(data);
 			var date = new Date(data.actualDate);
 			$('.actual-date').html(date.toLocaleDateString());
 			$('.money').html(data.remainingMoney);
@@ -318,6 +315,8 @@ define([
 			$('.clue-description').html(clue.description);
 			$('.clue-avatar').replaceWith('<span class="mi-despegar-sprite-' + clue.characterJob + '-avatar avatar avatar-selected clue-avatar"></span>');
 			$('.ask-avatar').replaceWith('<span class="mi-despegar-sprite-' + extraData.get('avatarGenre') + '-avatar avatar avatar-selected ask-avatar"></span>');
+			
+			$('.ux-common-overlay-close').click();
 			
 			$('.clue-return').on('click', function(){
 				
