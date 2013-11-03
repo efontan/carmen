@@ -1,13 +1,19 @@
 package com.despegar.hackaton.carmen.web.controller;
 
-import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.despegar.hackaton.carmen.domain.client.geo.CitiesRestClient;
+import com.despegar.hackaton.carmen.domain.model.game.*;
+import com.despegar.hackaton.carmen.domain.model.game.response.ClueResponse;
+import com.despegar.hackaton.carmen.domain.model.game.response.TravelResponse;
+import com.despegar.hackaton.carmen.domain.service.FlightService;
+import com.despegar.hackaton.carmen.domain.service.GameService;
+import com.despegar.hackaton.carmen.domain.service.HotelService;
+import com.despegar.hackaton.carmen.web.controller.response.Response;
+import com.despegar.hackaton.carmen.web.controller.response.ResponseStatus;
+import com.despegar.hackaton.carmen.web.session.GameSession;
+import com.despegar.hackaton.carmen.web.session.Session;
+import com.despegar.hackaton.carmen.web.session.SessionService;
+import com.despegar.library.rest.interceptors.HttpRequestContext;
+import com.google.common.collect.Lists;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -22,25 +28,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.despegar.hackaton.carmen.domain.client.geo.CitiesRestClient;
-import com.despegar.hackaton.carmen.domain.model.game.City;
-import com.despegar.hackaton.carmen.domain.model.game.Clue;
-import com.despegar.hackaton.carmen.domain.model.game.Flight;
-import com.despegar.hackaton.carmen.domain.model.game.GraphNode;
-import com.despegar.hackaton.carmen.domain.model.game.Player;
-import com.despegar.hackaton.carmen.domain.model.game.Status;
-import com.despegar.hackaton.carmen.domain.model.game.response.ClueResponse;
-import com.despegar.hackaton.carmen.domain.model.game.response.TravelResponse;
-import com.despegar.hackaton.carmen.domain.service.FlightService;
-import com.despegar.hackaton.carmen.domain.service.GameService;
-import com.despegar.hackaton.carmen.domain.service.HotelService;
-import com.despegar.hackaton.carmen.web.controller.response.Response;
-import com.despegar.hackaton.carmen.web.controller.response.ResponseStatus;
-import com.despegar.hackaton.carmen.web.session.GameSession;
-import com.despegar.hackaton.carmen.web.session.Session;
-import com.despegar.hackaton.carmen.web.session.SessionService;
-import com.despegar.library.rest.interceptors.HttpRequestContext;
-import com.google.common.collect.Lists;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 public class GameController implements ApplicationContextAware {
@@ -122,59 +116,53 @@ public class GameController implements ApplicationContextAware {
 				ResponseStatus.SUCCESS, status), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/clue/{token}/{cityCode}/{hotelId}", method = RequestMethod.GET)
-	public ResponseEntity<Object> getClue(HttpServletRequest request,
-			HttpServletResponse response, @PathVariable("token") String token,
-			@PathVariable("cityCode") String cityCode,
-			@PathVariable("hotelId") String hotelId) {
-		GameSession gameSession = this.sessionService.getGameSessionByToken(
-				request, token);
-		GraphNode node = (GraphNode) this.applicationContext
-				.getBean(gameSession.getGameWalkthrough() + UNDER + cityCode);
-		int actualClue = gameSession.getActualClue();
-		if (actualClue == TOTAL_CLUES) {
-			gameSession.setActualClue(0);
-		} else {
-			gameSession.setActualClue(gameSession.getActualClue() + 1);
-		}
-		Clue clue = node.getClues().getClueByIndex(actualClue);
-		Status newStatus = gameSession.getStatus(); // Update the game status.
-		newStatus.setActualDate(newStatus.getActualDate().plusHours(8));
-		BigDecimal hotelPrice = this.hotelService.getPrice(Long
-				.parseLong(hotelId));
-		newStatus.setRemainingMoney(newStatus.getRemainingMoney().subtract(
-				hotelPrice));
-		gameSession.setStatus(newStatus);
-		ClueResponse clueResponse = new ClueResponse(clue, newStatus);
-		return new ResponseEntity<Object>(new Response<Object>(
-				ResponseStatus.SUCCESS, clueResponse), HttpStatus.OK);
-	}
+    @RequestMapping(value = "/clue/{token}/{cityCode}/{hotelId}", method = RequestMethod.GET)
+    public ResponseEntity<Object> getClue(HttpServletRequest request,
+            HttpServletResponse response, @PathVariable("token") String token,
+            @PathVariable("cityCode") String cityCode,
+            @PathVariable("hotelId") String hotelId) {
+        GameSession gameSession = this.sessionService.getGameSessionByToken(request, token);
+        GraphNode node = (GraphNode) this.applicationContext.getBean(gameSession.getGameWalkthrough() + UNDER + cityCode);
+        int actualClue = gameSession.getActualClue();
+        if (actualClue == TOTAL_CLUES) {
+            gameSession.setActualClue(0);
+        } else {
+            gameSession.setActualClue(gameSession.getActualClue() + 1);
+        }
+        Clue clue = node.getClues().getClueByIndex(actualClue);
+        Status newStatus = gameSession.getStatus(); // Update the game status.
+        newStatus.setActualDate(newStatus.getActualDate().plusHours(8));
+        BigDecimal hotelPrice = hotelService.getPrice(Long.parseLong(hotelId));
+        newStatus.setRemainingMoney(newStatus.getRemainingMoney().subtract(hotelPrice));
+        gameSession.setStatus(newStatus);
+        ClueResponse clueResponse = new ClueResponse(clue, newStatus);
+        return new ResponseEntity<Object>(new Response<Object>(ResponseStatus.SUCCESS, clueResponse), HttpStatus.OK);
+    }
 
-	@RequestMapping(value = "/travel/{token}/{cityCode}/{price}/{hours}", method = RequestMethod.GET)
-	public ResponseEntity<Object> doTravel(HttpServletRequest request,
-			HttpServletResponse response, @PathVariable("token") String token,
-			@PathVariable("cityCode") String cityCode,
-			@PathVariable("price") BigDecimal price,
-			@PathVariable("hours") Integer hours) {
-		GameSession gameSession = this.sessionService.getGameSessionByToken(
-				request, token);
-		GraphNode node = (GraphNode) this.applicationContext
-				.getBean(gameSession.getGameWalkthrough() + UNDER + cityCode);
-		Status newStatus = gameSession.getStatus();
-		// Flight flight = flightService.getFlight(searchHash, itineraryId);
-		// //This service is deprecated :P
-		BigDecimal remainingMoney = newStatus.getRemainingMoney().subtract(
-				price);
-		newStatus.setRemainingMoney(remainingMoney);
-		newStatus.setActualDate(newStatus.getActualDate().plus(hours));
-		gameSession.setStatus(newStatus);
-		this.sessionService.addGameSessionToSessions(request, response, token,
-				gameSession);
-		TravelResponse travelResponse = new TravelResponse(node,
-				gameSession.getStatus());
-		return new ResponseEntity<Object>(new Response<Object>(
-				ResponseStatus.SUCCESS, travelResponse), HttpStatus.OK);
-	}
+
+    @RequestMapping(value = "/travel/{token}/{cityCode}/{price}/{hours}", method = RequestMethod.GET)
+    public ResponseEntity<Object> doTravel(HttpServletRequest request,
+                                           HttpServletResponse response,
+                                           @PathVariable("token") String token,
+                                           @PathVariable("cityCode") String cityCode,
+                                           @PathVariable("price") BigDecimal price,
+                                           @PathVariable("hours") Integer hours) {
+        GameSession gameSession = sessionService.getGameSessionByToken(request, token);
+        GraphNode node = (GraphNode) applicationContext.getBean(gameSession.getGameWalkthrough() + UNDER + cityCode);
+
+        Status newStatus = gameSession.getStatus();
+        //Flight flight = flightService.getFlight(searchHash, itineraryId); //This service is deprecated :P
+        BigDecimal remainingMoney = newStatus.getRemainingMoney().subtract(price);
+        newStatus.setRemainingMoney(remainingMoney);
+        newStatus.setActualDate(newStatus.getActualDate().plus(hours));
+        gameSession.setStatus(newStatus);
+        List<AirportCity> destinations = new LinkedList<AirportCity>();
+        for (GraphNode currentNode : node.getDestinations()) {
+            destinations.add(currentNode.getCurrentCity());
+        }
+        TravelResponse travelResponse = new TravelResponse(node.getCurrentCity(), destinations, gameSession.getStatus());
+        return new ResponseEntity<Object>(new Response<Object>(ResponseStatus.SUCCESS, travelResponse), HttpStatus.OK);
+    }
 
 	@RequestMapping(value = "/flights/{from}/{to}", method = RequestMethod.GET)
 	public ResponseEntity<Object> getFlights(HttpServletRequest request,
@@ -184,6 +172,15 @@ public class GameController implements ApplicationContextAware {
 		return new ResponseEntity<Object>(new Response<Object>(
 				ResponseStatus.SUCCESS, flights), HttpStatus.OK);
 	}
+
+
+    @RequestMapping(value = "/restart/{token}", method = RequestMethod.GET)
+    public ResponseEntity<Object> restart(HttpServletRequest request,
+                                          @PathVariable("token") String token) {
+        GameSession session = sessionService.getGameSessionByToken(request, token);
+        gameService.restartSession(session);
+        return new ResponseEntity<Object>(new Response<Object>(ResponseStatus.SUCCESS, Boolean.TRUE), HttpStatus.OK);
+    }
 
 	public SessionService getSessionService() {
 		return this.sessionService;

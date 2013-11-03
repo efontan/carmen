@@ -10,6 +10,8 @@ public interface GameService {
 
 	public GameSession createGameSession(Player player);
 
+    public GameSession restartSession(GameSession session);
+
 	public City getCityData(String cityCode, int walkthrough);
 
     public List<String> getDestinations(String cityCode, int walkthrough);
