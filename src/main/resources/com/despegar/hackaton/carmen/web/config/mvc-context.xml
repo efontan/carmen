@@ -78,7 +78,7 @@
         </bean>
             <bean id="1_BUE_CLUE_1" class="com.despegar.hackaton.carmen.domain.model.game.Clue">
                 <property name="characterJob" ref="MAID"/>
-                <property name="description" value="Se fue en una nave curcero que ondeaba una bandera en la cual se distingua un escudo con una cruz en llamas."/>
+                <property name="description" value="Se fue en una nave crucero que ondeaba una bandera en la cual se distingua un escudo con una cruz en llamas."/>
             </bean>
             <bean id="1_BUE_CLUE_2" class="com.despegar.hackaton.carmen.domain.model.game.Clue">
                 <property name="characterJob" ref="JANITOR"/>
