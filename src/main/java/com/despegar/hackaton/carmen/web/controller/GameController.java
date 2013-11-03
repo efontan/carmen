@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -30,7 +31,9 @@ import com.despegar.hackaton.carmen.domain.client.geo.CitiesRestClient;
 import com.despegar.hackaton.carmen.domain.model.game.AirportCity;
 import com.despegar.hackaton.carmen.domain.model.game.City;
 import com.despegar.hackaton.carmen.domain.model.game.Clue;
+import com.despegar.hackaton.carmen.domain.model.game.ExpensesDetail;
 import com.despegar.hackaton.carmen.domain.model.game.Flight;
+import com.despegar.hackaton.carmen.domain.model.game.FlightExpense;
 import com.despegar.hackaton.carmen.domain.model.game.GraphNode;
 import com.despegar.hackaton.carmen.domain.model.game.Player;
 import com.despegar.hackaton.carmen.domain.model.game.Status;
@@ -52,7 +55,7 @@ public class GameController implements ApplicationContextAware {
 
 	private static final int WALKTHROUGH_UNDEFINED = 0;
 	private ApplicationContext applicationContext;
-	private static final int TOTAL_CLUES = 2; //begins in 0.
+	private static final int TOTAL_CLUES = 2; // begins in 0.
 	private static final String NAME_VIEW = "game/index";
 	private static final String UNDER = "_";
 	private static final int MILLIS_PER_HOUR = 60 * 60 * 1000;
@@ -72,6 +75,10 @@ public class GameController implements ApplicationContextAware {
 	@Autowired
 	@Qualifier("cities.rest.client")
 	private CitiesRestClient citiesRestClient;
+
+	@Resource
+	@Qualifier("citiesMap")
+	private Map<String, String> citiesMap;
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public ModelAndView index(HttpRequestContext context,
@@ -174,6 +181,15 @@ public class GameController implements ApplicationContextAware {
 				request, token);
 		GraphNode node = (GraphNode) this.applicationContext
 				.getBean(gameSession.getGameWalkthrough() + UNDER + cityCode);
+
+		ExpensesDetail expensesDetail = gameSession.getExpensesDetail();
+		String fromCityName = this.citiesMap.get(gameSession
+				.getActualCityCode());
+		String toCityName = this.citiesMap.get(cityCode);
+
+		expensesDetail.getFlightExpenses().add(
+				new FlightExpense(fromCityName, toCityName, price));
+		gameSession.setActualCityCode(cityCode);
 
 		Status newStatus = gameSession.getStatus();
 		// Flight flight = flightService.getFlight(searchHash, itineraryId);
