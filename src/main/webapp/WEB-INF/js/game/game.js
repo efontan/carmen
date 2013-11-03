@@ -48,6 +48,13 @@ define([
 
 		function _bindEvents () {
 
+			$(".twitter").on("click", function (event) {
+				event.preventDefault();
+				var money = $('.money').text();
+				var tweet = "Encontré a Carmen y ahorré $" + money + " con @Despegar.com, te animás a superarme?";
+				window.open("https://twitter.com/share?text="+tweet+"&url=http%3A%2F%2Fwww.despegar.com", "_blank");
+			});
+
 			$(".avatar").on("click", function (event) {
 				event.preventDefault();
 				$(".avatar").removeClass("avatar-selected");
