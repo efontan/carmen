@@ -52,9 +52,11 @@ public class MvcConfig
         registry.addResourceHandler("/resources/css/**").addResourceLocations("/WEB-INF/css/**");
         registry.addResourceHandler("/resources/js/**").addResourceLocations("/WEB-INF/js/**");
         registry.addResourceHandler("/resources/img/**").addResourceLocations("/WEB-INF/img/**");
+        registry.addResourceHandler("/resources/fonts/**").addResourceLocations("/WEB-INF/fonts/**");
         registry.addResourceHandler("/resources/css-versioned/**").addResourceLocations("/WEB-INF/css-versioned/**");
         registry.addResourceHandler("/resources/js-versioned/**").addResourceLocations("/WEB-INF/js-versioned/**");
         registry.addResourceHandler("/resources/img-versioned/**").addResourceLocations("/WEB-INF/img-versioned/**");
+        registry.addResourceHandler("/resources/fonts-versioned/**").addResourceLocations("/WEB-INF/fonts-versioned/**");
     }
 
     @Bean(name = "messageSource")

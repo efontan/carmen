@@ -144,7 +144,7 @@ body {
 
 @font-face {
   font-family: minecraftia;
-  src: url("../../../fonts/Minecraftia.ttf"), url("../../../fonts/Minecraftia.eot");
+  src: url("../../fonts/carmen/Minecraftia.ttf"), url("../../fonts/carmen/Minecraftia.eot");
   /* IE9 */
 }
 
@@ -162,10 +162,20 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
 }
+.game-container .hide {
+  display: none !important;
+}
 .game-container .top_bar {
   background-color: #191919;
   height: 50px;
   width: 100%;
+}
+.game-container .top_bar .title {
+  margin: 12px 0 0 27px;
+  float: left;
+  color: #fff;
+  font-family: minecraftia;
+  font-size: 15px;
 }
 .game-container .left-panel, .game-container .footer-panel {
   margin: 19px;
@@ -253,7 +263,7 @@ body {
   width: 490px;
   text-align: center;
 }
-.game-container .score .money {
+.game-container .score .money-container {
   float: right;
 }
 .game-container .form-player {
@@ -322,6 +332,7 @@ body {
 }
 .game-container .action-menu {
   margin-left: 40px !important;
+  font-size: 12px;
 }
 .game-container .hidden {
   display: none !important;

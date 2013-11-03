@@ -38,13 +38,27 @@ define(["amplify", "common/modules/logger", "common/modules/ServicesManager"],
 				cache: service_cache,
 				type:"ajax",
 				params: {
-					url: base_path + '',
+					url: 'player/new',
 					dataType:"json",
 					type:"POST",
 					contentType:'application/json;charset=UTF-8',
 					dataMap: function ( data ) {
 						return JSON.stringify( data );
 					}
+				},
+				mocks:{	}
+			});
+			
+			// operacion: game status
+			ServicesManager.addRequest({
+				serviceID: "carmen.getStatus",
+				description:"",
+				cache: service_cache,
+				type:"ajax",
+				params: {
+					url: 'status/{token}/',
+					dataType:"json",
+					type:"GET"
 				},
 				mocks:{	}
 			});
