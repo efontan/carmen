@@ -28,7 +28,7 @@ public class GameServiceImpl implements GameService, ApplicationContextAware {
 
 	private static final int INITIAL_MONEY = 50000;
 	private static final int WEEKS_TO_PLAY = 1;
-	private static final int GAME_FLOWS = 1;
+	private static final int GAME_FLOWS = 2;
 	private static final String INITIAL_CITY_CODE = "BUE";
 	private static final int INITIAL_CLUE = 0;
 	private static final String UNDER = "_";

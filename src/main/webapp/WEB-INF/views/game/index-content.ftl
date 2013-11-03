@@ -6,7 +6,7 @@
 			<li class="city">Ciudad de Buenos Aires</li>
 			<li class="money-container">$<span class="money"></span></li>
 		</ul>
-		<span class="title index">&iquest;En qu&eacute; lugar de Argentina est&aacute; Carmen Barbieri?</span>
+		<span class="title index">&iquest;En qu&eacute; lugar de Argentina est&aacute; Carmen?</span>
 		<div class="social">
 			<span title="Facebook" class="mi-despegar-sprite-facebook bit-icon"></span>
 			<span title="Twitter" class="mi-despegar-sprite-twitter bit-icon"></span>
@@ -21,7 +21,7 @@
         		</div>
         		<div class="printer-text index">
         				
-					despegar.com - tu misi&oacute;n es bastante simple, lo que requieres hacer es bla bla bla bla bla y fundamentalmente encontrar a bla bla bla, puedes utilizar bla bla bla y bla bla bla, puedes utilizar bla bla bla y bla bla bla, puedes utilizar bla bla bla y bla bla bla, puedes utilizar bla bla bla y bla bla bla, puedes utilizar bla bla bla y bla bla bla, puedes utilizar bla bla bla y bla bla bla, puedes utilizar bla bla bla y bla bla bla, puedes utilizar bla bla bla y bla bla bla, puedes utilizar bla bla bla y bla bla bla, lo que requieres hacer es bla bla bla bla bla y fundamentalmente encontrar a bla bla bla, lo que requieres hacer es bla bla bla bla bla y fundamentalmente encontrar a bla bla bla, lo que requieres hacer es bla bla bla bla bla y fundamentalmente encontrar a bla bla bla.
+					despegar.com -<br /> Tu misión es, en teoría, bastante sencilla. Una infinidad de Bancos han sido robados en varias ciudades de Argentina por una infame ladrona. Tenés que llegar hasta su escondite y arrestarla antes del ${dateLimit}hs, o antes que se agote tu dinero, siguiendo las pistas que ella ha dejado por el camino. Deberás viajar entre ciudades y usar tu olfato de detective para no perder el rastro. Buena suerte!
 
 					<span class="mi-despegar-sprite-carmen carmen-picture"></span>
 
