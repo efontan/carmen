@@ -1,10 +1,12 @@
 package com.despegar.hackaton.carmen.web.controller;
 
+import com.despegar.hackaton.carmen.domain.client.geo.CitiesRestClient;
 import com.despegar.hackaton.carmen.domain.model.game.*;
 import com.despegar.hackaton.carmen.domain.model.game.response.ClueResponse;
 import com.despegar.hackaton.carmen.domain.model.game.response.TravelResponse;
 import com.despegar.hackaton.carmen.domain.service.FlightService;
 import com.despegar.hackaton.carmen.domain.service.GameService;
+import com.despegar.hackaton.carmen.domain.service.HotelService;
 import com.despegar.hackaton.carmen.web.controller.response.Response;
 import com.despegar.hackaton.carmen.web.controller.response.ResponseStatus;
 import com.despegar.hackaton.carmen.web.session.GameSession;
@@ -14,6 +16,7 @@ import com.despegar.library.rest.interceptors.HttpRequestContext;
 import com.google.common.collect.Lists;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.http.HttpStatus;
@@ -48,6 +51,13 @@ public class GameController implements ApplicationContextAware {
 
     @Autowired
     private FlightService flightService;
+
+    @Autowired
+    private HotelService hotelService;
+
+    @Autowired
+    @Qualifier("cities.rest.client")
+    private CitiesRestClient citiesRestClient;
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public ModelAndView index(HttpRequestContext context,
@@ -118,8 +128,7 @@ public class GameController implements ApplicationContextAware {
         Clue clue = node.getClues().getClueByIndex(actualClue);
         Status newStatus = gameSession.getStatus(); // Update the game status.
         newStatus.setActualDate(newStatus.getActualDate().plusHours(8));
-        // TODO:taitooz -> retrieve hotel price with hotelId.
-        BigDecimal hotelPrice = new BigDecimal(0);
+        BigDecimal hotelPrice = hotelService.getPrice(Long.parseLong(hotelId));
         newStatus.setRemainingMoney(newStatus.getRemainingMoney().subtract(hotelPrice));
         gameSession.setStatus(newStatus);
         ClueResponse clueResponse = new ClueResponse(clue, newStatus);

@@ -28,7 +28,8 @@ public class HotelServiceImpl implements HotelService {
 		List<Long> cityHotelIds = this.citiesRestClient.getHotelIdsByCity(cityCode);
 		return this.hotelRestClient.getHotelsDetail(cityHotelIds);
 	}
-	
+
+    @Override
 	public BigDecimal getPrice(long id){
 		return this.hotelRestClient.getPrice(id);
 	}
