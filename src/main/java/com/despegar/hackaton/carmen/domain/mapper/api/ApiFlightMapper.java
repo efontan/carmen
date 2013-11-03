@@ -2,6 +2,9 @@ package com.despegar.hackaton.carmen.domain.mapper.api;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
@@ -30,6 +33,10 @@ public class ApiFlightMapper implements Mapper<ApiFlight, Flight> {
 	@Qualifier("cities.rest.client")
 	private CitiesRestClient citiesRestClient;
 
+	@Resource
+	@Qualifier("citiesMap")
+	private Map<String, String> citiesMap;
+
 	@Override
 	public Flight map(ApiFlight apiFlight) {
 		Flight flight = new Flight();
@@ -57,6 +64,8 @@ public class ApiFlightMapper implements Mapper<ApiFlight, Flight> {
 		flight.setDurationHours(this.getDurationHours(duration));
 		flight.setFrom(from);
 		flight.setTo(to);
+		flight.setFromCityName(this.citiesMap.get(from));
+		flight.setToCityName(this.citiesMap.get(to));
 		flight.setStops(segments.size());
 		flight.setPrice(priceInfo.getAdults().getBaseFare());
 		flight.setSearchUrl(this.getSearchUrl(from, to));

@@ -6,6 +6,8 @@ public class Flight {
 
 	private String from;
 	private String to;
+	private String fromCityName;
+	private String toCityName;
 	private Integer stops;
 	private Integer durationHours;
 	private String departureDate;
@@ -15,7 +17,8 @@ public class Flight {
 	public Flight() {
 	}
 
-	public Flight(String from, String to, Integer stops, Integer durationHours,
+	public Flight(String from, String to, String fromCityName,
+			String toCityName, Integer stops, Integer durationHours,
 			String departureDate, BigDecimal price, String searchUrl) {
 		this.from = from;
 		this.to = to;
@@ -80,6 +83,22 @@ public class Flight {
 
 	public void setSearchUrl(String searchUrl) {
 		this.searchUrl = searchUrl;
+	}
+
+	public String getFromCityName() {
+		return this.fromCityName;
+	}
+
+	public void setFromCityName(String fromCityName) {
+		this.fromCityName = fromCityName;
+	}
+
+	public String getToCityName() {
+		return this.toCityName;
+	}
+
+	public void setToCityName(String toCityName) {
+		this.toCityName = toCityName;
 	}
 
 }
