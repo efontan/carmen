@@ -459,8 +459,9 @@ define([
 				
 			}else {
 				$('#map').remove();
+				$('.ux-common-overlay-close').click();
 				$('.printer').removeClass('hide');
-				$('.printer-text').html('despegar.com - FELICITAACIONES!!! has encontrado a Carmen <div class="social"><span title="Facebook" class="mi-despegar-sprite-facebook bit-icon"></span><span title="Twitter" class="mi-despegar-sprite-twitter bit-icon"></span><span title="Google+" class="mi-despegar-sprite-google bit-icon"></span>	</div>');
+				$('.printer-text').html('despegar.com - FELICITACIONES!!! has encontrado a Carmen comp&aacute;rtelo y descubre nuevas aventuras!<div class="social"><span title="Facebook" class="mi-despegar-sprite-facebook bit-icon"></span><span title="Twitter" class="twitter mi-despegar-sprite-twitter bit-icon"></span><span title="Google+" class="mi-despegar-sprite-google bit-icon"></span>	</div>');
 				$('.printer-text').removeClass('hide');
 			}
 			

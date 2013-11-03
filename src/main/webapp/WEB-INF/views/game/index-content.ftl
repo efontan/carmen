@@ -9,7 +9,7 @@
 		<span class="title index">&iquest;En qu&eacute; lugar de Argentina est&aacute; Carmen?</span>
 		<div class="social">
 			<span title="Facebook" class="mi-despegar-sprite-facebook bit-icon"></span>
-			<span title="Twitter" class="mi-despegar-sprite-twitter bit-icon"></span>
+			<span itle="Twitter" class="twitter mi-despegar-sprite-twitter bit-icon"></span>
 			<span title="Google+" class="mi-despegar-sprite-google bit-icon"></span>
 		</div>
 	</div>
