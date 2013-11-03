@@ -32,6 +32,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -138,21 +139,25 @@ public class GameController implements ApplicationContextAware {
 
     @RequestMapping(value = "/travel/{token}/{cityCode}/{price}/{hours}", method = RequestMethod.GET)
     public ResponseEntity<Object> doTravel(HttpServletRequest request,
-                                          HttpServletResponse response,
-                                          @PathVariable("token") String token,
-                                          @PathVariable("cityCode") String cityCode,
-                                          @PathVariable("price") BigDecimal price,
-                                          @PathVariable("hours") Integer hours) {
+                                           HttpServletResponse response,
+                                           @PathVariable("token") String token,
+                                           @PathVariable("cityCode") String cityCode,
+                                           @PathVariable("price") BigDecimal price,
+                                           @PathVariable("hours") Integer hours) {
         GameSession gameSession = sessionService.getGameSessionByToken(request, token);
         GraphNode node = (GraphNode) applicationContext.getBean(gameSession.getGameWalkthrough() + UNDER + cityCode);
+
         Status newStatus = gameSession.getStatus();
         //Flight flight = flightService.getFlight(searchHash, itineraryId); //This service is deprecated :P
         BigDecimal remainingMoney = newStatus.getRemainingMoney().subtract(price);
         newStatus.setRemainingMoney(remainingMoney);
         newStatus.setActualDate(newStatus.getActualDate().plus(hours));
         gameSession.setStatus(newStatus);
-        sessionService.addGameSessionToSessions(request, response, token, gameSession);
-        TravelResponse travelResponse = new TravelResponse(node, gameSession.getStatus());
+        List<AirportCity> destinations = new LinkedList<AirportCity>();
+        for (GraphNode currentNode : node.getDestinations()) {
+            destinations.add(currentNode.getCurrentCity());
+        }
+        TravelResponse travelResponse = new TravelResponse(node.getCurrentCity(), destinations, gameSession.getStatus());
         return new ResponseEntity<Object>(new Response<Object>(ResponseStatus.SUCCESS, travelResponse), HttpStatus.OK);
     }
 
@@ -163,6 +168,15 @@ public class GameController implements ApplicationContextAware {
 		List<Flight> flights = this.flightService.getFlights(from, to);
 		return new ResponseEntity<Object>(new Response<Object>(
 				ResponseStatus.SUCCESS, flights), HttpStatus.OK);
+    }
+
+
+    @RequestMapping(value = "/restart/{token}", method = RequestMethod.GET)
+    public ResponseEntity<Object> restart(HttpServletRequest request,
+                                          @PathVariable("token") String token) {
+        GameSession session = sessionService.getGameSessionByToken(request, token);
+        gameService.restartSession(session);
+        return new ResponseEntity<Object>(new Response<Object>(ResponseStatus.SUCCESS, Boolean.TRUE), HttpStatus.OK);
     }
 
 	public SessionService getSessionService() {

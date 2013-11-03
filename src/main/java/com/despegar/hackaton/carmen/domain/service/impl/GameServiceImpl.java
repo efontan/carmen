@@ -57,7 +57,21 @@ public class GameServiceImpl implements GameService, ApplicationContextAware {
 				INITIAL_CLUE);
 	}
 
-	@Override
+    @Override
+    public GameSession restartSession(GameSession session) {
+        Integer gameWalkthrough = RandomUtils.nextInt(GAME_FLOWS) + 1;
+        DateTime actualDate = DateTime.now();
+        session.setGameWalkthrough(gameWalkthrough);
+        session.setActualCityCode(INITIAL_CITY_CODE);
+        Status newStatus = session.getStatus();
+        newStatus.setActualDate(actualDate);
+        newStatus.setRemainingMoney(new BigDecimal(INITIAL_MONEY));
+        newStatus.setLimitDate(actualDate.plusWeeks(WEEKS_TO_PLAY));
+        session.setStatus(newStatus);
+        return session;
+    }
+
+    @Override
 	public City getCityData(String cityCode, int walkthrough) {
 		City city = this.cityService.getCityData(cityCode);
 		if (walkthrough > 0) {
