@@ -52,7 +52,7 @@ public class GameController implements ApplicationContextAware {
 
 	private static final int WALKTHROUGH_UNDEFINED = 0;
 	private ApplicationContext applicationContext;
-	private static final int TOTAL_CLUES = 2;
+	private static final int TOTAL_CLUES = 2; //begins in 0.
 	private static final String NAME_VIEW = "game/index";
 	private static final String UNDER = "_";
 	private static final int MILLIS_PER_HOUR = 60 * 60 * 1000;

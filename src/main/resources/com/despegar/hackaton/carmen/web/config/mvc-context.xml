@@ -88,6 +88,29 @@
                 <property name="characterJob" ref="RECEPTIONIST"/>
                 <property name="description" value="Escuche por ahi que es muy buen pescador."/>
             </bean>
+        <!--Hacia Tucuman-->
+        <bean id="2_BUE_CLUES_CONTAINER" class="com.despegar.hackaton.carmen.domain.model.game.ClueContainer">
+            <property name="clues">
+                <list>
+                    <ref bean="2_BUE_CLUE_1"/>
+                    <ref bean="2_BUE_CLUE_2"/>
+                    <ref bean="2_BUE_CLUE_3"/>
+                </list>
+            </property>
+        </bean>
+            <bean id="2_BUE_CLUE_1" class="com.despegar.hackaton.carmen.domain.model.game.Clue">
+                <property name="characterJob" ref="MAID"/>
+                <property name="description" value="Lo escuche decir que tenia muchas ganas de comer empanadas y tamales."/>
+            </bean>
+            <bean id="2_BUE_CLUE_2" class="com.despegar.hackaton.carmen.domain.model.game.Clue">
+                <property name="characterJob" ref="JANITOR"/>
+                <property name="description" value="Dijo que por fin iba a poder descubrir que es un Menhir."/>
+            </bean>
+            <bean id="2_BUE_CLUE_3" class="com.despegar.hackaton.carmen.domain.model.game.Clue">
+                <property name="characterJob" ref="RECEPTIONIST"/>
+                <property name="description" value="Puede ser... queria ir a conocer a un tal 'Ruin' Quilmes."/>
+            </bean>
+
 
     <bean id="COR" class="com.despegar.hackaton.carmen.domain.model.game.AirportCity">
         <property name="code" value="COR"/>
@@ -103,6 +126,29 @@
                 </list>
             </property>
         </bean>
+
+        <!--Hacia Ushuaia-->
+        <bean id="2_COR_CLUES_CONTAINER" class="com.despegar.hackaton.carmen.domain.model.game.ClueContainer">
+            <property name="clues">
+                <list>
+                    <ref bean="2_COR_CLUE_1"/>
+                    <ref bean="2_COR_CLUE_2"/>
+                    <ref bean="2_COR_CLUE_3"/>
+                </list>
+            </property>
+        </bean>
+            <bean id="2_COR_CLUE_1" class="com.despegar.hackaton.carmen.domain.model.game.Clue">
+                <property name="characterJob" ref="MAID"/>
+                <property name="description" value="Nos comento que se iba hacia la 'botita' del pais."/>
+            </bean>
+            <bean id="2_COR_CLUE_2" class="com.despegar.hackaton.carmen.domain.model.game.Clue">
+                <property name="characterJob" ref="JANITOR"/>
+                <property name="description" value="Tenia muchas ganas de conocer un faro."/>
+            </bean>
+            <bean id="2_COR_CLUE_3" class="com.despegar.hackaton.carmen.domain.model.game.Clue">
+                <property name="characterJob" ref="RECEPTIONIST"/>
+                <property name="description" value="Ta' fresco che! prende el calefactor."/>
+            </bean>
 
     <bean id="CNQ" class="com.despegar.hackaton.carmen.domain.model.game.AirportCity">
         <property name="code" value="CNQ"/>
@@ -219,6 +265,10 @@
             </property>
         </bean>
 
+        <!--No lo vieron pasar-->
+        <alias name="1_PSS_CLUES_CONTAINER" alias="2_PSS_CLUES_CONTAINER"/>
+
+
     <bean id="RES" class="com.despegar.hackaton.carmen.domain.model.game.AirportCity">
         <property name="code" value="RES"/>
         <property name="translatedName" value="Resistencia"/>
@@ -249,11 +299,22 @@
             </property>
         </bean>
 
+        <!--No lo vieron pasar-->
+        <bean id="2_SFN_CLUES_CONTAINER" class="com.despegar.hackaton.carmen.domain.model.game.ClueContainer">
+            <property name="clues">
+                <list>
+                    <ref bean="DIDNT_SEE_CLUE_5"/>
+                    <ref bean="DIDNT_SEE_CLUE_6"/>
+                    <ref bean="DIDNT_SEE_CLUE_7"/>
+                </list>
+            </property>
+        </bean>
+
     <bean id="MDZ" class="com.despegar.hackaton.carmen.domain.model.game.AirportCity">
         <property name="code" value="MDZ"/>
         <property name="translatedName" value="Mendoza"/>
     </bean>
-        <!--No lo vieron pasar-->
+        <!--Termino El juego-->
         <bean id="1_MDZ_CLUES_CONTAINER" class="com.despegar.hackaton.carmen.domain.model.game.ClueContainer">
             <property name="clues">
                 <list>
@@ -277,17 +338,120 @@
                 <property name="description" value="Tibio..."/>
             </bean>
 
-
+    <bean id="RSA" class="com.despegar.hackaton.carmen.domain.model.game.AirportCity">
+        <property name="code" value="RSA"/>
+        <property name="translatedName" value="Santa Rosa"/>
+    </bean>
+        <!--No lo vieron pasar-->
+        <bean id="2_RSA_CLUES_CONTAINER" class="com.despegar.hackaton.carmen.domain.model.game.ClueContainer">
+            <property name="clues">
+                <list>
+                    <ref bean="DIDNT_SEE_CLUE_1"/>
+                    <ref bean="DIDNT_SEE_CLUE_2"/>
+                    <ref bean="DIDNT_SEE_CLUE_3"/>
+                </list>
+            </property>
+        </bean>
 
     <bean id="SLA" class="com.despegar.hackaton.carmen.domain.model.game.AirportCity">
         <property name="code" value="SLA"/>
         <property name="translatedName" value="Salta"/>
     </bean>
+        <!--No lo vieron pasar-->
+        <bean id="2_SLA_CLUES_CONTAINER" class="com.despegar.hackaton.carmen.domain.model.game.ClueContainer">
+            <property name="clues">
+                <list>
+                    <ref bean="DIDNT_SEE_CLUE_4"/>
+                    <ref bean="DIDNT_SEE_CLUE_5"/>
+                    <ref bean="DIDNT_SEE_CLUE_6"/>
+                </list>
+            </property>
+        </bean>
+
+    <bean id="CTC" class="com.despegar.hackaton.carmen.domain.model.game.AirportCity">
+        <property name="code" value="CTC"/>
+        <property name="translatedName" value="Catamarca"/>
+    </bean>
+        <!--No lo vieron pasar-->
+        <bean id="2_CTC_CLUES_CONTAINER" class="com.despegar.hackaton.carmen.domain.model.game.ClueContainer">
+            <property name="clues">
+                <list>
+                    <ref bean="DIDNT_SEE_CLUE_7"/>
+                    <ref bean="DIDNT_SEE_CLUE_1"/>
+                    <ref bean="DIDNT_SEE_CLUE_2"/>
+                </list>
+            </property>
+        </bean>
+
+    <bean id="VDM" class="com.despegar.hackaton.carmen.domain.model.game.AirportCity">
+        <property name="code" value="VDM"/>
+        <property name="translatedName" value="Viedma"/>
+    </bean>
+        <!--No lo vieron pasar-->
+        <bean id="2_VDM_CLUES_CONTAINER" class="com.despegar.hackaton.carmen.domain.model.game.ClueContainer">
+            <property name="clues">
+                <list>
+                    <ref bean="DIDNT_SEE_CLUE_3"/>
+                    <ref bean="DIDNT_SEE_CLUE_4"/>
+                    <ref bean="DIDNT_SEE_CLUE_5"/>
+                </list>
+            </property>
+        </bean>
 
     <bean id="TUC" class="com.despegar.hackaton.carmen.domain.model.game.AirportCity">
         <property name="code" value="TUC"/>
         <property name="translatedName" value="San Miguel de Tucuman"/>
     </bean>
+        <!--Hacia Cordoba-->
+        <bean id="2_TUC_CLUES_CONTAINER" class="com.despegar.hackaton.carmen.domain.model.game.ClueContainer">
+            <property name="clues">
+                <list>
+                    <ref bean="2_TUC_CLUE_1"/>
+                    <ref bean="2_TUC_CLUE_2"/>
+                    <ref bean="2_TUC_CLUE_3"/>
+                </list>
+            </property>
+        </bean>
+            <bean id="2_TUC_CLUE_1" class="com.despegar.hackaton.carmen.domain.model.game.Clue">
+                <property name="characterJob" ref="BARMAN"/>
+                <property name="description" value="Me dijo que yo le hacia acordar al viejo conserje del Hotel Eden. Me parece que por mi 'faldita'."/>
+            </bean>
+            <bean id="2_TUC_CLUE_2" class="com.despegar.hackaton.carmen.domain.model.game.Clue">
+                <property name="characterJob" ref="RECEPTIONIST"/>
+                <property name="description" value="Escuche que le gusta mucho bailar, y me pregunto quien se ha tomado todo el vino..."/>
+            </bean>
+            <bean id="2_TUC_CLUE_3" class="com.despegar.hackaton.carmen.domain.model.game.Clue">
+                <property name="characterJob" ref="WAITER"/>
+                <property name="description" value="Estuvo aqui!, si lo encuentras dile que devuelva la botella del aperitivo negro que nos hurto del bar del hotel."/>
+            </bean>
+
+    <bean id="USH" class="com.despegar.hackaton.carmen.domain.model.game.AirportCity">
+        <property name="code" value="USH"/>
+        <property name="translatedName" value="Ushuaia"/>
+    </bean>
+        <!--Termino El juego-->
+        <bean id="2_USH_CLUES_CONTAINER" class="com.despegar.hackaton.carmen.domain.model.game.ClueContainer">
+            <property name="clues">
+                <list>
+                    <ref bean="2_USH_CLUE_1"/>
+                    <ref bean="2_USH_CLUE_2"/>
+                    <ref bean="2_USH_CLUE_3"/>
+                </list>
+            </property>
+        </bean>
+        <bean id="2_USH_CLUE_1" class="com.despegar.hackaton.carmen.domain.model.game.Clue">
+            <property name="characterJob" ref="BELLBOY"/>
+            <property name="description" value="El lugar que soñasteeeeeee.... Despegar.com!!!"/>
+            <property name="inTheHouse" value="true"/>
+        </bean>
+        <bean id="2_USH_CLUE_2" class="com.despegar.hackaton.carmen.domain.model.game.Clue">
+            <property name="characterJob" ref="MAID"/>
+            <property name="description" value="Caliente..."/>
+        </bean>
+        <bean id="2_USH_CLUE_3" class="com.despegar.hackaton.carmen.domain.model.game.Clue">
+            <property name="characterJob" ref="WAITER"/>
+            <property name="description" value="Tibio..."/>
+        </bean>
 
     <bean id="SDE" class="com.despegar.hackaton.carmen.domain.model.game.AirportCity">
         <property name="code" value="SDE"/>
@@ -302,26 +466,6 @@
     <bean id="LUQ" class="com.despegar.hackaton.carmen.domain.model.game.AirportCity">
         <property name="code" value="LUQ"/>
         <property name="translatedName" value="San Luis"/>
-    </bean>
-
-    <bean id="RSA" class="com.despegar.hackaton.carmen.domain.model.game.AirportCity">
-        <property name="code" value="RSA"/>
-        <property name="translatedName" value="Santa Rosa"/>
-    </bean>
-
-    <bean id="CTC" class="com.despegar.hackaton.carmen.domain.model.game.AirportCity">
-        <property name="code" value="CTC"/>
-        <property name="translatedName" value="Catamarca"/>
-    </bean>
-
-    <bean id="VDM" class="com.despegar.hackaton.carmen.domain.model.game.AirportCity">
-        <property name="code" value="VDM"/>
-        <property name="translatedName" value="Viedma"/>
-    </bean>
-
-    <bean id="USH" class="com.despegar.hackaton.carmen.domain.model.game.AirportCity">
-        <property name="code" value="USH"/>
-        <property name="translatedName" value="Ushuaia"/>
     </bean>
 
     <!--Entre Rios no tiene aeropuerto.-->
@@ -475,6 +619,136 @@
             </list>
         </property>
         <property name="clues" ref="1_SFN_CLUES_CONTAINER"/>
+    </bean>
+
+    <!--Flow 2; Node Buenos Aires-->
+    <bean id="2_BUE" class="com.despegar.hackaton.carmen.domain.model.game.GraphNode">
+        <property name="currentCity" ref="BUE"/>
+        <property name="destinations">
+            <list>
+                <ref bean="2_SFN"/>
+                <ref bean="2_TUC"/>
+                <ref bean="2_SLA"/>
+            </list>
+        </property>
+        <property name="clues" ref="2_BUE_CLUES_CONTAINER"/>
+    </bean>
+
+    <!--Flow 2; Node Sta Fe-->
+    <bean id="2_SFN" class="com.despegar.hackaton.carmen.domain.model.game.GraphNode">
+        <property name="currentCity" ref="SFN"/>
+        <property name="destinations">
+            <list>
+                <ref bean="2_VDM"/>
+                <ref bean="2_CTC"/>
+                <ref bean="2_BUE"/>
+            </list>
+        </property>
+        <property name="clues" ref="2_SFN_CLUES_CONTAINER"/>
+    </bean>
+
+    <!--Flow 2; Node Posadas-->
+    <bean id="2_PSS" class="com.despegar.hackaton.carmen.domain.model.game.GraphNode">
+        <property name="currentCity" ref="PSS"/>
+        <property name="destinations">
+            <list>
+                <ref bean="2_TUC"/>
+                <ref bean="2_BUE"/>
+                <ref bean="2_COR"/>
+            </list>
+        </property>
+        <property name="clues" ref="2_PSS_CLUES_CONTAINER"/>
+    </bean>
+
+    <!--Flow 2; Node Cordoba-->
+    <bean id="2_COR" class="com.despegar.hackaton.carmen.domain.model.game.GraphNode">
+        <property name="currentCity" ref="COR"/>
+        <property name="destinations">
+            <list>
+                <ref bean="2_PSS"/>
+                <ref bean="2_USH"/>
+                <ref bean="2_VDM"/>
+            </list>
+        </property>
+        <property name="clues" ref="2_COR_CLUES_CONTAINER"/>
+    </bean>
+
+    <!--Flow 2; Node Santa Rosa-->
+    <bean id="2_RSA" class="com.despegar.hackaton.carmen.domain.model.game.GraphNode">
+        <property name="currentCity" ref="RSA"/>
+        <property name="destinations">
+            <list>
+                <ref bean="2_TUC"/>
+                <ref bean="2_SFN"/>
+                <ref bean="2_SLA"/>
+            </list>
+        </property>
+        <property name="clues" ref="2_RSA_CLUES_CONTAINER"/>
+    </bean>
+
+    <!--Flow 2; Node Salta-->
+    <bean id="2_SLA" class="com.despegar.hackaton.carmen.domain.model.game.GraphNode">
+        <property name="currentCity" ref="SLA"/>
+        <property name="destinations">
+            <list>
+                <ref bean="2_BUE"/>
+                <ref bean="2_SFN"/>
+                <ref bean="2_PSS"/>
+            </list>
+        </property>
+        <property name="clues" ref="2_SLA_CLUES_CONTAINER"/>
+    </bean>
+
+    <!--Flow 2; Node Catamarca-->
+    <bean id="2_CTC" class="com.despegar.hackaton.carmen.domain.model.game.GraphNode">
+        <property name="currentCity" ref="CTC"/>
+        <property name="destinations">
+            <list>
+                <ref bean="2_TUC"/>
+                <ref bean="2_BUE"/>
+                <ref bean="2_PSS"/>
+            </list>
+        </property>
+        <property name="clues" ref="2_CTC_CLUES_CONTAINER"/>
+    </bean>
+
+    <!--Flow 2; Node Viedma-->
+    <bean id="2_VDM" class="com.despegar.hackaton.carmen.domain.model.game.GraphNode">
+        <property name="currentCity" ref="VDM"/>
+        <property name="destinations">
+            <list>
+                <ref bean="2_RSA"/>
+                <ref bean="2_TUC"/>
+                <ref bean="2_PSS"/>
+            </list>
+        </property>
+        <property name="clues" ref="2_VDM_CLUES_CONTAINER"/>
+    </bean>
+
+    <!--Flow 2; Node Tucuman-->
+    <bean id="2_TUC" class="com.despegar.hackaton.carmen.domain.model.game.GraphNode">
+        <property name="currentCity" ref="TUC"/>
+        <property name="destinations">
+            <list>
+                <ref bean="2_RSA"/>
+                <ref bean="2_COR"/>
+                <ref bean="2_CTC"/>
+            </list>
+        </property>
+        <property name="clues" ref="2_TUC_CLUES_CONTAINER"/>
+    </bean>
+
+    <!--Flow 2; Node Ushuaia--> <!--The destination list inst necessary.-->
+    <bean id="2_USH" class="com.despegar.hackaton.carmen.domain.model.game.GraphNode">
+        <property name="currentCity" ref="USH"/>
+        <property name="destinations">
+            <list>
+                <ref bean="2_BUE"/>
+                <ref bean="2_SFN"/>
+                <ref bean="2_CTC"/>
+            </list>
+        </property>
+        <property name="clues" ref="2_USH_CLUES_CONTAINER"/>
     </bean>
 
 </beans>
