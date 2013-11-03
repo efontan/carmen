@@ -26,63 +26,69 @@ import java.util.Map;
 @Service
 public class GameServiceImpl implements GameService, ApplicationContextAware {
 
-    private static final int INITIAL_MONEY = 50000;
-    private static final int WEEKS_TO_PLAY = 1;
-    private static final int GAME_FLOWS = 1;
-    private static final String INITIAL_CITY_CODE = "BUE";
-    private static final int INITIAL_CLUE = 0;
-    private static final String UNDER = "_";
+	private static final int INITIAL_MONEY = 50000;
+	private static final int WEEKS_TO_PLAY = 1;
+	private static final int GAME_FLOWS = 1;
+	private static final String INITIAL_CITY_CODE = "BUE";
+	private static final int INITIAL_CLUE = 0;
+	private static final String UNDER = "_";
 
-    private ApplicationContext applicationContext;
+	private ApplicationContext applicationContext;
 
-  @Autowired
-  private HotelService hotelService;
-  
-  @Autowired
-  private CityService cityService;
+	@Autowired
+	private HotelService hotelService;
 
-  @Resource
-  @Qualifier("citiesMap")
-  private Map<String, String> citiesMap;
+	@Autowired
+	private CityService cityService;
 
-  @Override
-  public GameSession createGameSession(Player player) {
-    Integer gameWalkthrough = RandomUtils.nextInt(GAME_FLOWS) + 1;
-        String actualCityCode = INITIAL_CITY_CODE;
-    DateTime actualDate = DateTime.now();
-    DateTime limitDate = actualDate.plusWeeks(WEEKS_TO_PLAY);
-    BigDecimal remainingMoney = new BigDecimal(INITIAL_MONEY);
-    Status status = new Status(actualDate, limitDate, remainingMoney);
-    return new GameSession(gameWalkthrough, actualCityCode, player, status, INITIAL_CLUE);
-  }
+	@Resource
+	@Qualifier("citiesMap")
+	private Map<String, String> citiesMap;
 
-  @Override
-  public City getCityData(String cityCode) {
-    City city = this.cityService.getCityData(cityCode);
-    return city;
-  }
+	@Override
+	public GameSession createGameSession(Player player) {
+		Integer gameWalkthrough = RandomUtils.nextInt(GAME_FLOWS) + 1;
+		String actualCityCode = INITIAL_CITY_CODE;
+		DateTime actualDate = DateTime.now();
+		DateTime limitDate = actualDate.plusWeeks(WEEKS_TO_PLAY);
+		BigDecimal remainingMoney = new BigDecimal(INITIAL_MONEY);
+		Status status = new Status(actualDate, limitDate, remainingMoney);
+		return new GameSession(gameWalkthrough, actualCityCode, player, status,
+				INITIAL_CLUE);
+	}
 
-    @Override
-    public List<String> getDestinations(String cityCode, int walkthrough) {
-        GraphNode node = (GraphNode) applicationContext.getBean(walkthrough + UNDER + cityCode);
-        List<String> cityCodes = new LinkedList<String>();
-        for (GraphNode currentNode : node.getDestinations()) {
-            cityCodes.add(currentNode.getCurrentCity().getCode());
-        }
-        return cityCodes;
-    }
+	@Override
+	public City getCityData(String cityCode, int walkthrough) {
+		City city = this.cityService.getCityData(cityCode);
+		if (walkthrough > 0) {
+			city.setNextDestinations(this
+					.getDestinations(cityCode, walkthrough));
+		}
+		return city;
+	}
 
+	@Override
+	public List<String> getDestinations(String cityCode, int walkthrough) {
+		GraphNode node = (GraphNode) applicationContext.getBean(walkthrough
+				+ UNDER + cityCode);
+		List<String> cityCodes = new LinkedList<String>();
+		for (GraphNode currentNode : node.getDestinations()) {
+			cityCodes.add(currentNode.getCurrentCity().getCode());
+		}
+		return cityCodes;
+	}
 
-  public HotelService getHotelService() {
-    return this.hotelService;
-  }
+	public HotelService getHotelService() {
+		return this.hotelService;
+	}
 
-  public void setHotelServiceImpl(HotelService hotelService) {
-    this.hotelService = hotelService;
-  }
+	public void setHotelServiceImpl(HotelService hotelService) {
+		this.hotelService = hotelService;
+	}
 
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        this.applicationContext = applicationContext;
-    }
+	@Override
+	public void setApplicationContext(ApplicationContext applicationContext)
+			throws BeansException {
+		this.applicationContext = applicationContext;
+	}
 }

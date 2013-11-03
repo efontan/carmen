@@ -7,11 +7,14 @@ import com.despegar.hackaton.carmen.domain.model.game.Hotel;
 
 public class ApiHotelMapper implements Mapper<ApiHotel, Hotel> {
 
+	private static final int MAX_DESCRIPTION_LENGTH = 200;
+
 	@Override
 	public Hotel map(ApiHotel apiHotel) {
 		Hotel hotel = new Hotel();
 		hotel.setId(apiHotel.getId());
-		hotel.setDescription(apiHotel.getDescription());
+		String shortDescription = this.cutDescription(apiHotel.getDescription());
+		hotel.setDescription(shortDescription);
 		if (!apiHotel.getPictures().isEmpty()) {
 			hotel.setImageKey(apiHotel.getPictures().get(0));
 		}
@@ -23,6 +26,15 @@ public class ApiHotelMapper implements Mapper<ApiHotel, Hotel> {
 			hotel.setRating(apiHotel.getReviewSummary().getOverallRating());
 		hotel.setStarsNumber(apiHotel.getStarRating());
 		return hotel;
+	}
+
+	private String cutDescription(String description) {
+		String result = description;
+		if(description.length()>MAX_DESCRIPTION_LENGTH){
+			result = description.substring(0, MAX_DESCRIPTION_LENGTH);
+			result += "...";
+		}
+		return result.toString();
 	}
 
 }

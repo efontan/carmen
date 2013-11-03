@@ -1,5 +1,6 @@
 package com.despegar.hackaton.carmen.domain.service.impl;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,9 @@ public class HotelServiceImpl implements HotelService {
 	public List<Hotel> getCityHotels(String cityCode) {
 		List<Long> cityHotelIds = this.citiesRestClient.getHotelIdsByCity(cityCode);
 		return this.hotelRestClient.getHotelsDetail(cityHotelIds);
+	}
+	
+	public BigDecimal getPrice(long id){
+		return this.hotelRestClient.getPrice(id);
 	}
 }

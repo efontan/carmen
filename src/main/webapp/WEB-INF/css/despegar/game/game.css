@@ -1,5 +1,5 @@
-.mi-despegar-sprite-sprite, .mi-despegar-sprite-bg, .mi-despegar-sprite-carmen, .mi-despegar-sprite-facebook, .mi-despegar-sprite-female-avatar, .mi-despegar-sprite-game_bg, .mi-despegar-sprite-google, .mi-despegar-sprite-male-avatar, .mi-despegar-sprite-pointer, .mi-despegar-sprite-printer, .mi-despegar-sprite-step-future, .mi-despegar-sprite-step-now, .mi-despegar-sprite-step-past, .mi-despegar-sprite-twitter, .mi-despegar-sprite-user-menu-cancellation, .mi-despegar-sprite-user-menu-change-flight, .mi-despegar-sprite-user-menu-chat, .mi-despegar-sprite-user-menu-flight-actions, .mi-despegar-sprite-user-menu-invoicing, .mi-despegar-sprite-user-menu-resend, .mi-despegar-sprite-user-menu-special-request, .mi-despegar-sprite-user-menu-suggestion, .mi-despegar-sprite-waiting-icon {
-  background: url('../../../img/mi-despegar-sprite-s0153b6c6bc.png') no-repeat;
+.mi-despegar-sprite-sprite, .mi-despegar-sprite-bg, .mi-despegar-sprite-carmen, .mi-despegar-sprite-facebook, .mi-despegar-sprite-female-avatar, .mi-despegar-sprite-game_bg, .mi-despegar-sprite-google, .mi-despegar-sprite-male-avatar, .mi-despegar-sprite-pointer, .mi-despegar-sprite-printer, .mi-despegar-sprite-stars-0, .mi-despegar-sprite-stars-1, .mi-despegar-sprite-stars-2, .mi-despegar-sprite-stars-3, .mi-despegar-sprite-stars-4, .mi-despegar-sprite-stars-5, .mi-despegar-sprite-step-future, .mi-despegar-sprite-step-now, .mi-despegar-sprite-step-past, .mi-despegar-sprite-twitter, .mi-despegar-sprite-user-menu-cancellation, .mi-despegar-sprite-user-menu-change-flight, .mi-despegar-sprite-user-menu-chat, .mi-despegar-sprite-user-menu-flight-actions, .mi-despegar-sprite-user-menu-invoicing, .mi-despegar-sprite-user-menu-resend, .mi-despegar-sprite-user-menu-special-request, .mi-despegar-sprite-user-menu-suggestion, .mi-despegar-sprite-waiting-icon {
+  background: url('../../../img/mi-despegar-sprite-sff328fd811.png') no-repeat;
 }
 
 .mi-despegar-sprite-bg {
@@ -15,7 +15,7 @@
 }
 
 .mi-despegar-sprite-facebook {
-  background-position: 0 -1704px;
+  background-position: 0 -1784px;
   height: 25px;
   width: 25px;
 }
@@ -56,32 +56,68 @@
   width: 277px;
 }
 
+.mi-despegar-sprite-stars-0 {
+  background-position: 0 -1859px;
+  height: 20px;
+  width: 98px;
+}
+
+.mi-despegar-sprite-stars-1 {
+  background-position: 0 -1704px;
+  height: 20px;
+  width: 98px;
+}
+
+.mi-despegar-sprite-stars-2 {
+  background-position: 0 -1664px;
+  height: 20px;
+  width: 98px;
+}
+
+.mi-despegar-sprite-stars-3 {
+  background-position: 0 -1644px;
+  height: 20px;
+  width: 98px;
+}
+
+.mi-despegar-sprite-stars-4 {
+  background-position: 0 -1684px;
+  height: 20px;
+  width: 98px;
+}
+
+.mi-despegar-sprite-stars-5 {
+  background-position: 0 -1879px;
+  height: 20px;
+  width: 98px;
+}
+
 .mi-despegar-sprite-step-future {
-  background-position: 0 -1811px;
+  background-position: 0 -1931px;
   height: 32px;
   width: 32px;
 }
 
 .mi-despegar-sprite-step-now {
-  background-position: 0 -1779px;
+  background-position: 0 -1899px;
   height: 32px;
   width: 32px;
 }
 
 .mi-despegar-sprite-step-past {
-  background-position: 0 -1672px;
+  background-position: 0 -1752px;
   height: 32px;
   width: 32px;
 }
 
 .mi-despegar-sprite-twitter {
-  background-position: 0 -1729px;
+  background-position: 0 -1809px;
   height: 25px;
   width: 25px;
 }
 
 .mi-despegar-sprite-user-menu-cancellation {
-  background-position: 0 -1644px;
+  background-position: 0 -1724px;
   height: 28px;
   width: 27px;
 }
@@ -93,7 +129,7 @@
 }
 
 .mi-despegar-sprite-user-menu-chat {
-  background-position: 0 -1843px;
+  background-position: 0 -1963px;
   height: 35px;
   width: 38px;
 }
@@ -111,7 +147,7 @@
 }
 
 .mi-despegar-sprite-user-menu-resend {
-  background-position: 0 -1754px;
+  background-position: 0 -1834px;
   height: 25px;
   width: 32px;
 }
@@ -129,12 +165,12 @@
 }
 
 .mi-despegar-sprite-waiting-icon {
-  background-position: 0 -1878px;
+  background-position: 0 -1998px;
   height: 30px;
   width: 22px;
 }
 
-.mi-despegar-sprite-sprite, .mi-despegar-sprite-bg, .mi-despegar-sprite-carmen, .mi-despegar-sprite-facebook, .mi-despegar-sprite-female-avatar, .mi-despegar-sprite-game_bg, .mi-despegar-sprite-google, .mi-despegar-sprite-male-avatar, .mi-despegar-sprite-pointer, .mi-despegar-sprite-printer, .mi-despegar-sprite-step-future, .mi-despegar-sprite-step-now, .mi-despegar-sprite-step-past, .mi-despegar-sprite-twitter, .mi-despegar-sprite-user-menu-cancellation, .mi-despegar-sprite-user-menu-change-flight, .mi-despegar-sprite-user-menu-chat, .mi-despegar-sprite-user-menu-flight-actions, .mi-despegar-sprite-user-menu-invoicing, .mi-despegar-sprite-user-menu-resend, .mi-despegar-sprite-user-menu-special-request, .mi-despegar-sprite-user-menu-suggestion, .mi-despegar-sprite-waiting-icon {
+.mi-despegar-sprite-sprite, .mi-despegar-sprite-bg, .mi-despegar-sprite-carmen, .mi-despegar-sprite-facebook, .mi-despegar-sprite-female-avatar, .mi-despegar-sprite-game_bg, .mi-despegar-sprite-google, .mi-despegar-sprite-male-avatar, .mi-despegar-sprite-pointer, .mi-despegar-sprite-printer, .mi-despegar-sprite-stars-0, .mi-despegar-sprite-stars-1, .mi-despegar-sprite-stars-2, .mi-despegar-sprite-stars-3, .mi-despegar-sprite-stars-4, .mi-despegar-sprite-stars-5, .mi-despegar-sprite-step-future, .mi-despegar-sprite-step-now, .mi-despegar-sprite-step-past, .mi-despegar-sprite-twitter, .mi-despegar-sprite-user-menu-cancellation, .mi-despegar-sprite-user-menu-change-flight, .mi-despegar-sprite-user-menu-chat, .mi-despegar-sprite-user-menu-flight-actions, .mi-despegar-sprite-user-menu-invoicing, .mi-despegar-sprite-user-menu-resend, .mi-despegar-sprite-user-menu-special-request, .mi-despegar-sprite-user-menu-suggestion, .mi-despegar-sprite-waiting-icon {
   display: block;
 }
 
@@ -367,6 +403,23 @@ body {
 #hotelMap h4 {
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
+}
+#hotelMap .img-hotel {
+  float: left;
+  margin: 17px 10px 0px 0;
+  width: 100px;
+  height: 100px;
+}
+#hotelMap .hotel-title {
+  margin-bottom: -10px;
+}
+#hotelMap .hotel-stars {
+  float: right;
+  margin: -10px 10px 0 0;
+}
+#hotelMap .sleep {
+  margin: 16px 10px -10px 0;
+  float: none;
 }
 
 .gmap {

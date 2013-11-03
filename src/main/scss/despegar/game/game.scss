@@ -279,6 +279,28 @@ body{
 		-webkit-margin-before: 0;
 		-webkit-margin-after: 0;
 	}
+	
+	.img-hotel{
+		float: left;
+		margin: 17px 10px 0px 0;
+		width: 100px;
+		height: 100px;
+	}
+	
+	.hotel-title{
+		margin-bottom: -10px;
+	}
+	
+	.hotel-stars{
+		float: right;
+		margin: -10px 10px 0 0;
+	}
+	
+	.sleep{
+		margin: 16px 10px -10px 0;
+		float: none;
+	}
+	
 }
 
 .gmap{

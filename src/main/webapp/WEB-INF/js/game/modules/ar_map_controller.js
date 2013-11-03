@@ -24,6 +24,26 @@ define([
 
 			logger.info("[INFO] Inicializando modulo "+module_id);
 			
+			tooltip = new overlay();
+
+        	tooltip.openDynamicDialog({
+				trigger: $('#main-panel'),
+				onClose: function() {},
+				id: 'hotelMap',
+				effect: "fade",
+				remove: true,
+				position: 'top-left',
+				type: 'popover',
+				arrow: false,
+				background: false,
+				callback: function() {
+					_getFormData(function(data, isError) {
+							_renderSpecialRequest(data, 'BUE', tooltip);
+
+					});
+				}
+			});
+			
 			$.fn.vectorMap('addMap', 'ar_mill_en', {
 			    "insets": [{
 			        "width": 900.0,
@@ -145,6 +165,11 @@ define([
 				map: 'ar_mill_en',
 				backgroundColor: 'transparent',
 				regionsSelectable: true,
+				markerStyle: {
+			        initial: {
+			          fill: 'red'
+			        }
+			      },
 	            regionStyle: {
 	              initial: {
 	                fill: '#8d8d8d'
@@ -167,7 +192,13 @@ define([
 	            	var mapObject = $('#map').vectorMap('get', 'mapObject');
 	            	
 	            	mapObject.setSelectedRegions(_resetMap());
-
+	            	
+      	
+//	            	mapObject.addMarker('marker_'+code, mapObject.latLngToPoint(-34.5856687,-58.43010190000001));
+	            	mapObject.addMarker('_'+code, {latLng: [-34.5856687,-58, -58.43010190000001]});
+	            	mapObject.addMarker('_1'+code, {latLng: [-32.5856687,-58, -59.43010190000001]});
+	            	
+	            	mapObject.removeMarkers(['_1'+code, '_'+code]);
 
 	            	tooltip = new overlay();
 
@@ -200,6 +231,10 @@ define([
 			};
 
 			_bindMap($('#map'), map_options);
+			
+			var mapObject = $('#map').vectorMap('get', 'mapObject');
+        	
+        	mapObject.setSelectedRegions('BUE');
 
 		}
 
@@ -286,20 +321,20 @@ define([
 
 			var template = Handlebars.templates['hotel-map.hbs'];
 			
-			var context = {
-				"body": code,
-			};
+			var context = {};
 
 			var popupContent = template(context);
 
 			tooltip.updateContent(popupContent);
 			
 			var mapData = extraData.get("startPoint");
+			
+			console.log(mapData);
 		
 			var map = new GMaps({
 			    el: '#gmap',
-			    lat: -34.603711,
-			    lng: -58.381585,
+			    lat: mapData.position.latitude,
+			    lng: mapData.position.longitude,
 			    zoom: 13,
 			    zoomControl : true,
 			    zoomControlOpt: {
@@ -308,62 +343,21 @@ define([
 			    },
 			    panControl : false,
 			  });
-
+			
+			_.each(mapData.hotels, function(val, key){
+				
 				map.addMarker({
-			      lat: 51.503324,
-			      lng: -0.119543,
-			      title: 'London Eye',
-			      infoWindow: {
-			        content: '<p>The London Eye is a giant Ferris wheel situated on the banks of the River Thames in London, England. The entire structure is 135 metres (443 ft) tall and the wheel has a diameter of 120 metres (394 ft).</p>' }
-			    });
+				      lat: val.position.latitude,
+				      lng: val.position.longitude,
+				      title: val.name,
+				      infoWindow: {
+				        content: '<img class="img-hotel" src="http://www.despegar.com/media/pictures/' + val.imageKey + '/100x100"></img><h3 class="hotel-title">' + val.name + '</h3><span class="hotel-stars mi-despegar-sprite-stars-'+ val.starsNumber +'"></span><button type="submit" class="btn btn-danger span2 sleep">Pasar la noche</button><p>' + val.description + '</p>' }
+				    });
+				
+			});
 
-			    map.addMarker({
-			      lat: 51.5007396,
-			      lng: -0.1245299,
-			      title: 'Big Ben',
-			      infoWindow: {
-			        content: '<p>Big Ben is the nickname for the great bell of the clock at the north end of the Palace of Westminster in London, and often extended to refer to the clock and the clock tower, officially named Elizabeth Tower.</p>'
-			      }
-			    });
-
-			    map.addMarker({
-			      lat: 51.518856,
-			      lng: -0.1263371,
-			      title: 'British Museum',
-			      infoWindow: {
-			        content: '<p>The British Museum is a museum in London dedicated to human history and culture.</p>'
-			      }
-			    });
-
-			    map.addMarker({
-			      lat: 51.5085822,
-			      lng: -0.1283169,
-			      title: 'National Gallery',
-			      infoWindow: {
-			        content: '<p>The National Gallery is an art museum on Trafalgar Square, London. Founded in 1824, it houses a collection of over 2,300 paintings dating from the mid-13th century to 1900.</p>'
-			      }
-			    });
-
-			    map.addMarker({
-			      lat: 51.5228316,
-			      lng: -0.1553503,
-			      title: 'Madame Tussauds',
-			      infoWindow: {
-			        content: '<p>Madame Tussauds is a wax museum in London with branches in a number of major cities.</p>'
-			      }
-			    });
-
-			    map.addMarker({
-			      lat: 51.5089465,
-			      lng: -0.0764269,
-			      title: 'Tower Of London',
-			      infoWindow: {
-			        content: '<p>Her Majesty\'s Royal Palace and Fortress, more commonly known as the Tower of London, is a historic castle on the north bank of the River Thames in central London, England, United Kingdom.</p>'
-			      }
-			    });
 	
 		}
-
 		// API Publica
 		return {
 
