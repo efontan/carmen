@@ -1,13 +1,17 @@
 package com.despegar.hackaton.carmen.domain.mapper.api;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
+import com.despegar.hackaton.carmen.domain.client.geo.CitiesRestClient;
 import com.despegar.hackaton.carmen.domain.mapper.Mapper;
 import com.despegar.hackaton.carmen.domain.model.api.flight.ApiFlight;
 import com.despegar.hackaton.carmen.domain.model.api.flight.ApiFlightSegment;
@@ -15,10 +19,16 @@ import com.despegar.hackaton.carmen.domain.model.api.flight.ApiFlightSegmentDeta
 import com.despegar.hackaton.carmen.domain.model.api.flight.ApiPriceInfo;
 import com.despegar.hackaton.carmen.domain.model.api.flight.ApiRoute;
 import com.despegar.hackaton.carmen.domain.model.game.Flight;
+import com.despegar.hackaton.carmen.domain.service.impl.FlightServiceConstants;
 
+@Component("apiFlightMapper")
 public class ApiFlightMapper implements Mapper<ApiFlight, Flight> {
 
 	private static final int MILLIS_PER_HOUR = 60 * 60 * 1000;
+
+	@Autowired
+	@Qualifier("cities.rest.client")
+	private CitiesRestClient citiesRestClient;
 
 	@Override
 	public Flight map(ApiFlight apiFlight) {
@@ -34,34 +44,43 @@ public class ApiFlightMapper implements Mapper<ApiFlight, Flight> {
 		ApiFlightSegment lastApiFlightSegment = segments.get(totalSegments - 1);
 		ApiFlightSegmentDetails arrival = lastApiFlightSegment.getArrival();
 
-		String from = departure.getLocation();
-		String to = arrival.getLocation();
+		String from = this.citiesRestClient.getCityCodeByAirportId(departure
+				.getLocation());
+		String to = this.citiesRestClient.getCityCodeByAirportId(arrival
+				.getLocation());
 
 		String duration = firstApiFlightSegment.getDuration();
 
 		ApiPriceInfo priceInfo = apiFlight.getPriceInfo();
 
-		flight.setDepartureDate(this.getDateFromFlight(departure.getDate(),
-				departure.getTimezone()));
+		flight.setDepartureDate(this.getDateFromFlight(departure.getTimezone()));
 		flight.setDurationHours(this.getDurationHours(duration));
 		flight.setFrom(from);
 		flight.setTo(to);
 		flight.setStops(segments.size());
 		flight.setPrice(priceInfo.getAdults().getBaseFare());
-		flight.setSearchUrl("www.despegar.com");
+		flight.setSearchUrl(this.getSearchUrl(from, to));
 
 		return flight;
 	}
 
-	private String getDateFromFlight(String date, Double offset) {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	private String getSearchUrl(String from, String to) {
+		DateTime departureDate = DateTime.now().plusMonths(
+				FlightServiceConstants.PLUS_MONTHS);
+		return FlightServiceConstants.SEARCH_URL_BASE
+				+ "/"
+				+ from
+				+ "/"
+				+ to
+				+ "/"
+				+ formatedDate(departureDate,
+						FlightServiceConstants.SEARCH_DATE_PATTER) + "/1/0/0";
+	}
+
+	private String getDateFromFlight(Double offset) {
+		Date date = new Date();
 		DateTime dateTimeForOffset = null;
-		try {
-			dateTimeForOffset = this.getDateTimeForOffset(sdf.parse(date),
-					offset);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		dateTimeForOffset = this.getDateTimeForOffset(date, offset);
 		return dateTimeForOffset.toString("dd-MM-yyyy HH:mm");
 	}
 
@@ -75,11 +94,15 @@ public class ApiFlightMapper implements Mapper<ApiFlight, Flight> {
 		String[] split = duration.split(":");
 		Integer hours = Integer.parseInt(split[0]);
 		Integer minutes = Integer.parseInt(split[1]);
-
 		if (minutes > 30) {
 			hours++;
 		}
 		return hours;
+	}
+
+	public static String formatedDate(DateTime dateTime, String pattern) {
+		DateTimeFormatter df = DateTimeFormat.forPattern(pattern);
+		return dateTime.toString(df);
 	}
 
 }

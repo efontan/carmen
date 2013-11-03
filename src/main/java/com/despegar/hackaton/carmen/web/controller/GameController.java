@@ -159,7 +159,6 @@ public class GameController implements ApplicationContextAware {
 		List<Flight> flights = this.flightService.getFlights(from, to);
 		return new ResponseEntity<Object>(new Response<Object>(
 				ResponseStatus.SUCCESS, flights), HttpStatus.OK);
-
 	}
 
 	public SessionService getSessionService() {
