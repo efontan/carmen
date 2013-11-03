@@ -28,7 +28,7 @@ import com.despegar.hackaton.carmen.web.session.GameSession;
 @Service
 public class GameServiceImpl implements GameService, ApplicationContextAware {
 
-	private static final int INITIAL_MONEY = 15000;
+	private static final int INITIAL_MONEY = 10000;
 	private static final int DAYS_TO_PLAY = 4;
 	private static final int GAME_FLOWS = 2;
 	private static final String INITIAL_CITY_CODE = "BUE";
