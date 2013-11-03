@@ -227,6 +227,14 @@ public class GameController implements ApplicationContextAware {
 		return new ResponseEntity<Object>(new Response<Object>(
 				ResponseStatus.SUCCESS, Boolean.TRUE), HttpStatus.OK);
 	}
+	
+	@RequestMapping("/expenses/summary/{token}")
+	public ResponseEntity<Object> getExpensesDetail(HttpServletRequest request,
+			@PathVariable("token") String token){
+		ExpensesDetail expensesDetail = this.sessionService.getGameSessionByToken(request, token).getExpensesDetail();
+		return new ResponseEntity<Object>(new Response<Object>(
+				ResponseStatus.SUCCESS, expensesDetail), HttpStatus.OK);
+	}
 
 	public SessionService getSessionService() {
 		return this.sessionService;

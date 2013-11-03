@@ -36,7 +36,7 @@ public class ExpensesDetail implements Serializable {
 	public BigDecimal getFlightSummary(){
 		BigDecimal flightSummary = BigDecimal.ZERO;
 		for(FlightExpense flight : this.flightExpenses){
-			flightSummary.add(flight.getPrice());
+			flightSummary = flightSummary.add(flight.getPrice());
 		}
 		return flightSummary;
 	}
@@ -44,7 +44,7 @@ public class ExpensesDetail implements Serializable {
 	public BigDecimal getHotelSummary(){
 		BigDecimal hotelSummary = BigDecimal.ZERO;
 		for(HotelExpense hotel : this.hotelExpenses){
-			hotelSummary.add(hotel.getPrice());
+			hotelSummary = hotelSummary.add(hotel.getPrice());
 		}
 		return hotelSummary;
 	}
