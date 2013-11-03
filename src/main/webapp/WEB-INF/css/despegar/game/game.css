@@ -1,5 +1,47 @@
-.mi-despegar-sprite-sprite, .mi-despegar-sprite-bg, .mi-despegar-sprite-carmen, .mi-despegar-sprite-facebook, .mi-despegar-sprite-female-avatar, .mi-despegar-sprite-game_bg, .mi-despegar-sprite-google, .mi-despegar-sprite-male-avatar, .mi-despegar-sprite-pointer, .mi-despegar-sprite-printer, .mi-despegar-sprite-stars-0, .mi-despegar-sprite-stars-1, .mi-despegar-sprite-stars-2, .mi-despegar-sprite-stars-3, .mi-despegar-sprite-stars-4, .mi-despegar-sprite-stars-5, .mi-despegar-sprite-step-future, .mi-despegar-sprite-step-now, .mi-despegar-sprite-step-past, .mi-despegar-sprite-twitter, .mi-despegar-sprite-user-menu-cancellation, .mi-despegar-sprite-user-menu-change-flight, .mi-despegar-sprite-user-menu-chat, .mi-despegar-sprite-user-menu-flight-actions, .mi-despegar-sprite-user-menu-invoicing, .mi-despegar-sprite-user-menu-resend, .mi-despegar-sprite-user-menu-special-request, .mi-despegar-sprite-user-menu-suggestion, .mi-despegar-sprite-waiting-icon {
-  background: url('../../../img/mi-despegar-sprite-sff328fd811.png') no-repeat;
+.mi-despegar-sprite-sprite, .mi-despegar-sprite-ATTENDANT, .mi-despegar-sprite-BARMAN, .mi-despegar-sprite-BELLBOY, .mi-despegar-sprite-JANITOR, .mi-despegar-sprite-MAID, .mi-despegar-sprite-RECEPTIONIST, .mi-despegar-sprite-WAITER, .mi-despegar-sprite-bg, .mi-despegar-sprite-carmen, .mi-despegar-sprite-facebook, .mi-despegar-sprite-female-avatar, .mi-despegar-sprite-game_bg, .mi-despegar-sprite-google, .mi-despegar-sprite-male-avatar, .mi-despegar-sprite-pointer, .mi-despegar-sprite-printer, .mi-despegar-sprite-stars-0, .mi-despegar-sprite-stars-1, .mi-despegar-sprite-stars-2, .mi-despegar-sprite-stars-3, .mi-despegar-sprite-stars-4, .mi-despegar-sprite-stars-5, .mi-despegar-sprite-step-future, .mi-despegar-sprite-step-now, .mi-despegar-sprite-step-past, .mi-despegar-sprite-twitter, .mi-despegar-sprite-user-menu-cancellation, .mi-despegar-sprite-user-menu-change-flight, .mi-despegar-sprite-user-menu-chat, .mi-despegar-sprite-user-menu-flight-actions, .mi-despegar-sprite-user-menu-invoicing, .mi-despegar-sprite-user-menu-resend, .mi-despegar-sprite-user-menu-special-request, .mi-despegar-sprite-user-menu-suggestion, .mi-despegar-sprite-waiting-icon {
+  background: url('../../../img/mi-despegar-sprite-s15fb671f81.png') no-repeat;
+}
+
+.mi-despegar-sprite-ATTENDANT {
+  background-position: 0 -1616px;
+  height: 85px;
+  width: 85px;
+}
+
+.mi-despegar-sprite-BARMAN {
+  background-position: 0 -1361px;
+  height: 85px;
+  width: 85px;
+}
+
+.mi-despegar-sprite-BELLBOY {
+  background-position: 0 -1871px;
+  height: 85px;
+  width: 85px;
+}
+
+.mi-despegar-sprite-JANITOR {
+  background-position: 0 -1786px;
+  height: 85px;
+  width: 85px;
+}
+
+.mi-despegar-sprite-MAID {
+  background-position: 0 -1531px;
+  height: 85px;
+  width: 85px;
+}
+
+.mi-despegar-sprite-RECEPTIONIST {
+  background-position: 0 -1956px;
+  height: 85px;
+  width: 85px;
+}
+
+.mi-despegar-sprite-WAITER {
+  background-position: 0 -1701px;
+  height: 85px;
+  width: 85px;
 }
 
 .mi-despegar-sprite-bg {
@@ -15,7 +57,7 @@
 }
 
 .mi-despegar-sprite-facebook {
-  background-position: 0 -1784px;
+  background-position: 0 -2379px;
   height: 25px;
   width: 25px;
 }
@@ -33,19 +75,19 @@
 }
 
 .mi-despegar-sprite-google {
-  background-position: 0 -1537px;
+  background-position: 0 -2132px;
   height: 25px;
   width: 25px;
 }
 
 .mi-despegar-sprite-male-avatar {
-  background-position: 0 -1361px;
+  background-position: 0 -1446px;
   height: 85px;
   width: 85px;
 }
 
 .mi-despegar-sprite-pointer {
-  background-position: 0 -1446px;
+  background-position: 0 -2041px;
   height: 32px;
   width: 32px;
 }
@@ -57,120 +99,120 @@
 }
 
 .mi-despegar-sprite-stars-0 {
-  background-position: 0 -1859px;
+  background-position: 0 -2454px;
   height: 20px;
   width: 98px;
 }
 
 .mi-despegar-sprite-stars-1 {
-  background-position: 0 -1704px;
+  background-position: 0 -2299px;
   height: 20px;
   width: 98px;
 }
 
 .mi-despegar-sprite-stars-2 {
-  background-position: 0 -1664px;
+  background-position: 0 -2259px;
   height: 20px;
   width: 98px;
 }
 
 .mi-despegar-sprite-stars-3 {
-  background-position: 0 -1644px;
+  background-position: 0 -2239px;
   height: 20px;
   width: 98px;
 }
 
 .mi-despegar-sprite-stars-4 {
-  background-position: 0 -1684px;
+  background-position: 0 -2279px;
   height: 20px;
   width: 98px;
 }
 
 .mi-despegar-sprite-stars-5 {
-  background-position: 0 -1879px;
+  background-position: 0 -2474px;
   height: 20px;
   width: 98px;
 }
 
 .mi-despegar-sprite-step-future {
-  background-position: 0 -1931px;
+  background-position: 0 -2526px;
   height: 32px;
   width: 32px;
 }
 
 .mi-despegar-sprite-step-now {
-  background-position: 0 -1899px;
+  background-position: 0 -2494px;
   height: 32px;
   width: 32px;
 }
 
 .mi-despegar-sprite-step-past {
-  background-position: 0 -1752px;
+  background-position: 0 -2347px;
   height: 32px;
   width: 32px;
 }
 
 .mi-despegar-sprite-twitter {
-  background-position: 0 -1809px;
+  background-position: 0 -2404px;
   height: 25px;
   width: 25px;
 }
 
 .mi-despegar-sprite-user-menu-cancellation {
-  background-position: 0 -1724px;
+  background-position: 0 -2319px;
   height: 28px;
   width: 27px;
 }
 
 .mi-despegar-sprite-user-menu-change-flight {
-  background-position: 0 -1509px;
+  background-position: 0 -2104px;
   height: 28px;
   width: 31px;
 }
 
 .mi-despegar-sprite-user-menu-chat {
-  background-position: 0 -1963px;
+  background-position: 0 -2558px;
   height: 35px;
   width: 38px;
 }
 
 .mi-despegar-sprite-user-menu-flight-actions {
-  background-position: 0 -1478px;
+  background-position: 0 -2073px;
   height: 31px;
   width: 33px;
 }
 
 .mi-despegar-sprite-user-menu-invoicing {
-  background-position: 0 -1562px;
+  background-position: 0 -2157px;
   height: 29px;
   width: 30px;
 }
 
 .mi-despegar-sprite-user-menu-resend {
-  background-position: 0 -1834px;
+  background-position: 0 -2429px;
   height: 25px;
   width: 32px;
 }
 
 .mi-despegar-sprite-user-menu-special-request {
-  background-position: 0 -1591px;
+  background-position: 0 -2186px;
   height: 27px;
   width: 30px;
 }
 
 .mi-despegar-sprite-user-menu-suggestion {
-  background-position: 0 -1618px;
+  background-position: 0 -2213px;
   height: 26px;
   width: 31px;
 }
 
 .mi-despegar-sprite-waiting-icon {
-  background-position: 0 -1998px;
+  background-position: 0 -2593px;
   height: 30px;
   width: 22px;
 }
 
-.mi-despegar-sprite-sprite, .mi-despegar-sprite-bg, .mi-despegar-sprite-carmen, .mi-despegar-sprite-facebook, .mi-despegar-sprite-female-avatar, .mi-despegar-sprite-game_bg, .mi-despegar-sprite-google, .mi-despegar-sprite-male-avatar, .mi-despegar-sprite-pointer, .mi-despegar-sprite-printer, .mi-despegar-sprite-stars-0, .mi-despegar-sprite-stars-1, .mi-despegar-sprite-stars-2, .mi-despegar-sprite-stars-3, .mi-despegar-sprite-stars-4, .mi-despegar-sprite-stars-5, .mi-despegar-sprite-step-future, .mi-despegar-sprite-step-now, .mi-despegar-sprite-step-past, .mi-despegar-sprite-twitter, .mi-despegar-sprite-user-menu-cancellation, .mi-despegar-sprite-user-menu-change-flight, .mi-despegar-sprite-user-menu-chat, .mi-despegar-sprite-user-menu-flight-actions, .mi-despegar-sprite-user-menu-invoicing, .mi-despegar-sprite-user-menu-resend, .mi-despegar-sprite-user-menu-special-request, .mi-despegar-sprite-user-menu-suggestion, .mi-despegar-sprite-waiting-icon {
+.mi-despegar-sprite-sprite, .mi-despegar-sprite-ATTENDANT, .mi-despegar-sprite-BARMAN, .mi-despegar-sprite-BELLBOY, .mi-despegar-sprite-JANITOR, .mi-despegar-sprite-MAID, .mi-despegar-sprite-RECEPTIONIST, .mi-despegar-sprite-WAITER, .mi-despegar-sprite-bg, .mi-despegar-sprite-carmen, .mi-despegar-sprite-facebook, .mi-despegar-sprite-female-avatar, .mi-despegar-sprite-game_bg, .mi-despegar-sprite-google, .mi-despegar-sprite-male-avatar, .mi-despegar-sprite-pointer, .mi-despegar-sprite-printer, .mi-despegar-sprite-stars-0, .mi-despegar-sprite-stars-1, .mi-despegar-sprite-stars-2, .mi-despegar-sprite-stars-3, .mi-despegar-sprite-stars-4, .mi-despegar-sprite-stars-5, .mi-despegar-sprite-step-future, .mi-despegar-sprite-step-now, .mi-despegar-sprite-step-past, .mi-despegar-sprite-twitter, .mi-despegar-sprite-user-menu-cancellation, .mi-despegar-sprite-user-menu-change-flight, .mi-despegar-sprite-user-menu-chat, .mi-despegar-sprite-user-menu-flight-actions, .mi-despegar-sprite-user-menu-invoicing, .mi-despegar-sprite-user-menu-resend, .mi-despegar-sprite-user-menu-special-request, .mi-despegar-sprite-user-menu-suggestion, .mi-despegar-sprite-waiting-icon {
   display: block;
 }
 

@@ -427,9 +427,8 @@ define([
 		
 		function _showClue(clue){
 			
-			alert(extraData.get('avatarGenre'));
 			$('.clue-description').html(clue.description);
-			$('.clue-avatar').replaceWith('<span class="mi-despegar-sprite-' + clue.characterJob + '-avatar avatar avatar-selected clue-avatar"></span>');
+			$('.clue-avatar').replaceWith('<span class="mi-despegar-sprite-' + clue.characterJob + ' avatar avatar-selected clue-avatar"></span>');
 			$('.ask-avatar').replaceWith('<span class="mi-despegar-sprite-' + extraData.get('avatarGenre') + '-avatar avatar avatar-selected ask-avatar"></span>');
 			
 			$('.ux-common-overlay-close').click();
