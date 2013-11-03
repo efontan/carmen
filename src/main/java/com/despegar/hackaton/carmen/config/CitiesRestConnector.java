@@ -20,7 +20,7 @@ public class CitiesRestConnector {
 		RestConnector restConnector = RestConnectorFactory.createRestConnector(
 				"http", this.host, this.baseUrl, true, ApiConstant.CLIENT_ID,
 				ApiConstant.API_VERSION, RestConnectorConfig.createBuilder()
-						.readTimeout(10000).connectionTimeout(30000)
+						.readTimeout(40000).connectionTimeout(30000)
 						.jsonPropertiesFormat(JsonPropertiesFormat.CAMEL_CASE)
 						.build());
 		restConnector.getInterceptors().add(new ApiHeadersInterceptor());
