@@ -1,16 +1,19 @@
 package com.despegar.hackaton.carmen.web.controller;
 
-import java.math.BigDecimal;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.despegar.hackaton.carmen.domain.client.geo.CitiesRestClient;
+import com.despegar.hackaton.carmen.domain.model.game.*;
+import com.despegar.hackaton.carmen.domain.model.game.response.ClueResponse;
+import com.despegar.hackaton.carmen.domain.model.game.response.TravelResponse;
+import com.despegar.hackaton.carmen.domain.service.FlightService;
+import com.despegar.hackaton.carmen.domain.service.GameService;
+import com.despegar.hackaton.carmen.domain.service.HotelService;
+import com.despegar.hackaton.carmen.web.controller.response.Response;
+import com.despegar.hackaton.carmen.web.controller.response.ResponseStatus;
+import com.despegar.hackaton.carmen.web.session.GameSession;
+import com.despegar.hackaton.carmen.web.session.Session;
+import com.despegar.hackaton.carmen.web.session.SessionService;
+import com.despegar.library.rest.interceptors.HttpRequestContext;
+import com.google.common.collect.Lists;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.springframework.beans.BeansException;
@@ -27,28 +30,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.despegar.hackaton.carmen.domain.client.geo.CitiesRestClient;
-import com.despegar.hackaton.carmen.domain.model.game.AirportCity;
-import com.despegar.hackaton.carmen.domain.model.game.City;
-import com.despegar.hackaton.carmen.domain.model.game.Clue;
-import com.despegar.hackaton.carmen.domain.model.game.ExpensesDetail;
-import com.despegar.hackaton.carmen.domain.model.game.Flight;
-import com.despegar.hackaton.carmen.domain.model.game.FlightExpense;
-import com.despegar.hackaton.carmen.domain.model.game.GraphNode;
-import com.despegar.hackaton.carmen.domain.model.game.Player;
-import com.despegar.hackaton.carmen.domain.model.game.Status;
-import com.despegar.hackaton.carmen.domain.model.game.response.ClueResponse;
-import com.despegar.hackaton.carmen.domain.model.game.response.TravelResponse;
-import com.despegar.hackaton.carmen.domain.service.FlightService;
-import com.despegar.hackaton.carmen.domain.service.GameService;
-import com.despegar.hackaton.carmen.domain.service.HotelService;
-import com.despegar.hackaton.carmen.web.controller.response.Response;
-import com.despegar.hackaton.carmen.web.controller.response.ResponseStatus;
-import com.despegar.hackaton.carmen.web.session.GameSession;
-import com.despegar.hackaton.carmen.web.session.Session;
-import com.despegar.hackaton.carmen.web.session.SessionService;
-import com.despegar.library.rest.interceptors.HttpRequestContext;
-import com.google.common.collect.Lists;
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.math.BigDecimal;
+import java.util.*;
 
 @Controller
 public class GameController implements ApplicationContextAware {
@@ -98,7 +84,7 @@ public class GameController implements ApplicationContextAware {
 	public ResponseEntity<Object> initialize(HttpRequestContext context,
 			HttpServletRequest request, HttpServletResponse response) {
 		City city = this.getGameService().getCityData("BUE",
-				WALKTHROUGH_UNDEFINED);
+              WALKTHROUGH_UNDEFINED);
 		return new ResponseEntity<Object>(new Response<City>(
 				ResponseStatus.SUCCESS, city), HttpStatus.OK);
 	}
@@ -163,6 +149,9 @@ public class GameController implements ApplicationContextAware {
 		newStatus.setActualDate(newStatus.getActualDate().plusHours(8));
 		BigDecimal hotelPrice = this.hotelService.getPrice(Long
 				.parseLong(hotelId));
+        String hotelName = hotelService.getName(Long.parseLong(hotelId));
+        HotelExpense expense = new HotelExpense(hotelName, hotelPrice);
+        gameSession.getExpensesDetail().addHotelExpense(expense);
 		newStatus.setRemainingMoney(newStatus.getRemainingMoney().subtract(
 				hotelPrice));
 		gameSession.setStatus(newStatus);
