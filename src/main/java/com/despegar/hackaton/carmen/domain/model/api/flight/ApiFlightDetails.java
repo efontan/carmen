@@ -1,10 +1,8 @@
-package com.despegar.hackaton.carmen.domain.model.api.hotel;
+package com.despegar.hackaton.carmen.domain.model.api.flight;
 
 import java.util.List;
 
-import com.despegar.hackaton.carmen.domain.model.api.flight.ApiFlight;
-
-public class FlightDetails {
+public class ApiFlightDetails {
 
 	private List<ApiFlight> flights;
 
