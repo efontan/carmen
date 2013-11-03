@@ -1,14 +1,17 @@
 package com.despegar.hackaton.carmen.domain.model.game;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class FlightExpense {
+public class FlightExpense implements Serializable {
+
+	private static final long serialVersionUID = 8725813730253090752L;
 	private String fromCityName;
 	private String toCityName;
 	private BigDecimal price;
 
 	public String getFromCityName() {
-		return fromCityName;
+		return this.fromCityName;
 	}
 
 	public void setFromCityName(String fromCityName) {
@@ -16,7 +19,7 @@ public class FlightExpense {
 	}
 
 	public String getToCityName() {
-		return toCityName;
+		return this.toCityName;
 	}
 
 	public void setToCityName(String toCityName) {
@@ -24,7 +27,7 @@ public class FlightExpense {
 	}
 
 	public BigDecimal getPrice() {
-		return price;
+		return this.price;
 	}
 
 	public void setPrice(BigDecimal price) {
