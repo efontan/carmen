@@ -1,6 +1,7 @@
 package com.despegar.hackaton.carmen.domain.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -26,6 +27,10 @@ public class FlightServiceImpl implements FlightService {
 	@Resource
 	@Qualifier("mockFlightList")
 	List<Flight> mockFlightList;
+
+	@Resource
+	@Qualifier("citiesMap")
+	private Map<String, String> citiesMap;
 
 	@Override
 	public Flight getFlight(String searchHash, String itineraryId) {
@@ -69,6 +74,8 @@ public class FlightServiceImpl implements FlightService {
 		Flight flight = this.mockFlightList.get(index);
 		flight.setFrom(from);
 		flight.setTo(to);
+		flight.setFromCityName(this.citiesMap.get(from));
+		flight.setToCityName(this.citiesMap.get(to));
 		flight.setSearchUrl(this.getSearchUrl(from, to, departureDate));
 
 		return flight;

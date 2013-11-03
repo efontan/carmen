@@ -27,6 +27,8 @@ public class FlightsMockMapConfig {
 		flight1.setDurationHours(3);
 		flight1.setFrom("");
 		flight1.setTo("");
+		flight1.setFromCityName("");
+		flight1.setToCityName("");
 		flight1.setStops(1);
 		flight1.setPrice(new BigDecimal(758));
 		flight1.setSearchUrl("");
@@ -37,6 +39,8 @@ public class FlightsMockMapConfig {
 		flight2.setDurationHours(2);
 		flight2.setFrom("");
 		flight2.setTo("");
+		flight2.setFromCityName("");
+		flight2.setToCityName("");
 		flight2.setStops(1);
 		flight2.setPrice(new BigDecimal(562));
 		flight2.setSearchUrl("");
@@ -47,6 +51,8 @@ public class FlightsMockMapConfig {
 		flight3.setDurationHours(4);
 		flight3.setFrom("");
 		flight3.setTo("");
+		flight3.setFromCityName("");
+		flight3.setToCityName("");
 		flight3.setStops(2);
 		flight3.setPrice(new BigDecimal(499));
 		flight3.setSearchUrl("");

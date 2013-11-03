@@ -19,8 +19,8 @@ public class CitiesRestConnector {
 	public RestConnector getHotelRestConnector() {
 		RestConnector restConnector = RestConnectorFactory.createRestConnector(
 				"http", this.host, this.baseUrl, true, ApiConstant.CLIENT_ID,
-				ApiConstant.API_VERSION,
-				RestConnectorConfig.createBuilder().readTimeout(9000).connectionTimeout(30000)
+				ApiConstant.API_VERSION, RestConnectorConfig.createBuilder()
+						.readTimeout(10000).connectionTimeout(30000)
 						.jsonPropertiesFormat(JsonPropertiesFormat.CAMEL_CASE)
 						.build());
 		restConnector.getInterceptors().add(new ApiHeadersInterceptor());
