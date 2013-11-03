@@ -1,7 +1,6 @@
 package com.despegar.hackaton.carmen.domain.service.impl;
 
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -13,10 +12,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.despegar.hackaton.carmen.domain.model.game.City;
-import com.despegar.hackaton.carmen.domain.model.game.Hotel;
 import com.despegar.hackaton.carmen.domain.model.game.Player;
 import com.despegar.hackaton.carmen.domain.model.game.Status;
+import com.despegar.hackaton.carmen.domain.service.CityService;
 import com.despegar.hackaton.carmen.domain.service.GameService;
+import com.despegar.hackaton.carmen.domain.service.HotelService;
 import com.despegar.hackaton.carmen.web.session.GameSession;
 
 @Service
@@ -29,7 +29,10 @@ public class GameServiceImpl implements GameService {
     private static final int INITIAL_CLUE = 0;
 
 	@Autowired
-	private HotelServiceImpl hotelServiceImpl;
+	private HotelService hotelService;
+	
+	@Autowired
+	private CityService cityService;
 
 	@Resource
 	@Qualifier("citiesMap")
@@ -48,16 +51,16 @@ public class GameServiceImpl implements GameService {
 
 	@Override
 	public City getCityData(String cityCode) {
-		List<Hotel> cityHotels = this.getHotelServiceImpl().getCityHotels(cityCode);
-		return new City(cityCode,this.citiesMap.get(cityCode),null,cityHotels);
+		City city = this.cityService.getCityData(cityCode);
+		return city;
 	}
 
-	public HotelServiceImpl getHotelServiceImpl() {
-		return this.hotelServiceImpl;
+	public HotelService getHotelService() {
+		return this.hotelService;
 	}
 
-	public void setHotelServiceImpl(HotelServiceImpl hotelServiceImpl) {
-		this.hotelServiceImpl = hotelServiceImpl;
+	public void setHotelServiceImpl(HotelService hotelService) {
+		this.hotelService = hotelService;
 	}
 
 }

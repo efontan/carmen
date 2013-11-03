@@ -1,7 +1,8 @@
 package com.despegar.hackaton.carmen.domain.service;
 
-import com.despegar.hackaton.carmen.domain.model.game.Coordinates;
+import com.despegar.hackaton.carmen.domain.model.game.City;
 
 public interface CityService {
-	Coordinates getGeoLocation(String cityCode);
+
+	City getCityData(String cityCode);
 }
