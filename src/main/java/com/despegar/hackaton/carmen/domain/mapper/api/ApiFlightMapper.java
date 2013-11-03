@@ -7,13 +7,13 @@ import java.util.List;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
-import org.joda.time.LocalTime;
 
 import com.despegar.hackaton.carmen.domain.mapper.Mapper;
 import com.despegar.hackaton.carmen.domain.model.api.flight.ApiFlight;
 import com.despegar.hackaton.carmen.domain.model.api.flight.ApiFlightSegment;
 import com.despegar.hackaton.carmen.domain.model.api.flight.ApiFlightSegmentDetails;
 import com.despegar.hackaton.carmen.domain.model.api.flight.ApiOutboundRoutes;
+import com.despegar.hackaton.carmen.domain.model.api.flight.ApiPriceInfo;
 import com.despegar.hackaton.carmen.domain.model.game.Flight;
 
 public class ApiFlightMapper implements Mapper<ApiFlight, Flight> {
@@ -39,14 +39,16 @@ public class ApiFlightMapper implements Mapper<ApiFlight, Flight> {
 
 		String duration = firstApiFlightSegment.getDuration();
 
+		ApiPriceInfo priceInfo = apiFlight.getPriceInfo();
+
 		flight.setDepartureDate(this.getDateFromFlight(departure.getDate(),
 				departure.getTimezone()));
 		flight.setDurationHours(this.getDurationHours(duration));
 		flight.setFrom(from);
 		flight.setTo(to);
 		flight.setStops(segments.size());
-		flight.setPrice(null);
-		flight.setSearchUrl(null);
+		flight.setPrice(priceInfo.getAdults().getBaseFare());
+		flight.setSearchUrl("www.despegar.com");
 
 		return flight;
 	}
@@ -70,8 +72,14 @@ public class ApiFlightMapper implements Mapper<ApiFlight, Flight> {
 	}
 
 	private Integer getDurationHours(String duration) {
-		new LocalTime(duration);
-		return null;
+		String[] split = duration.split(":");
+		Integer hours = Integer.parseInt(split[0]);
+		Integer minutes = Integer.parseInt(split[1]);
+
+		if (minutes > 30) {
+			hours++;
+		}
+		return hours;
 	}
 
 }
