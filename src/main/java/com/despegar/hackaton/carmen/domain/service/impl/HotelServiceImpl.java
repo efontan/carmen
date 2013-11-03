@@ -33,4 +33,9 @@ public class HotelServiceImpl implements HotelService {
 	public BigDecimal getPrice(long id){
 		return this.hotelRestClient.getPrice(id);
 	}
+    
+    @Override
+    public String getName(long id){
+    	return this.hotelRestClient.getName(id);
+    }
 }
