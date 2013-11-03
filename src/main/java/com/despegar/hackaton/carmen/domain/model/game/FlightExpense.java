@@ -10,6 +10,16 @@ public class FlightExpense implements Serializable {
 	private String toCityName;
 	private BigDecimal price;
 
+	public FlightExpense() {
+	}
+
+	public FlightExpense(String fromCityName, String toCityName,
+			BigDecimal price) {
+		this.fromCityName = fromCityName;
+		this.toCityName = toCityName;
+		this.price = price;
+	}
+
 	public String getFromCityName() {
 		return this.fromCityName;
 	}
@@ -33,4 +43,5 @@ public class FlightExpense implements Serializable {
 	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
+
 }
