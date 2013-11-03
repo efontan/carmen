@@ -27,9 +27,10 @@ public class FlightServiceImpl implements FlightService {
 
 	@Override
 	public List<Flight> getFlights(String from, String to) {
-		DateTime now = DateTime.now();
+		DateTime departureDate = DateTime.now().plusMonths(5);
+
 		return this.flightRestClient.getFlights(from, to,
-				formatedDate(now, "yyyy-MM-dd"));
+				formatedDate(departureDate, "yyyy-MM-dd"));
 	}
 
 	public static String formatedDate(DateTime dateTime, String pattern) {

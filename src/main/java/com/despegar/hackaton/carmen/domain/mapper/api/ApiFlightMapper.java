@@ -12,8 +12,8 @@ import com.despegar.hackaton.carmen.domain.mapper.Mapper;
 import com.despegar.hackaton.carmen.domain.model.api.flight.ApiFlight;
 import com.despegar.hackaton.carmen.domain.model.api.flight.ApiFlightSegment;
 import com.despegar.hackaton.carmen.domain.model.api.flight.ApiFlightSegmentDetails;
-import com.despegar.hackaton.carmen.domain.model.api.flight.ApiOutboundRoutes;
 import com.despegar.hackaton.carmen.domain.model.api.flight.ApiPriceInfo;
+import com.despegar.hackaton.carmen.domain.model.api.flight.ApiRoute;
 import com.despegar.hackaton.carmen.domain.model.game.Flight;
 
 public class ApiFlightMapper implements Mapper<ApiFlight, Flight> {
@@ -24,8 +24,8 @@ public class ApiFlightMapper implements Mapper<ApiFlight, Flight> {
 	public Flight map(ApiFlight apiFlight) {
 		Flight flight = new Flight();
 
-		ApiOutboundRoutes outboundRoutes = apiFlight.getOutboundRoutes();
-		List<ApiFlightSegment> segments = outboundRoutes.getSegments();
+		ApiRoute firstRoute = apiFlight.getRoutes().get(0);
+		List<ApiFlightSegment> segments = firstRoute.getSegments();
 		ApiFlightSegment firstApiFlightSegment = segments.get(0);
 		ApiFlightSegmentDetails departure = firstApiFlightSegment
 				.getDeparture();
