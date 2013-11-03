@@ -11,6 +11,7 @@ public class City implements Serializable {
 	private String name;
 	private Coordinates position;
 	private List<Hotel> hotels;
+	private List<String> nextDestinations;
 
 	public City() {
 	}
@@ -21,6 +22,14 @@ public class City implements Serializable {
 		this.name = name;
 		this.position = position;
 		this.hotels = hotels;
+	}
+	
+	public List<String> getNextDestinations() {
+		return nextDestinations;
+	}
+
+	public void setNextDestinations(List<String> nextDestinations) {
+		this.nextDestinations = nextDestinations;
 	}
 
 	public List<Hotel> getHotels() {

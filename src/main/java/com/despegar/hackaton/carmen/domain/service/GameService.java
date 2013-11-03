@@ -10,7 +10,7 @@ public interface GameService {
 
 	public GameSession createGameSession(Player player);
 
-	public City getCityData(String cityCode);
+	public City getCityData(String cityCode, int walkthrough);
 
     public List<String> getDestinations(String cityCode, int walkthrough);
 }
