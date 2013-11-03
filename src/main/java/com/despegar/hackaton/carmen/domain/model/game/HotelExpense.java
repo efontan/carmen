@@ -6,7 +6,12 @@ public class HotelExpense {
 	private String name;
 	private BigDecimal price;
 
-	public String getName() {
+    public HotelExpense(String name, BigDecimal price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    public String getName() {
 		return name;
 	}
 
