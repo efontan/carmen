@@ -14,8 +14,8 @@ body{
 
 @font-face{
 	font-family: minecraftia;
-	src: url('../../../fonts/Minecraftia.ttf'),
-	     url('../../../fonts/Minecraftia.eot'); /* IE9 */
+	src: url('../../fonts/carmen/Minecraftia.ttf'),
+	     url('../../fonts/carmen/Minecraftia.eot'); /* IE9 */
 }
 
 .left{
@@ -31,11 +31,23 @@ body{
   	border: 10px solid rgba(255,255,255, 0.2);
 	-moz-border-radius: 10px;
 	border-radius: 10px;
+	
+	.hide{
+		display: none !important;
+	}
 
   	.top_bar{
   		background-color: #191919;
   		height: 50px;
   		width: 100%;
+  		
+  		.title {
+			margin: 12px 0 0 27px;
+			float: left;
+			color: #fff;
+			font-family: minecraftia;
+			font-size: 15px;
+		}
   	}
 
   	.left-panel, .footer-panel{
@@ -143,7 +155,7 @@ body{
 			text-align: center;
 		}
 
-		.money{
+		.money-container{
 			float: right;
 		}
   	}
@@ -228,6 +240,7 @@ body{
 
   	.action-menu{
   		margin-left: 40px !important;
+  		font-size: 12px;
   	}
 
   	.hidden{
