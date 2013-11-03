@@ -10,4 +10,6 @@ public interface HotelService {
 	List<Hotel> getCityHotels(String cityCodes);
 
     BigDecimal getPrice(long id);
+    
+    String getName(long id);
 }
