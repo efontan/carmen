@@ -20,7 +20,7 @@ public class FlightRestConnectorConfig {
 		RestConnector restConnector = RestConnectorFactory.createRestConnector(
 				"http", this.host, this.baseUrl, true, ApiConstant.CLIENT_ID,
 				ApiConstant.API_VERSION,
-				RestConnectorConfig.createBuilder().readTimeout(3000)
+				RestConnectorConfig.createBuilder().readTimeout(10000)
 						.jsonPropertiesFormat(JsonPropertiesFormat.CAMEL_CASE)
 						.build());
 		restConnector.getInterceptors().add(new ApiHeadersInterceptor());

@@ -282,7 +282,7 @@ body{
 	
 	.img-hotel{
 		float: left;
-		margin: 17px 10px 0px 0;
+		margin: 17px 10px 0 0;
 		width: 100px;
 		height: 100px;
 	}
@@ -296,8 +296,21 @@ body{
 		margin: -10px 10px 0 0;
 	}
 	
+	.despegar-link {
+		margin-top: 1px;
+		display: inline-table;
+		cursor: pointer;
+	}
+	
+	.hotel-price {
+		margin-right: 5px;
+		font-size: 14px;
+		font-family: minecraftia;
+		padding: 5px;
+	}
+	
 	.sleep{
-		margin: 16px 10px -10px 0;
+		margin: -2px 10px 0 0;
 		float: none;
 	}
 	

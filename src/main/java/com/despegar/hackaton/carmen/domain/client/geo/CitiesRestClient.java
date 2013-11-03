@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import com.despegar.hackaton.carmen.domain.client.AbstractRestClient;
 import com.despegar.hackaton.carmen.domain.mapper.api.ApiCityMapper;
+import com.despegar.hackaton.carmen.domain.model.api.geo.ApiAirportDetails;
 import com.despegar.hackaton.carmen.domain.model.api.geo.ApiCities;
 import com.despegar.hackaton.carmen.domain.model.api.geo.ApiHotelByCity;
 import com.despegar.hackaton.carmen.domain.model.api.geo.ApiHotelsByCity;
@@ -24,7 +25,7 @@ public class CitiesRestClient extends AbstractRestClient {
 	@Autowired
 	@Qualifier("cities.rest.connector")
 	private RestConnector restConnector;
-	
+
 	private ApiCityMapper apiCityMapper = new ApiCityMapper();
 
 	public List<Long> getHotelIdsByCity(String cityCode) {
@@ -33,7 +34,7 @@ public class CitiesRestClient extends AbstractRestClient {
 		params.put("maxresults", "3");
 		ApiHotelsByCity results = this.doGetWithParams("/cities",
 				new TypeReference<ApiHotelsByCity>() {
-				}, params,cityCode,"pointsofinterest");
+				}, params, cityCode, "pointsofinterest");
 		List<Long> hotelIds = Lists.newArrayList();
 		for (ApiHotelByCity hotel : results.getData()) {
 			hotelIds.add(hotel.getInternalId());
@@ -41,11 +42,20 @@ public class CitiesRestClient extends AbstractRestClient {
 		return hotelIds;
 	}
 
-	public City getCityData(String cityCode){
-		ApiCities apiCities = this.doGet("/cities", new TypeReference<ApiCities>(){}, cityCode);
+	public String getCityCodeByAirportId(String airportId) {
+		ApiAirportDetails result = this.doGet("/airports",
+				new TypeReference<ApiAirportDetails>() {
+				}, airportId);
+		return result.getAirports().get(0).getParentCity();
+	}
+
+	public City getCityData(String cityCode) {
+		ApiCities apiCities = this.doGet("/cities",
+				new TypeReference<ApiCities>() {
+				}, cityCode);
 		return this.apiCityMapper.map(apiCities.getCities().get(0));
 	}
-	
+
 	@Override
 	public RestConnector getRestConnector() {
 		return this.restConnector;
