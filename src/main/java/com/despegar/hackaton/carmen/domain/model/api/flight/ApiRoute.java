@@ -2,7 +2,7 @@ package com.despegar.hackaton.carmen.domain.model.api.flight;
 
 import java.util.List;
 
-public class ApiOutboundRoutes {
+public class ApiRoute {
 
 	private List<ApiFlightSegment> segments;
 
