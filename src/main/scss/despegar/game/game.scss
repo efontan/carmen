@@ -242,10 +242,41 @@ body{
 			font-family: minecraftia;
 			padding: 4px;
 		}
+		
+		.flight-inline{
+			font-family: minecraftia;
+			font-size: 11px;
+			margin-left: 48px;
+		}
+		
+		.flight-step {
+			margin-left: 48px;
+			font-family: minecraftia;
+			font-size: 11px;
+		}
+		
+		.flight-select{
+			margin: 5px 20px 0 46px;
+		}
+		
+		.despegar-link{
+			margin-top: 9px;
+			text-decoration: none;
+		}
+		
+		.itinerary{
+			margin: 13px 0 13px 23px;
+			border-bottom: 1px solid #aaa;
+			padding-bottom: 32px;
+		}
 	}
 	
 	.blue{
 		color: #0098ff;
+	}
+	
+	.right{
+		float: right;
 	}
 
   	.map{

@@ -411,8 +411,33 @@ body {
   font-family: minecraftia;
   padding: 4px;
 }
+.game-container .flight-container .flight-inline {
+  font-family: minecraftia;
+  font-size: 11px;
+  margin-left: 48px;
+}
+.game-container .flight-container .flight-step {
+  margin-left: 48px;
+  font-family: minecraftia;
+  font-size: 11px;
+}
+.game-container .flight-container .flight-select {
+  margin: 5px 20px 0 46px;
+}
+.game-container .flight-container .despegar-link {
+  margin-top: 9px;
+  text-decoration: none;
+}
+.game-container .flight-container .itinerary {
+  margin: 13px 0 13px 23px;
+  border-bottom: 1px solid #aaaaaa;
+  padding-bottom: 32px;
+}
 .game-container .blue {
   color: #0098ff;
+}
+.game-container .right {
+  float: right;
 }
 .game-container .map {
   height: 350px;

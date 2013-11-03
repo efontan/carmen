@@ -321,15 +321,14 @@ define([
 			_.each(flights, function(val, key){
 				
 				var html = '';
-				html += '<div class="span11 well">';
+				html += '<div class="span10 white-well itinerary">';
 				html += '   <span class="flight-text mi-despegar-sprite-user-menu-flight-actions airplane"></span>';
-				html += '	<h3 class="flight-title"><span class="label label-warning flight-price">$' + parseInt(val.price) + '</span>' + val.from + ' a ' + val.to + '</h3>';
-				html += '	<span class="flight-text clue-description">Fecha: <span class="clue-description red">' + val.departureDate + '</span></span>';
-				html += '	<span class="flight-text clue-description">Duracion: <span class="clue-description red">' + val.durationHours + 'hs</span></span>';
-				html += '	<span class="flight-text clue-description">Escalas: <span class="clue-description red">' + val.stops + '</span></span>';
-				html += '	<span class="flight-text clue-description">Precio: <span class="clue-description red">' + val.price + '</span></span>';
-				html += '   <a class="flight-text " href="' + val.searchUrl + '">ver en despegar</a>';
-				html += '   <button type="submit" data-code="' + val.to + '" data-price="' + val.price + '" data-hours="' + val.durationHours + '" class="btn btn-info span8 flight-select">Viajar</button>';
+				html += '	<h3 class="flight-title"><span class="label label-warning flight-price">$' + parseInt(val.price) + '</span>de ' + val.fromCityName + ' a ' + val.toCityName + '</h3>';
+				html += '	<span class="flight-text clue-description flight-inline">Fecha: <span class="clue-description red">' + val.departureDate.substring(0, val.departureDate.length - 6) + 
+							'</span><span class="flight-text clue-description right">Duracion: <span class="clue-description red">' + val.durationHours + 'hs</span></span></span>';
+				html += '	<span class="flight-text clue-description flight-step">Escalas: <span class="clue-description red">' + val.stops + '</span></span>';
+				html += '   <button type="submit" data-code="' + val.to + '" data-price="' + val.price + '" data-hours="' + val.durationHours + '" class="btn btn-danger span5 flight-select">Viajar</button>';
+				html += '   <a class="flight-text despegar-link" href="' + val.searchUrl + '">ver en despegar</a>';
 				html += '</div>';
 				$('.flight-container').append(html);
 			});
@@ -427,34 +426,44 @@ define([
 		
 		function _showClue(clue){
 			
-			$('.clue-description').html(clue.description);
-			$('.clue-avatar').replaceWith('<span class="mi-despegar-sprite-' + clue.characterJob + ' avatar avatar-selected clue-avatar"></span>');
-			$('.ask-avatar').replaceWith('<span class="mi-despegar-sprite-' + extraData.get('avatarGenre') + '-avatar avatar avatar-selected ask-avatar"></span>');
-			
-			$('.ux-common-overlay-close').click();
-			
-			$('.clue-return').on('click', function(){
+			if(!clue.inTheHouse){
 				
-				tooltip = new overlay();
+				$('.clue-description').html(clue.description);
+				$('.clue-avatar').replaceWith('<span class="mi-despegar-sprite-' + clue.characterJob + ' avatar avatar-selected clue-avatar"></span>');
+				$('.ask-avatar').replaceWith('<span class="mi-despegar-sprite-' + extraData.get('avatarGenre') + '-avatar avatar avatar-selected ask-avatar"></span>');
+				
+				$('.ux-common-overlay-close').click();
+				
+				$('.clue-return').on('click', function(){
+					
+					tooltip = new overlay();
 
-	        	tooltip.openDynamicDialog({
-					trigger: $('#main-panel'),
-					onClose: function() {},
-					id: 'hotelMap',
-					effect: "fade",
-					remove: true,
-					position: 'top-left',
-					type: 'popover',
-					arrow: false,
-					background: false,
-					callback: function() {
-						_true(function(data) {
-							_renderSpecialRequest(extraData.get('currentCityData'), extraData.get('currentCity'), tooltip);
-						});
-					}
+		        	tooltip.openDynamicDialog({
+						trigger: $('#main-panel'),
+						onClose: function() {},
+						id: 'hotelMap',
+						effect: "fade",
+						remove: true,
+						position: 'top-left',
+						type: 'popover',
+						arrow: false,
+						background: false,
+						callback: function() {
+							_true(function(data) {
+								_renderSpecialRequest(extraData.get('currentCityData'), extraData.get('currentCity'), tooltip);
+							});
+						}
+					});
+					
 				});
 				
-			});
+			}else {
+				$('#map').remove();
+				$('.printer').removeClass('hide');
+				$('.printer-text').html('despegar.com - FELICITAACIONES!!! has encontrado a Carmen <div class="social"><span title="Facebook" class="mi-despegar-sprite-facebook bit-icon"></span><span title="Twitter" class="mi-despegar-sprite-twitter bit-icon"></span><span title="Google+" class="mi-despegar-sprite-google bit-icon"></span>	</div>');
+				$('.printer-text').removeClass('hide');
+			}
+			
 			
 		}
 		
