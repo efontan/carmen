@@ -31,7 +31,7 @@ define([
 				},
 				success: function(service_data) {
 					
-					console.log(service_data);
+					extraData.set("startPoint", service_data.data);
 					
 					_bindEvents(service_data);
 

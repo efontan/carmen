@@ -6,28 +6,28 @@ package com.despegar.hackaton.carmen.domain.model.game;
  */
 public class Coordinates {
 
-    private Long latitude = 0L;
+    private double latitude = 0L;
 
-    private Long longitude = 0L;
+    private double longitude = 0L;
 
-    public Coordinates(final Long latitude, final Long longitude) {
+    public Coordinates(final double latitude, final double longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
-    public Long getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Long latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public Long getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(Long longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 }

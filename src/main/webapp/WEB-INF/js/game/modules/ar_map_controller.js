@@ -13,6 +13,7 @@ define([
 
 		var tooltip = null;
 		var module_id = "ar_map";
+		var mapObject = null;
 
 		/**
 		 * Inicializador
@@ -160,7 +161,13 @@ define([
 	            },
 	            onRegionClick: function (event, code) {
 	            	
-	            	$('[fill=#0098ff]').attr('fill', '#8d8d8d');
+//	            	$('[fill=#0098ff]').attr('fill', '#8d8d8d');
+	            	
+//	            	_resetMap(mapObject);
+	            	var mapObject = $('#map').vectorMap('get', 'mapObject');
+	            	
+	            	mapObject.setSelectedRegions(_resetMap());
+
 
 	            	tooltip = new overlay();
 
@@ -203,6 +210,35 @@ define([
 			} else {
 				$(obj).vectorMap(options);
 			}
+		}
+				
+		function _resetMap(){
+			return {
+		        "RGL": false,
+		        "COR": false,
+		        "JUJ": false,
+		        "USH": false,
+		        "CNQ": false,
+		        "TUC": false,
+		        "REL": false,
+		        "VDM": false,
+		        "SNF": false,
+		        "FMA": false,
+		        "NQN": false,
+		        "PSS": false,
+		        "RSA": false,
+		        "MDZ": false,
+		        "UAQ": false,
+		        "CTC": false,
+		        "RES": false,
+		        "IRJ": false,
+		        "SDE": false,
+		        "LUQ": false,
+		        "NONE": false,
+		        "BUE": false,
+		        "SLA": false
+		    };
+        	
 		}
 		
 		function _getFormData(callback) {
@@ -257,8 +293,9 @@ define([
 			var popupContent = template(context);
 
 			tooltip.updateContent(popupContent);
+			
+			var mapData = extraData.get("startPoint");
 		
-
 			var map = new GMaps({
 			    el: '#gmap',
 			    lat: -34.603711,
