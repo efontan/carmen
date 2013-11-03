@@ -12,6 +12,9 @@ public class Flight {
 	private BigDecimal price;
 	private String searchUrl;
 
+	public Flight() {
+	}
+
 	public Flight(String from, String to, String stops, Integer durationHours,
 			String departureDate, BigDecimal price, String searchUrl) {
 		this.from = from;
