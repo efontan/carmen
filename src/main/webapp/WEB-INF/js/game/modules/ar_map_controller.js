@@ -36,9 +36,8 @@ define([
 				arrow: false,
 				background: false,
 				callback: function() {
-					_getFormData(function(data, isError) {
-							_renderSpecialRequest(data, 'BUE', tooltip);
-
+					_true(function(data) {
+						_renderSpecialRequest(extraData.get("startPoint"), 'BUE', tooltip);
 					});
 				}
 			});
@@ -281,8 +280,6 @@ define([
 				
 				event.preventDefault();
 				
-				alert('click');
-				
 				amplify.request({
 					resourceId: "carmen.getClue",
 					data: {
@@ -309,44 +306,45 @@ define([
 		}
 		
 		function _updateTopBar(data){
-			console.log(data);
 			var date = new Date(data.actualDate);
 			$('.actual-date').html(date.toLocaleDateString());
 			$('.money').html(data.remainingMoney);
 		}
 		
 		function _showClue(clue){
+			$('.clue-description').html(clue.description);
+			$('.clue-avatar').replaceWith('<span class="mi-despegar-sprite-' + clue.characterJob + '-avatar avatar avatar-selected clue-avatar"></span>');
+			$('.ask-avatar').replaceWith('<span class="mi-despegar-sprite-' + extraData.get('avatarGenre') + '-avatar avatar avatar-selected ask-avatar"></span>');
 			
-			tooltip = new overlay();
+			$('.ux-common-overlay-close').click();
+			
+			$('.clue-return').on('click', function(){
+				
+				tooltip = new overlay();
 
-        	tooltip.openDynamicDialog({
-				trigger: $('#main-panel'),
-				onClose: function() {},
-				id: 'hotelMap',
-				effect: "fade",
-				remove: true,
-				position: 'top-left',
-				type: 'popover',
-				arrow: false,
-				background: false,
-				callback: function() {
-					var template = Handlebars.templates['clue.hbs'];
-					
-					var context = {
-						'characterJob' : clue.characterJob,
-						'description' : clue.description,
-						'inTheHouse' : clue.inTheHouse,
-						'avatar' : extraData.get('avatarGenre')
-					};
-
-					var popupContent = template(context);
-
-					tooltip.updateContent(popupContent);
-				}
+	        	tooltip.openDynamicDialog({
+					trigger: $('#main-panel'),
+					onClose: function() {},
+					id: 'hotelMap',
+					effect: "fade",
+					remove: true,
+					position: 'top-left',
+					type: 'popover',
+					arrow: false,
+					background: false,
+					callback: function() {
+						_true(function(data) {
+							_renderSpecialRequest(extraData.get('currentCityData'), extraData.get('currentCity'), tooltip);
+						});
+					}
+				});
+				
 			});
-        	
-        	$('.ux-common-overlay-close').click()
 			
+		}
+		
+		function _true(callback){
+			callback({}, true);;
 		}
 		
 		function _getFormData(callback) {
@@ -390,7 +388,7 @@ define([
 		}
 
 
-		function _renderSpecialRequest(data, code, tooltip) {
+		function _renderSpecialRequest(mapData, code, tooltip) {
 
 			var template = Handlebars.templates['hotel-map.hbs'];
 			
@@ -400,9 +398,8 @@ define([
 
 			tooltip.updateContent(popupContent);
 			
-			var mapData = extraData.get("startPoint");
-			
 			extraData.set('currentCity', mapData.code);
+			extraData.set('currentCityData', mapData);
 			
 			console.log(mapData);
 		

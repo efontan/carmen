@@ -6,7 +6,7 @@
 			<li class="city">Ciudad de Buenos Aires</li>
 			<li class="money-container">$<span class="money"></span></li>
 		</ul>
-		<span class="title index">¿En que lugar de Argentina está Carmen Barbieri?</span>
+		<span class="title index">&iquest;En qu&eacute; lugar de Argentina est&aacute; Carmen Barbieri?</span>
 		<div class="social">
 			<span title="Facebook" class="mi-despegar-sprite-facebook bit-icon"></span>
 			<span title="Twitter" class="mi-despegar-sprite-twitter bit-icon"></span>
@@ -30,8 +30,8 @@
         		<div id="map" class="map main-game hide"></div>
         	</div>
         	<div id="main-panel" class="span7 well white-well left-panel block-popup-container">
-        		<div class="span10 well white-well form-player index">
-        			<form id="form-player">
+        		<div class="span10 well white-well form-player">
+        			<form id="form-player" class="index">
 						<div class="span3 white-well bit-text blue">
 							<label class="control-label" for="name">Nombre:</label>
 							<label class="control-label" for="email">Email:</label>
@@ -53,6 +53,14 @@
 						</div>
 						<div class="span12 white-well"><button type="submit" class="btn btn-info span11 play">Jugar</button></div>
 					</form>
+					<div class="span12 white-well main-game hide clue-container">
+						<div class="span11 well">
+							<span class="mi-despegar-sprite-male-avatar avatar avatar-selected clue-avatar"></span>
+							<span class="bit-text clue-description">dasdasdas dasdasd dasdasd dasdasdas dasdasd dasdasdas dasdasd dasdasdas dasdasd dasdasdas dasdasd d</span>
+						</div>
+						<span class="mi-despegar-sprite-male-avatar avatar avatar-selected ask-avatar"></span>
+						<button type="submit" class="btn btn-info span11 clue-return">Volver al mapa</button>
+					</div>
         		</div>
         </div>
         <div class="row-fluid show-grid">

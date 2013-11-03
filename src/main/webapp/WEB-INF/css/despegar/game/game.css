@@ -302,6 +302,15 @@ body {
 .game-container .score .money-container {
   float: right;
 }
+.game-container .clue-avatar {
+  margin-left: -39px !important;
+  margin-top: -70px !important;
+}
+.game-container .ask-avatar {
+  margin-top: -65px !important;
+  float: right !important;
+  margin-bottom: -31px !important;
+}
 .game-container .form-player {
   height: 350px;
   margin: 25px 0 0 65px !important;

@@ -44,7 +44,6 @@
 <head>
 
     <title>El Carmen Barbieri</title>
-
 	
 	<!-- CSS Files -->
 	<#list cssFiles as cssFile>   	
