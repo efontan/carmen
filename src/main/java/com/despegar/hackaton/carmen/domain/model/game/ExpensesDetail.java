@@ -29,6 +29,10 @@ public class ExpensesDetail implements Serializable {
 		return this.hotelExpenses;
 	}
 
+    public void addHotelExpense(HotelExpense expense) {
+        hotelExpenses.add(expense);
+    }
+
 	public void setHotelExpenses(List<HotelExpense> hotelExpenses) {
 		this.hotelExpenses = hotelExpenses;
 	}

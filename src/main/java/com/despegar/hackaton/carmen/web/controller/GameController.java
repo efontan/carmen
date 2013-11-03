@@ -149,7 +149,9 @@ public class GameController implements ApplicationContextAware {
 		newStatus.setActualDate(newStatus.getActualDate().plusHours(8));
 		BigDecimal hotelPrice = this.hotelService.getPrice(Long
 				.parseLong(hotelId));
-        new HotelExpense("", hotelPrice);
+        String hotelName = hotelService.getName(Long.parseLong(hotelId));
+        HotelExpense expense = new HotelExpense(hotelName, hotelPrice);
+        gameSession.getExpensesDetail().addHotelExpense(expense);
 		newStatus.setRemainingMoney(newStatus.getRemainingMoney().subtract(
 				hotelPrice));
 		gameSession.setStatus(newStatus);
