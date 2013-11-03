@@ -6,7 +6,7 @@
 			<li class="city">Ciudad de Buenos Aires</li>
 			<li class="money-container">$<span class="money"></span></li>
 		</ul>
-		<span class="title index">¿En que lugar de Argentina está Carmen Barbieri?</span>
+		<span class="title index">&iquest;En qu&eacute; lugar de Argentina est&aacute; Carmen Barbieri?</span>
 		<div class="social">
 			<span title="Facebook" class="mi-despegar-sprite-facebook bit-icon"></span>
 			<span title="Twitter" class="mi-despegar-sprite-twitter bit-icon"></span>
