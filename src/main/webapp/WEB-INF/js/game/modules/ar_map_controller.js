@@ -220,7 +220,7 @@ define([
 							},
 							error: function(message, level) {
 
-								alert('error');
+								alert('error canTravel');
 
 							}
 						});
@@ -265,7 +265,7 @@ define([
 				},
 				error: function(message, level) {
 
-					alert('error');
+					alert('error nextDestinations');
 
 				}
 			});
@@ -290,7 +290,7 @@ define([
 		        "TUC": false,
 		        "REL": false,
 		        "VDM": false,
-		        "SNF": false,
+		        "SFN": false,
 		        "FMA": false,
 		        "NQN": false,
 		        "PSS": false,
@@ -379,7 +379,7 @@ define([
 					},
 					error: function(message, level) {
 
-						alert('error');
+						alert('error setTravel');
 
 					}
 				});
@@ -410,7 +410,7 @@ define([
 					},
 					error: function(message, level) {
 
-						alert('error');
+						alert('error getClue');
 
 					}
 				});
