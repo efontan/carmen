@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.despegar.hackaton.carmen.domain.model.game.*;
 import com.despegar.hackaton.carmen.domain.model.game.response.ClueResponse;
+import com.despegar.hackaton.carmen.domain.model.game.response.TravelResponse;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -22,12 +23,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.despegar.hackaton.carmen.domain.model.game.City;
+import com.despegar.hackaton.carmen.domain.model.game.Player;
+import com.despegar.hackaton.carmen.domain.model.game.Status;
 import com.despegar.hackaton.carmen.domain.service.GameService;
 import com.despegar.hackaton.carmen.web.controller.response.Response;
 import com.despegar.hackaton.carmen.web.controller.response.ResponseStatus;
 import com.despegar.hackaton.carmen.web.session.GameSession;
 import com.despegar.hackaton.carmen.web.session.SessionService;
-import com.despegar.hackaton.carmen.web.session.dto.TravelResponseDTO;
 import com.despegar.library.rest.interceptors.HttpRequestContext;
 
 @Controller
@@ -38,7 +41,6 @@ public class GameController implements ApplicationContextAware {
     private static final int TOTAL_CLUES = 0;
 
 	private static final String NAME_VIEW = "game/index";
-
     private static final String UNDER = "_";
 
 	@Autowired
@@ -58,9 +60,9 @@ public class GameController implements ApplicationContextAware {
 	@RequestMapping(value = "/initialize", method = RequestMethod.GET)
 	public ResponseEntity<Object> initialize(HttpRequestContext context,
 			HttpServletRequest request, HttpServletResponse response) {
-		BaseMapCities baseMapCities = this.getGameService().getBaseMapCities();
-		return new ResponseEntity<Object>(new Response<Object>(
-				ResponseStatus.SUCCESS, baseMapCities), HttpStatus.OK);
+		City city = this.getGameService().getCityData("BUE");
+		return new ResponseEntity<Object>(new Response<City>(
+				ResponseStatus.SUCCESS, city), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/player/new", method = RequestMethod.POST)
@@ -68,7 +70,7 @@ public class GameController implements ApplicationContextAware {
 			HttpServletRequest request, HttpServletResponse response,
 			@RequestBody Player player) {
 		GameSession gameSession = this.getGameService().createGameSession(
-              player);
+				player);
 		this.getSessionService().createSession(request, response, gameSession);
 		return new ResponseEntity<Object>(ResponseStatus.SUCCESS, HttpStatus.OK);
 	}
@@ -84,26 +86,14 @@ public class GameController implements ApplicationContextAware {
 				ResponseStatus.SUCCESS, status), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/flight/travel/{from}/{to}/{token}", method = RequestMethod.GET)
-	public ResponseEntity<Object> flightTravel(HttpRequestContext context,
-			HttpServletRequest request, @PathVariable("from") String from,
-			@PathVariable("to") String to, @PathVariable("token") String token) {
-		// TODO
-
-		TravelResponseDTO travelResponseDTO = new TravelResponseDTO();
-		return new ResponseEntity<Object>(new Response<TravelResponseDTO>(
-				ResponseStatus.SUCCESS, travelResponseDTO), HttpStatus.OK);
-	}
-
-    @RequestMapping(value = "/clue/{token}/{cityCode}/{hotelId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/clue/{token}/{cityCode}/{hotelId}", method = RequestMethod.GET)
     public ResponseEntity<Object> getClue(HttpServletRequest request,
                                           HttpServletResponse response,
                                           @PathVariable("token") String token,
                                           @PathVariable("cityCode") String cityCode,
                                           @PathVariable("hotelId") String hotelId){
-        GraphNode node;
         GameSession gameSession = sessionService.getGameSessionByToken(request, token);
-        node = (GraphNode) applicationContext.getBean(gameSession.getGameWalkthrough() + UNDER + cityCode);
+        GraphNode node = (GraphNode) applicationContext.getBean(gameSession.getGameWalkthrough() + UNDER + cityCode);
         int actualClue = gameSession.getActualClue();
         gameSession.setActualClue((actualClue == TOTAL_CLUES) ? 0 : actualClue++); //increment to the nextClue or init 0.
         Clue clue = node.getClues().getClueByIndex(actualClue);
@@ -117,6 +107,26 @@ public class GameController implements ApplicationContextAware {
         sessionService.addGameSessionToSessions(request, response, token, gameSession);
         ClueResponse clueResponse= new ClueResponse(clue, gameSession.getStatus());
         return new ResponseEntity<Object>(new Response<Object>(ResponseStatus.SUCCESS, clueResponse), HttpStatus.OK);
+	}
+
+    @RequestMapping(value = "/clue/{token}/{cityCode}/{searchHash}/{itineraryId}", method = RequestMethod.GET)
+    public ResponseEntity<Object> doTravel(HttpServletRequest request,
+                                          HttpServletResponse response,
+                                          @PathVariable("token") String token,
+                                          @PathVariable("cityCode") String cityCode,
+                                          @PathVariable("searchHash") String searchHash,
+                                          @PathVariable("itineraryId") String itineraryId) {
+        GameSession gameSession = sessionService.getGameSessionByToken(request, token);
+        GraphNode node = (GraphNode) applicationContext.getBean(gameSession.getGameWalkthrough() + UNDER + cityCode);
+        Status newStatus = gameSession.getStatus();
+        BigDecimal remainingMoney = new BigDecimal(0); //TODO:taitooz -> getFlight-price.
+        newStatus.setRemainingMoney(remainingMoney);
+        Integer duration = 0; //TODO:taitooz -> getFlight-durationHours.
+        newStatus.setActualDate(newStatus.getActualDate().plus(duration));
+        gameSession.setStatus(newStatus);
+        sessionService.addGameSessionToSessions(request, response, token, gameSession);
+        TravelResponse travelResponse = new TravelResponse(node, gameSession.getStatus());
+        return new ResponseEntity<Object>(new Response<Object>(ResponseStatus.SUCCESS, travelResponse), HttpStatus.OK);
     }
 
 	public SessionService getSessionService() {
@@ -138,5 +148,5 @@ public class GameController implements ApplicationContextAware {
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
-    }
+	}
 }
