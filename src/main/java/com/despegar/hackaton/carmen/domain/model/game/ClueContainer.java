@@ -22,4 +22,8 @@ public class ClueContainer {
     public void setClues(List<Clue> clues) {
         this.clues = clues;
     }
+
+    public Clue getClueByIndex(Integer clueIndex) {
+        return clues.get(clueIndex);
+    }
 }

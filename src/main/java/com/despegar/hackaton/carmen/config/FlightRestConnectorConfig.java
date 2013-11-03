@@ -11,20 +11,19 @@ import com.despegar.library.rest.config.RestConnectorConfig;
 import com.despegar.library.rest.serializers.json.ObjectMapperFactory.JsonPropertiesFormat;
 
 @Configuration
-public class CitiesRestConnector {
+public class FlightRestConnectorConfig {
 	private String host = "api.despegar.com";
 	private String baseUrl = "";
 
-	@Bean(name = "cities.rest.connector")
-	public RestConnector getHotelRestConnector() {
+	@Bean(name = "flight.rest.connector")
+	public RestConnector getFlightRestConnector() {
 		RestConnector restConnector = RestConnectorFactory.createRestConnector(
 				"http", this.host, this.baseUrl, true, ApiConstant.CLIENT_ID,
 				ApiConstant.API_VERSION,
-				RestConnectorConfig.createBuilder().readTimeout(9000).connectionTimeout(30000)
+				RestConnectorConfig.createBuilder().readTimeout(3000)
 						.jsonPropertiesFormat(JsonPropertiesFormat.CAMEL_CASE)
 						.build());
 		restConnector.getInterceptors().add(new ApiHeadersInterceptor());
 		return restConnector;
 	}
-
 }

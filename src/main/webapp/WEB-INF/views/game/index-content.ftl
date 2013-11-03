@@ -33,8 +33,8 @@
         		<div class="span10 well white-well form-player index">
         			<form id="form-player">
 						<div class="span3 white-well bit-text blue">
-							<label class="control-label" for="inputEmail">Nombre:</label>
-							<label class="control-label" for="inputEmail">Email:</label>
+							<label class="control-label" for="name">Nombre:</label>
+							<label class="control-label" for="email">Email:</label>
 						</div>
 
 						<div class="span8  white-well">
