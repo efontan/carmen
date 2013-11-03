@@ -1,28 +1,41 @@
 package com.despegar.hackaton.carmen.domain.model.game.response;
 
-import com.despegar.hackaton.carmen.domain.model.game.GraphNode;
+import com.despegar.hackaton.carmen.domain.model.game.AirportCity;
 import com.despegar.hackaton.carmen.domain.model.game.Status;
+
+import java.util.List;
 
 /**
  * @author emiliano.lourbet - taitooz - elourbet[at]despegar[dot]com.
  */
 public class TravelResponse {
 
-    private GraphNode node;
+    private AirportCity currentCity;
+
+    private List<AirportCity> destinations;
 
     private Status status;
 
-    public TravelResponse(GraphNode node, Status status) {
-        this.node = node;
+    public TravelResponse(AirportCity currentCity, List<AirportCity> destinations, Status status) {
+        this.currentCity = currentCity;
+        this.destinations = destinations;
         this.status = status;
     }
 
-    public GraphNode getNode() {
-        return node;
+    public AirportCity getCurrentCity() {
+        return currentCity;
     }
 
-    public void setNode(GraphNode node) {
-        this.node = node;
+    public void setCurrentCity(AirportCity currentCity) {
+        this.currentCity = currentCity;
+    }
+
+    public List<AirportCity> getDestinations() {
+        return destinations;
+    }
+
+    public void setDestinations(List<AirportCity> destinations) {
+        this.destinations = destinations;
     }
 
     public Status getStatus() {

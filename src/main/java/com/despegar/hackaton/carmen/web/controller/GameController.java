@@ -32,16 +32,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 @Controller
 public class GameController implements ApplicationContextAware {
 	private static final int WALKTHROUGH_UNDEFINED = 0;
-    private ApplicationContext applicationContext;
+	private ApplicationContext applicationContext;
 	private static final int TOTAL_CLUES = 2;
 	private static final String NAME_VIEW = "game/index";
-    private static final String UNDER = "_";
+	private static final String UNDER = "_";
 
 	@Autowired
 	private SessionService sessionService;
@@ -49,15 +50,15 @@ public class GameController implements ApplicationContextAware {
 	@Autowired
 	private GameService gameService;
 
-    @Autowired
-    private FlightService flightService;
+	@Autowired
+	private FlightService flightService;
 
-    @Autowired
-    private HotelService hotelService;
+	@Autowired
+	private HotelService hotelService;
 
-    @Autowired
-    @Qualifier("cities.rest.client")
-    private CitiesRestClient citiesRestClient;
+	@Autowired
+	@Qualifier("cities.rest.client")
+	private CitiesRestClient citiesRestClient;
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public ModelAndView index(HttpRequestContext context,
@@ -69,7 +70,8 @@ public class GameController implements ApplicationContextAware {
 	@RequestMapping(value = "/initialize", method = RequestMethod.GET)
 	public ResponseEntity<Object> initialize(HttpRequestContext context,
 			HttpServletRequest request, HttpServletResponse response) {
-		City city = this.getGameService().getCityData("BUE",WALKTHROUGH_UNDEFINED);
+		City city = this.getGameService().getCityData("BUE",
+				WALKTHROUGH_UNDEFINED);
 		return new ResponseEntity<Object>(new Response<City>(
 				ResponseStatus.SUCCESS, city), HttpStatus.OK);
 	}
@@ -80,12 +82,14 @@ public class GameController implements ApplicationContextAware {
 			@PathVariable("cityCode") String cityCode,
 			@PathVariable("token") String token) {
 		Session session = this.getSessionService().getSession(request);
-		int walkthrough = session.getGameSessions().get(token).getGameWalkthrough();
+		int walkthrough = session.getGameSessions().get(token)
+				.getGameWalkthrough();
 		List<String> nextDestinations = this.getGameService().getDestinations(
 				cityCode, walkthrough);
 		List<City> cities = Lists.newArrayList();
-		for(String nextDestination : nextDestinations){
-			cities.add(this.getGameService().getCityData(nextDestination, walkthrough));
+		for (String nextDestination : nextDestinations) {
+			cities.add(this.getGameService().getCityData(nextDestination,
+					walkthrough));
 		}
 		return new ResponseEntity<Object>(new Response<List<City>>(
 				ResponseStatus.SUCCESS, cities), HttpStatus.OK);
@@ -138,21 +142,25 @@ public class GameController implements ApplicationContextAware {
 
     @RequestMapping(value = "/travel/{token}/{cityCode}/{price}/{hours}", method = RequestMethod.GET)
     public ResponseEntity<Object> doTravel(HttpServletRequest request,
-                                          HttpServletResponse response,
-                                          @PathVariable("token") String token,
-                                          @PathVariable("cityCode") String cityCode,
-                                          @PathVariable("price") BigDecimal price,
-                                          @PathVariable("hours") Integer hours) {
+                                           HttpServletResponse response,
+                                           @PathVariable("token") String token,
+                                           @PathVariable("cityCode") String cityCode,
+                                           @PathVariable("price") BigDecimal price,
+                                           @PathVariable("hours") Integer hours) {
         GameSession gameSession = sessionService.getGameSessionByToken(request, token);
         GraphNode node = (GraphNode) applicationContext.getBean(gameSession.getGameWalkthrough() + UNDER + cityCode);
+
         Status newStatus = gameSession.getStatus();
         //Flight flight = flightService.getFlight(searchHash, itineraryId); //This service is deprecated :P
         BigDecimal remainingMoney = newStatus.getRemainingMoney().subtract(price);
         newStatus.setRemainingMoney(remainingMoney);
         newStatus.setActualDate(newStatus.getActualDate().plus(hours));
         gameSession.setStatus(newStatus);
-        sessionService.addGameSessionToSessions(request, response, token, gameSession);
-        TravelResponse travelResponse = new TravelResponse(node, gameSession.getStatus());
+        List<AirportCity> destinations = new LinkedList<AirportCity>();
+        for (GraphNode currentNode : node.getDestinations()) {
+            destinations.add(currentNode.getCurrentCity());
+        }
+        TravelResponse travelResponse = new TravelResponse(node.getCurrentCity(), destinations, gameSession.getStatus());
         return new ResponseEntity<Object>(new Response<Object>(ResponseStatus.SUCCESS, travelResponse), HttpStatus.OK);
     }
 
@@ -163,6 +171,15 @@ public class GameController implements ApplicationContextAware {
 		List<Flight> flights = this.flightService.getFlights(from, to);
 		return new ResponseEntity<Object>(new Response<Object>(
 				ResponseStatus.SUCCESS, flights), HttpStatus.OK);
+	}
+
+
+    @RequestMapping(value = "/restart/{token}", method = RequestMethod.GET)
+    public ResponseEntity<Object> restart(HttpServletRequest request,
+                                          @PathVariable("token") String token) {
+        GameSession session = sessionService.getGameSessionByToken(request, token);
+        gameService.restartSession(session);
+        return new ResponseEntity<Object>(new Response<Object>(ResponseStatus.SUCCESS, Boolean.TRUE), HttpStatus.OK);
     }
 
 	public SessionService getSessionService() {
@@ -181,9 +198,9 @@ public class GameController implements ApplicationContextAware {
 		this.gameService = gameService;
 	}
 
-    @Override
+	@Override
 	public void setApplicationContext(ApplicationContext applicationContext)
 			throws BeansException {
-        this.applicationContext = applicationContext;
+		this.applicationContext = applicationContext;
 	}
 }

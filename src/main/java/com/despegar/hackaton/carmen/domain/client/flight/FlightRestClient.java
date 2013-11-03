@@ -23,7 +23,9 @@ public class FlightRestClient extends AbstractRestClient {
 	private static final String AVAILABILITY_ONEWAY = "/availability/flights/oneWay";
 	private static final String GET_PREVIOUS_SEARCHED_FLIGHT = "/availability/flights/itineraries";
 
-	private ApiFlightMapper apiFlightMapper = new ApiFlightMapper();
+	@Autowired
+	@Qualifier("apiFlightMapper")
+	private ApiFlightMapper apiFlightMapper;
 
 	@Autowired
 	@Qualifier("flight.rest.connector")
