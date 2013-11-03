@@ -1,14 +1,25 @@
 package com.despegar.hackaton.carmen.domain.model.api.flight;
 
+import java.util.List;
+
 public class ApiFlight {
 
-	private ApiOutboundRoutes outboundRoutes;
+	private List<ApiRoute> routes;
+	private ApiPriceInfo priceInfo;
 
-	public ApiOutboundRoutes getOutboundRoutes() {
-		return this.outboundRoutes;
+	public List<ApiRoute> getRoutes() {
+		return this.routes;
 	}
 
-	public void setOutboundRoutes(ApiOutboundRoutes outboundRoutes) {
-		this.outboundRoutes = outboundRoutes;
+	public void setRoutes(List<ApiRoute> routes) {
+		this.routes = routes;
+	}
+
+	public ApiPriceInfo getPriceInfo() {
+		return this.priceInfo;
+	}
+
+	public void setPriceInfo(ApiPriceInfo priceInfo) {
+		this.priceInfo = priceInfo;
 	}
 }

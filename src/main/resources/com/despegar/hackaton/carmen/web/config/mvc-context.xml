@@ -78,15 +78,15 @@
         </bean>
             <bean id="1_BUE_CLUE_1" class="com.despegar.hackaton.carmen.domain.model.game.Clue">
                 <property name="characterJob" ref="MAID"/>
-                <property name="description" value="HACIA_CORRIENTES"/>
+                <property name="description" value="Se fue en una nave curcero que ondeaba una bandera en la cual se distingua un escudo con una cruz en llamas."/>
             </bean>
             <bean id="1_BUE_CLUE_2" class="com.despegar.hackaton.carmen.domain.model.game.Clue">
                 <property name="characterJob" ref="JANITOR"/>
-                <property name="description" value="HACIA_CORRIENTES"/>
+                <property name="description" value="Hablaba sobre un pantano/estero muy lindo para realizar foto-turismo."/>
             </bean>
             <bean id="1_BUE_CLUE_3" class="com.despegar.hackaton.carmen.domain.model.game.Clue">
                 <property name="characterJob" ref="RECEPTIONIST"/>
-                <property name="description" value="HACIA_CORRIENTES"/>
+                <property name="description" value="Escuche por ahi que es muy buen pescador."/>
             </bean>
 
     <bean id="COR" class="com.despegar.hackaton.carmen.domain.model.game.AirportCity">
@@ -120,15 +120,15 @@
         </bean>
             <bean id="1_CNQ_CLUE_1" class="com.despegar.hackaton.carmen.domain.model.game.Clue">
                 <property name="characterJob" ref="BARMAN"/>
-                <property name="description" value="HACIA_RIOJA"/>
+                <property name="description" value="Se lo vio reservando un Tour para visitar las Ruinas Incaicas de San Blas de los Sauces."/>
             </bean>
             <bean id="1_CNQ_CLUE_2" class="com.despegar.hackaton.carmen.domain.model.game.Clue">
                 <property name="characterJob" ref="RECEPTIONIST"/>
-                <property name="description" value="HACIA_RIOJA"/>
+                <property name="description" value="Se rumorea que anduvo hablando sobre tradicional Festival Chayero."/>
             </bean>
             <bean id="1_CNQ_CLUE_3" class="com.despegar.hackaton.carmen.domain.model.game.Clue">
                 <property name="characterJob" ref="WAITER"/>
-                <property name="description" value="HACIA_RIOJA"/>
+                <property name="description" value="Dicen que paro en una estacion de servicio para consultar el retome hacia la conocida Ruta 40."/>
             </bean>
 
 
@@ -193,15 +193,15 @@
         </bean>
         <bean id="1_IRJ_CLUE_1" class="com.despegar.hackaton.carmen.domain.model.game.Clue">
             <property name="characterJob" ref="BARMAN"/>
-            <property name="description" value="HACIA_MENDOZA"/>
+            <property name="description" value="Estaba algo stresado... nombro las Termas Cacheuta como posible destino."/>
         </bean>
         <bean id="1_IRJ_CLUE_2" class="com.despegar.hackaton.carmen.domain.model.game.Clue">
             <property name="characterJob" ref="RECEPTIONIST"/>
-            <property name="description" value="HACIA_MENDOZA"/>
+            <property name="description" value="Dicen que siempre le gusto el turismo descanso cerca de Potrerillos."/>
         </bean>
         <bean id="1_IRJ_CLUE_3" class="com.despegar.hackaton.carmen.domain.model.game.Clue">
             <property name="characterJob" ref="WAITER"/>
-            <property name="description" value="HACIA_MENDOZA"/>
+            <property name="description" value="Si lo vi!, estaba comprando un snowboard para utilizar en su proximo destino."/>
         </bean>
 
     <bean id="PSS" class="com.despegar.hackaton.carmen.domain.model.game.AirportCity">
