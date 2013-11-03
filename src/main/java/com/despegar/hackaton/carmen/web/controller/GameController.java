@@ -3,6 +3,7 @@ package com.despegar.hackaton.carmen.web.controller;
 import com.despegar.hackaton.carmen.domain.model.game.*;
 import com.despegar.hackaton.carmen.domain.model.game.response.ClueResponse;
 import com.despegar.hackaton.carmen.domain.model.game.response.TravelResponse;
+import com.despegar.hackaton.carmen.domain.service.FlightService;
 import com.despegar.hackaton.carmen.domain.service.GameService;
 import com.despegar.hackaton.carmen.web.controller.response.Response;
 import com.despegar.hackaton.carmen.web.controller.response.ResponseStatus;
@@ -43,6 +44,9 @@ public class GameController implements ApplicationContextAware {
 
 	@Autowired
 	private GameService gameService;
+
+    @Autowired
+    private FlightService flightService;
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public ModelAndView index(HttpRequestContext context,
@@ -113,10 +117,10 @@ public class GameController implements ApplicationContextAware {
         GameSession gameSession = sessionService.getGameSessionByToken(request, token);
         GraphNode node = (GraphNode) applicationContext.getBean(gameSession.getGameWalkthrough() + UNDER + cityCode);
         Status newStatus = gameSession.getStatus();
-        BigDecimal remainingMoney = new BigDecimal(0); //TODO:taitooz -> getFlight-price.
+        Flight flight = flightService.getFlight(searchHash, itineraryId);
+        BigDecimal remainingMoney = newStatus.getRemainingMoney().subtract(flight.getPrice());
         newStatus.setRemainingMoney(remainingMoney);
-        Integer duration = 0; //TODO:taitooz -> getFlight-durationHours.
-        newStatus.setActualDate(newStatus.getActualDate().plus(duration));
+        newStatus.setActualDate(newStatus.getActualDate().plus(flight.getDurationHours()));
         gameSession.setStatus(newStatus);
         sessionService.addGameSessionToSessions(request, response, token, gameSession);
         TravelResponse travelResponse = new TravelResponse(node, gameSession.getStatus());
