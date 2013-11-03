@@ -6,7 +6,7 @@ public class Flight {
 
 	private String from;
 	private String to;
-	private String stops;
+	private Integer stops;
 	private Integer durationHours;
 	private String departureDate;
 	private BigDecimal price;
@@ -15,7 +15,7 @@ public class Flight {
 	public Flight() {
 	}
 
-	public Flight(String from, String to, String stops, Integer durationHours,
+	public Flight(String from, String to, Integer stops, Integer durationHours,
 			String departureDate, BigDecimal price, String searchUrl) {
 		this.from = from;
 		this.to = to;
@@ -42,11 +42,11 @@ public class Flight {
 		this.to = to;
 	}
 
-	public String getStops() {
+	public Integer getStops() {
 		return this.stops;
 	}
 
-	public void setStops(String stops) {
+	public void setStops(Integer stops) {
 		this.stops = stops;
 	}
 

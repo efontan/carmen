@@ -1,9 +1,9 @@
 package com.despegar.hackaton.carmen.domain.model.api.flight;
 
-public class ApiFlightDeparture {
+public class ApiFlightSegmentDetails {
 
 	private String date;
-	private Long timezone;
+	private Double timezone;
 	private String location;
 
 	public String getDate() {
@@ -14,11 +14,11 @@ public class ApiFlightDeparture {
 		this.date = date;
 	}
 
-	public Long getTimezone() {
+	public Double getTimezone() {
 		return this.timezone;
 	}
 
-	public void setTimezone(Long timezone) {
+	public void setTimezone(Double timezone) {
 		this.timezone = timezone;
 	}
 

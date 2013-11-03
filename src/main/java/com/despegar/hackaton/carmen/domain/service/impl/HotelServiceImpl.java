@@ -26,6 +26,5 @@ public class HotelServiceImpl implements HotelService {
 	public List<Hotel> getCityHotels(String cityCode) {
 		List<Long> cityHotelIds = this.citiesRestClient.getHotelIdsByCity(cityCode);
 		return this.hotelRestClient.getHotelsDetail(cityHotelIds);
-
 	}
 }
