@@ -302,6 +302,12 @@ body {
 .game-container .score .money-container {
   float: right;
 }
+.game-container .clue-container {
+  margin-top: 40px;
+}
+.game-container .clue-return {
+  margin-top: 45px;
+}
 .game-container .clue-avatar {
   margin-left: -39px !important;
   margin-top: -70px !important;
@@ -315,6 +321,7 @@ body {
   height: 350px;
   margin: 25px 0 0 65px !important;
   border: 10px solid rgba(0, 0, 0, 0.8) !important;
+  overflow: auto;
 }
 .game-container .form-player .avatar-container {
   padding-left: 40px;
@@ -346,6 +353,13 @@ body {
 }
 .game-container .form-player .play {
   margin-top: 23px;
+}
+.game-container .airplane {
+  float: left;
+  margin-right: 15px;
+}
+.game-container .flight-text {
+  display: block;
 }
 .game-container .blue {
   color: #0098ff;
