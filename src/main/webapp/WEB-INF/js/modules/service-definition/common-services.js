@@ -62,6 +62,21 @@ define(["amplify", "common/modules/logger", "common/modules/ServicesManager"],
 				},
 				mocks:{	}
 			});
+			
+			// operacion: getClue
+			ServicesManager.addRequest({
+				serviceID: "carmen.getClue",
+				description:"",
+				cache: service_cache,
+				type:"ajax",
+				params: {
+					url: 'clue/{token}/{cityOid}/{hotelId}',
+					dataType:"json",
+					type:"GET"
+				},
+				mocks:{	}
+			});
+
 
 		}
 

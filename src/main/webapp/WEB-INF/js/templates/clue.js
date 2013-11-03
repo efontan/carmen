@@ -1,0 +1,1 @@
+define(["handlebars"],function(a){var b=a.template,c=a.templates=a.templates||{};c["clue.hbs"]=b(function(a,b,c,d,e){return c=c||a.helpers,'<div id="showClue" class="clue">\r\n	\r\n</div>\r\n\r\n'})})

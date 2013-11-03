@@ -5,7 +5,7 @@ define([
 
 		"common/modules/map", "common/modules/gmaps",
 		
-		"templates/hotel-map", "templates/op-loading"
+		"templates/hotel-map", "templates/op-loading", "templates/clue"
 
 	],
 
@@ -13,7 +13,6 @@ define([
 
 		var tooltip = null;
 		var module_id = "ar_map";
-		var mapObject = null;
 
 		/**
 		 * Inicializador
@@ -202,31 +201,31 @@ define([
 
 	            	tooltip = new overlay();
 
-	            	tooltip.openDynamicDialog({
-						trigger: $('#main-panel'),
-						onClose: function() {},
-						id: 'hotelMap',
-						effect: "fade",
-						remove: true,
-						position: 'top-left',
-						type: 'popover',
-						arrow: false,
-						background: false,
-						callback: function() {
-							_getFormData(function(data, isError) {
-								// si no es error mostrar el formulario
-								if (!isError) {
-									_renderSpecialRequest(data, code, tooltip);
-									
-								} else {
-									// sino mostrar mensaje de error
-									_renderSpecialRequest(data, code, tooltip);
-									//tooltip.renderPopupMessage("error", "specialRequest");
-								}
-
-							});
-						}
-					});
+//	            	tooltip.openDynamicDialog({
+//						trigger: $('#main-panel'),
+//						onClose: function() {},
+//						id: 'hotelMap',
+//						effect: "fade",
+//						remove: true,
+//						position: 'top-left',
+//						type: 'popover',
+//						arrow: false,
+//						background: false,
+//						callback: function() {
+//							_getFormData(function(data, isError) {
+//								// si no es error mostrar el formulario
+//								if (!isError) {
+//									_renderSpecialRequest(data, code, tooltip);
+//									
+//								} else {
+//									// sino mostrar mensaje de error
+//									_renderSpecialRequest(data, code, tooltip);
+//									//tooltip.renderPopupMessage("error", "specialRequest");
+//								}
+//
+//							});
+//						}
+//					});
 	            }
 			};
 
@@ -274,6 +273,80 @@ define([
 		        "SLA": false
 		    };
         	
+		}
+		
+		function _bindEvents(){
+
+			$('#gmap').on('click', '.sleep',function () {    
+				
+				event.preventDefault();
+				
+				alert('click');
+				
+				amplify.request({
+					resourceId: "carmen.getClue",
+					data: {
+						token: extraData.get("token"),
+						cityOid : $('.sleep').data('city'),
+						hotelId : $('.sleep').data('hotel')
+					},
+					success: function(service_data) {
+						
+						console.log(service_data);
+
+						_showClue(service_data.data.clue);
+						_updateTopBar(service_data.data.status);
+
+					},
+					error: function(message, level) {
+
+						alert('error');
+
+					}
+				});
+				
+			});
+		}
+		
+		function _updateTopBar(data){
+			console.log(data);
+			var date = new Date(data.actualDate);
+			$('.actual-date').html(date.toLocaleDateString());
+			$('.money').html(data.remainingMoney);
+		}
+		
+		function _showClue(clue){
+			
+			tooltip = new overlay();
+
+        	tooltip.openDynamicDialog({
+				trigger: $('#main-panel'),
+				onClose: function() {},
+				id: 'hotelMap',
+				effect: "fade",
+				remove: true,
+				position: 'top-left',
+				type: 'popover',
+				arrow: false,
+				background: false,
+				callback: function() {
+					var template = Handlebars.templates['clue.hbs'];
+					
+					var context = {
+						'characterJob' : clue.characterJob,
+						'description' : clue.description,
+						'inTheHouse' : clue.inTheHouse,
+						'avatar' : extraData.get('avatarGenre')
+					};
+
+					var popupContent = template(context);
+
+					tooltip.updateContent(popupContent);
+				}
+			});
+        	
+        	$('.ux-common-overlay-close').click()
+			
 		}
 		
 		function _getFormData(callback) {
@@ -329,6 +402,8 @@ define([
 			
 			var mapData = extraData.get("startPoint");
 			
+			extraData.set('currentCity', mapData.code);
+			
 			console.log(mapData);
 		
 			var map = new GMaps({
@@ -351,10 +426,18 @@ define([
 				      lng: val.position.longitude,
 				      title: val.name,
 				      infoWindow: {
-				        content: '<img class="img-hotel" src="http://www.despegar.com/media/pictures/' + val.imageKey + '/100x100"></img><h3 class="hotel-title">' + val.name + '</h3><span class="hotel-stars mi-despegar-sprite-stars-'+ val.starsNumber +'"></span><button type="submit" class="btn btn-danger span2 sleep">Pasar la noche</button><p>' + val.description + '</p>' }
+				        content: '<img class="img-hotel" src="http://www.despegar.com/media/pictures/' + 
+				        			val.imageKey + '/100x100"></img><h3 class="hotel-title"><span class="label label-warning hotel-price">$' + parseInt(val.price) + '</span>' + val.name + 
+				        			'</h3><span class="hotel-stars mi-despegar-sprite-stars-'+ val.starsNumber +
+				        			'"></span><p>' + val.description + ' <a class="despegar-link" href="http://www.despegar.com.ar/hoteles/h-'+ val.id +
+				        			'" >ver m&aacute;s</a></p><button id="sleep" data-city="'+ mapData.code +'" data-hotel="'+ val.id +
+				        			'"class="btn btn-danger span2 sleep">Pasar la noche</button><a class="despegar-link" href="http://www.despegar.com.ar/hoteles/h-'+ val.id +
+				        			'">ver en despegar</a>' }
 				    });
 				
 			});
+			
+			_bindEvents();
 
 	
 		}

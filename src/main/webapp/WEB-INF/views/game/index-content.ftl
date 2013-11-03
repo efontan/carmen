@@ -43,11 +43,11 @@
 						</div>
 						<div class="span12 white-well avatar-container">
 							<div class="span5 white-well">
-								<span class="mi-despegar-sprite-male-avatar avatar avatar-selected" data-genre="m"></span>
+								<span class="mi-despegar-sprite-male-avatar avatar avatar-selected" data-full-genre="male" data-genre="m"></span>
 								<span class="bit-text blue">Henry</span>
 							</div>
 							<div class="span5 white-well">
-								<span class="mi-despegar-sprite-female-avatar avatar" data-genre="f"></span>
+								<span class="mi-despegar-sprite-female-avatar avatar" data-full-genre="female" data-genre="f"></span>
 								<span class="bit-text blue">Cloudia</span>
 							</div>
 						</div>
@@ -57,7 +57,10 @@
         </div>
         <div class="row-fluid show-grid">
         	<div class="span4 well white-well footer-panel bit-text footer-label"><span class="blue">despegar</span><span class="red">.com</span></div>
-        	<div class="span7 well white-well footer-panel bit-text footer-label action-menu"><span class="blue index">Para comenzar completa el formulario y selecciona un detective.</span></div>
+        	<div class="span7 well white-well footer-panel bit-text footer-label action-menu">
+        		<span class="blue index">Para comenzar completa el formulario y selecciona un detective.</span>
+        		<span class="blue main-game hide">Seg&uacute;n nuestras fuentes tenemos fuertes indicios de que Carmen puede encontrarse en <span class="red">Misiones, Rosario o La Pampa</span>.</span>
+        	</div>
         </div>
     </div>
 </div>
