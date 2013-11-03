@@ -309,14 +309,6 @@ define([
         	
 		}
 		
-		function _finishGame(status){
-			$('#map').remove();
-			$('.ux-common-overlay-close').click();
-			$('.printer').removeClass('hide');
-			$('.printer-text').html('despegar.com - FELICITACIONES!!! has encontrado a Carmen comp&aacute;rtelo y descubre nuevas aventuras!<div class="social"><span title="Facebook" class="mi-despegar-sprite-facebook bit-icon"></span><span title="Twitter" class="twitter mi-despegar-sprite-twitter bit-icon"></span><span title="Google+" class="mi-despegar-sprite-google bit-icon"></span>	</div>');
-			$('.printer-text').removeClass('hide');
-		}
-		
 		function _showFlights(flights){
 			
 			$('.clue-container').addClass('hide');
@@ -430,9 +422,18 @@ define([
 			var date = new Date(data.actualDate);
 			$('.actual-date').html(date.toLocaleDateString());
 			$('.money').html(data.remainingMoney.toFixed(2));
+			
 			if(data.remainingMoney.toFixed(2) < 0){
-				_finishGame(false);
+				
+				$('#map').remove();
+				$('.ux-common-overlay-close').click();
+				$('.printer').removeClass('hide');
+				$('.printer-text').html('despegar.com - FELICITACIONES!!! has encontrado a Carmen comp&aacute;rtelo y descubre nuevas aventuras!<div class="social"><span title="Facebook" class="mi-despegar-sprite-facebook bit-icon"></span><span title="Twitter" class="twitter mi-despegar-sprite-twitter bit-icon"></span><span title="Google+" class="mi-despegar-sprite-google bit-icon"></span>	</div>');
+				$('.printer-text').removeClass('hide');
+				
 			}
+			
+			
 		}
 		
 		function _showClue(clue){
@@ -469,7 +470,11 @@ define([
 				});
 				
 			}else {
-				_finishGame(true);
+				$('#map').remove();
+				$('.ux-common-overlay-close').click();
+				$('.printer').removeClass('hide');
+				$('.printer-text').html('despegar.com - FELICITACIONES!!! has encontrado a Carmen comp&aacute;rtelo y descubre nuevas aventuras!<div class="social"><span title="Facebook" class="mi-despegar-sprite-facebook bit-icon"></span><span title="Twitter" class="twitter mi-despegar-sprite-twitter bit-icon"></span><span title="Google+" class="mi-despegar-sprite-google bit-icon"></span>	</div>');
+				$('.printer-text').removeClass('hide');
 			}
 			
 			
