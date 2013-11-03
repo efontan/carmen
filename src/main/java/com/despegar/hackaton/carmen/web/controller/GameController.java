@@ -107,20 +107,20 @@ public class GameController implements ApplicationContextAware {
         return new ResponseEntity<Object>(new Response<Object>(ResponseStatus.SUCCESS, clueResponse), HttpStatus.OK);
 	}
 
-    @RequestMapping(value = "/clue/{token}/{cityCode}/{searchHash}/{itineraryId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/travel/{token}/{cityCode}/{price}/{hours}", method = RequestMethod.GET)
     public ResponseEntity<Object> doTravel(HttpServletRequest request,
                                           HttpServletResponse response,
                                           @PathVariable("token") String token,
                                           @PathVariable("cityCode") String cityCode,
-                                          @PathVariable("searchHash") String searchHash,
-                                          @PathVariable("itineraryId") String itineraryId) {
+                                          @PathVariable("price") BigDecimal price,
+                                          @PathVariable("hours") Integer hours) {
         GameSession gameSession = sessionService.getGameSessionByToken(request, token);
         GraphNode node = (GraphNode) applicationContext.getBean(gameSession.getGameWalkthrough() + UNDER + cityCode);
         Status newStatus = gameSession.getStatus();
-        Flight flight = flightService.getFlight(searchHash, itineraryId);
-        BigDecimal remainingMoney = newStatus.getRemainingMoney().subtract(flight.getPrice());
+        //Flight flight = flightService.getFlight(searchHash, itineraryId); //This service is deprecated :P
+        BigDecimal remainingMoney = newStatus.getRemainingMoney().subtract(price);
         newStatus.setRemainingMoney(remainingMoney);
-        newStatus.setActualDate(newStatus.getActualDate().plus(flight.getDurationHours()));
+        newStatus.setActualDate(newStatus.getActualDate().plus(hours));
         gameSession.setStatus(newStatus);
         sessionService.addGameSessionToSessions(request, response, token, gameSession);
         TravelResponse travelResponse = new TravelResponse(node, gameSession.getStatus());
