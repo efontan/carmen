@@ -56,10 +56,13 @@
 					<div class="span12 white-well main-game hide clue-container">
 						<div class="span11 well">
 							<span class="mi-despegar-sprite-male-avatar avatar avatar-selected clue-avatar"></span>
-							<span class="bit-text clue-description">dasdasdas dasdasd dasdasd dasdasdas dasdasd dasdasdas dasdasd dasdasdas dasdasd dasdasdas dasdasd d</span>
+							<span class="bit-text clue-description">Ops! no tengo pistas para t&iacute; a&uacute;n.</span>
 						</div>
 						<span class="mi-despegar-sprite-male-avatar avatar avatar-selected ask-avatar"></span>
 						<button type="submit" class="btn btn-info span11 clue-return">Volver al mapa</button>
+					</div>
+					<div class="span12 white-well hide flight-container">
+						
 					</div>
         		</div>
         </div>
@@ -67,7 +70,7 @@
         	<div class="span4 well white-well footer-panel bit-text footer-label"><span class="blue">despegar</span><span class="red">.com</span></div>
         	<div class="span7 well white-well footer-panel bit-text footer-label action-menu">
         		<span class="blue index">Para comenzar completa el formulario y selecciona un detective.</span>
-        		<span class="blue main-game hide">Seg&uacute;n nuestras fuentes tenemos fuertes indicios de que Carmen puede encontrarse en <span class="red">Misiones, Rosario o La Pampa</span>.</span>
+        		<span class="blue main-game hide">Seg&uacute;n nuestras fuentes tenemos fuertes indicios de que Carmen puede encontrarse en <span class="toTravel red">...</span>.</span>
         	</div>
         </div>
     </div>

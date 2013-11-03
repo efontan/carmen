@@ -76,8 +76,50 @@ define(["amplify", "common/modules/logger", "common/modules/ServicesManager"],
 				},
 				mocks:{	}
 			});
+			
+			// operacion: nextdestinations
+			ServicesManager.addRequest({
+				serviceID: "carmen.nextDestinations",
+				description:"",
+				cache: service_cache,
+				type:"ajax",
+				params: {
+					url: 'nextdestinations/{token}/{cityCode}',
+					dataType:"json",
+					type:"GET"
+				},
+				mocks:{	}
+			});
+			
+			// operacion: flights
+			ServicesManager.addRequest({
+				serviceID: "carmen.getFlights",
+				description:"",
+				cache: service_cache,
+				type:"ajax",
+				params: {
+					url: 'flights/{from}/{to}',
+					dataType:"json",
+					type:"GET"
+				},
+				mocks:{	}
+			});
+			
+			// operacion: setTravel
+			ServicesManager.addRequest({
+				serviceID: "carmen.setTravel",
+				description:"",
+				cache: service_cache,
+				type:"ajax",
+				params: {
+					url: 'travel/{token}/{cityCode}/{price}/{hours}',
+					dataType:"json",
+					type:"GET"
+				},
+				mocks:{	}
+			});
 
-
+			
 		}
 
 

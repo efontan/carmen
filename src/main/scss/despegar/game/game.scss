@@ -183,6 +183,7 @@ body{
 		height: 350px;
 		margin: 25px 0 0 65px !important;
 		border: 10px solid rgba(0, 0, 0, 0.8) !important;
+		overflow: auto;
 		
 		.avatar-container{
 			padding-left: 40px;
@@ -220,6 +221,26 @@ body{
 		
 		.play{
 			margin-top: 23px;
+		}
+	}
+	
+	.airplane{
+		float: left;
+		margin-right: 15px;
+	}
+	
+	.flight-text{
+		display: block;
+	}
+	
+	.flight-container{
+		.flight-title{
+			display: inline;
+		}
+		.flight-price{
+			margin-right: 10px;
+			font-family: minecraftia;
+			padding: 4px;
 		}
 	}
 	

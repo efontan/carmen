@@ -5,7 +5,7 @@ define([
 
 		"common/modules/map", "common/modules/gmaps",
 		
-		"templates/hotel-map", "templates/op-loading", "templates/clue"
+		"templates/hotel-map", "templates/op-loading", "templates/flights"
 
 	],
 
@@ -22,6 +22,8 @@ define([
 		function init(options) {
 
 			logger.info("[INFO] Inicializando modulo "+module_id);
+			
+			_getDestinations('BUE');
 			
 			tooltip = new overlay();
 
@@ -197,34 +199,36 @@ define([
 	            	mapObject.addMarker('_1'+code, {latLng: [-32.5856687,-58, -59.43010190000001]});
 	            	
 	            	mapObject.removeMarkers(['_1'+code, '_'+code]);
+	            	
+	            	console.log(extraData.get('canTravel'));
 
-	            	tooltip = new overlay();
+	            	if(_.has(extraData.get('canTravel'), code)){
+	            		amplify.request({
+							resourceId: "carmen.getFlights",
+							data: {
+								token: extraData.get("token"),
+								from : extraData.get('currentCity'),
+								to : code
+							},
+							success: function(service_data) {
+								
+								alert('viajo');
+								_showFlights(service_data.data);
+								console.log(service_data);
 
-//	            	tooltip.openDynamicDialog({
-//						trigger: $('#main-panel'),
-//						onClose: function() {},
-//						id: 'hotelMap',
-//						effect: "fade",
-//						remove: true,
-//						position: 'top-left',
-//						type: 'popover',
-//						arrow: false,
-//						background: false,
-//						callback: function() {
-//							_getFormData(function(data, isError) {
-//								// si no es error mostrar el formulario
-//								if (!isError) {
-//									_renderSpecialRequest(data, code, tooltip);
-//									
-//								} else {
-//									// sino mostrar mensaje de error
-//									_renderSpecialRequest(data, code, tooltip);
-//									//tooltip.renderPopupMessage("error", "specialRequest");
-//								}
-//
-//							});
-//						}
-//					});
+							},
+							error: function(message, level) {
+
+								alert('error');
+
+							}
+						});
+	            	}else{
+	            		alert('No puedo viajar ahi!');
+	            		mapObject.setSelectedRegions('{'+code+':false}');
+	            	}
+	            	
+	            	
 	            }
 			};
 
@@ -234,6 +238,36 @@ define([
         	
         	mapObject.setSelectedRegions('BUE');
 
+		}
+		
+		function _getDestinations(code){
+			
+			amplify.request({
+				resourceId: "carmen.nextDestinations",
+				data: {
+					token: extraData.get("token"),
+					cityCode: code
+				},
+				success: function(service_data) {
+					
+					var toTravel = "";
+					var canTravel = {};
+					extraData.set('nextDestinations_'+extraData.get('currentCity'), service_data.data);
+					_.each(service_data.data, function(val, key){
+						extraData.set('cityHotels_'+val.code, val);
+						toTravel += val.name + " - ";
+						canTravel[val.code] = true;
+					});
+					
+					extraData.set('canTravel', canTravel);
+					$('.toTravel').html(toTravel);
+				},
+				error: function(message, level) {
+
+					alert('error');
+
+				}
+			});
 		}
 
 		function _bindMap(obj, options) {
@@ -274,6 +308,87 @@ define([
         	
 		}
 		
+		function _showFlights(flights){
+			
+			$('.clue-container').addClass('hide');
+			$('.flight-container').removeClass('hide');
+			
+			$('.ux-common-overlay-close').click();
+			
+			$('.flight-container').append('');
+			
+			_.each(flights, function(val, key){
+				
+				var html = '';
+				html += '<div class="span11 well">';
+				html += '   <span class="flight-text mi-despegar-sprite-user-menu-flight-actions airplane"></span>';
+				html += '	<h3 class="flight-title"><span class="label label-warning flight-price">$' + parseInt(val.price) + '</span>' + val.from + ' a ' + val.to + '</h3>';
+				html += '	<span class="flight-text clue-description">Fecha: <span class="clue-description red">' + val.departureDate + '</span></span>';
+				html += '	<span class="flight-text clue-description">Duracion: <span class="clue-description red">' + val.durationHours + 'hs</span></span>';
+				html += '	<span class="flight-text clue-description">Escalas: <span class="clue-description red">' + val.stops + '</span></span>';
+				html += '	<span class="flight-text clue-description">Precio: <span class="clue-description red">' + val.price + '</span></span>';
+				html += '   <a class="flight-text " href="' + val.searchUrl + '">ver en despegar</a>';
+				html += '   <button type="submit" data-code="' + val.to + '" data-price="' + val.price + '" data-hours="' + val.durationHours + '" class="btn btn-info span8 flight-select">Viajar</button>';
+				html += '</div>';
+				$('.flight-container').append(html);
+			});
+			
+			$('.flight-select').on('click', function(){
+				
+				extraData.set('currentCity', $(this).data('code'));
+				extraData.set('currentCityData', extraData.get('cityHotels_'+$(this).data('code')));
+				
+				$('.clue-container').removeClass('hide');
+				$('.flight-container').addClass('hide');
+				
+				amplify.request({
+					resourceId: "carmen.setTravel",
+					data: {
+						token: extraData.get("token"),
+						cityCode : $(this).data('code'),
+						price : $(this).data('price'),
+						hours : $(this).data('hours')
+					},
+					success: function(service_data) {
+						
+						alert('viajando');
+						console.log(extraData.get('currentCity'));
+						console.log(extraData.get('currentCityData'));
+						_updateTopBar(service_data.data.status);
+						
+						tooltip = new overlay();
+
+			        	tooltip.openDynamicDialog({
+							trigger: $('#main-panel'),
+							onClose: function() {},
+							id: 'hotelMap',
+							effect: "fade",
+							remove: true,
+							position: 'top-left',
+							type: 'popover',
+							arrow: false,
+							background: false,
+							callback: function() {
+								_true(function(data) {
+									_renderSpecialRequest(extraData.get('currentCityData'), extraData.get('currentCity'), tooltip);
+									_getDestinations(extraData.get('currentCity'));
+								});
+							}
+						});
+
+					},
+					error: function(message, level) {
+
+						alert('error');
+
+					}
+				});
+				
+			});
+			
+		}
+		
+		
 		function _bindEvents(){
 
 			$('#gmap').on('click', '.sleep',function () {    
@@ -289,8 +404,6 @@ define([
 					},
 					success: function(service_data) {
 						
-						console.log(service_data);
-
 						_showClue(service_data.data.clue);
 						_updateTopBar(service_data.data.status);
 
