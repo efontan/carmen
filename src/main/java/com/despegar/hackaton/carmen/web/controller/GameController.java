@@ -42,7 +42,7 @@ public class GameController implements ApplicationContextAware {
 
 	private ApplicationContext applicationContext;
 
-	private static final int TOTAL_CLUES = 0;
+	private static final int TOTAL_CLUES = 2;
 
 	private static final String NAME_VIEW = "game/index";
 	private static final String UNDER = "_";
@@ -93,38 +93,29 @@ public class GameController implements ApplicationContextAware {
 				ResponseStatus.SUCCESS, status), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/clue/{token}/{cityCode}/{hotelId}", method = RequestMethod.GET)
-	public ResponseEntity<Object> getClue(HttpServletRequest request,
-			HttpServletResponse response, @PathVariable("token") String token,
-			@PathVariable("cityCode") String cityCode,
-			@PathVariable("hotelId") String hotelId) {
-		GameSession gameSession = this.sessionService.getGameSessionByToken(
-				request, token);
-		GraphNode node = (GraphNode) this.applicationContext
-				.getBean(gameSession.getGameWalkthrough() + UNDER + cityCode);
-		int actualClue = gameSession.getActualClue();
-		gameSession.setActualClue(actualClue == TOTAL_CLUES ? 0 : actualClue++); // increment
-																					// to
-																					// the
-																					// nextClue
-																					// or
-																					// init
-																					// 0.
-		Clue clue = node.getClues().getClueByIndex(actualClue);
-		Status newStatus = gameSession.getStatus(); // Update the game status.
-		newStatus.setActualDate(newStatus.getActualDate().plusHours(8));
-		// TODO:taitooz -> retrieve hotel price with hotelId.
-		BigDecimal hotelPrice = new BigDecimal(0);
-		newStatus.setRemainingMoney(newStatus.getRemainingMoney().subtract(
-				hotelPrice));
-		gameSession.setStatus(newStatus);
-		this.sessionService.addGameSessionToSessions(request, response, token,
-				gameSession);
-		ClueResponse clueResponse = new ClueResponse(clue,
-				gameSession.getStatus());
-		return new ResponseEntity<Object>(new Response<Object>(
-				ResponseStatus.SUCCESS, clueResponse), HttpStatus.OK);
-	}
+    @RequestMapping(value = "/clue/{token}/{cityCode}/{hotelId}", method = RequestMethod.GET)
+    public ResponseEntity<Object> getClue(HttpServletRequest request,
+            HttpServletResponse response, @PathVariable("token") String token,
+            @PathVariable("cityCode") String cityCode,
+            @PathVariable("hotelId") String hotelId) {
+        GameSession gameSession = this.sessionService.getGameSessionByToken(request, token);
+        GraphNode node = (GraphNode) this.applicationContext.getBean(gameSession.getGameWalkthrough() + UNDER + cityCode);
+        int actualClue = gameSession.getActualClue();
+        if (actualClue == TOTAL_CLUES) {
+            gameSession.setActualClue(0);
+        } else {
+            gameSession.setActualClue(gameSession.getActualClue() + 1);
+        }
+        Clue clue = node.getClues().getClueByIndex(actualClue);
+        Status newStatus = gameSession.getStatus(); // Update the game status.
+        newStatus.setActualDate(newStatus.getActualDate().plusHours(8));
+        // TODO:taitooz -> retrieve hotel price with hotelId.
+        BigDecimal hotelPrice = new BigDecimal(0);
+        newStatus.setRemainingMoney(newStatus.getRemainingMoney().subtract(hotelPrice));
+        gameSession.setStatus(newStatus);
+        ClueResponse clueResponse = new ClueResponse(clue, newStatus);
+        return new ResponseEntity<Object>(new Response<Object>(ResponseStatus.SUCCESS, clueResponse), HttpStatus.OK);
+    }
 
     @RequestMapping(value = "/travel/{token}/{cityCode}/{price}/{hours}", method = RequestMethod.GET)
     public ResponseEntity<Object> doTravel(HttpServletRequest request,
