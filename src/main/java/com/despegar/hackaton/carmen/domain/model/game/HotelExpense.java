@@ -1,13 +1,16 @@
 package com.despegar.hackaton.carmen.domain.model.game;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class HotelExpense {
+public class HotelExpense implements Serializable {
+
+	private static final long serialVersionUID = 6170978559009796347L;
 	private String name;
 	private BigDecimal price;
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public void setName(String name) {
@@ -15,7 +18,7 @@ public class HotelExpense {
 	}
 
 	public BigDecimal getPrice() {
-		return price;
+		return this.price;
 	}
 
 	public void setPrice(BigDecimal price) {

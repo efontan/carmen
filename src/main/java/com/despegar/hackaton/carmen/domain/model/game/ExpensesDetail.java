@@ -1,14 +1,24 @@
 package com.despegar.hackaton.carmen.domain.model.game;
 
+
 import java.math.BigDecimal;
+import java.io.Serializable;
 import java.util.List;
 
-public class ExpensesDetail {
+import com.google.common.collect.Lists;
+
+public class ExpensesDetail implements Serializable {
+
+	private static final long serialVersionUID = -8452514669632201965L;
 	private List<FlightExpense> flightExpenses;
 	private List<HotelExpense> hotelExpenses;
+	public ExpensesDetail() {
+		this.flightExpenses = Lists.newArrayList();
+		this.hotelExpenses = Lists.newArrayList();
+	}
 
 	public List<FlightExpense> getFlightExpenses() {
-		return flightExpenses;
+		return this.flightExpenses;
 	}
 
 	public void setFlightExpenses(List<FlightExpense> flightExpenses) {
@@ -16,7 +26,7 @@ public class ExpensesDetail {
 	}
 
 	public List<HotelExpense> getHotelExpenses() {
-		return hotelExpenses;
+		return this.hotelExpenses;
 	}
 
 	public void setHotelExpenses(List<HotelExpense> hotelExpenses) {
