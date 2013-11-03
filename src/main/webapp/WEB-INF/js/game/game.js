@@ -54,10 +54,10 @@ define([
 				$(this).addClass("avatar-selected");
 			});
 			
-			extraData.set('avatarGenre', $('.avatar-selected').data('full-genre'));
-			
 			$('#form-player').submit(function(event){
 				event.preventDefault();
+				
+				extraData.set('avatarGenre', $('.avatar-selected').data('full-genre'));
 				
 				amplify.request({
 					resourceId: "carmen.setPlayer",

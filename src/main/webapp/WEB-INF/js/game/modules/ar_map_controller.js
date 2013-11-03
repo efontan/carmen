@@ -212,7 +212,8 @@ define([
 							},
 							success: function(service_data) {
 								
-								alert('viajo');
+//								alert('viajo');
+								$('.toTravel').html('...');
 								_showFlights(service_data.data);
 								console.log(service_data);
 
@@ -260,7 +261,7 @@ define([
 					});
 					
 					extraData.set('canTravel', canTravel);
-					$('.toTravel').html(toTravel);
+					$('.toTravel').html(toTravel.substring(0, toTravel.length - 3));
 				},
 				error: function(message, level) {
 
@@ -315,7 +316,7 @@ define([
 			
 			$('.ux-common-overlay-close').click();
 			
-			$('.flight-container').append('');
+			$('.flight-container').html('');
 			
 			_.each(flights, function(val, key){
 				
@@ -351,7 +352,7 @@ define([
 					},
 					success: function(service_data) {
 						
-						alert('viajando');
+//						alert('viajando');
 						console.log(extraData.get('currentCity'));
 						console.log(extraData.get('currentCityData'));
 						_updateTopBar(service_data.data.status);
@@ -421,10 +422,12 @@ define([
 		function _updateTopBar(data){
 			var date = new Date(data.actualDate);
 			$('.actual-date').html(date.toLocaleDateString());
-			$('.money').html(data.remainingMoney);
+			$('.money').html(data.remainingMoney.toFixed(2));
 		}
 		
 		function _showClue(clue){
+			
+			alert(extraData.get('avatarGenre'));
 			$('.clue-description').html(clue.description);
 			$('.clue-avatar').replaceWith('<span class="mi-despegar-sprite-' + clue.characterJob + '-avatar avatar avatar-selected clue-avatar"></span>');
 			$('.ask-avatar').replaceWith('<span class="mi-despegar-sprite-' + extraData.get('avatarGenre') + '-avatar avatar avatar-selected ask-avatar"></span>');

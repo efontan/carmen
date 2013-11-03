@@ -352,7 +352,7 @@ body {
   float: left;
 }
 .game-container .form-player .play {
-  margin-top: 23px;
+  margin-top: 16px;
 }
 .game-container .airplane {
   float: left;
@@ -360,6 +360,14 @@ body {
 }
 .game-container .flight-text {
   display: block;
+}
+.game-container .flight-container .flight-title {
+  display: inline;
+}
+.game-container .flight-container .flight-price {
+  margin-right: 10px;
+  font-family: minecraftia;
+  padding: 4px;
 }
 .game-container .blue {
   color: #0098ff;
