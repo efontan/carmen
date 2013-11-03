@@ -21,7 +21,7 @@
         		</div>
         		<div class="printer-text index">
         				
-					despegar.com -<br /> Tu misión es, en teoría, bastante sencilla. Una infinidad de Bancos han sido robados en varias ciudades de Argentina por una infame ladrona. Tenés que llegar hasta su escondite y arrestarla antes del ${dateLimit}hs, o antes que se agote tu dinero, siguiendo las pistas que ella ha dejado por el camino. Deberás viajar entre ciudades y usar tu olfato de detective para no perder el rastro. Buena suerte!
+					despegar.com -<br /> Tu misi&oacute;n es, en teor&iacute;a, bastante sencilla. Una infinidad de Bancos han sido robados en varias ciudades de Argentina por una infame ladrona. Ten&eacute;s que llegar hasta su escondite y arrestarla antes del ${dateLimit}hs, o antes que se agote tu dinero, siguiendo las pistas que ella ha dejado por el camino. Deber&aacute;s viajar entre ciudades y usar tu olfato de detective para no perder el rastro. Buena suerte!
 
 					<span class="mi-despegar-sprite-carmen carmen-picture"></span>
 
