@@ -220,12 +220,12 @@ define([
 							},
 							error: function(message, level) {
 
-								alert('error canTravel');
+								console.log('error canTravel');
 
 							}
 						});
 	            	}else{
-	            		alert('No puedo viajar ahi!');
+	            		console.log('No puedo viajar ahi!');
 	            		mapObject.setSelectedRegions('{'+code+':false}');
 	            	}
 	            	
@@ -265,7 +265,7 @@ define([
 				},
 				error: function(message, level) {
 
-					alert('error nextDestinations');
+					console.log('error nextDestinations');
 
 				}
 			});
@@ -379,7 +379,7 @@ define([
 					},
 					error: function(message, level) {
 
-						alert('error setTravel');
+						console.log('error setTravel');
 
 					}
 				});
@@ -410,7 +410,7 @@ define([
 					},
 					error: function(message, level) {
 
-						alert('error getClue');
+						console.log('error getClue');
 
 					}
 				});

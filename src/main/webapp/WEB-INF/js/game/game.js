@@ -38,7 +38,7 @@ define([
 				},
 				error: function(message, level) {
 					
-					alert('error');
+					console.log('error');
 
 				}
 			});
@@ -83,12 +83,12 @@ define([
 								_initTopBar(data);
 								_contextSwitch();
 								arMapController.init();
-							}else alert('error getStatus');
+							}else console.log('error getStatus');
 							
 						});
 					},
 					error: function(message, level) {
-						alert('error setUser');
+						console.log('error setUser');
 					}
 				});
 				
