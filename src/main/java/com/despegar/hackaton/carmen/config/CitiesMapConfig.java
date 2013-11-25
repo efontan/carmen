@@ -15,7 +15,7 @@ public class CitiesMapConfig {
 		Map<String, String> cities = Maps.newHashMap();
 
 		cities.put("BUE", "Buenos Aires");
-		cities.put("COR", "Cóordoba");
+		cities.put("COR", "Córdoba");
 		cities.put("CNQ", "Corrientes");
 		cities.put("FMA", "Formosa");
 		cities.put("IRJ", "La Rioja");
