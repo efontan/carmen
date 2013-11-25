@@ -564,7 +564,7 @@ define([
 				        			val.imageKey + '/100x100"></img><h3 class="hotel-title"><span class="label label-warning hotel-price">$' + parseInt(val.price) + '</span>' + val.name + 
 				        			'</h3><span class="hotel-stars mi-despegar-sprite-stars-'+ val.starsNumber +
 				        			'"></span><p>' + val.description + ' <a class="despegar-link" href="http://www.despegar.com.ar/hoteles/h-'+ val.id +
-				        			'" targe="_blank" >ver m&aacute;s</a></p><button id="sleep" data-city="'+ mapData.code +'" data-hotel="'+ val.id +
+				        			'" target="_blank" >ver m&aacute;s</a></p><button id="sleep" data-city="'+ mapData.code +'" data-hotel="'+ val.id +
 				        			'"class="btn btn-danger span2 sleep">Pasar la noche</button><a target="_blank" class="despegar-link" href="http://www.despegar.com.ar/hoteles/h-'+ val.id +
 				        			'">ver en despegar</a>' }
 				    });
