@@ -1,5 +1,6 @@
 package com.despegar.hackaton.carmen.domain.service.impl;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -77,7 +78,15 @@ public class FlightServiceImpl implements FlightService {
 		flight.setFromCityName(this.citiesMap.get(from));
 		flight.setToCityName(this.citiesMap.get(to));
 		flight.setSearchUrl(this.getSearchUrl(from, to, departureDate));
-
+        /**TODO:taitooz test this randoms numbers.**/
+        Integer minPrice = 350;
+        Integer maxPrice = 950;
+        Integer randomPrice = minPrice + (int)(Math.random() * ((maxPrice - minPrice) + 1));
+        flight.setPrice(new BigDecimal(randomPrice));
+        Integer minDuration = 2;
+        Integer maxDuration = 8;
+        Integer randomDuration = minDuration + (int)(Math.random() * ((maxDuration - minDuration) + 1));
+        flight.setDurationHours(randomDuration);
 		return flight;
 	}
 
