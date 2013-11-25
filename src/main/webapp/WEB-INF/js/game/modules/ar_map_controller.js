@@ -328,7 +328,7 @@ define([
 							'</span><span class="flight-text clue-description right">Duracion: <span class="clue-description red">' + val.durationHours + 'hs</span></span></span>';
 				html += '	<span class="flight-text clue-description flight-step">Escalas: <span class="clue-description red">' + val.stops + '</span></span>';
 				html += '   <button type="submit" data-code="' + val.to + '" data-price="' + val.price + '" data-hours="' + val.durationHours + '" class="btn btn-danger span5 flight-select">Viajar</button>';
-				html += '   <a class="flight-text despegar-link" href="' + val.searchUrl + '">ver en despegar</a>';
+				html += '   <a class="flight-text despegar-link" href="' + val.searchUrl + '" target="_blank">ver en despegar</a>';
 				html += '</div>';
 				$('.flight-container').append(html);
 			});
@@ -565,7 +565,7 @@ define([
 				        			'</h3><span class="hotel-stars mi-despegar-sprite-stars-'+ val.starsNumber +
 				        			'"></span><p>' + val.description + ' <a class="despegar-link" href="http://www.despegar.com.ar/hoteles/h-'+ val.id +
 				        			'" >ver m&aacute;s</a></p><button id="sleep" data-city="'+ mapData.code +'" data-hotel="'+ val.id +
-				        			'"class="btn btn-danger span2 sleep">Pasar la noche</button><a class="despegar-link" href="http://www.despegar.com.ar/hoteles/h-'+ val.id +
+				        			'"class="btn btn-danger span2 sleep">Pasar la noche</button><a target="_blank" class="despegar-link" href="http://www.despegar.com.ar/hoteles/h-'+ val.id +
 				        			'">ver en despegar</a>' }
 				    });
 				
